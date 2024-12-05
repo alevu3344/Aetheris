@@ -7,7 +7,7 @@
 </head>
 <body>
     <header>
-        <h1>Blog di Tecnologie Web</h1>
+        <h1>Aetheris</h1>
     </header>
     <nav>
         <ul>
