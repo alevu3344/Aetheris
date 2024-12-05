@@ -1,8 +1,13 @@
 
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
+
+CREATE DATABASE AetherisDB
+    CHARACTER SET utf8
+    COLLATE utf8_general_ci;
+
+USE AetherisDB;
 
 
 CREATE TABLE PUBLISHERS (
@@ -31,9 +36,7 @@ CREATE TABLE GAMES (
   `Rating` decimal(10,2) NOT NULL, -- Dato derivato, ma fare la query per calcolarlo è troppo costoso
   `CopiesSold` int(11) NOT NULL, -- Idem
   PRIMARY KEY (`Id`),
-  FOREIGN KEY (`Publisher`) REFERENCES PUBLISHERS(`PublisherName`),
-  FOREIGN KEY (`Category`) REFERENCES CATEGORIES(`CategoryName`),
-  CHECK (`StartDate` < `EndDate`)
+  FOREIGN KEY (`Category`) REFERENCES CATEGORIES(`CategoryName`)
 ) ENGINE=InnoDB;
 
 CREATE TABLE DISCOUNTED_GAMES (
@@ -42,54 +45,51 @@ CREATE TABLE DISCOUNTED_GAMES (
   `StartDate` date NOT NULL,
   `EndDate` date NOT NULL,
   PRIMARY KEY (`GameId`, `StartDate`),
-  FOREIGN KEY (`GameId`) REFERENCES GAMES(`Id`)
+  FOREIGN KEY (`GameId`) REFERENCES GAMES(`Id`),
+  CHECK (`StartDate` < `EndDate`)
 ) ENGINE=InnoDB;
 
 
 
-CREATE TABLE USERS(
-  `Id` int(11) NOT NULL,
+CREATE TABLE USERS (
+  `Username` varchar(50) NOT NULL,
   `Name` varchar(50) NOT NULL,
   `Surname` varchar(50) NOT NULL,
   `Email` varchar(50) NOT NULL,
-  `Password` varchar(50) NOT NULL
+  `Password` varchar(255) NOT NULL,
+  `Balance` decimal(10,2) DEFAULT 0.00,
+  PRIMARY KEY (`Username`),
+  UNIQUE KEY (`Email`)
 ) ENGINE=InnoDB;
 
 CREATE TABLE SHOPPING_CARTS(
   `Id` int(11) NOT NULL,
-  `UserId` int(11) NOT NULL references USERS(`Id`)
+  `UserId` int(11) NOT NULL references USERS(`Username`)
 ) ENGINE=InnoDB;
 
 
-CREATE TABLE RECENSIONI (
-  `Username` varchar(50) NOT NULL,
-  `DataOra` datetime NOT NULL DEFAULT current_timestamp(),
+CREATE TABLE REVIEWS (
+  `Title` varchar(50) NOT NULL,
+  `Comment` text NOT NULL,
+  `Rating` decimal(10,2) NOT NULL CHECK (`Rating` BETWEEN 0 AND 5),
   `GameID` int(11) NOT NULL,
-  `Voto` int(11) NOT NULL CHECK (`Voto` BETWEEN 1 AND 5),
-  `Commento` text DEFAULT NULL,
-  PRIMARY KEY (`Username`, `DataOra`),
-  FOREIGN KEY (`GameID`) REFERENCES GAMES(`Id`)
-) ENGINE=InnoDB;
-
-
-CREATE TABLE `UTENTI` (
   `Username` varchar(50) NOT NULL,
-  `Nome` varchar(50) NOT NULL,
-  `Cognome` varchar(50) NOT NULL,
-  `Password` varchar(255) NOT NULL,
-  `Ruolo` enum('Amministratore','Cliente') NOT NULL DEFAULT 'Cliente',
-  `Balance` decimal(10,2) DEFAULT 0.00
+  FOREIGN KEY (`GameID`) REFERENCES GAMES(`Id`),
+  FOREIGN KEY (`Username`) REFERENCES USERS(`Username`)
 ) ENGINE=InnoDB;
+
+
+
 
 
 CREATE TABLE ORDERS (
   `Id` int(11) NOT NULL AUTO_INCREMENT, -- Unique ID for the order
-  `UserId` int(11) NOT NULL, -- Links to USERS table
+  `UserId` varchar(50) NOT NULL, -- Links to USERS table
   `OrderDate` datetime NOT NULL DEFAULT current_timestamp(), -- When the order was placed
   `TotalCost` decimal(10,2) NOT NULL, -- Total cost of the order
   `Status` enum('Pending', 'Completed', 'Shipped', 'Canceled') NOT NULL DEFAULT 'Pending', -- Order status
   PRIMARY KEY (`Id`),
-  FOREIGN KEY (`UserId`) REFERENCES USERS(`Id`) -- Links to USERS table
+  FOREIGN KEY (`UserId`) REFERENCES USERS(`Username`) -- Links to USERS table
 ) ENGINE=InnoDB;
 
 CREATE TABLE ORDER_ITEMS (
@@ -105,7 +105,6 @@ CREATE TABLE ORDER_ITEMS (
 
 -- Insert Categories
 INSERT INTO CATEGORIES (CategoryName) VALUES
-
 ('Action/Adventure'),
 ('RPG'),
 ('First-Person Shooter'),
@@ -120,17 +119,6 @@ INSERT INTO CATEGORIES (CategoryName) VALUES
 ('Fighting'),
 ('Puzzle/Logic');
 
-INSERT INTO PUBLISHERS (PublisherName) VALUES
-('Nintendo'),
-('Rockstar Games'),
-('Sony Interactive Entertainment'),
-('Square Enix'),
-('Bethesda Softworks'),
-('Electronic Arts'),
-('Valve'),
-('Bandai Namco Entertainment'),
-('Ubisoft'),
-('Epic Games');
 
 INSERT INTO GAMES (Id, Name, Price, Publisher, Category, ReleaseDate, Description, Image, Video, Rating, CopiesSold) VALUES
 (1, 'The Legend of Zelda: Breath of the Wild', 59.99, 'Nintendo', 'Action/Adventure', '2017-03-03', 'An open-world adventure game set in the Zelda universe.', 'The_Legend_of_Zelda:_Breath_of_the_Wild.png', 'The_Legend_of_Zelda:_Breath_of_the_Wild.mov', 10.00, 10000000),
@@ -334,3 +322,4 @@ INSERT INTO GAMES (Id, Name, Price, Publisher, Category, ReleaseDate, Descriptio
 (199, 'Escape Simulator', 19.99, 'Pine Studio', 'Puzzle/Logic', '2021-10-19', 'A puzzle game that simulates real-life escape rooms where players solve puzzles to escape each room.', 'Escape_Simulator.png', 'Escape_Simulator.mov', 8.6, 2000000),
 (200, 'Unpacking', 19.99, 'Witch Beam', 'Puzzle/Logic', '2021-11-02', 'A relaxing puzzle game where players unpack boxes and organize items in various rooms of a new home.', 'Unpacking.png', 'Unpacking.mov', 8.8, 3000000);
 
+COMMIT;
