@@ -19,5 +19,93 @@ body > footer > p{
     font-family: 'Courier New', Courier, monospace;
 }
 
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+/* Header styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+}
+
+/* Left section: Logo and Title */
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 40px; /* Adjust to fit your logo */
+    height: auto;
+    margin-right: 10px;
+}
+
+.header-left h1 {
+    font-size: 24px;
+}
+
+/* Right section: Navigation, Sign In, and Language */
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+/* Navigation links container (left-aligned links) */
+.nav-links {
+    display: flex;
+    gap: 15px;
+    margin-right: auto; /* Ensures the navigation is aligned to the left */
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* Right side (Sign In button and language dropdown) */
+.header-right button,
+.language-select {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #555;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.language-select {
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+/* Button hover effects */
+button:hover, .language-select:hover {
+    background-color: #777;
+}
+
+/* Fake main content styling */
+.fake-main {
+    background-color: #f4f4f4;  /* Light grey background for separation */
+    min-height: 200px;  /* Minimum height to give some space */
+    padding: 20px;
+    margin-top: 20px;  /* Space between header and main */
+    margin-bottom: 20px;  /* Space between main and footer */
+}
+
+/* Footer styling */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
 
