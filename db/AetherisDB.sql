@@ -39,6 +39,17 @@ CREATE TABLE GAMES (
   FOREIGN KEY (`Category`) REFERENCES CATEGORIES(`CategoryName`)
 ) ENGINE=InnoDB;
 
+CREATE TABLE GAME_MEDIA(
+  `GameId` int(11) NOT NULL,
+  `PosterImageUrl` varchar(50) NOT NULL,
+  `TrailerUrl` varchar(50) NOT NULL,
+  `Screenshot1` varchar(50) NOT NULL,
+  `Screenshot2` varchar(50) NOT NULL,
+  `Screenshot3` varchar(50) NOT NULL,
+  PRIMARY KEY (`GameId`),
+  FOREIGN KEY (`GameId`) REFERENCES GAMES(`Id`)
+)
+
 CREATE TABLE DISCOUNTED_GAMES (
   `GameId` int(11) NOT NULL,
   `Percentage` int(11) NOT NULL CHECK (`Percentage` BETWEEN 0 AND 100),
@@ -118,6 +129,8 @@ INSERT INTO CATEGORIES (CategoryName) VALUES
 ('Horror'),
 ('Fighting'),
 ('Puzzle/Logic');
+
+
 
 
 INSERT INTO GAMES (Id, Name, Price, Publisher, Category, ReleaseDate, Description, Image, Video, Rating, CopiesSold) VALUES
