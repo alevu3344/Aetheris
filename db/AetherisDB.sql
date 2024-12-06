@@ -48,7 +48,7 @@ CREATE TABLE GAME_MEDIA(
   `Screenshot3` varchar(50) NOT NULL,
   PRIMARY KEY (`GameId`),
   FOREIGN KEY (`GameId`) REFERENCES GAMES(`Id`)
-)
+);
 
 CREATE TABLE DISCOUNTED_GAMES (
   `GameId` int(11) NOT NULL,
