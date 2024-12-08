@@ -28,9 +28,13 @@
         </div>
     </header>
 
-    <!-- Fake Main content section to separate header and footer -->
-    <main class="fake-main">
-        <!-- You can add content here or leave it empty for now -->
+    <main>
+        <?php
+        if(isset($templateParams["nome"])){
+            require($templateParams["nome"]);
+        }
+        ?>
+
     </main>
 
     <footer>

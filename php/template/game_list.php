@@ -1,4 +1,4 @@
-        <?php foreach($templateParams["articoli"] as $articolo): ?>
+    <?php foreach($templateParams["articoli"] as $articolo): ?>
         <article>
             <header>
                 <div>
