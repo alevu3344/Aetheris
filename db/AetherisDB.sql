@@ -13,15 +13,12 @@ USE AetherisDB;
 CREATE TABLE PUBLISHERS (
   `PublisherName` varchar(50) NOT NULL,
   PRIMARY KEY (`PublisherName`)
-) ENGINE=InnoDB;
-
-
+);
 
 CREATE TABLE CATEGORIES (
   `CategoryName` varchar(50) NOT NULL,
   PRIMARY KEY (`CategoryName`)
-) ENGINE=InnoDB;
-
+);
 
 CREATE TABLE GAMES (
   `Id` int(11) NOT NULL,
@@ -36,8 +33,9 @@ CREATE TABLE GAMES (
   `Rating` decimal(10,2) NOT NULL, -- Dato derivato, ma fare la query per calcolarlo è troppo costoso
   `CopiesSold` int(11) NOT NULL, -- Idem
   PRIMARY KEY (`Id`),
-  FOREIGN KEY (`Category`) REFERENCES CATEGORIES(`CategoryName`)
-) ENGINE=InnoDB;
+  FOREIGN KEY (`Category`) REFERENCES CATEGORIES(`CategoryName`),
+  FOREIGN KEY (`Publisher`) REFERENCES PUBLISHERS(`PublisherName`)
+);
 
 CREATE TABLE GAME_MEDIA(
   `GameId` int(11) NOT NULL,
@@ -58,9 +56,7 @@ CREATE TABLE DISCOUNTED_GAMES (
   PRIMARY KEY (`GameId`, `StartDate`),
   FOREIGN KEY (`GameId`) REFERENCES GAMES(`Id`),
   CHECK (`StartDate` < `EndDate`)
-) ENGINE=InnoDB;
-
-
+);
 
 CREATE TABLE USERS (
   `Username` varchar(50) NOT NULL,
@@ -71,13 +67,14 @@ CREATE TABLE USERS (
   `Balance` decimal(10,2) DEFAULT 0.00,
   PRIMARY KEY (`Username`),
   UNIQUE KEY (`Email`)
-) ENGINE=InnoDB;
+);
 
 CREATE TABLE SHOPPING_CARTS(
-  `Id` int(11) NOT NULL,
-  `UserId` int(11) NOT NULL references USERS(`Username`)
-) ENGINE=InnoDB;
-
+  `UserId` int(11) NOT NULL references USERS(`Username`),
+  `GameId` int(11) NOT NULL references GAMES(`Id`),
+  `Quantity` int (11) NOT NULL,
+  PRIMARY KEY (`UserId`,`GameId`)
+);
 
 CREATE TABLE REVIEWS (
   `Title` varchar(50) NOT NULL,
@@ -87,11 +84,7 @@ CREATE TABLE REVIEWS (
   `Username` varchar(50) NOT NULL,
   FOREIGN KEY (`GameID`) REFERENCES GAMES(`Id`),
   FOREIGN KEY (`Username`) REFERENCES USERS(`Username`)
-) ENGINE=InnoDB;
-
-
-
-
+);
 
 CREATE TABLE ORDERS (
   `Id` int(11) NOT NULL AUTO_INCREMENT, -- Unique ID for the order
@@ -101,7 +94,7 @@ CREATE TABLE ORDERS (
   `Status` enum('Pending', 'Completed', 'Shipped', 'Canceled') NOT NULL DEFAULT 'Pending', -- Order status
   PRIMARY KEY (`Id`),
   FOREIGN KEY (`UserId`) REFERENCES USERS(`Username`) -- Links to USERS table
-) ENGINE=InnoDB;
+);
 
 CREATE TABLE ORDER_ITEMS (
   `OrderId` int(11) NOT NULL, -- Links to ORDERS table
@@ -111,7 +104,7 @@ CREATE TABLE ORDER_ITEMS (
   PRIMARY KEY (`OrderId`, `GameId`), -- Composite key ensures no duplicate game in the same order
   FOREIGN KEY (`OrderId`) REFERENCES ORDERS(`Id`), -- Links to ORDERS table
   FOREIGN KEY (`GameId`) REFERENCES GAMES(`Id`) -- Links to GAMES table
-) ENGINE=InnoDB;
+);
 
 
 -- Insert Categories
@@ -129,9 +122,6 @@ INSERT INTO CATEGORIES (CategoryName) VALUES
 ('Horror'),
 ('Fighting'),
 ('Puzzle/Logic');
-
-
-
 
 INSERT INTO GAMES (Id, Name, Price, Publisher, Category, ReleaseDate, Description, Image, Video, Rating, CopiesSold) VALUES
 (1, 'The Legend of Zelda: Breath of the Wild', 59.99, 'Nintendo', 'Action/Adventure', '2017-03-03', 'An open-world adventure game set in the Zelda universe.', 'The_Legend_of_Zelda:_Breath_of_the_Wild.png', 'The_Legend_of_Zelda:_Breath_of_the_Wild.mov', 10.00, 10000000),
