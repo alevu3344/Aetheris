@@ -8,7 +8,7 @@
 <body>
     <header>
         <div class="header-left">
-            <img src="path-to-your-logo.png" alt="Logo" class="logo" />
+            <img src="upload/icons/aetheris_logo.png" alt="Logo" class="logo" />
             <h1>Aetheris</h1>
         </div>
 

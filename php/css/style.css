@@ -32,6 +32,8 @@ header {
     background-color: #333;
     color: white;
     flex-direction: column; /* Stack elements vertically on mobile */
+    margin-bottom: 10px; /* Spazio tra header e primo div */
+    height: 100px;
 }
 
 /* Left section: Logo and Title */
@@ -43,13 +45,13 @@ header {
 }
 
 .logo {
-    width: 40px; /* Adjust to fit your logo */
-    height: auto;
+    width: 80px; /* Adjust to fit your logo */
+    height: 80px;
     margin-right: 10px;
 }
 
 .header-left h1 {
-    font-size: 24px;
+    font-size: 36px;
 }
 
 /* Right section: Navigation, Sign In, and Language */
@@ -97,14 +99,6 @@ button:hover, .language-select:hover {
     background-color: #777;
 }
 
-/* Fake main content styling */
-.fake-main {
-    background-color: #f4f4f4;  /* Light grey background for separation */
-    min-height: 200px;  /* Minimum height to give some space */
-    padding: 20px;
-    margin-top: 20px;  /* Space between header and main */
-    margin-bottom: 20px;  /* Space between main and footer */
-}
 
 /* Footer styling */
 footer {
@@ -128,7 +122,7 @@ footer {
     }
 
     .header-left h1 {
-        font-size: 28px;
+        font-size: 36px;
     }
 
     .header-right {
@@ -152,7 +146,7 @@ footer {
 /* For desktops (1024px and above) */
 @media screen and (min-width: 1024px) {
     .header-left h1 {
-        font-size: 32px; /* Increase font size for desktop */
+        font-size: 60px; /* Increase font size for desktop */
     }
 
     .nav-links {
@@ -169,51 +163,301 @@ footer {
     }
 }
 
+/* FIRST DIV */
 
-/* From Uiverse.io by OnlyCodeChannel */ 
-.searchBox {
+#searchbar {
     display: flex;
-    max-width: 230px;
+    width: 100%;  /* Or any specific width */
+    padding-left: 10px;
+  }
+
+/* SEARCH BAR - FIRST DIV*/
+
+.white,
+.border,
+.darkBorderBg,
+.glow {
+  max-height: 52.5px;
+  max-width: 235.5px;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  z-index: -1;
+  /* Border Radius */
+  border-radius: 18px;
+  filter: blur(3px);
+}
+.input {
+  background-color: #010201;
+  border: none;
+  width: 225px;
+  height: 42px;
+  border-radius: 7.5px;
+  color: white;
+  padding-inline: 16px;
+  font-size: 21px;
+}
+
+#poda {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15%;
+}
+
+.input::placeholder {
+  color: #c0b9c0;
+}
+
+.white {
+  max-height: 48px;
+  max-width: 230px;
+  border-radius: 7.5px;
+  filter: blur(2px);
+}
+
+.white::before {
+  content: "";
+  z-index: -2;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(83deg);
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  filter: brightness(1.4);
+  background-image: conic-gradient(
+    rgba(0, 0, 0, 0) 0%,
+    #214eff,
+    rgba(0, 0, 0, 0) 8%,
+    rgba(0, 0, 0, 0) 50%,
+    #ff7700,
+    rgba(0, 0, 0, 0) 58%
+  );
+  transition: all 2s;
+}
+.border {
+  max-height: 45px;
+  max-width: 228px;
+  border-radius: 8px;
+  filter: blur(0.5px);
+}
+.border::before {
+  content: "";
+  z-index: -2;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(70deg);
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  filter: brightness(1.3);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-image: conic-gradient(
+    #1c191c,
+    #214eff, 5%,
+    #1c191c 14%,
+    #1c191c 50%,
+    #ff7700 60%,
+    #1c191c 64%
+  );
+  transition: all 2s;
+}
+.darkBorderBg {
+  max-height: 50px;
+  max-width: 230px;
+}
+.darkBorderBg::before {
+  content: "";
+  z-index: -2;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(82deg);
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-image: conic-gradient(
+    rgba(0, 0, 0, 0),
+    #1500fe,
+    rgba(0, 0, 0, 0) 10%,
+    rgba(0, 0, 0, 0) 50%,
+    #d84400,
+    rgba(0, 0, 0, 0) 60%
+  );
+  transition: all 2s;
+}
+#poda:hover > .darkBorderBg::before {
+  transform: translate(-50%, -50%) rotate(262deg);
+}
+#poda:hover > .glow::before {
+  transform: translate(-50%, -50%) rotate(240deg);
+}
+#poda:hover > .white::before {
+  transform: translate(-50%, -50%) rotate(263deg);
+}
+#poda:hover > .border::before {
+  transform: translate(-50%, -50%) rotate(250deg);
+}
+
+#poda:hover > .darkBorderBg::before {
+  transform: translate(-50%, -50%) rotate(-98deg);
+}
+#poda:hover > .glow::before {
+  transform: translate(-50%, -50%) rotate(-120deg);
+}
+#poda:hover > .white::before {
+  transform: translate(-50%, -50%) rotate(-97deg);
+}
+#poda:hover > .border::before {
+  transform: translate(-50%, -50%) rotate(-110deg);
+}
+
+#poda:focus-within > .darkBorderBg::before {
+  transform: translate(-50%, -50%) rotate(442deg);
+  transition: all 4s;
+}
+#poda:focus-within > .glow::before {
+  transform: translate(-50%, -50%) rotate(420deg);
+  transition: all 4s;
+}
+#poda:focus-within > .white::before {
+  transform: translate(-50%, -50%) rotate(443deg);
+  transition: all 4s;
+}
+#poda:focus-within > .border::before {
+  transform: translate(-50%, -50%) rotate(430deg);
+  transition: all 4s;
+}
+
+.glow {
+  overflow: hidden;
+  filter: blur(30px);
+  opacity: 0.4;
+  max-height: 100px;
+  max-width: 265px;
+}
+.glow:before {
+  content: "";
+  z-index: -2;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(60deg);
+  position: absolute;
+  width: 750px;
+  height: 750px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  /*border color, change middle color*/
+  background-image: conic-gradient(
+    #000,
+    #1500fe 5%,
+    #000 38%,
+    #000 50%,
+    #d84400 60%,
+    #000 87%
+  );
+  transition: all 2s;
+}
+
+@keyframes rotate {
+  100% {
+    transform: translate(-50%, -50%) rotate(450deg);
+  }
+}
+@keyframes leftright {
+  0% {
+    transform: translate(0px, 0px);
+    opacity: 1;
+  }
+
+  49% {
+    transform: translate(250px, 0px);
+    opacity: 0;
+  }
+  80% {
+    transform: translate(-40px, 0px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(0px, 0px);
+    opacity: 1;
+  }
+}
+
+#main {
+  position: relative;
+}
+
+#search-icon {
+  position: absolute;
+  left: 180px;
+  top: 10px;
+
+}
+
+/* SHOPPING CART - FIRST DIV */
+
+  .btn-cart {
+    display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    background: #2f3640;
-    border-radius: 50px;
-    position: relative;
-  }
-  
-  .searchButton {
-    color: white;
-    position: absolute;
-    right: 8px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: var(--gradient-2, linear-gradient(90deg, #2AF598 0%, #009EFD 100%));
-    border: 0;
-    display: inline-block;
-    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
-  }
-  /*hover effect*/
-  button:hover {
-    color: #fff;
-    background-color: #1A1A1A;
-    box-shadow: rgba(0, 0, 0, 0.5) 0 10px 20px;
-    transform: translateY(-3px);
-  }
-  /*button pressing effect*/
-  button:active {
-    box-shadow: none;
-    transform: translateY(0);
-  }
-  
-  .searchInput {
+    justify-content: center;
+    width: 50px; /* Dimensioni fisse */
+    height: 50px; /* Dimensioni fisse */
+    border-radius: 10px;
     border: none;
-    background: none;
-    outline: none;
-    color: white;
-    font-size: 15px;
-    padding: 24px 46px 24px 26px;
+    background-color: transparent;
+    position: relative;
+    transition: none; /* Niente transizioni sul bottone */
+  }
+
+  .btn-cart:hover {
+    background-color: transparent;
+    box-shadow: none;
+    filter: none;
+    transform: none; /* Nessuna trasformazione applicata */
   }
   
+  .icon-cart {
+    width: 24.38px;
+    height: 30.52px;
+    transition: .2s linear;
+    transform-origin: center center; /* Assicura che la trasformazione avvenga senza spostamenti */
+  }
   
+  .icon-cart path {
+    fill: rgb(0, 89, 255);
+    transition: .2s linear;
+  }
+  
+  .btn-cart:hover > .icon-cart {
+    transform: scale(1.2); /* Scala senza cambiare la posizione */
+  }
+  
+  .btn-cart:hover > .icon-cart path {
+    fill: rgb(255, 106, 0);
+  }
+  
+
+
+  .search-lens {
+    width: 40px;
+    height: 40px;
+    transition: .2s linear;
+    transform-origin: center center; /* Assicura che la trasformazione avvenga senza spostamenti */
+  }
+
+  .search-lens path {
+    fill: #c0b9c0;
+    transition: .2s linear;
+  }

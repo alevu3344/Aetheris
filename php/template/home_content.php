@@ -1,34 +1,40 @@
-<div class="searchBox">
+<div id=searchbar>
+<div id="poda">
+  <div class="glow"></div>
+  <div class="darkBorderBg"></div>
+  <div class="darkBorderBg"></div>
+  <div class="darkBorderBg"></div>
 
-            <input class="searchInput" type="text" name="" placeholder="Search something">
-            <button class="searchButton" href="#">
-                   
-                  
+  <div class="white"></div>
 
-                                <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29" fill="none">
-  <g clip-path="url(#clip0_2_17)">
-    <g filter="url(#filter0_d_2_17)">
-      <path d="M23.7953 23.9182L19.0585 19.1814M19.0585 19.1814C19.8188 18.4211 20.4219 17.5185 20.8333 16.5251C21.2448 15.5318 21.4566 14.4671 21.4566 13.3919C21.4566 12.3167 21.2448 11.252 20.8333 10.2587C20.4219 9.2653 19.8188 8.36271 19.0585 7.60242C18.2982 6.84214 17.3956 6.23905 16.4022 5.82759C15.4089 5.41612 14.3442 5.20435 13.269 5.20435C12.1938 5.20435 11.1291 5.41612 10.1358 5.82759C9.1424 6.23905 8.23981 6.84214 7.47953 7.60242C5.94407 9.13789 5.08145 11.2204 5.08145 13.3919C5.08145 15.5634 5.94407 17.6459 7.47953 19.1814C9.01499 20.7168 11.0975 21.5794 13.269 21.5794C15.4405 21.5794 17.523 20.7168 19.0585 19.1814Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" shape-rendering="crispEdges"></path>
-    </g>
-  </g>
-  <defs>
-    <filter id="filter0_d_2_17" x="-0.418549" y="3.70435" width="29.7139" height="29.7139" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-      <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
-      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"></feColorMatrix>
-      <feOffset dy="4"></feOffset>
-      <feGaussianBlur stdDeviation="2"></feGaussianBlur>
-      <feComposite in2="hardAlpha" operator="out"></feComposite>
-      <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"></feColorMatrix>
-      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2_17"></feBlend>
-      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2_17" result="shape"></feBlend>
-    </filter>
-    <clipPath id="clip0_2_17">
-      <rect width="28.0702" height="28.0702" fill="white" transform="translate(0.403503 0.526367)"></rect>
-    </clipPath>
-  </defs>
-</svg>
-                     
+  <div class="border"></div>
 
-            </button>
-        </div>
+  <div id="main">
+    <input placeholder="Search..." type="text" name="text" class="input" />
+    <div id="search-icon">
+    <svg class="search-lens" viewBox="0 0 903 903" xmlns="http://www.w3.org/2000/svg">
+            <title>search-lens</title>
+            <path d="M481.362,410.144l-137.6-137.7l-71.2,71.2l137.7,137.7c11.3,11.3,29.9,11.3,41.2,0l29.9-29.9
+			C492.663,440.044,492.663,421.344,481.362,410.144z"/>
+		<path d="M275.663,312.944l37.3-37.3l-42.5-42.5c40.2-57.9,34.6-138.1-17-189.7c-57.9-57.9-152-57.9-210,0s-57.9,152,0,210
+			c51.6,51.6,131.8,57.2,189.7,17L275.663,312.944z M72.263,224.244c-42-42-42-110.1,0-152c42-42,110.1-42,152,0
+			c42,42,42,110.1,0,152C182.363,266.244,114.263,266.244,72.263,224.244z"/>
+          </svg>
+    </div>
+  </div>
+</div>
+
+<button class="btn-cart">
+          <svg class="icon-cart" viewBox="0 0 903 903" xmlns="http://www.w3.org/2000/svg">
+            <title>icon-cart</title>
+            <path fill="#0070f3" d="
+    M671.504,577.829 l110.485,-432.609 H902.86 v-68 H729.174 L703.128,179.2 L0,178.697 l74.753,399.129 h596.751 V577.829 Z M685.766,247.188 l-67.077,262.64 H131.199 L81.928,246.756 L685.766,247.188 Z M578.418,825.641 c59.961,0,108.743,-48.783,108.743,-108.744 s-48.782,-108.742,-108.743,-108.742 H168.717 c-59.961,0,-108.744,48.781,-108.744,108.742 s48.782,108.744,108.744,108.744 c59.962,0,108.743,-48.783,108.743,-108.744 c0,-14.4,-2.821,-28.152,-7.927,-40.742 h208.069 c-5.107,12.59,-7.928,26.342,-7.928,40.742 C469.675,776.858,518.457,825.641,578.418,825.641 Z M209.46,716.897 c0,22.467,-18.277,40.744,-40.743,40.744 c-22.466,0,-40.744,-18.277,-40.744,-40.744 c0,-22.465,18.277,-40.742,40.744,-40.742 C191.183,676.155,209.46,694.432,209.46,716.897 Z M619.162,716.897 c0,22.467,-18.277,40.744,-40.743,40.744 s-40.743,-18.277,-40.743,-40.744 c0,-22.465,18.277,-40.742,40.743,-40.742 S619.162,694.432,619.162,716.897 Z
+  "></path>
+          </svg>
+        </button>
+
+</div>
+
+
+
 
