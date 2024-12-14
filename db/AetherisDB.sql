@@ -127,6 +127,11 @@ INSERT INTO CATEGORIES (CategoryName) VALUES
 ('Party/Casual'),
 ('Horror'),
 ('Fighting'),
+('Multiplayer'),
+('Simulation'),
+('Single-Player'),
+('Offline'),
+('Online'),
 ('Puzzle/Logic');
 
 
@@ -439,5 +444,8 @@ INSERT INTO GAMES (Id, Name, Price, Publisher, ReleaseDate, Description, Image, 
 (198, 'It Takes Two', 39.99, 'Electronic Arts',  '2021-03-26', 'A cooperative puzzle platformer that follows two characters on an emotional journey through imaginative worlds.', 'It_Takes_Two.png', 'It_Takes_Two.mov', 9.4, 6000000),
 (199, 'Escape Simulator', 19.99, 'Pine Studio',  '2021-10-19', 'A puzzle game that simulates real-life escape rooms where players solve puzzles to escape each room.', 'Escape_Simulator.png', 'Escape_Simulator.mov', 8.6, 2000000),
 (200, 'Unpacking', 19.99, 'Witch Beam',  '2021-11-02', 'A relaxing puzzle game where players unpack boxes and organize items in various rooms of a new home.', 'Unpacking.png', 'Unpacking.mov', 8.8, 3000000);
+
+
+INSERT INTO GAMES
 
 COMMIT;
