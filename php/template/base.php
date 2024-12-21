@@ -39,7 +39,7 @@
             
             <nav>
                 <ul>
-                     <li><a href="#">Instagram</a></li><li><a href="#">Pinterest</a></li><li><a href="#">Youtube</a></li><li><a href="#">Twitter</a></li>
+                     <li><img src="assets/icons/instagram.svg" alt="Instagram" class="Instagram" /><a href="#">Instagram</a></li><li><a href="#">Pinterest</a></li><li><a href="#">Youtube</a></li><li><a href="#">Twitter</a></li>
                 </ul>
             </nav>        
         </div>
