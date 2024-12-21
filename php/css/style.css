@@ -5,13 +5,6 @@ body {
     margin: 0px 0px;
 }
 
-/* Header and Footer general styling */
-body > footer {
-    background-color: rgb(25, 121, 255);
-    color: #fff;
-    text-align: center;
-}
-
 body > header > h1,
 body > footer > p {
     font-family: 'Courier New', Courier, monospace;
@@ -41,7 +34,6 @@ body > header {
 .header-right {
     display: flex;
     align-items: center;
-    flex-direction: row;
     justify-content: space-between;
     margin-right: 5%;
     width: 120px;
@@ -67,15 +59,17 @@ body > header {
 }
 
 
-
-
-
 /* Footer styling */
 footer {
-    background-color: #333333;
+    background-color: rgb(25, 121, 255);
     color: white;
     text-align: center;
     padding: 10px;
+    border-top: 2px solid white;
+}
+
+body > footer > .footer-middle > nav {
+  list-style: none;
 }
 
 /* Mobile-first styles are above, now add media queries for larger screens */

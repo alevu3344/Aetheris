@@ -32,7 +32,23 @@
     </main>
 
     <footer>
-        <p>Aetheris</p>
+        <div class="footer-top">
+            <p>Aetheris</p>
+        </div>
+        <div class="footer-middle">
+            
+            <nav>
+                <ul>
+                     <li><a href="#">Instagram</a></li><li><a href="#">Pinterest</a></li><li><a href="#">Youtube</a></li><li><a href="#">Twitter</a></li>
+                </ul>
+            </nav>        
+        </div>
+
+
+
+            <div class="footer-bottom">
+                <a href="#">Track an order</a>
+            </div>
     </footer>
 </body>
 </html>
