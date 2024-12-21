@@ -39,7 +39,7 @@
             
             <nav>
                 <ul>
-                     <li><img src="assets/icons/instagram.svg" alt="Instagram" class="Instagram" /><a href="#">Instagram</a></li><li><a href="#">Pinterest</a></li><li><a href="#">Youtube</a></li><li><a href="#">Twitter</a></li>
+                     <li><img src="upload/icons/instagram.png" alt="Instagram" class="instagram"/><a href="#">Instagram</a></li><li><img src="upload/icons/pinterest.png" alt="Pinterest" class="pinterest"/><a href="#">Pinterest</a></li><li><img src="upload/icons/youtube.png" alt="Youtube" class="youtube"/><a href="#">Youtube</a></li><li><img src="upload/icons/twitter.png" alt="Twitter" class="twitter"/><a href="#">Twitter</a></li>
                 </ul>
             </nav>        
         </div>
