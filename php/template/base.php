@@ -13,18 +13,12 @@
         </div>
 
         <div class="header-right">
-            <div class="nav-links">
-                <a href="#">Negozio</a>
-                <a href="#">Novità</a>
+            <div class="nav-categorie">
                 <a href="#">Categorie</a>
             </div>
-            <button>Sign In</button>
-            <select class="language-select">
-                <option value="it">Italiano</option>
-                <option value="en">English</option>
-                <option value="de">Deutsch</option>
-                <!-- Add more languages here -->
-            </select>
+            <div class="nav-accedi">
+                <a href="#">Accedi</a>
+            </div>
         </div>
     </header>
 
