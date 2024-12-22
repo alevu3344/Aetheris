@@ -112,11 +112,113 @@ body > footer > .footer-middle > nav ul li a {
 
 
 
+/*trending games*/
 
 
 
 
 
+.trending-game-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 50px auto; 
+  max-width: 800px; 
+  border: 2px solid white;
+  border-radius: 10px; 
+  background-color: #000; 
+  padding: 20px;
+}
+
+
+.arrow {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  color: black;
+  font-size: 2rem;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  position: absolute; 
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  transition: background-color 0.3s ease;
+}
+
+.arrow:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.left-arrow {
+  left: -40px; 
+}
+
+.right-arrow {
+  right: -40px; 
+}
+
+
+.game-frame {
+  text-align: center;
+  background: #1c1c1c;
+  padding: 20px;
+  border-radius: 10px;
+  width: 600px; 
+  position: relative;
+  overflow: hidden;
+}
+
+.game-frame img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.game-info {
+  margin-top: 15px;
+  color: white;
+}
+
+.game-info h2 {
+  font-size: 1.8rem;
+  margin: 10px 0;
+}
+
+.game-info p {
+  font-size: 1rem;
+  margin: 10px 0;
+}
+
+.game-info .price {
+  font-size: 1.5rem;
+  color: #4caf50;
+  margin: 10px 0;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.buy-button,
+.wishlist-button {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.buy-button:hover {
+  background-color: #0056b3;
+}
+
+.wishlist-button:hover {
+  background-color: #0056b3;
+}
 
 
 
