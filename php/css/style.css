@@ -86,7 +86,7 @@ body > footer > .footer-middle > nav ul {
 body > footer > .footer-middle > nav ul li {
   display: flex; /* Flex container for logo and text */
   align-items: center; /* Align logo and text vertically */
-  gap: 8%; /* Space between logo and text */
+ 
 }
 
 body > footer > .footer-middle > nav ul li img {
