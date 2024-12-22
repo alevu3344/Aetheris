@@ -1,3 +1,4 @@
+
 <div class="trending-game-container">
   <button class="arrow left-arrow">&#8249;</button>
   <div class="game-frame">

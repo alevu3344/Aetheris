@@ -99,7 +99,7 @@ body > footer > .footer-middle > nav ul li a {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   text-decoration: none;
   font-size: 14px;
-}
+} 
 
 
 
@@ -108,24 +108,19 @@ body > footer > .footer-middle > nav ul li a {
 
 
 
-
-
-
-
-/* Trending games */
 .trending-game-container {
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  margin: 20px auto; /* Keep centered on mobile */
-  width: 90%; /* Use percentage for a responsive design */
-  max-width: 800px; /* Ensure it doesn't grow too large */
+  margin: 20px auto; 
+  width: 90%;
+  max-width: 800px; 
   border: 2px solid white;
   border-radius: 10px;
   background-color: #000000;
   padding: 20px;
-  box-sizing: border-box; /* Prevent padding from causing overflow */
+  box-sizing: border-box; 
 }
 
 .arrow {
@@ -148,11 +143,11 @@ body > footer > .footer-middle > nav ul li a {
 }
 
 .left-arrow {
-  left: 10px; /* Reduce spacing to prevent overflow */
+  left: 10px; 
 }
 
 .right-arrow {
-  right: 10px; /* Reduce spacing to prevent overflow */
+  right: 10px;
 }
 
 .game-frame {
@@ -176,7 +171,7 @@ body > footer > .footer-middle > nav ul li a {
 }
 
 .game-info h2 {
-  font-size: 1.5rem; /* Adjust for mobile */
+  font-size: 1.5rem;
   margin: 10px 0;
 }
 

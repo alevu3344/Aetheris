@@ -43,9 +43,6 @@
                 </ul>
             </nav>        
         </div>
-
-
-
             <div class="footer-bottom">
                 <a href="#">Track an order</a>
             </div>
