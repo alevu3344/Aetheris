@@ -112,25 +112,21 @@ body > footer > .footer-middle > nav ul li a {
 
 
 
-/*trending games*/
-
-
-
-
-
+/* Trending games */
 .trending-game-container {
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  margin: 50px auto; 
-  max-width: 800px; 
+  margin: 20px auto; /* Keep centered on mobile */
+  width: 90%; /* Use percentage for a responsive design */
+  max-width: 800px; /* Ensure it doesn't grow too large */
   border: 2px solid white;
-  border-radius: 10px; 
-  background-color: #000; 
+  border-radius: 10px;
+  background-color: #000000;
   padding: 20px;
+  box-sizing: border-box; /* Prevent padding from causing overflow */
 }
-
 
 .arrow {
   background-color: rgba(255, 255, 255, 0.8);
@@ -140,7 +136,7 @@ body > footer > .footer-middle > nav ul li a {
   padding: 10px 15px;
   cursor: pointer;
   border-radius: 5px;
-  position: absolute; 
+  position: absolute;
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
@@ -152,22 +148,21 @@ body > footer > .footer-middle > nav ul li a {
 }
 
 .left-arrow {
-  left: -40px; 
+  left: 10px; /* Reduce spacing to prevent overflow */
 }
 
 .right-arrow {
-  right: -40px; 
+  right: 10px; /* Reduce spacing to prevent overflow */
 }
-
 
 .game-frame {
   text-align: center;
   background: #1c1c1c;
   padding: 20px;
   border-radius: 10px;
-  width: 600px; 
+  width: 100%; 
+  max-width: 600px; 
   position: relative;
-  overflow: hidden;
 }
 
 .game-frame img {
@@ -181,7 +176,7 @@ body > footer > .footer-middle > nav ul li a {
 }
 
 .game-info h2 {
-  font-size: 1.8rem;
+  font-size: 1.5rem; /* Adjust for mobile */
   margin: 10px 0;
 }
 
@@ -191,14 +186,15 @@ body > footer > .footer-middle > nav ul li a {
 }
 
 .game-info .price {
-  font-size: 1.5rem;
-  color: #4caf50;
+  font-size: 1.3rem; 
+  color: #ffffff;
   margin: 10px 0;
 }
 
 .buttons {
   display: flex;
   gap: 10px;
+  justify-content: center; 
 }
 
 .buy-button,
@@ -206,7 +202,7 @@ body > footer > .footer-middle > nav ul li a {
   background-color: #007bff;
   border: none;
   color: white;
-  padding: 10px 20px;
+  padding: 8px 15px; 
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -225,5 +221,93 @@ body > footer > .footer-middle > nav ul li a {
 
 
 
+/*Discounted games
+
+
+.giochi-in-offerta {
+  background-color: black;
+  padding: 40px 20px;
+  text-align: center;
+  color: white;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 20px;
+}
+
+
+.offer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 15px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.game-card {
+  background-color: #1c1c1c;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: left;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.large-card {
+  grid-column: span 2; 
+}
+
+
+.game-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+.game-info {
+  padding: 10px;
+}
+
+.game-info h3 {
+  font-size: 1.1rem;
+  margin: 10px 0;
+}
+
+.price {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #888;
+  margin-right: 5px;
+}
+
+.discount-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #ff4c4c;
+  color: white;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+
+.offer-label {
+  color: #ff4c4c;
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+*/
 
 
