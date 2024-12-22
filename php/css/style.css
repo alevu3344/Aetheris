@@ -77,15 +77,22 @@ body > footer > .footer-middle > nav ul {
   display: flex; /* Make the list items align horizontally */
   justify-content: center; /* Center the social links */
   align-items: center; /* Align items vertically */
-  gap: 20px; /* Add spacing between each social item */
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
 body > footer > .footer-middle > nav ul li {
-  display: flex; /* Flex container for logo and text */
-  align-items: center; /* Align logo and text vertically */
+  display: flex; 
+  align-items: center; 
+  width: 19%;
+  justify-content: center;
+ 
+}
+
+
+body > footer > .footer-middle > nav ul li:not(:last-child){
+  margin-right: 8%;
  
 }
 
