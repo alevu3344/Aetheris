@@ -17,21 +17,28 @@
 </div>
 
 
-<section class="giochi-in-offerta">
-    <h2>GIOCHI IN OFFERTA</h2>
-    <div class = "game-grid">
-        <div class = "bigger-game">
-            <img src="../media/covers/Vampyr.jpg" alt="Big Game"/>
-        </div>
 
-        <div class = "two-games">
-            <div class = "top-game">
-                <img src="../media/covers/uncharted4.jpg" alt="Top game"/>
-            </div>
+<h2>GIOCHI IN OFFERTA</h2>
+<table>
+  <tr>
+    <td rowspan="2">
+      <div class="bigger-game">
+        <img src="../media/covers/Vampyr.jpg" alt="Big Game"/>
+      </div>
+    </td>
 
-            <div class = "bottom-game">
-                <img src="../media/covers/ds2.jpg" alt="Bottom game"/>
-            </div>
-        </div>
-    </div>
-</section>
+    <td>
+      <div class="top-game">
+        <img src="../media/covers/uncharted4.jpg" alt="Top game"/>
+      </div>
+    </td>
+
+  </tr>
+  <tr>
+    <td>
+      <div class="bottom-game">
+        <img src="../media/covers/ds2.jpg" alt="Bottom game"/>
+      </div>
+    </td>
+  </tr> 
+</table>
