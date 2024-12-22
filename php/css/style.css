@@ -238,12 +238,26 @@ body > main > section > .game-grid {
   width: 100%;
   height: 85%;
   display: flex;
+  box-sizing: border-box;
 }
 
 body > main > section > .game-grid > .bigger-game, .two-games {
   width: 50%;
   height: 100%;
+  
+
 }
+
+body > main > section > .game-grid > .bigger-game {
+  padding-right: 2%;
+}
+
+body > main > section > .game-grid > .two-games{
+  padding-left: 2%;
+
+  
+}
+
 
 body > main > section > .game-grid > .bigger-game img {
   width: 100%;
@@ -257,7 +271,14 @@ body > main > section > .game-grid > .two-games > .top-game, .bottom-game {
   height: 50%;
 }
 
-body > main > section > .game-grid > .two-games > .top-game img, .bottom-game img {
+body > main > section > .game-grid > .two-games > .top-game{
+  padding-bottom: 2%;
+}
+body > main > section > .game-grid > .two-games > .bottom-game{
+  padding-top: 2%;
+}
+
+body > main > section > .game-grid > .two-games > .top-game > img, .bottom-game > img {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
