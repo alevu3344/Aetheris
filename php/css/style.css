@@ -210,8 +210,6 @@ body > footer > .footer-middle > nav ul li a {
   transition: background-color 0.3s ease;
 }
 
-/*COCK*/
-
 .buy-button:hover {
   background-color: #0056b3;
 }
@@ -242,10 +240,8 @@ body > main > table {
 
 td {
   padding: 0px;
-}
-
-figure {
-  margin: 0px;
+  width: 50%;
+  height: 100%;
 }
 
 .bigger-game, .top-game, .bottom-game{
@@ -256,13 +252,22 @@ figure {
   background-color: #007bff;
   flex-direction: column;
   height: 100%;
+  max-height: 100%;
 }
 
-.bigger-game img, .top-game img, .bottom-game img{
+.bigger-game img {
+  width: 100%; 
+  height: 100%;
+  margin: -1px; 
+  border: 1px solid white;
+}
+
+.top-game img, .bottom-game img{
   width: 100%; 
   height: auto; 
   margin: -1px; 
   border: 1px solid white;
+  object-fit: fill;
 }
 
 .offerta {

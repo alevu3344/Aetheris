@@ -23,9 +23,7 @@
   <tr>
     <td rowspan="2">
       <article class="bigger-game">
-        <figure>
-          <img src="../media/covers/Vampyr.jpg" alt="Big Game">
-        </figure>
+        <img src="../media/covers/rdr2.jpg" alt="Big Game">
           <section class="specifiche">
             <p class="offerta">OFFERTA A TEMPO LIMITATO</p>
             <p class="durata">Fino al 30 novembre!</p>
@@ -43,9 +41,7 @@
 
     <td>
       <article class="top-game">
-        <figure>
-          <img src="../media/covers/uncharted4.jpg" alt="Top game"/>
-        </figure>
+        <img src="../media/covers/uncharted4.jpg" alt="Top game"/>
           <span class="offerta-container">
           <span class="sconto">-25%</span>
           <span class="prezzi">
@@ -60,9 +56,7 @@
   <tr>
     <td>
       <article class="bottom-game">
-        <figure>
-          <img src="../media/covers/ds2.jpg" alt="Bottom game"/>
-        </figure>
+        <img src="../media/covers/ds2.jpg" alt="Bottom game"/>
           <span class="offerta-container">
           <span class="sconto">-75%</span>
           <span class="prezzi">
