@@ -30,25 +30,47 @@
             <p class="offerta">OFFERTA A TEMPO LIMITATO</p>
             <p class="durata">Fino al 30 novembre!</p>
 
-            <span class="sconto-percentuale">-50%</span>
-            <span class="prezzo-originale">29,99€</span>
-            <span class="prezzo-scontato">14,99€</span>
+            <span class="offerta-container">
+              <span class="sconto">-50%</span>
+              <span class="prezzi">
+                <span class="prezzo-originale">29,99€</span>
+                <span class="prezzo-scontato">14,99€</span>
+              </span>
+            </span>
         </section>
       </article>
     </td>
 
     <td>
-      <div class="top-game">
-        <img src="../media/covers/uncharted4.jpg" alt="Top game"/>
-      </div>
+      <article class="top-game">
+        <figure>
+          <img src="../media/covers/uncharted4.jpg" alt="Top game"/>
+        </figure>
+          <span class="offerta-container">
+          <span class="sconto">-25%</span>
+          <span class="prezzi">
+            <span class="prezzo-originale">59,99€</span>
+            <span class="prezzo-scontato">44,99€</span>
+          </span>
+        </span>
+      </article>
     </td>
 
   </tr>
   <tr>
     <td>
-      <div class="bottom-game">
-        <img src="../media/covers/ds2.jpg" alt="Bottom game"/>
-      </div>
+      <article class="bottom-game">
+        <figure>
+          <img src="../media/covers/ds2.jpg" alt="Bottom game"/>
+        </figure>
+          <span class="offerta-container">
+          <span class="sconto">-75%</span>
+          <span class="prezzi">
+            <span class="prezzo-originale">19,99€</span>
+            <span class="prezzo-scontato">4,99€</span>
+          </span>
+        </span>
+      </article>
     </td>
   </tr> 
 </table>

@@ -241,33 +241,28 @@ body > main > table {
 }
 
 td {
-  padding: 5px;
+  padding: 0px;
 }
 
 figure {
-  margin:0px;
+  margin: 0px;
 }
 
-.bigger-game {
+.bigger-game, .top-game, .bottom-game{
   border: 1px solid #ccc;
   display: inline-block;
-  width: 200px;
-  margin: 0.5rem;
-  text-align: center;
+  margin: 2px;
+  text-align: left;
   background-color: #007bff;
+  flex-direction: column;
+  height: 100%;
 }
 
-.bigger-game img {
-  width: 100%; /* L'immagine si adatta alla larghezza del contenitore */
-  height: auto; /* Mantiene le proporzioni */
-  position: relative; /* Permette di applicare margini negativi */
-  margin: -1px; /* Il bordo si "sovrappone" al contenitore */
-  border: 1px solid white; /* Bordo bianco */
-}
-
-img {
-  width: 100%;
-  height: auto;
+.bigger-game img, .top-game img, .bottom-game img{
+  width: 100%; 
+  height: auto; 
+  margin: -1px; 
+  border: 1px solid white;
 }
 
 .offerta {
@@ -282,21 +277,37 @@ img {
   color: white;
 }
 
-.sconto-percentuale {
-  background-color: rgb(87, 237, 0);
+.offerta-container {
+  display: flex; 
+  gap: 5px; 
+  margin-left: 5px;
+}
+
+.sconto {
+  background-color: rgb(0, 215, 0); 
   color: white;
+  padding: 2px 2px; 
+  font-weight: bold;
+}
+
+.prezzi {
+  background-color: rgb(0, 40, 173); 
+  padding: 2px 2px; 
+  display: flex; 
+  gap: 10px; 
 }
 
 .prezzo-originale {
   text-decoration: line-through;
-  background-color: rgb(0, 60, 255);
-  color:rgb(133, 133, 133);
+  color: rgba(174, 174, 174, 0.68);
   font-size: 12px;
+  line-height: 1.5;
 }
 
 .prezzo-scontato {
-  background-color: rgb(0, 60, 255);
   color: white;
+  font-size: 16px; 
+  font-weight: bold; 
 }
 
 /*---------------------------------------------------------------------*/
