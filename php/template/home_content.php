@@ -22,9 +22,19 @@
 <table>
   <tr>
     <td rowspan="2">
-      <div class="bigger-game">
-        <img src="../media/covers/Vampyr.jpg" alt="Big Game"/>
-      </div>
+      <article class="bigger-game">
+        <figure>
+          <img src="../media/covers/Vampyr.jpg" alt="Big Game">
+        </figure>
+          <section class="specifiche">
+            <p class="offerta">OFFERTA A TEMPO LIMITATO</p>
+            <p class="durata">Fino al 30 novembre!</p>
+
+            <span class="sconto-percentuale">-50%</span>
+            <span class="prezzo-originale">29,99€</span>
+            <span class="prezzo-scontato">14,99€</span>
+        </section>
+      </article>
     </td>
 
     <td>
