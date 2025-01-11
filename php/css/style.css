@@ -354,8 +354,49 @@ body > main > section > .game-grid > .two-games > .top-game > img, .bottom-game 
 }
 */
 
+main > h1 {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 48px; /* Testo molto grande */
+  font-weight: bold;
+  color: #333; /* Grigio scuro */
+  text-transform: uppercase; /* Testo tutto maiuscolo */
+  letter-spacing: 2px; /* Spaziatura tra le lettere */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Ombra leggera per effetto */
+}
 
+nav{
+  margin: 0 5%;
+}
 
+nav ul{
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li{
+  display: inline-block;
+  width: 45%;
+  margin: 10px 0 0;
+  text-align: center;
+  background-color: #007bff;
+  border-radius: 10px;
+}
+
+nav ul li:nth-child(odd){
+  margin-right: 10%;
+}
+
+nav ul li a{
+  display: inline-block;
+  width:100%;
+  height: 100%;
+  padding: 5px 0;
+  color: #fff;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-decoration: none;
+}
 
 
 
