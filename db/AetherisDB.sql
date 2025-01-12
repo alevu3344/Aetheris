@@ -71,10 +71,13 @@ CREATE TABLE USERS (
   `Surname` varchar(50) NOT NULL,
   `Email` varchar(50) NOT NULL,
   `Password` varchar(255) NOT NULL,
+  `Salt` varchar(255) NOT NULL,
   `Balance` decimal(10,2) DEFAULT 0.00,
   PRIMARY KEY (`Username`),
   UNIQUE KEY (`Email`)
 );
+
+
 
 CREATE TABLE SHOPPING_CARTS(
   `UserId` int(11) NOT NULL references USERS(`Username`),
@@ -270,6 +273,7 @@ INSERT INTO PUBLISHERS (PublisherName) VALUES
 ('id Software'),
 ('Mojang Studios'),
 ('Witch Beam');
+
 
 
 
