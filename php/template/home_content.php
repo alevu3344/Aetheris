@@ -7,10 +7,26 @@
       <p class="description">Impedisci a Ganondorf di distruggere Hyrule.</p>
     </figcaption>
 
+<<<<<<< HEAD
     <div class="front-page-game-buy-details">
       <div class="price-and-buy-button">
         <span class="front-page-game-price">29,99€</span>
         <button class="front-page-game-buy-button">Acquista</button>
+=======
+<div class="trending-game-container">
+  <button class="arrow left-arrow">&#8249;</button>
+  <div class="game-frame">
+    <img src="../media/covers/ds3.jpg" alt="Trending Game"/>
+    
+
+    <div class="game-info">
+      <h2>Dark Souls III</h2>
+      <p>Dark Souls 3 is an action RPG set in a dark, interconnected world filled with challenging enemies, cryptic lore, and atmospheric locations. Players embark on a journey to rekindle the fading flame, facing relentless bosses and uncovering secrets. With precise combat mechanics and deep character customization, it’s a test of skill and perseverance.</p>
+      <span class="price">59,99€</span>
+      <div class="buttons">
+        <button class="buy-button">Acquista</button>
+        <button class="wishlist-button">Lista dei desideri</button>
+>>>>>>> 110e39b89203756ecd5d83312548095d61e1760f
       </div>
       <button class="front-page-game-add-to-cart">
         <img src="upload/icons/add-to-cart.svg" alt="Add to cart icon"/>
@@ -27,11 +43,16 @@
   <tr>
     <td rowspan="2">
       <article class="bigger-game">
+<<<<<<< HEAD
         <figure>
           <img src="../media/covers/rdr2.jpg" alt="Big Game">
           <figcaption class="figcaption-scroller">Red Dead Redemption 2</figcaption>
         </figure>
 
+=======
+        <img src="../media/covers/rdr2.jpg" alt="Big Game">
+        <figcaption>RDR2</figcaption>
+>>>>>>> 110e39b89203756ecd5d83312548095d61e1760f
           <section class="specifiche">
             <p class="offerta">OFFERTA A TEMPO LIMITATO</p>
             <p class="durata">Fino al 30 novembre!</p>
@@ -83,3 +104,5 @@
     </td>
   </tr> 
 </table>
+
+
