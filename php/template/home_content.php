@@ -3,13 +3,13 @@
     <img src="../media/covers/legend_of_zelda_todk.jpg" alt="Front page game">
     <div class="front-page-game-overlay"></div>
     <figcaption class="figcaption-front-page">
-      <p class="front-page-game-title">The Legend Of Zelda: Tears of The Kingdom</p>
-      <p class="description">Impedisci a Ganondorf di distruggere Hyrule.</p>
+      <p class="front-page-game-title">The Legend of Zelda: Breath of the Wild</p>
+      <p class="description">An open-world adventure game set in the Zelda universe.</p>
     </figcaption>
 
     <div class="front-page-game-buy-details">
       <div class="price-and-buy-button">
-        <span class="front-page-game-price">29,99€</span>
+        <span class="front-page-game-price">59.99€</span>
         <button class="front-page-game-buy-button">Acquista</button>
       </div>
       <button class="front-page-game-add-to-cart">
@@ -28,8 +28,8 @@
     <td rowspan="2">
       <article class="bigger-game">
         <figure>
-          <img src="../media/covers/rdr2.jpg" alt="Big Game">
-          <figcaption class="figcaption-scroller">Red Dead Redemption 2</figcaption>
+          <img src="../media/covers/5.jpg" alt="Big Game">
+          <figcaption class="figcaption-scroller">Assassin's Creed Valhalla</figcaption>
         </figure>
 
           <section class="specifiche">
@@ -50,8 +50,8 @@
     <td>
       <article class="top-game">
         <figure>
-          <img src="../media/covers/uncharted4.jpg" alt="Top game"/>
-          <figcaption class="figcaption-scroller">Uncharted 4</figcaption>
+          <img src="../media/covers/23.jpg" alt="Top game"/>
+          <figcaption class="figcaption-scroller">Cyberpunk 2077</figcaption>
         </figure>
           <span class="offerta-container">
           <span class="sconto">-25%</span>
@@ -68,8 +68,8 @@
     <td>
       <article class="bottom-game">
         <figure>
-        <img src="../media/covers/ds2.jpg" alt="Bottom game"/>
-          <figcaption class="figcaption-scroller">Dark Souls 2</figcaption>
+        <img src="../media/covers/44.jpg" alt="Bottom game"/>
+          <figcaption class="figcaption-scroller">Dead Cells</figcaption>
         </figure>
         
           <span class="offerta-container">

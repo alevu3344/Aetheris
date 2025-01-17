@@ -19,6 +19,15 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getGameCover($id){
+        $query = "SELECT Cover FROM GAMES WHERE Id = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc()["Cover"];
+    }
+
     public function getGameById($id){
         $query = "SELECT * FROM GAMES WHERE Id = ?";
         $stmt = $this->db->prepare($query);
