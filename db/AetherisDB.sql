@@ -27,8 +27,8 @@ CREATE TABLE GAMES (
   `Publisher` varchar(50) NOT NULL,
   `ReleaseDate` date NOT NULL,
   `Description` text NOT NULL,
-  `Image` varchar(50) NOT NULL,
-  `Video` varchar(50) NOT NULL,
+  `Cover` varchar(50) NOT NULL,
+  `Trailer` varchar(50) NOT NULL,
   `Rating` decimal(10,2) NOT NULL, -- Dato derivato, ma fare la query per calcolarlo è troppo costoso
   `CopiesSold` int(11) NOT NULL, -- Idem
   PRIMARY KEY (`Id`),
@@ -44,16 +44,6 @@ CREATE TABLE GAME_CATEGORIES (
   FOREIGN KEY (`CategoryName`) REFERENCES CATEGORIES(`CategoryName`)
 );
 
-CREATE TABLE GAME_MEDIA(
-  `GameId` int(11) NOT NULL,
-  `PosterImageUrl` varchar(50) NOT NULL,
-  `TrailerUrl` varchar(50) NOT NULL,
-  `Screenshot1` varchar(50) NOT NULL,
-  `Screenshot2` varchar(50) NOT NULL,
-  `Screenshot3` varchar(50) NOT NULL,
-  PRIMARY KEY (`GameId`),
-  FOREIGN KEY (`GameId`) REFERENCES GAMES(`Id`)
-);
 
 CREATE TABLE DISCOUNTED_GAMES (
   `GameId` int(11) NOT NULL,
@@ -66,16 +56,26 @@ CREATE TABLE DISCOUNTED_GAMES (
 );
 
 CREATE TABLE USERS (
-  `Username` varchar(50) NOT NULL,
-  `Name` varchar(50) NOT NULL,
-  `Surname` varchar(50) NOT NULL,
-  `Email` varchar(50) NOT NULL,
-  `Password` varchar(255) NOT NULL,
-  `Salt` varchar(255) NOT NULL,
-  `Balance` decimal(10,2) DEFAULT 0.00,
-  PRIMARY KEY (`Username`),
-  UNIQUE KEY (`Email`)
+    UserID           INT AUTO_INCREMENT PRIMARY KEY,                                  -- Unique identifier for the user
+    Username         VARCHAR(50) NOT NULL UNIQUE,                                     -- Unique username for login
+    Email            VARCHAR(255) NOT NULL UNIQUE,                                    -- Unique email address
+    PasswordHash     VARCHAR(255) NOT NULL,                                           -- Hashed password (e.g., bcrypt or Argon2)
+    FirstName        VARCHAR(100),                                                    -- User's first name
+    LastName         VARCHAR(100),                                                    -- User's last name
+    Role             ENUM('Admin', 'User') DEFAULT 'User',                            -- User role (Admin or User)
+    PhoneNumber      VARCHAR(20),                                                     -- Contact number
+    Address          TEXT,                                                            -- User's address (optional)
+    DateOfBirth      DATE,                                                            -- Optional for profile
+    CreatedAt        TIMESTAMP DEFAULT CURRENT_TIMESTAMP,                             -- Account creation timestamp
+    UpdatedAt        TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, -- Last update
+    Status           ENUM('Active', 'Inactive', 'Banned') DEFAULT 'Active',           -- Account status
+    TwoFactorEnabled BOOLEAN DEFAULT FALSE,                                           -- 2FA status
+    LastLoginAt      TIMESTAMP NULL,                                                  -- Timestamp of the last login
+    LoginAttempts    INT DEFAULT 0,                                                   -- Count for failed login attempts
+    PasswordResetToken VARCHAR(255),                                                  -- Token for password reset (temporary)
+    ResetTokenExpiry DATETIME                                                         -- Expiry for password reset token
 );
+
 
 
 
