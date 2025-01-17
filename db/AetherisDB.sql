@@ -11,48 +11,52 @@ USE AetherisDB;
 
 
 CREATE TABLE PUBLISHERS (
-  `PublisherName` varchar(50) NOT NULL,
-  PRIMARY KEY (`PublisherName`)
+  PublisherName varchar(50) NOT NULL,
+  
+  PRIMARY KEY (PublisherName)
 );
 
 CREATE TABLE CATEGORIES (
-  `CategoryName` varchar(50) NOT NULL,
-  PRIMARY KEY (`CategoryName`)
+  CategoryName varchar(50) NOT NULL,
+
+  PRIMARY KEY (CategoryName)
 );
 
 CREATE TABLE GAMES (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Name` varchar(50) NOT NULL,
-  `Price` decimal(10,2) NOT NULL,
-  `Publisher` varchar(50) NOT NULL,
-  `ReleaseDate` date NOT NULL,
-  `Description` text NOT NULL,
-  `Cover` varchar(50) NOT NULL,
-  `Trailer` varchar(50) NOT NULL,
-  `Rating` decimal(10,2) NOT NULL, -- Dato derivato, ma fare la query per calcolarlo è troppo costoso
-  `CopiesSold` int(11) NOT NULL, -- Idem
-  PRIMARY KEY (`Id`),
-  FOREIGN KEY (`Publisher`) REFERENCES PUBLISHERS(`PublisherName`),
-  UNIQUE KEY (`Name`)
+  Id             int(11) NOT NULL AUTO_INCREMENT,
+  Name           varchar(50) NOT NULL,
+  Price          decimal(10,2) NOT NULL,
+  Publisher      varchar(50) NOT NULL,
+  ReleaseDate    date NOT NULL,
+  Description    text NOT NULL,
+  Trailer        varchar(50) NOT NULL,
+  Rating         decimal(10,2) NOT NULL, -- Dato derivato, ma fare la query per calcolarlo è troppo costoso
+  CopiesSold     int(11) NOT NULL, -- Idem
+
+  PRIMARY KEY (Id),
+  FOREIGN KEY (Publisher) REFERENCES PUBLISHERS(PublisherName),
+  UNIQUE KEY (Name)
 );
 
 CREATE TABLE GAME_CATEGORIES (
-  `GameId` int(11) NOT NULL,
-  `CategoryName` varchar(50) NOT NULL,
-  PRIMARY KEY (`GameId`, `CategoryName`),
-  FOREIGN KEY (`GameId`) REFERENCES GAMES(`Id`),
-  FOREIGN KEY (`CategoryName`) REFERENCES CATEGORIES(`CategoryName`)
+  GameId        int(11) NOT NULL,
+  CategoryName  varchar(50) NOT NULL,
+
+  PRIMARY KEY (GameId, CategoryName),
+  FOREIGN KEY (GameId) REFERENCES GAMES(Id),
+  FOREIGN KEY (CategoryName) REFERENCES CATEGORIES(CategoryName)
 );
 
 
 CREATE TABLE DISCOUNTED_GAMES (
-  `GameId` int(11) NOT NULL,
-  `Percentage` int(11) NOT NULL CHECK (`Percentage` BETWEEN 0 AND 100),
-  `StartDate` date NOT NULL,
-  `EndDate` date NOT NULL,
-  PRIMARY KEY (`GameId`, `StartDate`),
-  FOREIGN KEY (`GameId`) REFERENCES GAMES(`Id`),
-  CHECK (`StartDate` < `EndDate`)
+  GameId      int(11) NOT NULL,
+  Percentage  int(11) NOT NULL CHECK (Percentage BETWEEN 0 AND 100),
+  StartDate   date NOT NULL,
+  EndDate     date NOT NULL,
+
+  PRIMARY KEY (GameId, StartDate),
+  FOREIGN KEY (GameId) REFERENCES GAMES(Id),
+  CHECK (StartDate < EndDate)
 );
 
 CREATE TABLE USERS (
@@ -80,40 +84,43 @@ CREATE TABLE USERS (
 
 
 CREATE TABLE SHOPPING_CARTS(
-  `UserId` int(11) NOT NULL references USERS(`Username`),
-  `GameId` int(11) NOT NULL references GAMES(`Id`),
-  `Quantity` int (11) NOT NULL,
-  PRIMARY KEY (`UserId`,`GameId`)
+  UserId    int(11) NOT NULL references USERS(Username),
+  GameId    int(11) NOT NULL references GAMES(Id),
+  Quantity  int (11) NOT NULL,
+
+  PRIMARY KEY (UserId,GameId)
 );
 
 CREATE TABLE REVIEWS (
-  `Title` varchar(50) NOT NULL,
-  `Comment` text NOT NULL,
-  `Rating` decimal(10,2) NOT NULL CHECK (`Rating` BETWEEN 0 AND 5),
-  `GameID` int(11) NOT NULL,
-  `Username` varchar(50) NOT NULL,
-  FOREIGN KEY (`GameID`) REFERENCES GAMES(`Id`),
-  FOREIGN KEY (`Username`) REFERENCES USERS(`Username`)
+  Title        varchar(50) NOT NULL,
+  CreatedAt    TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
+  Comment      text NOT NULL,
+  Rating       decimal(10,2) NOT NULL CHECK (Rating BETWEEN 0 AND 5),
+  GameID       int(11) NOT NULL,
+  Username     varchar(50) NOT NULL,
+
+  FOREIGN KEY (GameID) REFERENCES GAMES(Id),
+  FOREIGN KEY (Username) REFERENCES USERS(Username)
 );
 
 CREATE TABLE ORDERS (
-  `Id` int(11) NOT NULL AUTO_INCREMENT, -- Unique ID for the order
-  `UserId` varchar(50) NOT NULL, -- Links to USERS table
-  `OrderDate` datetime NOT NULL DEFAULT current_timestamp(), -- When the order was placed
-  `TotalCost` decimal(10,2) NOT NULL, -- Total cost of the order
-  `Status` enum("Pending", "Completed", "Shipped", "Canceled") NOT NULL DEFAULT "Pending", -- Order status
-  PRIMARY KEY (`Id`),
-  FOREIGN KEY (`UserId`) REFERENCES USERS(`Username`) -- Links to USERS table
+  Id int(11) NOT NULL AUTO_INCREMENT, -- Unique ID for the order
+  UserId varchar(50) NOT NULL, -- Links to USERS table
+  OrderDate datetime NOT NULL DEFAULT current_timestamp(), -- When the order was placed
+  TotalCost decimal(10,2) NOT NULL, -- Total cost of the order
+  Status enum("Pending", "Completed", "Shipped", "Canceled") NOT NULL DEFAULT "Pending", -- Order status
+  PRIMARY KEY (Id),
+  FOREIGN KEY (UserId) REFERENCES USERS(Username) -- Links to USERS table
 );
 
 CREATE TABLE ORDER_ITEMS (
-  `OrderId` int(11) NOT NULL, -- Links to ORDERS table
-  `GameId` int(11) NOT NULL, -- Links to GAMES table
-  `Quantity` int(11) NOT NULL, -- Number of copies ordered
-  `Price` decimal(10,2) NOT NULL, -- Price at the time of the order (for historical data)
-  PRIMARY KEY (`OrderId`, `GameId`), -- Composite key ensures no duplicate game in the same order
-  FOREIGN KEY (`OrderId`) REFERENCES ORDERS(`Id`), -- Links to ORDERS table
-  FOREIGN KEY (`GameId`) REFERENCES GAMES(`Id`) -- Links to GAMES table
+  OrderId int(11) NOT NULL, -- Links to ORDERS table
+  GameId int(11) NOT NULL, -- Links to GAMES table
+  Quantity int(11) NOT NULL, -- Number of copies ordered
+  Price decimal(10,2) NOT NULL, -- Price at the time of the order (for historical data)
+  PRIMARY KEY (OrderId, GameId), -- Composite key ensures no duplicate game in the same order
+  FOREIGN KEY (OrderId) REFERENCES ORDERS(Id), -- Links to ORDERS table
+  FOREIGN KEY (GameId) REFERENCES GAMES(Id) -- Links to GAMES table
 );
 
 
@@ -278,7 +285,7 @@ INSERT INTO PUBLISHERS (PublisherName) VALUES
 
 
 
-INSERT INTO `GAMES` (`Id`, `Name`, `Price`, `Publisher`, `ReleaseDate`, `Description`, `Video`, `Rating`, `CopiesSold`) VALUES
+INSERT INTO GAMES (Id, Name, Price, Publisher, ReleaseDate, Description, Video, Rating, CopiesSold) VALUES
 (1, "The Legend of Zelda: Breath of the Wild", 59.99, "Nintendo", "2017-03-03", "An open-world adventure game set in the Zelda universe.", "https://www.youtube.com/watch?v=zw47_q9wbBE", 10.00, 10000000),
 (2, "Red Dead Redemption 2", 59.99, "Rockstar Games", "2018-10-26", "A Western-themed open-world action game.", "https://www.youtube.com/watch?v=gmA6MrX81z4", 9.80, 20000000),
 (3, "God of War (2018)", 49.99, "Sony Interactive Entertainment", "2018-04-20", "A brutal and emotional journey in the world of Norse mythology.", "https://www.youtube.com/watch?v=K0u_kAWLJOA", 9.70, 15000000),
