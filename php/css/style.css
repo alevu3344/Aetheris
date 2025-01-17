@@ -1,4 +1,5 @@
-/* Base body styling */
+
+
 
 body {
   background-color: #221f1f;
@@ -236,6 +237,7 @@ body > main > table {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
+  height: 100%; /* Altezza massima del genitore */
 }
 
 td {
@@ -266,7 +268,7 @@ tr {
   height: 100%; /* Ensure the image fills the available height */
   margin: -1px;
   border: 1px solid white;
-  object-fit: cover; /* Maintain aspect ratio, cover the area */
+  object-fit:cover;; /* Maintain aspect ratio, cover the area */
 }
 
 .top-game img, .bottom-game img {
