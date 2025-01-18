@@ -875,6 +875,131 @@ INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
 ("Trama avvincente", "La storia si espande ulteriormente e offre una conclusione soddisfacente alla trilogia.", 4.5, 178, 84),
 ("Troppi DLC", "Il gioco di base è buono, ma i contenuti aggiuntivi a pagamento sono un po’ troppi. Avrei preferito tutto incluso.", 3.9, 178, 99);
 
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserId) VALUES
+("Un classico dell'horror", "Dead Space è uno dei giochi horror più iconici mai realizzati. La tensione e il senso di solitudine sono palpabili.", 5.0, 140, 1),
+("Paura continua", "Ogni angolo di questo gioco è carico di tensione. I Necromorfi sono spaventosi e ogni suono fa tremare le ossa.", 4.9, 140, 10),
+("Horror puro", "La grafica e l’atmosfera sono incredibili, perfette per creare un’esperienza di paura autentica. Un must per gli amanti del genere.", 5.0, 140, 20),
+("Capolavoro del survival horror", "La gestione dell’energia, la scarsità di risorse e il design dei mostri rendono questo gioco incredibilmente coinvolgente.", 4.8, 140, 33),
+("Gioco troppo spaventoso", "Ottimo gioco, ma troppo spaventoso per me! La tensione è insopportabile, ma comunque una grande esperienza.", 4.7, 140, 45),
+("Tensione costante", "Ogni angolo e ogni corridoio sono pieni di paura. Non è solo un gioco horror, ma un’esperienza unica.", 4.9, 140, 50),
+("La paura non finisce mai", "Dead Space ti tiene in suspense fino all’ultimo minuto, e il gameplay è ottimo. Ottima trama, ottimi nemici, ottima atmosfera.", 4.8, 140, 60),
+("Semplicemente fantastico", "Un’esperienza che segna la storia del genere horror. Nessun gioco come questo ti farà sentire così impotente.", 5.0, 140, 73),
+("Non per deboli di cuore", "Il gioco è fantastico, ma la paura che provoca è veramente intensa. Ottimo per chi ama l’adrenalina!", 4.6, 140, 80),
+("Un viaggio spaventoso", "Dead Space è l’apice del survival horror. La paura è reale e l’atmosfera è incredibile. Un’esperienza che non si dimentica.", 5.0, 140, 95);
+
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserId) VALUES
+("Un’esperienza unica", "Death Stranding è un gioco che sfida le convenzioni. Non è solo un gioco, è un’esperienza da vivere. La trama è profondamente coinvolgente.", 4.9, 14, 1),
+("Un viaggio solitario", "Il gioco ti costringe ad affrontare il mondo da solo. La sensazione di solitudine è unica, ma può risultare anche noiosa dopo un po'.", 4.2, 14, 5),
+("Gameplay interessante", "La meccanica di trasportare pacchi può sembrare monotona, ma alla fine ti immerge in un mondo straordinario e unico.", 4.5, 14, 10),
+("Troppo lento", "Nonostante il gioco abbia una trama interessante, il ritmo lento e la ripetitività del gameplay mi hanno fatto perdere interesse.", 3.7, 14, 20),
+("Grafica mozzafiato", "La qualità visiva di Death Stranding è incredibile. Ogni paesaggio sembra un’opera d’arte. Un vero piacere per gli occhi.", 5.0, 14, 30),
+("Il messaggio di Kojima", "Death Stranding è un gioco che parla di connessione umana, e lo fa in un modo mai visto prima. È profondo e riflessivo.", 4.8, 14, 35),
+("Gameplay innovativo", "L’idea di un gioco dove la meccanica principale è trasportare oggetti è innovativa. Un mix tra avventura e strategia.", 4.6, 14, 40),
+("Troppo lungo", "La storia è interessante, ma il gioco è troppo lungo e diventa ripetitivo. L’esperienza sarebbe stata migliore con un ritmo più veloce.", 3.9, 14, 50),
+("Un capolavoro, ma per pochi", "Death Stranding è un capolavoro del design e della narrazione, ma non è per tutti. Devi essere pronto ad affrontare un’esperienza diversa.", 4.7, 14, 60),
+("Una nuova forma di gioco", "Kojima ha creato qualcosa di davvero nuovo con Death Stranding. Non è solo un gioco, è una riflessione sul mondo moderno.", 4.8, 14, 70);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserId) VALUES
+("Un ritorno alla gloria", "Diablo IV riporta la serie alle sue radici con un gameplay coinvolgente, nemici epici e un mondo oscuro. Finalmente un ritorno ai vecchi tempi!", 4.9, 31, 1),
+("Un gioco affascinante", "La grafica è fantastica, e la storia mi ha davvero coinvolto. Ho passato ore a esplorare il mondo di Sanctuarium.", 5.0, 31, 10),
+("Ottimo ma con margini di miglioramento", "Il gioco è fantastico, ma ci sono alcune piccole imperfezioni che potrebbero essere migliorate, soprattutto nella gestione delle risorse.", 4.3, 31, 20),
+("Un classico che non delude", "Ogni aspetto di Diablo IV mi ha riportato indietro nel tempo, ma con miglioramenti notevoli. Un must per i fan della serie.", 4.8, 31, 30),
+("Diablo non è mai stato così bello", "Le animazioni e la grafica sono sorprendenti, il gameplay è fluido e il sistema di progressione è perfetto. Mi ha catturato fin dal primo minuto.", 5.0, 31, 40),
+("Troppo grind", "Il gioco è davvero divertente, ma la componente di grinding per migliorare il proprio personaggio è troppo ripetitiva. Alcuni miglioramenti potrebbero aiutarlo.", 3.8, 31, 50),
+("Un gioco avvincente", "Le meccaniche di gioco sono solide, e la narrativa è coinvolgente. Il multiplayer è divertente, ma un po’ sbilanciato in alcune fasi del gioco.", 4.6, 31, 60),
+("Una nuova era di Diablo", "Il mondo aperto e la libertà di esplorazione sono un grande passo avanti. Diablo IV riesce a unire l’essenza della serie con novità interessanti.", 4.7, 31, 70),
+("Diablo per tutti", "Sia i nuovi giocatori che i fan di vecchia data si troveranno a casa con Diablo IV. Un’esperienza completa che non delude, ma ci sono alcune zone grigie.", 4.4, 31, 80),
+("Ottimo ma con troppi bug", "Il gioco è veramente divertente, ma ci sono alcuni bug fastidiosi che influenzano l’esperienza. Spero che vengano risolti presto.", 4.1, 31, 90);
+
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserId) VALUES
+("Una corsa emozionante", "DiRT 3 è un gioco di corse divertente con una buona varietà di tracciati e modalità. Ottima fisica di guida!", 4.8, 200, 1),
+("Gran divertimento in pista", "Le gare sono rapide e frenetiche, ma la fisica di guida è ben bilanciata. Ottimo per chi cerca un’esperienza arcade.", 4.7, 200, 10),
+("Non solo corse", "Il gioco offre una varietà di modalità, ma la modalità Gymkhana è una delle mie preferite. Mi fa davvero divertire.", 4.9, 200, 20),
+("Una corsa spettacolare", "I tracciati sono ben progettati e la varietà di auto è davvero ampia. Un gioco che riesce a essere sia arcade che realista.", 5.0, 200, 30),
+("Un gioco per tutti", "DiRT 3 è facile da giocare per i principianti, ma offre anche una buona sfida per i giocatori esperti. La modalità multiplayer è un’aggiunta fantastica.", 4.6, 200, 40),
+("Le gare sono intense", "Il gioco offre un’esperienza di corse intensa, ma la difficoltà aumenta un po’ troppo in fretta. A volte diventa frustrante.", 4.2, 200, 50),
+("Divertente ma non perfetto", "Le corse sono molto divertenti, ma la AI degli avversari può sembrare un po’ troppo prevedibile. Alcuni miglioramenti nelle gare single-player sarebbero utili.", 4.3, 200, 60),
+("Un must per gli amanti delle corse", "La varietà di auto e tracciati è impressionante. DiRT 3 è un gioco che saprà accontentare sia i fan delle corse arcade che quelli più realisti.", 4.8, 200, 70),
+("Musica fantastica", "La colonna sonora è davvero eccezionale. Ogni gara sembra ancora più eccitante con il giusto sottofondo musicale.", 5.0, 200, 80),
+("Divertimento senza fine", "DiRT 3 riesce a bilanciare perfettamente l’accessibilità e la profondità. Ti troverai a giocare ore senza mai annoiarti.", 4.7, 200, 90);
+
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserId) VALUES
+("Un passo avanti rispetto a DiRT 3", "DiRT 4 migliora molte delle meccaniche di guida del suo predecessore. Le gare sono più fluide e la varietà di tracciati è ancora maggiore.", 4.8, 201, 1),
+("Divertimento assicurato", "Le modalità di gioco sono molteplici e ognuna ha il suo fascino. La personalizzazione delle auto è un’altra grande aggiunta.", 4.7, 201, 10),
+("Un’esperienza più realistica", "La fisica di guida è migliorata, e si nota. L’esperienza di guida è più gratificante e realistica rispetto a DiRT 3.", 4.9, 201, 20),
+("Per i veri amanti delle corse", "La difficoltà del gioco è un po’ più alta rispetto al precedente, ma questo lo rende più soddisfacente da giocare per i veri appassionati di corse.", 4.6, 201, 30),
+("Ottima varietà di modalità", "Il gioco offre una gamma di modalità che tengono il gioco fresco e interessante. La modalità Career è davvero coinvolgente.", 4.8, 201, 40),
+("Migliorato ma non perfetto", "DiRT 4 è sicuramente un miglioramento rispetto a DiRT 3, ma la modalità multiplayer è ancora un po’ problematica, con troppi lag in alcune sessioni.", 4.3, 201, 50),
+("Più simulazione, meno arcade", "Il gioco è meno arcade rispetto al suo predecessore e offre una simulazione più profonda. Alcuni potrebbero trovarlo un po’ troppo tecnico, ma per me è un vantaggio.", 4.7, 201, 60),
+("Grafica spettacolare", "La grafica di DiRT 4 è impressionante, con ambientazioni mozzafiato e modelli di auto dettagliati. Ogni gara è visivamente spettacolare.", 5.0, 201, 70),
+("Un gioco per tutti i livelli", "Che tu sia un principiante o un esperto di corse, DiRT 4 ha qualcosa da offrire. Il sistema di difficoltà permette a tutti di divertirsi.", 4.5, 201, 80),
+("Un capolavoro di corse", "Non è solo un gioco di corse, è un’esperienza che ti porta a superare te stesso in ogni gara. Uno dei migliori giochi di corse degli ultimi anni.", 5.0, 201, 90);
+
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserId) VALUES
+("Un ritorno al divertimento arcade", "DiRT 5 è un gioco di corse che punta più sul divertimento immediato e l’azione piuttosto che sulla simulazione. Ottimo per chi cerca una corsa spensierata.", 4.6, 88, 1),
+("Corsa adrenalinica", "Le gare sono rapide e intense, e la varietà di ambientazioni è davvero impressionante. Nonostante manchi di una simulazione profonda, è molto divertente da giocare.", 4.7, 88, 10),
+("Il miglior DiRT per divertirsi", "La fisica di guida è un po’ più arcade rispetto a DiRT 4, ma la sensazione di velocità e l’adrenalina sono ottimi. Le modalità multiplayer sono davvero coinvolgenti.", 4.8, 88, 20),
+("Grafica mozzafiato", "Le ambientazioni sono spettacolari, con tracciati su terreni difficili e in ambienti esotici. La grafica di DiRT 5 è senza dubbio tra le migliori della serie.", 5.0, 88, 30),
+("La modalità carriera è divertente", "La modalità carriera è ricca di sfide e competizioni che mantengono alta la motivazione. Ogni gara è una nuova avventura.", 4.5, 88, 40),
+("Corsa arcade con il cuore", "Se ti piacciono le corse più casual, DiRT 5 è perfetto per te. Non è un simulatore, ma riesce a divertire e a farti sentire il brivido delle corse.", 4.6, 88, 50),
+("Ottimo per il multiplayer", "Il gioco è fantastico per giocare in compagnia. Le modalità multiplayer sono veloci, frenetiche e facili da imparare. Una scelta perfetta per le sessioni di gioco con gli amici.", 4.7, 88, 60),
+("Meno tecnica, più spettacolare", "A differenza di DiRT 4, questo gioco punta molto più sullo spettacolo e sulla velocità. Perfetto per chi cerca adrenalina piuttosto che un’esperienza realistica.", 4.4, 88, 70),
+("La sensazione di velocità è incredibile", "La sensazione di velocità è davvero ben riprodotta. Quando sei in gara, ti senti davvero immerso nell’azione, e la fisica di guida è divertente anche se non perfetta.", 4.9, 88, 80),
+("Divertimento senza pensieri", "DiRT 5 è un gioco che ti permette di staccare la mente e goderti semplicemente le corse. Perfetto per chi cerca un’esperienza di gioco senza troppi pensieri.", 4.6, 88, 90);
+
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserId) VALUES
+("Un capolavoro narrativo", "Disco Elysium: The Final Cut è un viaggio coinvolgente nella mente di un detective, con una trama ricca e profondamente scritta. Ogni decisione ha un peso e il mondo di gioco è straordinario.", 5.0, 42, 1),
+("Un gioco che sfida la mente", "La profondità dei personaggi e delle scelte narrative rende questo gioco un’esperienza unica. La libertà di esplorare e decidere come affrontare ogni situazione è un punto di forza.", 4.9, 42, 10),
+("Una storia indimenticabile", "La trama è così ben costruita che ti tiene incollato al gioco per ore. Le scelte che fai influenzano profondamente il corso degli eventi, rendendo ogni partita unica.", 5.0, 42, 20),
+("Personaggi memorabili", "I personaggi di Disco Elysium sono incredibilmente ben scritti e complessi. Il gioco ti permette di entrare nelle loro menti e di scoprire le loro storie in un modo che pochi giochi riescono a fare.", 4.8, 42, 30),
+("Un mix di RPG e investigazione", "Il gioco è un mix perfetto di investigazione, dialoghi e scelte morali. Ogni dialogo è ricco di opzioni e la possibilità di sviluppare il personaggio in vari modi aggiunge un livello di profondità in più.", 4.7, 42, 40),
+("Grafica unica", "La grafica stilizzata di Disco Elysium è affascinante. Sebbene non sia un gioco tradizionale in termini visivi, il suo stile artistico è perfetto per il tipo di storia che racconta.", 4.6, 42, 50),
+("Un’esperienza di gioco ineguagliabile", "Non è solo un gioco, è un’esperienza che ti fa riflettere. La profondità dei temi trattati, come la politica, la psiche umana e la moralità, è rara nel mondo dei videogiochi.", 5.0, 42, 60),
+("Il miglior gioco di ruolo che abbia mai giocato", "Disco Elysium è una delle migliori esperienze di gioco di ruolo che abbia mai vissuto. La libertà di scelta e l’intensità della narrazione sono fuori dal comune.", 5.0, 42, 70),
+("Un titolo da giocare con calma", "Disco Elysium non è un gioco da fare in fretta. Va giocato con calma, prendendosi il tempo di esplorare e riflettere su ogni scelta. Ogni momento ha un significato.", 4.9, 42, 80),
+("Un viaggio psicologico", "Questo gioco è un vero e proprio viaggio psicologico. Ti costringe a confrontarti con le tue scelte morali e a riflettere su chi sei. È un’esperienza unica che consiglio a tutti.", 4.8, 42, 90);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserId) VALUES
+("Un capolavoro narrativo", "Disco Elysium: The Final Cut è un viaggio coinvolgente nella mente di un detective, con una trama ricca e profondamente scritta. Ogni decisione ha un peso e il mondo di gioco è straordinario.", 5.0, 42, 1),
+("Un gioco che sfida la mente", "La profondità dei personaggi e delle scelte narrative rende questo gioco un’esperienza unica. La libertà di esplorare e decidere come affrontare ogni situazione è un punto di forza.", 4.9, 42, 10),
+("Una storia indimenticabile", "La trama è così ben costruita che ti tiene incollato al gioco per ore. Le scelte che fai influenzano profondamente il corso degli eventi, rendendo ogni partita unica.", 5.0, 42, 20),
+("Personaggi memorabili", "I personaggi di Disco Elysium sono incredibilmente ben scritti e complessi. Il gioco ti permette di entrare nelle loro menti e di scoprire le loro storie in un modo che pochi giochi riescono a fare.", 4.8, 42, 30),
+("Un mix di RPG e investigazione", "Il gioco è un mix perfetto di investigazione, dialoghi e scelte morali. Ogni dialogo è ricco di opzioni e la possibilità di sviluppare il personaggio in vari modi aggiunge un livello di profondità in più.", 4.7, 42, 40),
+("Grafica unica", "La grafica stilizzata di Disco Elysium è affascinante. Sebbene non sia un gioco tradizionale in termini visivi, il suo stile artistico è perfetto per il tipo di storia che racconta.", 4.6, 42, 50),
+("Un’esperienza di gioco ineguagliabile", "Non è solo un gioco, è un’esperienza che ti fa riflettere. La profondità dei temi trattati, come la politica, la psiche umana e la moralità, è rara nel mondo dei videogiochi.", 5.0, 42, 60),
+("Il miglior gioco di ruolo che abbia mai giocato", "Disco Elysium è una delle migliori esperienze di gioco di ruolo che abbia mai vissuto. La libertà di scelta e l’intensità della narrazione sono fuori dal comune.", 5.0, 42, 70),
+("Un titolo da giocare con calma", "Disco Elysium non è un gioco da fare in fretta. Va giocato con calma, prendendosi il tempo di esplorare e riflettere su ogni scelta. Ogni momento ha un significato.", 4.9, 42, 80),
+("Un viaggio psicologico", "Questo gioco è un vero e proprio viaggio psicologico. Ti costringe a confrontarti con le tue scelte morali e a riflettere su chi sei. È un’esperienza unica che consiglio a tutti.", 4.8, 42, 90);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserId) VALUES
+("Un capolavoro RPG", "Divinity: Original Sin 2 è uno dei migliori giochi di ruolo mai realizzati. La libertà di scelta, il combattimento a turni strategico e la trama coinvolgente lo rendono un’esperienza indimenticabile.", 5.0, 54, 1),
+("La perfezione del combat system", "Il sistema di combattimento è semplicemente fantastico, con una profondità strategica che ti permette di affrontare ogni battaglia in modo unico. Ogni personaggio ha abilità che ti fanno pensare attentamente a ogni mossa.", 4.9, 54, 10),
+("Un mondo ricco di dettagli", "Il mondo di gioco è incredibilmente ricco e variegato. Ogni area è piena di segreti da scoprire e personaggi interessanti da incontrare. La narrazione è ben scritta e ti tiene sempre coinvolto.", 5.0, 54, 20),
+("Gioco di ruolo da non perdere", "Le scelte morali che fai nel gioco hanno un impatto reale sulla trama, il che lo rende altamente rigiocabile. Ogni scelta ti fa sentire come se stessi davvero influenzando il mondo che ti circonda.", 5.0, 54, 30),
+("Un gioco con una trama incredibile", "La storia di Divinity: Original Sin 2 è avvincente e ricca di colpi di scena. Ogni missione principale e secondaria è ben scritta e coinvolgente, e le relazioni con i compagni di viaggio sono profondamente esplorate.", 4.8, 54, 40),
+("Cooperativo fantastico", "Giocare in cooperativa con amici è un’esperienza fantastica. Le battaglie a turni diventano molto più divertenti quando ognuno può dare il proprio contributo strategico. È uno dei migliori giochi cooperativi che abbia mai giocato.", 5.0, 54, 50),
+("Ogni personaggio ha una storia unica", "Ogni compagno ha una storia interessante e complessa che si sviluppa durante il gioco. È incredibile come i personaggi interagiscano con il mondo e come le loro storie influenzino la trama principale.", 4.9, 54, 60),
+("Il miglior RPG recente", "Divinity: Original Sin 2 ha portato il genere RPG a un nuovo livello. La combinazione di esplorazione, narrazione e combattimento a turni è eseguita perfettamente. Un gioco che ti fa sentire come se stessi vivendo una vera avventura.", 5.0, 54, 70),
+("Un’esperienza di gioco unica", "Il gioco è pieno di scelte difficili e combattimenti strategici che richiedono pensiero e pianificazione. L’introduzione della magia e degli elementi ambientali rende ogni battaglia diversa e divertente.", 4.8, 54, 80),
+("Indimenticabile", "Divinity: Original Sin 2 è un gioco che rimarrà con te anche dopo averlo finito. Le opzioni di dialogo, le scelte morali e la varietà dei personaggi creano un’esperienza che ogni appassionato di giochi di ruolo dovrebbe provare.", 5.0, 54, 90);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserId) VALUES
+("Un platform perfetto", "Donkey Kong Country: Tropical Freeze è un platform incredibile. Il design dei livelli è brillante e la difficoltà è ben calibrata, rendendo ogni partita emozionante e coinvolgente.", 5.0, 116, 1),
+("Divertimento puro", "Il gameplay è fluido, le animazioni sono fantastiche, e la colonna sonora è fantastica. Un platform che riesce a mantenere il suo fascino senza mai annoiare. Perfetto per i fan dei giochi retrò!", 4.8, 116, 10),
+("Un ritorno al passato", "Tropical Freeze porta il meglio della serie Donkey Kong in un formato moderno. La grafica è splendida, la musica è fantastica e le meccaniche di gioco sono perfette. Un vero classico.", 5.0, 116, 20),
+("Difficile ma gratificante", "Il gioco è sicuramente impegnativo, ma ogni volta che completi un livello o una sequenza difficile, la soddisfazione è enorme. Un platform impegnativo ma giusto.", 4.9, 116, 30),
+("Un gioco che non delude mai", "Donkey Kong Country: Tropical Freeze è un gioco che offre sempre qualcosa di nuovo, con livelli e nemici vari e un gameplay che rimane sempre fresco. Non stanca mai e continua a sorprendere.", 5.0, 116, 40),
+("Piattaforme perfette", "La varietà dei livelli è fantastica. Ogni livello è progettato in modo unico, con ostacoli, nemici e segreti che lo rendono interessante da esplorare. Ogni volta che giochi, trovi qualcosa di nuovo.", 4.8, 116, 50),
+("Un platform di qualità", "Tropical Freeze non è solo un gioco per fan di Donkey Kong, ma per chiunque ami i platform. La precisione nei controlli e la varietà dei poteri di Donkey Kong rendono ogni livello divertente e dinamico.", 5.0, 116, 60),
+("Incredibile come sempre", "Le animazioni sono spettacolari, e l’introduzione dei nuovi personaggi rende il gioco ancora più interessante. Donkey Kong Country è sempre una garanzia di qualità e Tropical Freeze non fa eccezione.", 4.9, 116, 70),
+("Divertente e impegnativo", "Tropical Freeze è un gioco che sfida ma che premia i giocatori con livelli pieni di azione, velocità e puzzle. È un gioco che ti fa sorridere ogni volta che riesci a completare un livello difficile.", 5.0, 116, 80),
+("Un classico dei platform", "Tropical Freeze è uno dei migliori giochi platform della sua generazione. La combinazione di design dei livelli, difficoltà, e divertimento rende questo gioco un must-have per tutti gli appassionati del genere.", 5.0, 116, 90);
+
 
 
 -- Insert Categories

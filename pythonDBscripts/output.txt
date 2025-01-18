@@ -58,7 +58,7 @@
 155, Name: Dead or Alive 6
 177, Name: Dead Space 2
 178, Name: Dead Space 3
-140, Name: Dead Space Remake
+140, Name: Dead Space 
 14, Name: Death Stranding
 31, Name: Diablo IV
 200, Name: DiRT 3
