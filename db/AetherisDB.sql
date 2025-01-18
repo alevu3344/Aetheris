@@ -1476,6 +1476,241 @@ INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
 ("Un capolavoro del racing", "Forza Horizon 5 è semplicemente un capolavoro. Non c’è niente di più divertente che sfrecciare attraverso il paesaggio messicano, con un’auto perfettamente personalizzata. Un gioco che ti fa tornare per una corsa dopo l’altra.", 4.9, 81, 90);
 
 
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Divertente ma caotico", "Il gioco è molto divertente, ma a volte può diventare frustrante per la sua natura caotica.", 4.00, 137, 1),
+("Un po' ripetitivo", "La grafica è carina, ma le meccaniche di gioco sono un po' ripetitive, potrebbe essere migliorato.", 3.50, 137, 5),
+("Divertimento puro", "Un gioco da giocare con gli amici, risate assicurate!", 5.00, 137, 10),
+("Non mi ha convinto", "Non è il mio genere, ma posso capire perché potrebbe piacere ad altri.", 2.00, 137, 20),
+("Troppo caos", "Ogni partita è un caos totale, non riesco a godermelo come vorrei.", 3.00, 137, 25),
+("Una buona compagnia", "Ottimo per passare il tempo con gli amici, ma la giocabilità è migliorabile.", 4.00, 137, 35),
+("Carino, ma noioso dopo un po'", "Dopo qualche ora di gioco, inizia a diventare noioso. Serve più varietà.", 3.00, 137, 40),
+("Divertente e adrenalinico", "Mi piace molto, ogni partita è un adrenalina pura!", 4.50, 137, 50),
+("Gioco di gruppo", "Perfetto per le serate in compagnia, non ci si annoia mai!", 5.00, 137, 60),
+("Troppo caotico per i miei gusti", "Sinceramente, non mi piace l'eccessivo caos che crea.", 2.50, 137, 70);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Gioco fantastico", "Un gioco incredibile, la grafica è pazzesca e le missioni sono molto coinvolgenti.", 5.00, 28, 2),
+("Un'esperienza unica", "Non ho mai visto un gioco free-to-play così bello, la storia è avvincente e la musica è magnifica.", 4.50, 28, 15),
+("Pochi contenuti", "Nonostante la bellezza del gioco, dopo un po' inizia a mancare di contenuti per i giocatori più esperti.", 3.50, 28, 25),
+("Troppo grind", "C'è troppo grinding, anche se il gioco è bello diventa stancante dopo un po' di tempo.", 3.00, 28, 30),
+("Ottimo gioco", "Un gioco di ruolo fantastico, ma i sistemi di gacha sono un po' troppo invasivi.", 4.00, 28, 40),
+("Storia interessante", "Mi piace molto la trama, ma il gioco è troppo orientato a spingere gli acquisti in-app.", 3.50, 28, 50),
+("Un gioco straordinario", "Genshin Impact ha cambiato il mio modo di vedere i giochi open world, è spettacolare!", 5.00, 28, 60),
+("Troppo dispendioso", "Il gioco è divertente ma alla fine devi spendere un sacco di soldi per ottenere i personaggi migliori.", 2.50, 28, 70),
+("Bellissima grafica", "La grafica è il punto forte del gioco, davvero impressionante per essere un free-to-play.", 4.50, 28, 80),
+("Molto coinvolgente", "La storia e la libertà di esplorazione sono fantastiche, ma può diventare pesante senza acquisti.", 4.00, 28, 90);
+
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Incredibile esperienza", "Un capolavoro, la storia e l'ambientazione sono magnifiche. Mi sono sentito parte del Giappone feudale.", 5.00, 6, 3),
+("Stupendo ma corto", "Il gioco è bellissimo, ma la trama è troppo breve. Avrei voluto esplorare di più.", 4.00, 6, 7),
+("Ottimo, ma non perfetto", "La grafica è superlativa e la storia è interessante, ma ci sono alcune meccaniche di gioco migliorabili.", 4.00, 6, 12),
+("Un must per gli amanti degli open world", "La libertà di esplorazione è pazzesca, un gioco da non perdere!", 5.00, 6, 18),
+("Non mi ha convinto del tutto", "Il gioco è bello, ma a volte le missioni possono diventare troppo simili tra loro.", 3.00, 6, 23),
+("Miglior gioco dell'anno", "Ghost of Tsushima è uno dei migliori giochi che abbia mai giocato. La storia è emozionante e coinvolgente.", 5.00, 6, 33),
+("Bellissima ambientazione", "Il Giappone feudale è reso magnificamente. La colonna sonora è fantastica!", 4.50, 6, 40),
+("Alcuni difetti", "Purtroppo, la difficoltà non è ben bilanciata, ma resta un gioco ottimo per gli amanti del genere.", 3.50, 6, 47),
+("Gioco fantastico, ma poco innovativo", "Mi è piaciuto molto, ma non offre nulla di nuovo rispetto ad altri giochi open world.", 3.00, 6, 55),
+("Un gioco che ti coinvolge", "La storia e le missioni secondarie ti tengono incollato allo schermo. Fantastico!", 4.50, 6, 60);
+
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un capolavoro", "God of War è semplicemente perfetto, un mix di azione e emozioni che non si dimentica facilmente.", 5.00, 3, 5),
+("L'unico God of War che mi è piaciuto", "Ho sempre evitato i God of War, ma questo mi ha sorpreso, una trama matura e ben raccontata.", 4.50, 3, 12),
+("Un gioco di alta qualità", "La grafica e la storia sono straordinarie, ma alcuni combattimenti possono diventare ripetitivi.", 4.00, 3, 18),
+("Il miglior God of War", "È il miglior capitolo della saga, Kratos è finalmente un personaggio profondo e interessante.", 5.00, 3, 25),
+("Troppo lineare", "A me è piaciuto, ma alcuni tratti del gioco sono troppo lineari e manca un po' di libertà.", 3.50, 3, 35),
+("Lotta tra padre e figlio", "La relazione tra Kratos e Atreus è toccante e molto ben sviluppata, davvero emozionante.", 5.00, 3, 40),
+("Difficoltà troppo alta", "Il gioco è troppo difficile, alcune sezioni mi hanno frustato più che divertito.", 2.50, 3, 48),
+("Un'avventura epica", "Non ci sono molte parole per descrivere quanto mi sia piaciuto questo gioco. Un’avventura che vale la pena vivere.", 5.00, 3, 53),
+("Gioco intenso e coinvolgente", "La trama è fantastica, ma la parte di combattimento potrebbe essere migliorata in alcuni punti.", 4.00, 3, 61),
+("Non per tutti", "Molto bello, ma non per tutti. La storia è profonda e un po' triste, non adatta ai gusti di tutti.", 3.00, 3, 70);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Non all'altezza dei predecessori", "Nonostante le meccaniche siano buone, la trama e la varietà non sono al livello degli altri giochi della saga.", 3.00, 226, 4),
+("Buon gioco, ma manca qualcosa", "Il gameplay è divertente, ma la storia non è coinvolgente come quella dei capitoli precedenti.", 3.50, 226, 10),
+("God of War ma non troppo", "Un capitolo che non riesce a convincere come gli altri, ma comunque intrattenente.", 3.00, 226, 15),
+("Sufficiente ma deludente", "I combattimenti sono divertenti, ma la trama è troppo debole per essere veramente memorabile.", 2.50, 226, 20),
+("Gioco solido, ma troppo simile", "Non c'è nulla di nuovo che spicca davvero, sembra più un DLC piuttosto che un capitolo vero e proprio.", 3.00, 226, 30),
+("Un po' ripetitivo", "Il gioco ha alcune sequenze ripetitive e non riesce a mantenere alta la tensione per tutta la durata.", 3.50, 226, 40),
+("Un capitolo che delude", "Sinceramente mi aspettavo di più, la storia non è all'altezza di altri giochi della saga.", 2.00, 226, 50),
+("Sotto le aspettative", "Un gioco che non riesce a brillare, i combattimenti sono buoni ma la trama è un po' piatta.", 3.00, 226, 60),
+("Gameplay solido", "Mi è piaciuto il gameplay ma la trama è troppo debole. Avrei voluto una storia più coinvolgente.", 3.50, 226, 70),
+("Un buon gioco ma niente di speciale", "Il gioco è ok, ma manca quel qualcosa che mi ha fatto amare gli altri God of War.", 3.00, 226, 80);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Capolavoro assoluto", "Un gioco straordinario, storia e gameplay sono impeccabili. Un must per ogni appassionato della saga.", 5.00, 227, 5),
+("Il miglior God of War", "Ragnarok ha alzato la barra. Non solo un gioco, ma un'esperienza che ti emoziona ad ogni momento.", 5.00, 227, 12),
+("Storia epica", "La trama è coinvolgente, la grafica è sbalorditiva e il gameplay è perfetto. Un gioco imperdibile!", 5.00, 227, 20),
+("Perfetto in tutto", "Non c'è nulla che non mi sia piaciuto di questo gioco. Storia, combattimenti, tutto perfetto.", 5.00, 227, 30),
+("Eccezionale, ma...", "Il gioco è fantastico, ma alcune meccaniche sono un po' ripetitive. Tuttavia, vale assolutamente la pena giocarlo.", 4.50, 227, 40),
+("Una conclusione epica", "Ragnarok conclude magnificamente la saga di Kratos, un gioco emozionante e ricco di sorprese.", 5.00, 227, 50),
+("Semplicemente incredibile", "La qualità del gioco è sbalorditiva, ma il prezzo del gioco è un po' alto per quello che offre.", 4.00, 227, 60),
+("Gioco di alta qualità", "Una conclusione degna della saga, ma alcuni dettagli potrebbero essere migliorati, soprattutto la gestione delle missioni secondarie.", 4.50, 227, 70),
+("Un'epopea fantastica", "La storia e i combattimenti sono leggendari, ma mi sarebbe piaciuto un po' più di esplorazione.", 4.00, 227, 80),
+("Gioco da ricordare", "Un’esperienza incredibile, ma ho trovato alcuni momenti un po' troppo lenti. Complessivamente, comunque, un capolavoro.", 4.50, 227, 90);
+
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un gioco di simulazione perfetto", "Gran Turismo 7 è un capolavoro per gli amanti delle simulazioni di guida, tutto è perfetto e realistico.", 5.00, 82, 10),
+("Esperienza realistica", "Il gioco offre una simulazione di guida incredibilmente realistica. Un sogno per gli appassionati di auto.", 5.00, 82, 20),
+("Fantastico per gli appassionati", "Se ti piacciono le simulazioni di guida, non troverai di meglio. Il realismo è incredibile.", 5.00, 82, 30),
+("Ottima esperienza di guida", "Il gameplay è fantastico, ma la varietà di auto e tracciati potrebbe essere migliorata.", 4.00, 82, 40),
+("Simulazione top", "Gran Turismo 7 è il miglior simulatore di guida in circolazione. La cura nei dettagli è impressionante.", 5.00, 82, 50),
+("Un po' noioso", "Il gioco è bello, ma dopo un po' può diventare un po' ripetitivo e manca di varietà nelle sfide.", 3.50, 82, 60),
+("La simulazione perfetta", "Gran Turismo 7 è il punto di riferimento per le simulazioni di guida. Non ha rivali.", 5.00, 82, 70),
+("Troppo tecnico per me", "È un gioco che richiede molta pazienza e dedizione, non è adatto a chi cerca un gioco più casual.", 3.00, 82, 80),
+("Ottimo ma difficile", "Per gli appassionati di auto, è fantastico, ma per un giocatore casual è davvero troppo difficile.", 4.00, 82, 90),
+("Un simulatore eccellente", "La fisica di guida e i dettagli tecnici sono incredibili, ma ci vorrebbe più varietà nelle modalità di gioco.", 4.50, 82, 100);
+
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un gioco intrigante", "La storia è interessante, ma alcuni elementi di gioco sono ripetitivi. Comunque un buon gioco nel complesso.", 4.00, 49, 2),
+("Potenziale non sfruttato", "Ottima idea di base, ma la realizzazione lascia un po' a desiderare. La trama è buona, ma la gestione delle quest è scarsa.", 3.50, 49, 12),
+("Bella ambientazione", "L'ambientazione è stupenda, ma la progressione del gioco è troppo lenta e le missioni possono risultare ripetitive.", 3.50, 49, 22),
+("Molto buono, ma con difetti", "Il gioco ha molte buone idee, ma i combattimenti potrebbero essere più coinvolgenti e le quest secondarie più varie.", 4.00, 49, 32),
+("Intrigante ma incompleto", "La storia è molto interessante, ma il gioco sembra incompleto e manca di profondità in alcune meccaniche.", 3.50, 49, 42),
+("Avventura interessante", "Un gioco interessante, ma la parte grafica e le animazioni potrebbero essere migliorate. Nel complesso comunque positivo.", 4.00, 49, 52),
+("Storia ben scritta", "La trama è coinvolgente, ma le meccaniche di gioco non sono all'altezza delle aspettative. Comunque merita una prova.", 3.50, 49, 62),
+("Affascinante ma scivola", "La storia mi ha preso, ma la ripetitività e i bug mi hanno distratto troppo. Un gioco con grande potenziale.", 3.00, 49, 72),
+("Gioco di ruolo interessante", "Un buon GDR, con una trama solida e personaggi ben sviluppati. La gestione delle scelte è interessante.", 4.50, 49, 82),
+("Prometteva di più", "Il gioco è bello ma alla fine manca di quel qualcosa che lo rende veramente memorabile. Tuttavia, si lascia giocare.", 3.50, 49, 92);
+
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un gioco di ruolo classico", "Grim Dawn è un ottimo gioco di ruolo action, con un sistema di combattimento soddisfacente e tante personalizzazioni.", 4.50, 66, 5),
+("Molto divertente", "La costruzione del personaggio è profonda e le battaglie sono molto divertenti. Ottimo gioco per gli amanti dell'action RPG.", 5.00, 66, 15),
+("Un classico moderno", "Un gioco di ruolo che prende il meglio dei classici, ma con meccaniche moderne. Adatto a chi cerca sfide e molta personalizzazione.", 4.50, 66, 25),
+("Divertente ma ripetitivo", "Il gioco è molto divertente inizialmente, ma dopo un po' le missioni e i nemici diventano un po' ripetitivi.", 4.00, 66, 35),
+("Stile vecchio ma efficace", "Un action RPG con grafica e gameplay old-school, che però riesce a divertire grazie alla profondità delle meccaniche.", 4.00, 66, 45),
+("Ottimo per gli appassionati", "Se ti piacciono i giochi di ruolo con tanto loot e combattimenti, questo è un titolo che ti terrà impegnato a lungo.", 5.00, 66, 55),
+("Un po' troppo grind", "Il gioco offre tanta profondità, ma la ripetitività e il grinding possono diventare un po' noiosi.", 3.50, 66, 65),
+("Grafica migliorabile", "Nonostante il gameplay sia divertente, la grafica è un po' datata. Il gioco comunque offre tantissime ore di gioco.", 4.00, 66, 75),
+("Un action RPG interessante", "Grim Dawn offre una buona combinazione di combattimenti e personalizzazione, ma la storia non è delle più avvincenti.", 4.00, 66, 85),
+("Molto valido, ma non perfetto", "Il gioco ha molto da offrire, ma la ripetitività inizia a farsi sentire. Comunque un ottimo titolo per gli appassionati di RPG.", 4.00, 66, 95);
+
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un'opera d'arte", "Gris è un gioco incredibile, una vera e propria opera d'arte visiva e musicale. La storia è emozionante e profonda.", 5.00, 100, 8),
+("Bellissimo ma breve", "Il gioco è visivamente stupendo, ma la durata è troppo breve per giustificare il prezzo. Comunque un'esperienza unica.", 4.50, 100, 18),
+("Un viaggio emozionante", "Gris è un gioco che sa emozionare, la grafica e la musica sono incredibili. Ma la durata è veramente troppo corta.", 4.50, 100, 28),
+("Poco gameplay, ma bellissimo", "È più un'esperienza che un gioco tradizionale, ma la bellezza visiva e musicale è straordinaria.", 4.00, 100, 38),
+("Un viaggio indimenticabile", "La bellezza del gioco e la sua narrazione mi hanno toccato profondamente. La mancanza di combattimenti è compensata dalla sua atmosfera.", 5.00, 100, 48),
+("Stile unico", "Gris ha uno stile visivo unico, ma la mancanza di una vera sfida lo rende adatto solo a chi cerca esperienze emotive più che ludiche.", 4.00, 100, 58),
+("Un capolavoro visivo", "Un gioco che deve essere giocato almeno una volta per la sua bellezza artistica, ma la storia potrebbe essere più approfondita.", 4.50, 100, 68),
+("Emozionante e poetico", "La musica e la grafica sono incredibili, ma il gameplay è troppo semplice per giustificare il prezzo completo.", 4.00, 100, 78),
+("Un'esperienza unica", "Gris è emozionante e davvero toccante, ma la mancanza di una vera sfida mi ha un po' deluso.", 4.00, 100, 88),
+("Fantastico ma corto", "Un gioco bellissimo ma molto corto. Mi sarebbe piaciuto che durasse di più, soprattutto per l'atmosfera che riesce a creare.", 4.00, 100, 98);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un MMO senza pari", "Guild Wars 2 è uno dei migliori MMO disponibili, offre tantissime opzioni di personalizzazione e una trama interessante.", 5.00, 123, 7),
+("Ottimo gioco di ruolo", "La varietà delle classi e la libertà di esplorazione sono fantastici. La community è anche molto attiva e accogliente.", 4.50, 123, 17),
+("Un gioco che cresce con te", "Guild Wars 2 è un gioco che ti permette di crescere e adattare il tuo stile di gioco. Non stanca mai.", 5.00, 123, 27),
+("Molto divertente ma con difetti", "Ottimo gameplay, ma il sistema di crafting e alcune meccaniche di gioco potrebbero essere migliorate.", 4.00, 123, 37),
+("Un MMO da provare", "Il gioco è un buon MMORPG, ma ci sono alcune limitazioni che potrebbero essere migliorate, soprattutto nelle espansioni.", 4.00, 123, 47),
+("Mi ha preso molto", "Dopo anni di giochi MMO, Guild Wars 2 è riuscito a conquistarmi grazie al suo sistema di combattimento e alla trama coinvolgente.", 5.00, 123, 57),
+("Un gioco di grande profondità", "Guild Wars 2 è un MMO con un sacco di contenuti e storie da scoprire. Certo, alcuni contenuti richiedono molto tempo, ma vale la pena.", 4.50, 123, 67),
+("Comunità eccezionale", "La comunità di Guild Wars 2 è fantastica e la cooperazione nelle missioni è molto divertente. Alcuni problemi di bilanciamento però.", 4.00, 123, 77),
+("Un gioco che mi ha sorpreso", "Dopo aver giocato ad altri MMO, Guild Wars 2 mi ha sorpreso per la sua originalità e il modo in cui approccia le quest.", 4.50, 123, 43);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un picchiaduro spettacolare", "Guilty Gear Strive è uno dei migliori picchiaduro degli ultimi anni, con una grafica incredibile e un gameplay profondo.", 5.00, 150, 1),
+("Frenetico e divertente", "Il gameplay è rapido e ricco di azione, ma può risultare difficile per i principianti. La grafica è straordinaria!", 4.50, 150, 11),
+("Combat system solido", "Il sistema di combattimento è perfetto per i fan dei picchiaduro, ma l'impegno richiesto per padroneggiarlo è alto.", 4.00, 150, 21),
+("Un gioco visivamente magnifico", "La grafica è di un altro livello, ma il gameplay è decisamente per esperti. Per i principianti, il gioco può essere una sfida enorme.", 4.00, 150, 31),
+("Tecnico ma appagante", "Un picchiaduro che premia la tecnica e la precisione, ma è difficile da imparare. La musica e la grafica sono fantastiche.", 4.50, 150, 41),
+("Picchiaduro eccellente", "Guilty Gear Strive è un picchiaduro completo, ma alcuni personaggi sembrano un po' sbilanciati. Comunque uno dei migliori titoli del genere.", 4.00, 150, 51),
+("Bellissimo e tecnico", "Esteticamente bellissimo e con un gameplay tecnico che premia i giocatori esperti, ma può essere scoraggiante per i nuovi arrivati.", 4.50, 150, 61),
+("Ottimo, ma per esperti", "Il gioco è fantastico, ma il suo livello di difficoltà è molto alto, specialmente per chi non è abituato ai picchiaduro.", 3.50, 150, 71),
+("Fantastico ma troppo difficile", "Un picchiaduro fantastico con meccaniche complesse. Non è per tutti, ma gli appassionati lo ameranno.", 4.00, 150, 81),
+("Un capolavoro visivo", "La grafica è senza pari e le animazioni sono incredibili. Il gameplay è fantastico per chi ama la sfida.", 5.00, 150, 91);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un gioco fantastico", "Hades è un roguelike che riesce a combinare azione, narrazione e combattimenti perfetti. Uno dei migliori giochi del genere.", 5.00, 64, 2),
+("Roguelike perfetto", "Ogni run è diversa e la storia che si sviluppa in parallelo è incredibile. La rigiocabilità è altissima.", 5.00, 64, 12),
+("Bellissima combinazione di gameplay e storia", "Il gameplay è frenetico e coinvolgente, mentre la narrazione si evolve in modo interessante ad ogni tentativo.", 4.50, 64, 22),
+("Un gioiello nel suo genere", "Le meccaniche di gioco sono fantastiche, e la varietà delle armi è notevole. La difficoltà è giusta e la trama è affascinante.", 5.00, 64, 32),
+("Grandi meccaniche, ma difficile", "Il gioco è fantastico, ma la difficoltà può risultare frustrante per chi non è abituato ai roguelike. Comunque un ottimo gioco.", 4.00, 64, 42),
+("Un’esperienza unica", "Hades è un roguelike ben bilanciato, con una trama che si evolve in modo interessante. Il gameplay è fluido e le animazioni sono top.", 4.50, 64, 52),
+("Un gioco che non ti stanchi mai di giocare", "Nonostante il ciclo roguelike, la progressione dei personaggi e della trama ti tiene sempre incollato al gioco.", 5.00, 64, 62),
+("Comparto grafico e gameplay eccezionali", "La grafica è spettacolare e le meccaniche di gioco sono ben bilanciate. Un gioco che offre sempre nuove sfide.", 5.00, 64, 72),
+("Un’esperienza divertente", "Le battaglie sono coinvolgenti, ma a volte la difficoltà del gioco è un po’ eccessiva. In ogni caso, un’esperienza molto divertente.", 4.00, 64, 82),
+("Grandi meccaniche roguelike", "Hades è uno dei migliori giochi roguelike. La sua narrazione si evolve in modo interessante e le meccaniche di gioco sono eccellenti.", 4.50, 64, 92);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Uno dei migliori FPS", "Halo 2 è un capolavoro del genere FPS. La campagna è fantastica e il multiplayer è ancora oggi uno dei migliori.", 5.00, 228, 3),
+("Grande ritorno", "Halo 2 porta avanti la storia in modo epico, con nuove meccaniche e un multiplayer che non ha eguali.", 5.00, 228, 13),
+("Un FPS leggendario", "La campagna è incredibile e il multiplayer è stato una rivoluzione. Halo 2 è un gioco che ha cambiato il genere FPS.", 4.50, 228, 23),
+("Grande evoluzione", "Halo 2 migliora tutto ciò che c’era di buono nel primo gioco, con una campagna più intensa e un multiplayer fantastico.", 4.50, 228, 33),
+("FPS da urlo", "Halo 2 è un FPS epico che ha definito il genere per anni. La grafica e il gameplay sono straordinari.", 5.00, 228, 43),
+("Multiplayer incredibile", "Il multiplayer è sempre stato il cuore del gioco. Nonostante gli anni, Halo 2 è ancora divertente da giocare.", 4.50, 228, 53),
+("Una pietra miliare", "Halo 2 è uno dei migliori giochi mai creati, con una campagna indimenticabile e un multiplayer senza pari.", 5.00, 228, 63),
+("Capolavoro FPS", "Halo 2 è un gioco che ha fatto scuola per tutti gli FPS successivi. La campagna è emozionante e il multiplayer è leggendario.", 5.00, 228, 73),
+("Un must per gli amanti degli FPS", "La campagna di Halo 2 è straordinaria, ma ciò che lo rende davvero speciale è il multiplayer che ha fatto storia.", 4.50, 228, 83),
+("Il meglio di Halo", "Halo 2 ha una delle migliori storie mai raccontate in un FPS. Il multiplayer è ancora oggi un punto di riferimento per il genere.", 5.00, 228, 93);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Perfetto sotto ogni aspetto", "Halo 3 è il perfetto equilibrio tra campagna e multiplayer. La storia è coinvolgente e il gameplay è solido come una roccia.", 5.00, 229, 4),
+("Il migliore della serie", "Halo 3 ha migliorato tutto rispetto ai capitoli precedenti, con una campagna epica e un multiplayer che è ancora il migliore.", 5.00, 229, 14),
+("Storia epica e multiplayer leggendario", "La campagna di Halo 3 è incredibile, con un finale che non si dimentica mai. Il multiplayer è ancora oggi uno dei più giocati.", 5.00, 229, 24),
+("Halo 3 è un must", "La campagna è perfetta e il multiplayer è ancora la parte migliore del gioco. Non c’è davvero nulla da criticare.", 5.00, 229, 34),
+("FPS leggendario", "La storia è fenomenale, e il multiplayer ha definito lo standard per gli FPS. Halo 3 è senza dubbio un capolavoro.", 5.00, 229, 44),
+("Un classico senza tempo", "Halo 3 è un FPS che non ha mai perso il suo fascino. La campagna è appassionante e il multiplayer è sempre divertente.", 4.50, 229, 54),
+("Il miglior Halo", "Halo 3 è stato un gioco che ha segnato una generazione. La grafica, la storia e il multiplayer sono incredibili.", 5.00, 229, 64),
+("FPS perfetto", "Un gioco che ha reso la saga di Halo famosa in tutto il mondo. La campagna è perfetta e il multiplayer senza eguali.", 5.00, 229, 74),
+("Un must per gli appassionati", "Halo 3 è un gioco che ogni amante degli FPS dovrebbe giocare. La campagna è ricca e il multiplayer è incredibile.", 4.50, 229, 84),
+("Eccellente in ogni aspetto", "Halo 3 è uno dei migliori FPS di sempre. La storia è epica e il multiplayer è incredibile, ancora oggi uno dei migliori giochi online.", 5.00, 229, 94);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Grande evoluzione della saga", "Halo 4 porta la saga a un nuovo livello, con una grafica straordinaria e una storia interessante. Il multiplayer è altrettanto solido.", 5.00, 230, 5),
+("Un ottimo capitolo", "La campagna è avvincente e il gameplay è ben strutturato. Il multiplayer, seppur divertente, non è alla pari con i capitoli precedenti.", 4.50, 230, 15),
+("Bellissima grafica, ma...", "La grafica è stupenda, ma la campagna non è all’altezza di Halo 3. Il multiplayer è comunque divertente.", 4.00, 230, 25),
+("Un buon gioco", "Halo 4 ha un ottimo gameplay, ma a volte sembra troppo simile ai suoi predecessori. La trama è solida, ma non innovativa.", 4.00, 230, 35),
+("Una nuova direzione", "Il gioco segna una nuova direzione per la saga, con una trama più profonda e una grafica impressionante. Tuttavia, il multiplayer manca di freschezza.", 4.50, 230, 45),
+("Eccellente ma non perfetto", "Halo 4 è un grande gioco, ma la mancanza di alcune meccaniche classiche mi ha lasciato un po’ deluso. La grafica è comunque sbalorditiva.", 4.00, 230, 55),
+("Rivoluzione grafica", "Il miglioramento grafico è incredibile e il gameplay è solido, ma la storia non riesce a coinvolgere come in passato.", 4.50, 230, 65),
+("Halo inizia a cambiare", "Halo 4 cambia un po’ le carte in tavola. La grafica è migliore, ma la storia e il gameplay non mi hanno convinto pienamente.", 3.50, 230, 75),
+("Un buon inizio per la nuova trilogia", "Halo 4 segna l’inizio di una nuova trilogia interessante, ma non riesce a eguagliare i grandi successi precedenti della saga.", 4.00, 230, 85),
+("Piacevole ma non memorabile", "Il gioco è divertente, ma non lascia un segno indelebile come i capitoli precedenti. La campagna è bella, ma non eccezionale.", 4.00, 230, 95);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Il migliore della serie", "Halo 5: Guardians è un gioco fantastico, con un multiplayer incredibile e una campagna coinvolgente. Ottimo lavoro!", 5.00, 231, 6),
+("Multiplayer da urlo", "Il multiplayer di Halo 5 è eccezionale e migliora notevolmente rispetto ai precedenti capitoli. La campagna è buona, ma la storia è un po’ debole.", 4.50, 231, 16),
+("Un gioco eccezionale", "Halo 5 offre meccaniche innovative e un multiplayer coinvolgente. La storia poteva essere più profonda, ma il gameplay è eccezionale.", 4.50, 231, 26),
+("C’è qualcosa di magico nel multiplayer", "La campagna non è al top, ma il multiplayer di Halo 5 è senza pari. È davvero il cuore del gioco.", 4.50, 231, 36),
+("La grafica è incredibile", "Halo 5 ha una grafica pazzesca e meccaniche di gioco davvero divertenti. La trama non mi ha convinto completamente, ma il multiplayer è fantastico.", 4.00, 231, 46),
+("Molto buono, ma...", "Il gioco è bello, ma la storia della campagna non è all’altezza dei precedenti. In compenso, il multiplayer è davvero ottimo.", 4.00, 231, 56),
+("Troppo concentrato sul multiplayer", "Halo 5 è troppo orientato al multiplayer. La campagna è buona, ma non è ciò che mi aspettavo da un Halo.", 3.50, 231, 66),
+("Esperienza di gioco solida", "Halo 5 è un ottimo gioco, ma la storia poteva essere meglio. Il multiplayer compensa molte delle sue carenze.", 4.00, 231, 76),
+("Gioco divertente, ma con difetti", "Halo 5 è divertente, ma la storia è troppo prevedibile e il multiplayer a volte non è equilibrato. Tuttavia, è comunque un bel gioco.", 4.00, 231, 86),
+("Un buon capitolo", "Halo 5 è un capitolo interessante nella saga, con ottimi combattimenti e una bella grafica. La storia avrebbe potuto essere meglio.", 4.00, 231, 96);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un ritorno alle origini", "Halo Infinite è il ritorno che tutti aspettavamo. La campagna è coinvolgente e il multiplayer è finalmente tornato alle origini. Un capolavoro!", 5.00, 232, 7),
+("Un grande passo in avanti", "Halo Infinite è un gioco che migliora tutto ciò che c’era di buono nei precedenti. La grafica è fantastica e il gameplay è molto solido.", 5.00, 232, 17),
+("Il miglior Halo in anni", "La campagna è coinvolgente, la grafica stupenda e il multiplayer è divertentissimo. Halo Infinite è davvero uno dei migliori della saga.", 5.00, 232, 27),
+("Grande ritorno", "Halo Infinite segna il ritorno alle origini della saga, con una campagna aperta e una storia coinvolgente. Finalmente un grande titolo!", 5.00, 232, 37),
+("Storia epica", "La campagna di Halo Infinite è grandiosa, con una trama che finalmente mi ha fatto sentire il vero spirito della saga.", 5.00, 232, 47),
+("Una nuova era", "Halo Infinite è il nuovo inizio che la saga meritava. La grafica e il gameplay sono al top, ma il multiplayer è ancora in fase di miglioramento.", 4.50, 232, 57),
+("Più di un gioco", "Non è solo un gioco, è un’esperienza. Halo Infinite ha tutte le caratteristiche di un capolavoro, ma ci sono ancora alcune cose da perfezionare.", 4.50, 232, 67),
+("Un po’ troppo lento", "Halo Infinite è un gioco fantastico, ma a volte la progressione della campagna è troppo lenta. In compenso, la grafica è impressionante.", 4.00, 232, 77),
+("Gioco promettente", "Halo Infinite ha tutte le carte in regola per diventare un grande capitolo della saga. La campagna è buona, ma il multiplayer ha bisogno di qualche aggiornamento.", 4.00, 232, 87),
+("Halo come non l'ho mai visto", "Un Halo completamente rinnovato. La campagna è interessante, ma a volte la formula può sembrare un po’ ripetitiva. Il multiplayer è buono, ma non ancora perfetto.", 4.00, 232, 97);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Strategia in tempo reale epica", "Halo Wars è un ottimo gioco di strategia in tempo reale che porta la saga in un nuovo genere. La campagna è coinvolgente e ben strutturata.", 5.00, 233, 8),
+("Un’esperienza di strategia unica", "Il gameplay di Halo Wars è solido, con una trama interessante che si adatta perfettamente al genere RTS. Un must per i fan degli strategici.", 4.50, 233, 18),
+("Ottimo gioco, ma...", "Halo Wars è divertente, ma la mancanza di una campagna più lunga e la limitata varietà nelle unità lo rendono un po’ ripetitivo nel lungo periodo.", 4.00, 233, 28),
+("Un buon RTS, ma non per tutti", "Halo Wars è un ottimo gioco per gli amanti degli RTS, ma non è così accessibile per chi cerca un gameplay più frenetico. La storia è comunque interessante.", 4.00, 233, 38),
+("Strategia profonda", "Halo Wars offre un gameplay ricco di strategia, con meccaniche uniche e una trama ben scritta. Non è perfetto, ma è un grande passo nel genere RTS.", 4.50, 233, 48),
+("Troppo semplificato", "Halo Wars è divertente, ma le meccaniche sono un po’ troppo semplici per un gioco di strategia. Mi aspettavo qualcosa di più profondo.", 3.50, 233, 58),
+("Un gioco che sorprende", "Non pensavo che un gioco della saga di Halo potesse funzionare come RTS, ma Halo Wars è riuscito a sorprendere. La strategia è appagante, ma la campagna è breve.", 4.00, 233, 68),
+("Un buon mix di Halo e RTS", "Halo Wars riesce a combinare perfettamente l’universo Halo con il gameplay RTS. È divertente, ma alcuni aspetti potrebbero essere migliorati.", 4.00, 233, 78),
+("Adatto ai fan degli RTS", "Se sei un fan degli RTS, Halo Wars ti piacerà sicuramente. La storia è solida, ma il gameplay a volte può risultare un po’ ripetitivo.", 4.00, 233, 88),
+("Gioco divertente ma con potenziale non sfruttato", "Halo Wars ha un ottimo potenziale, ma manca di un po’ di profondità. È comunque un gioco piacevole, ma non è così memorabile.", 3.50, 233, 98);
+
+
+
 
 -- Insert Categories
 INSERT INTO CATEGORIES (CategoryName) VALUES
