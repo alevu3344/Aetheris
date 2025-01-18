@@ -37,6 +37,15 @@ class DatabaseHelper{
         return $result->fetch_assoc();
     }
 
+    //based on the latest published games
+    public function getRelevantGames($num){
+        $query = "SELECT * FROM GAMES ORDER BY ReleaseDate DESC LIMIT ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $num);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
     public function getDiscountedGames(){
         $query = "
             SELECT 

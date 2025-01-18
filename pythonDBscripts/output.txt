@@ -1,0 +1,292 @@
+198, Name: Age of Empires II
+199, Name: Age of Empires III
+68, Name: Age of Empires IV
+128, Name: Albion Online
+142, Name: Amnesia: The Dark Descent
+97, Name: Among Us
+132, Name: Animal Crossing: New Horizons
+73, Name: Anno 1800
+166, Name: Asphalt 9
+197, Name: Assassin's Creed Mirage
+193, Name: Assassin's Creed Odyssey
+192, Name: Assassin's Creed Origins
+194, Name: Assassin's Creed Rogue
+196, Name: Assassin's Creed Syndicate
+195, Name: Assassin's Creed Unity
+5, Name: Assassin's Creed Valhalla
+94, Name: Assetto Corsa
+159, Name: Baba Is You
+167, Name: Baldur's Gate 2
+55, Name: Baldur's Gate III
+9, Name: Batman: Arkham Knight
+187, Name: Battlefield 1
+188, Name: Battlefield 2042
+189, Name: Battlefield 3
+190, Name: Battlefield 4
+191, Name: Battlefield V
+168, Name: BioShock Infinite
+125, Name: Black Desert Online
+174, Name: Bully
+219, Name: Call of Duty: Advanced Warfare
+169, Name: Call of Duty: Black Ops
+170, Name: Call of Duty: Black Ops 2
+171, Name: Call of Duty: Black Ops 3
+172, Name: Call of Duty: Black Ops 4
+173, Name: Call of Duty: Black Ops 6
+179, Name: Call of Duty: Black Ops Cold War
+220, Name: Call of Duty: Ghosts
+221, Name: Call of Duty: Infinite Warfare
+222, Name: Call of Duty: Modern Warfare 2
+223, Name: Call of Duty: Modern Warfare 3
+224, Name: Call of Duty: Vanguard
+225, Name: Call of Duty: WWII
+96, Name: Celeste
+60, Name: Chrono Trigger
+74, Name: Cities: Skylines
+67, Name: Civilization VI
+12, Name: Control
+176, Name: Counter-Strike 2
+112, Name: Crash Bandicoot 4: It’s About Time
+71, Name: Crusader Kings III
+98, Name: Cuphead
+23, Name: Cyberpunk 2077
+62, Name: Dark Souls II
+30, Name: Dark Souls III
+15, Name: Days Gone
+44, Name: Dead Cells
+202, Name: Dead or Alive 5
+155, Name: Dead or Alive 6
+177, Name: Dead Space 2
+178, Name: Dead Space 3
+140, Name: Dead Space Remake
+14, Name: Death Stranding
+31, Name: Diablo IV
+200, Name: DiRT 3
+201, Name: DiRT 4
+88, Name: Dirt 5
+42, Name: Disco Elysium: The Final Cut
+19, Name: Dishonored 2
+54, Name: Divinity: Original Sin 2
+116, Name: Donkey Kong Country: Tropical Freeze
+181, Name: DOOM
+182, Name: DOOM 3
+180, Name: DOOM Eternal
+53, Name: Dragon Age: Inquisition
+151, Name: Dragon Ball FighterZ
+63, Name: Dragon Quest XI S: Echoes of an Elusive Age
+77, Name: Dwarf Fortress
+20, Name: Dying Light 2
+36, Name: Elden Ring
+164, Name: Escape Simulator
+203, Name: F1 23
+47, Name: Fable Anniversary
+204, Name: Fable II
+205, Name: Fable III
+130, Name: Fall Guys: Ultimate Knockout
+21, Name: Fallout: New Vegas
+206, Name: Far Cry 2
+207, Name: Far Cry 3
+208, Name: Far Cry 4
+16, Name: Far Cry 5
+209, Name: Far Cry 6
+217, Name: FC 24
+218, Name: FC 25
+210, Name: FIFA 14
+211, Name: FIFA 17
+212, Name: FIFA 18
+213, Name: FIFA 19
+214, Name: FIFA 20
+215, Name: FIFA 21
+216, Name: FIFA 22
+78, Name: FIFA 23
+27, Name: Final Fantasy VII Remake
+122, Name: Final Fantasy XIV
+59, Name: Final Fantasy XV
+26, Name: Final Fantasy XVI
+183, Name: Fire Emblem: Three Houses
+40, Name: Fire Emblem: Warriors
+51, Name: For the King
+234, Name: Forza Horizon 4
+81, Name: Forza Horizon 5
+137, Name: Gang Beasts
+28, Name: Genshin Impact
+6, Name: Ghost of Tsushima
+3, Name: God of War (2018)
+226, Name: God of War: Ascension
+227, Name: God of War: Ragnarok
+87, Name: Golf With Your Friends
+82, Name: Gran Turismo 7
+49, Name: GreedFall
+66, Name: Grim Dawn
+100, Name: Gris
+123, Name: Guild Wars 2
+150, Name: Guilty Gear Strive
+64, Name: Hades
+228, Name: Halo 2
+229, Name: Halo 3
+230, Name: Halo 4
+231, Name: Halo 5: Guardians
+232, Name: Halo Infinite
+233, Name: Halo Wars
+75, Name: Hearts of Iron IV
+235, Name: Hogwarts Legacy
+43, Name: Hollow Knight
+268, Name: Horizon Call of the Mountain
+39, Name: Horizon Forbidden West
+4, Name: Horizon Zero Dawn
+160, Name: Human: Fall Flat
+152, Name: Injustice 2
+107, Name: Inscryption
+110, Name: Inside
+163, Name: It Takes Two
+131, Name: Jackbox Party Pack 9
+156, Name: King of Fighters XV
+48, Name: Kingdom Come: Deliverance
+119, Name: Kirby and the Forgotten Land
+236, Name: Knack
+237, Name: Knack 2
+143, Name: Layers of Fear
+238, Name: League of Legends
+108, Name: Limbo
+109, Name: Little Nightmares
+146, Name: Little Nightmares II
+124, Name: Lost Ark
+239, Name: Mafia III
+129, Name: Mario Kart 8 Deluxe
+240, Name: Martha is Dead
+241, Name: Mass Effect
+242, Name: Mass Effect 2
+243, Name: Mass Effect 3
+22, Name: Mass Effect Legendary Edition
+18, Name: Metal Gear Solid V: The Phantom Pain
+244, Name: Metro Exodus
+186, Name: Minecraft
+80, Name: MLB The Show 23
+29, Name: Monster Hunter: World
+161, Name: Monument Valley
+184, Name: Mortal Kombat 1
+147, Name: Mortal Kombat 11
+185, Name: Mortal Kombat X
+245, Name: MotoGP 22
+89, Name: MotoGP 23
+79, Name: NBA 2K23
+246, Name: NBA 2K24
+247, Name: NBA 2K25
+83, Name: Need for Speed: Unbound
+127, Name: New World
+248, Name: NFL 25
+56, Name: Ni no Kuni II: Revenant Kingdom
+33, Name: Nier: Automata
+249, Name: Nioh
+250, Name: No Man's Sky
+34, Name: Octopath Traveler
+117, Name: Ori and the Blind Forest
+99, Name: Ori and the Will of the Wisps
+252, Name: Outlast
+141, Name: Outlast II
+251, Name: Outlast Trials
+136, Name: Overcooked! 2
+46, Name: Path of Exile
+253, Name: Payday 3
+25, Name: Persona 5 Royal
+145, Name: Phasmophobia
+41, Name: Pillars of Eternity II: Deadfire
+76, Name: Planet Zoo
+254, Name: Pokémon Black
+255, Name: Pokémon Legends: Arceus
+256, Name: Pokémon Scarlet
+257, Name: Pokémon Violet
+258, Name: Pokémon White
+259, Name: Pokémon X
+260, Name: Pokémon Y
+157, Name: Portal 2
+261, Name: Predator: Hunting Grounds
+135, Name: Pummel Party
+162, Name: Puzzle Quest: Challenge of the Warlords
+262, Name: Rainbow Six Siege
+114, Name: Ratchet & Clank: Rift Apart
+118, Name: Rayman Legends
+2, Name: Red Dead Redemption 2
+139, Name: Resident Evil 4 Remake
+263, Name: Resident Evil 5
+264, Name: Resident Evil 6
+265, Name: Resident Evil 7
+138, Name: Resident Evil Village
+85, Name: Riders Republic
+105, Name: RimWorld
+84, Name: Rocket League
+120, Name: Sackboy: A Big Adventure
+266, Name: Sea of Thieves
+13, Name: Sekiro: Shadows Die Twice
+93, Name: Session: Skate Sim
+289, Name: Silent Hill: Downpour
+290, Name: Silent Hill: Shattered Memories
+102, Name: Slay the Spire
+92, Name: SnowRunner
+115, Name: Sonic Frontiers
+154, Name: Soulcalibur VI
+267, Name: Spider-Man 2
+10, Name: Spider-Man: Miles Morales
+103, Name: Spiritfarer
+133, Name: Splatoon 3
+113, Name: Spyro Reignited Trilogy
+126, Name: Star Wars: The Old Republic
+95, Name: Stardew Valley
+57, Name: Starfield
+269, Name: Steep
+70, Name: Stellaris
+148, Name: Street Fighter 6
+111, Name: Super Mario Odyssey
+153, Name: Super Smash Bros. Ultimate
+61, Name: Tales of Arise
+149, Name: Tekken 7
+270, Name: Tekken 8
+35, Name: Terraria
+271, Name: Tetris Effect
+158, Name: Tetris Effect: Connected
+65, Name: The Banner Saga
+104, Name: The Binding of Isaac: Rebirth
+175, Name: The Callisto Protocol
+272, Name: The Chant
+273, Name: The Division
+38, Name: The Elder Scrolls V: Skyrim
+144, Name: The Evil Within 2
+274, Name: The Forest
+278, Name: The Last of Us Part 1
+11, Name: The Last of Us Part II
+1, Name: The Legend of Zelda: Breath of the Wild
+37, Name: The Legend of Zelda: Tears of the Kingdom
+45, Name: The Outer Worlds
+275, Name: The Quarry
+276, Name: Titanfall
+277, Name: Titanfall 2
+7, Name: Tomb Raider (2013)
+86, Name: Tony Hawk’s Pro Skater 1+2
+279, Name: Tormented Souls
+291, Name: Total War: Warhammer
+292, Name: Total War: Warhammer II
+69, Name: Total War: Warhammer III
+90, Name: TrackMania
+106, Name: Tunic
+8, Name: Uncharted 4: A Thief's End
+101, Name: Undertale
+165, Name: Unpacking
+50, Name: Vampyr
+17, Name: Watch Dogs: Legion
+280, Name: Watchdogs
+281, Name: Watchdogs 2
+134, Name: Wii Sports
+58, Name: Witcher 2: Assassins of Kings
+24, Name: Witcher 3: Wild Hunt
+282, Name: Wolfenstein: The New Order
+283, Name: Wolfenstein: The Old Blood
+284, Name: Wolfenstein: The Young Blood
+121, Name: World of Warcraft
+285, Name: World of Warships
+91, Name: WRC10
+286, Name: WWE 2K23
+287, Name: WWE 2K24
+72, Name: XCOM Enemy Unknown
+288, Name: XDefiant
+32, Name: Xenoblade Chronicles 3
+52, Name: Yakuza: Like a Dragon
