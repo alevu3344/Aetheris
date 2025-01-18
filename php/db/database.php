@@ -6,7 +6,7 @@ class DatabaseHelper{
     public function __construct($servername, $username, $password, $dbname, $port){
         $this->db = new mysqli($servername, $username, $password, $dbname, $port);
         if($this->db->connect_error){
-            die("Connesione fallita al db: " . $this->db->connect_error);
+            die("Connessione fallita al db: " . $this->db->connect_error);
         }
     }
 
@@ -19,19 +19,28 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    // this function returns a map between a game and its quantity in the shopping cart
+    // this function returns a list of tuples (GameId, GameName, Quantity, OriginalPrice, Discount (0% if not discounted))
     public function getShoppingCart($userId){
-        $query = "SELECT * FROM SHOPPING_CART WHERE UserId = ?";
+        $query = "
+            SELECT 
+                G.Id, 
+                G.Name, 
+                SC.Quantity, 
+                G.Price, 
+                IFNULL(DG.Percentage, 0) AS Discount
+            FROM 
+                SHOPPING_CART SC
+            INNER JOIN 
+                GAMES G ON SC.GameId = G.Id
+            LEFT JOIN 
+                DISCOUNTED_GAMES DG ON G.Id = DG.GameId
+            WHERE 
+                SC.UserId = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $userId);
         $stmt->execute();
         $result = $stmt->get_result();
-        $cart = $result->fetch_all(MYSQLI_ASSOC);
-        $cartMap = array();
-        foreach($cart as $item){
-            $cartMap[$item["GameId"]] = $item["Quantity"];
-        }
-        return $cartMap;
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     public function getGameById($id){

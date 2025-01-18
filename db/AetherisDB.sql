@@ -98,9 +98,10 @@ CREATE TABLE USERS (
 CREATE TABLE SHOPPING_CARTS(
   UserId    int(11) NOT NULL references USERS(Username),
   GameId    int(11) NOT NULL references GAMES(Id),
+  Platform enum("PC", "PlayStation", "Xbox","Nintendo Switch") NOT NULL, -- Platform for which the order was made
   Quantity  int (11) NOT NULL,
 
-  PRIMARY KEY (UserId,GameId)
+  PRIMARY KEY (UserId,GameId, Platform)
 );
 
 CREATE TABLE REVIEWS (
@@ -124,6 +125,7 @@ CREATE TABLE ORDERS (
   OrderDate datetime NOT NULL DEFAULT current_timestamp(), -- When the order was placed
   TotalCost decimal(10,2) NOT NULL, -- Total cost of the order
   Status enum("Pending", "Completed", "Shipped", "Canceled") NOT NULL DEFAULT "Pending", -- Order status
+  Platform enum("PC", "PlayStation", "Xbox","Nintendo Switch") NOT NULL, -- Platform for which the order was made
   PRIMARY KEY (Id),
   FOREIGN KEY (UserId) REFERENCES USERS(Username) -- Links to USERS table
 );
@@ -137,9 +139,6 @@ CREATE TABLE ORDER_ITEMS (
   FOREIGN KEY (OrderId) REFERENCES ORDERS(Id), -- Links to ORDERS table
   FOREIGN KEY (GameId) REFERENCES GAMES(Id) -- Links to GAMES table
 );
-
-
-
 
 
 

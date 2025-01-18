@@ -814,3 +814,146 @@ input:focus {
                            /*END REGISTRATION FORM*/
 /************************************************************************/
                        
+
+
+/* ------------------------ BEGIN SHOPPING CART--------------------------- */
+/* General styles for the shopping cart */
+body > main > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body > main > ul > li {
+  margin-bottom: 20px;
+}
+
+/* Styling for each game entry */
+body > main > ul > li > article {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr auto;
+  padding: 15px;
+  background-color: #56565c;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  gap: 10px;
+  position: relative;
+}
+
+body > main > ul > li > article > footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #56565c;
+  margin: 0;
+  border-top: 0px;
+}
+
+/* Image on the left */
+body > main > ul > li > article > header img {
+  max-width: 100px;
+  height: auto;
+  border-radius: 4px;
+  grid-row: 1 / span 3; /* Spans the entire height of the layout */
+  align-self: start; /* Ensures alignment with the top */
+}
+
+body > main > ul > li > article > section {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: flex-start; /* Align content to the top */
+  margin: 0;
+}
+
+
+
+.title-trash {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Align Game Title and Trash Bin to the top */
+}
+
+.game-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.platforms {
+  margin: 0;
+}
+
+.platforms img {
+  width: 30px;
+  height: auto;
+  margin-right: 10px;
+}
+
+/* Trash bin in the top right */
+.remove-item {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.remove-item img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Quantity scroller and price */
+.cart-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-column: 2;
+}
+
+body > main > ul > li > article > footer > section {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.quantity-arrow {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+  width: 25px; /* Fixing button width */
+  height: 25px; /* Fixing button height */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center-align arrow content */
+}
+
+.quantity {
+  font-size: 1rem;
+  width: 30px;
+  text-align: center;
+}
+
+.game-price {
+  font-size: 1.1rem;
+  color: #28a745;
+  margin: 0;
+}
+
+/* Hover effects */
+.cart-actions button:hover {
+  opacity: 0.8;
+}
+
+.remove-item:hover img {
+  opacity: 0.7;
+}
+
+
+
+/* ------------------------ END SHOPPING CART--------------------------- */
