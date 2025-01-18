@@ -19,13 +19,19 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getGameCover($id){
-        $query = "SELECT Cover FROM GAMES WHERE Id = ?";
+    // this function returns a map between a game and its quantity in the shopping cart
+    public function getShoppingCart($userId){
+        $query = "SELECT * FROM SHOPPING_CART WHERE UserId = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("i", $id);
+        $stmt->bind_param("i", $userId);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $result->fetch_assoc()["Cover"];
+        $cart = $result->fetch_all(MYSQLI_ASSOC);
+        $cartMap = array();
+        foreach($cart as $item){
+            $cartMap[$item["GameId"]] = $item["Quantity"];
+        }
+        return $cartMap;
     }
 
     public function getGameById($id){
@@ -75,8 +81,9 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    //get all the reviews for a game, ordered by date
     public function getReviewsByGame($id){
-        $query = "SELECT * FROM RECENSIONI WHERE GameID = ?";
+        $query = "SELECT * FROM REVIEWS WHERE GameId = ? ORDER BY Date DESC";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $id);
         $stmt->execute();
