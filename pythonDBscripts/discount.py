@@ -31,7 +31,7 @@ try:
     all_games = cursor.fetchall()
     
     # Approximately 25% of all games
-    num_discounted_games = len(all_games) // 4
+    num_discounted_games = len(all_games) // 3
     discounted_game_ids = random.sample([game[0] for game in all_games], num_discounted_games)
 
     # Step 2: Insert random discounts for each selected game
