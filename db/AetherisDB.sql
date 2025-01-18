@@ -875,7 +875,7 @@ INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
 ("Trama avvincente", "La storia si espande ulteriormente e offre una conclusione soddisfacente alla trilogia.", 4.5, 178, 84),
 ("Troppi DLC", "Il gioco di base è buono, ma i contenuti aggiuntivi a pagamento sono un po’ troppi. Avrei preferito tutto incluso.", 3.9, 178, 99);
 
-INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserId) VALUES
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
 ("Un classico dell'horror", "Dead Space è uno dei giochi horror più iconici mai realizzati. La tensione e il senso di solitudine sono palpabili.", 5.0, 140, 1),
 ("Paura continua", "Ogni angolo di questo gioco è carico di tensione. I Necromorfi sono spaventosi e ogni suono fa tremare le ossa.", 4.9, 140, 10),
 ("Horror puro", "La grafica e l’atmosfera sono incredibili, perfette per creare un’esperienza di paura autentica. Un must per gli amanti del genere.", 5.0, 140, 20),
@@ -888,7 +888,7 @@ INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserId) VALUES
 ("Un viaggio spaventoso", "Dead Space è l’apice del survival horror. La paura è reale e l’atmosfera è incredibile. Un’esperienza che non si dimentica.", 5.0, 140, 95);
 
 
-INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserId) VALUES
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
 ("Un’esperienza unica", "Death Stranding è un gioco che sfida le convenzioni. Non è solo un gioco, è un’esperienza da vivere. La trama è profondamente coinvolgente.", 4.9, 14, 1),
 ("Un viaggio solitario", "Il gioco ti costringe ad affrontare il mondo da solo. La sensazione di solitudine è unica, ma può risultare anche noiosa dopo un po'.", 4.2, 14, 5),
 ("Gameplay interessante", "La meccanica di trasportare pacchi può sembrare monotona, ma alla fine ti immerge in un mondo straordinario e unico.", 4.5, 14, 10),
@@ -900,7 +900,7 @@ INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserId) VALUES
 ("Un capolavoro, ma per pochi", "Death Stranding è un capolavoro del design e della narrazione, ma non è per tutti. Devi essere pronto ad affrontare un’esperienza diversa.", 4.7, 14, 60),
 ("Una nuova forma di gioco", "Kojima ha creato qualcosa di davvero nuovo con Death Stranding. Non è solo un gioco, è una riflessione sul mondo moderno.", 4.8, 14, 70);
 
-INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserId) VALUES
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
 ("Un ritorno alla gloria", "Diablo IV riporta la serie alle sue radici con un gameplay coinvolgente, nemici epici e un mondo oscuro. Finalmente un ritorno ai vecchi tempi!", 4.9, 31, 1),
 ("Un gioco affascinante", "La grafica è fantastica, e la storia mi ha davvero coinvolto. Ho passato ore a esplorare il mondo di Sanctuarium.", 5.0, 31, 10),
 ("Ottimo ma con margini di miglioramento", "Il gioco è fantastico, ma ci sono alcune piccole imperfezioni che potrebbero essere migliorate, soprattutto nella gestione delle risorse.", 4.3, 31, 20),
@@ -913,7 +913,7 @@ INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserId) VALUES
 ("Ottimo ma con troppi bug", "Il gioco è veramente divertente, ma ci sono alcuni bug fastidiosi che influenzano l’esperienza. Spero che vengano risolti presto.", 4.1, 31, 90);
 
 
-INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserId) VALUES
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
 ("Una corsa emozionante", "DiRT 3 è un gioco di corse divertente con una buona varietà di tracciati e modalità. Ottima fisica di guida!", 4.8, 200, 1),
 ("Gran divertimento in pista", "Le gare sono rapide e frenetiche, ma la fisica di guida è ben bilanciata. Ottimo per chi cerca un’esperienza arcade.", 4.7, 200, 10),
 ("Non solo corse", "Il gioco offre una varietà di modalità, ma la modalità Gymkhana è una delle mie preferite. Mi fa davvero divertire.", 4.9, 200, 20),
@@ -926,7 +926,7 @@ INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserId) VALUES
 ("Divertimento senza fine", "DiRT 3 riesce a bilanciare perfettamente l’accessibilità e la profondità. Ti troverai a giocare ore senza mai annoiarti.", 4.7, 200, 90);
 
 
-INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserId) VALUES
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
 ("Un passo avanti rispetto a DiRT 3", "DiRT 4 migliora molte delle meccaniche di guida del suo predecessore. Le gare sono più fluide e la varietà di tracciati è ancora maggiore.", 4.8, 201, 1),
 ("Divertimento assicurato", "Le modalità di gioco sono molteplici e ognuna ha il suo fascino. La personalizzazione delle auto è un’altra grande aggiunta.", 4.7, 201, 10),
 ("Un’esperienza più realistica", "La fisica di guida è migliorata, e si nota. L’esperienza di guida è più gratificante e realistica rispetto a DiRT 3.", 4.9, 201, 20),
@@ -939,7 +939,7 @@ INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserId) VALUES
 ("Un capolavoro di corse", "Non è solo un gioco di corse, è un’esperienza che ti porta a superare te stesso in ogni gara. Uno dei migliori giochi di corse degli ultimi anni.", 5.0, 201, 90);
 
 
-INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserId) VALUES
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
 ("Un ritorno al divertimento arcade", "DiRT 5 è un gioco di corse che punta più sul divertimento immediato e l’azione piuttosto che sulla simulazione. Ottimo per chi cerca una corsa spensierata.", 4.6, 88, 1),
 ("Corsa adrenalinica", "Le gare sono rapide e intense, e la varietà di ambientazioni è davvero impressionante. Nonostante manchi di una simulazione profonda, è molto divertente da giocare.", 4.7, 88, 10),
 ("Il miglior DiRT per divertirsi", "La fisica di guida è un po’ più arcade rispetto a DiRT 4, ma la sensazione di velocità e l’adrenalina sono ottimi. Le modalità multiplayer sono davvero coinvolgenti.", 4.8, 88, 20),
@@ -952,7 +952,7 @@ INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserId) VALUES
 ("Divertimento senza pensieri", "DiRT 5 è un gioco che ti permette di staccare la mente e goderti semplicemente le corse. Perfetto per chi cerca un’esperienza di gioco senza troppi pensieri.", 4.6, 88, 90);
 
 
-INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserId) VALUES
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
 ("Un capolavoro narrativo", "Disco Elysium: The Final Cut è un viaggio coinvolgente nella mente di un detective, con una trama ricca e profondamente scritta. Ogni decisione ha un peso e il mondo di gioco è straordinario.", 5.0, 42, 1),
 ("Un gioco che sfida la mente", "La profondità dei personaggi e delle scelte narrative rende questo gioco un’esperienza unica. La libertà di esplorare e decidere come affrontare ogni situazione è un punto di forza.", 4.9, 42, 10),
 ("Una storia indimenticabile", "La trama è così ben costruita che ti tiene incollato al gioco per ore. Le scelte che fai influenzano profondamente il corso degli eventi, rendendo ogni partita unica.", 5.0, 42, 20),
@@ -964,7 +964,7 @@ INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserId) VALUES
 ("Un titolo da giocare con calma", "Disco Elysium non è un gioco da fare in fretta. Va giocato con calma, prendendosi il tempo di esplorare e riflettere su ogni scelta. Ogni momento ha un significato.", 4.9, 42, 80),
 ("Un viaggio psicologico", "Questo gioco è un vero e proprio viaggio psicologico. Ti costringe a confrontarti con le tue scelte morali e a riflettere su chi sei. È un’esperienza unica che consiglio a tutti.", 4.8, 42, 90);
 
-INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserId) VALUES
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
 ("Un capolavoro narrativo", "Disco Elysium: The Final Cut è un viaggio coinvolgente nella mente di un detective, con una trama ricca e profondamente scritta. Ogni decisione ha un peso e il mondo di gioco è straordinario.", 5.0, 42, 1),
 ("Un gioco che sfida la mente", "La profondità dei personaggi e delle scelte narrative rende questo gioco un’esperienza unica. La libertà di esplorare e decidere come affrontare ogni situazione è un punto di forza.", 4.9, 42, 10),
 ("Una storia indimenticabile", "La trama è così ben costruita che ti tiene incollato al gioco per ore. Le scelte che fai influenzano profondamente il corso degli eventi, rendendo ogni partita unica.", 5.0, 42, 20),
@@ -976,7 +976,7 @@ INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserId) VALUES
 ("Un titolo da giocare con calma", "Disco Elysium non è un gioco da fare in fretta. Va giocato con calma, prendendosi il tempo di esplorare e riflettere su ogni scelta. Ogni momento ha un significato.", 4.9, 42, 80),
 ("Un viaggio psicologico", "Questo gioco è un vero e proprio viaggio psicologico. Ti costringe a confrontarti con le tue scelte morali e a riflettere su chi sei. È un’esperienza unica che consiglio a tutti.", 4.8, 42, 90);
 
-INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserId) VALUES
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
 ("Un capolavoro RPG", "Divinity: Original Sin 2 è uno dei migliori giochi di ruolo mai realizzati. La libertà di scelta, il combattimento a turni strategico e la trama coinvolgente lo rendono un’esperienza indimenticabile.", 5.0, 54, 1),
 ("La perfezione del combat system", "Il sistema di combattimento è semplicemente fantastico, con una profondità strategica che ti permette di affrontare ogni battaglia in modo unico. Ogni personaggio ha abilità che ti fanno pensare attentamente a ogni mossa.", 4.9, 54, 10),
 ("Un mondo ricco di dettagli", "Il mondo di gioco è incredibilmente ricco e variegato. Ogni area è piena di segreti da scoprire e personaggi interessanti da incontrare. La narrazione è ben scritta e ti tiene sempre coinvolto.", 5.0, 54, 20),
@@ -988,7 +988,7 @@ INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserId) VALUES
 ("Un’esperienza di gioco unica", "Il gioco è pieno di scelte difficili e combattimenti strategici che richiedono pensiero e pianificazione. L’introduzione della magia e degli elementi ambientali rende ogni battaglia diversa e divertente.", 4.8, 54, 80),
 ("Indimenticabile", "Divinity: Original Sin 2 è un gioco che rimarrà con te anche dopo averlo finito. Le opzioni di dialogo, le scelte morali e la varietà dei personaggi creano un’esperienza che ogni appassionato di giochi di ruolo dovrebbe provare.", 5.0, 54, 90);
 
-INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserId) VALUES
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
 ("Un platform perfetto", "Donkey Kong Country: Tropical Freeze è un platform incredibile. Il design dei livelli è brillante e la difficoltà è ben calibrata, rendendo ogni partita emozionante e coinvolgente.", 5.0, 116, 1),
 ("Divertimento puro", "Il gameplay è fluido, le animazioni sono fantastiche, e la colonna sonora è fantastica. Un platform che riesce a mantenere il suo fascino senza mai annoiare. Perfetto per i fan dei giochi retrò!", 4.8, 116, 10),
 ("Un ritorno al passato", "Tropical Freeze porta il meglio della serie Donkey Kong in un formato moderno. La grafica è splendida, la musica è fantastica e le meccaniche di gioco sono perfette. Un vero classico.", 5.0, 116, 20),
@@ -999,6 +999,371 @@ INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserId) VALUES
 ("Incredibile come sempre", "Le animazioni sono spettacolari, e l’introduzione dei nuovi personaggi rende il gioco ancora più interessante. Donkey Kong Country è sempre una garanzia di qualità e Tropical Freeze non fa eccezione.", 4.9, 116, 70),
 ("Divertente e impegnativo", "Tropical Freeze è un gioco che sfida ma che premia i giocatori con livelli pieni di azione, velocità e puzzle. È un gioco che ti fa sorridere ogni volta che riesci a completare un livello difficile.", 5.0, 116, 80),
 ("Un classico dei platform", "Tropical Freeze è uno dei migliori giochi platform della sua generazione. La combinazione di design dei livelli, difficoltà, e divertimento rende questo gioco un must-have per tutti gli appassionati del genere.", 5.0, 116, 90);
+
+
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un classico intramontabile", "DOOM è uno dei giochi che ha definito il genere degli sparatutto in prima persona. La sua velocità, l’intensità dei combattimenti e l’atmosfera unica lo rendono un’esperienza senza pari.", 5.0, 181, 1),
+("Sparatutto puro", "Un gioco che non perde mai la sua intensità. I combattimenti sono frenetici e ogni mossa deve essere veloce. La colonna sonora metal e l’ambientazione infernale rendono ogni scontro epico.", 5.0, 181, 10),
+("Un gameplay adrenalinico", "DOOM è un gioco che non smette mai di sorprendere. La velocità del gioco è incredibile e l’azione non si ferma mai. Se vuoi un’esperienza di gioco pura e adrenalinica, DOOM è perfetto.", 4.9, 181, 20),
+("Un capolavoro del genere FPS", "L’approccio alla velocità e all’azione in DOOM è senza pari. I livelli sono progettati per massimizzare l’intensità degli scontri, e la trama semplice ma efficace non rallenta mai il ritmo.", 5.0, 181, 30),
+("Un gioco che ti mette alla prova", "DOOM non è solo un gioco che si gioca, è un gioco che ti sfida costantemente. Con i suoi combattimenti frenetici e le armi potenti, ogni livello ti mette alla prova e ti premia per la tua velocità.", 4.8, 181, 40),
+("Non solo un gioco, un’esperienza", "DOOM è un’esperienza che non puoi descrivere, devi viverla. Il mix tra azione frenetica, grafica spettacolare e colonna sonora heavy metal crea un’atmosfera unica che ti coinvolge completamente.", 5.0, 181, 50),
+("Velocità e potenza", "L’essenza di DOOM è nella velocità con cui puoi affrontare i nemici, ma anche nella potenza delle armi che hai a disposizione. Ogni nemico che abbatti ti dà una sensazione di grande potere.", 5.0, 181, 60),
+("Una vera rivoluzione nel suo tempo", "DOOM ha segnato una vera rivoluzione per gli sparatutto in prima persona. Con il suo movimento veloce, i combattimenti frenetici e l’innovativa grafica, è uno dei giochi che ha cambiato il panorama videoludico.", 5.0, 181, 70),
+("Ritmo inarrestabile", "In DOOM non c’è mai un momento di tranquillità. Il ritmo è costantemente accelerato, e ogni livello ti fa sentire parte di un’avventura che non si ferma mai. La sensazione di velocità è unica.", 4.9, 181, 80),
+("Energie pure", "DOOM è energia pura. Difficilmente troverai un gioco che riesca a tenere il passo in termini di intensità. Un must per chi ama i giochi FPS e vuole immergersi in un’avventura adrenalinica.", 5.0, 181, 90);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un DOOM più oscuro", "DOOM 3 è un’esperienza completamente diversa rispetto ai suoi predecessori. Più atmosferico e horror, è un gioco che riesce a combinare azione e paura in modo unico, con una grafica che all’epoca era incredibile.", 4.9, 182, 1),
+("Paura e adrenalina", "Il gioco porta la serie DOOM in una direzione più oscura e inquietante. I nemici sono terrificanti e l’atmosfera è tesa, mentre le meccaniche di combattimento mantengono alta l’adrenalina. Un mix perfetto di paura e azione.", 4.8, 182, 10),
+("Atmosfera coinvolgente", "DOOM 3 è riuscito a creare un’atmosfera unica di paura e suspense. La grafica, anche se datata, è stata utilizzata in modo magistrale per creare un ambiente veramente inquietante e coinvolgente.", 4.7, 182, 20),
+("Un cambio di tono riuscito", "Rispetto ai giochi precedenti, DOOM 3 è molto più focalizzato sul lato horror. La tensione che si costruisce mentre esplori l’oscura base lunare è palpabile. Sebbene manchi la stessa frenesia, il gioco ha un suo fascino.", 4.6, 182, 30),
+("Un capolavoro per gli amanti dell’horror", "DOOM 3 riesce a mescolare elementi di sparatutto e horror in modo che pochi giochi riescano a fare. Le ambientazioni claustrofobiche e i nemici che emergono dalle ombre creano un’esperienza davvero spaventosa.", 5.0, 182, 40),
+("Un cambio di ritmo interessante", "A differenza dei suoi predecessori, DOOM 3 si concentra di più sull’atmosfera e sull’esplorazione. Non è frenetico come gli altri DOOM, ma riesce a mantenere l’attenzione grazie alla sua eccellente grafica e suspense.", 4.7, 182, 50),
+("L’orrore in un FPS", "DOOM 3 ha portato la serie a un livello completamente nuovo, con un forte accento sull’orrore psicologico. La qualità grafica è straordinaria e le sezioni di gioco piene di oscurità e sorprese spaventose ti tengono sempre all’erta.", 5.0, 182, 60),
+("Intenso ma inquietante", "Il gioco non è per tutti, ma se ti piace l’horror e i giochi con un’atmosfera tesa, DOOM 3 è perfetto. La gestione della luce e dell’oscurità è magistrale e crea una sensazione costante di paura.", 4.8, 182, 70),
+("Ottima grafica per l’epoca", "La grafica di DOOM 3 era davvero impressionante per il periodo in cui è uscito. Le luci, le ombre e i dettagli degli ambienti sono davvero ben curati, contribuendo enormemente all’atmosfera inquietante del gioco.", 4.9, 182, 80),
+("Un DOOM diverso", "Se cercavi un gioco d’azione sfrenata come gli altri DOOM, potresti rimanere deluso. Ma se sei un fan degli horror psicologici, DOOM 3 ti offre un’esperienza intensa e unica. La suspense è insostenibile.", 4.6, 182, 90);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Il ritorno di un classico", "DOOM Eternal porta la serie a un nuovo livello. Più veloce, più frenetico, con nuove armi e abilità. Un vero capolavoro per chi ama l’azione sfrenata e il gameplay ad alta intensità.", 5.0, 180, 1),
+("Un’azione senza sosta", "DOOM Eternal è la quintessenza dell’azione FPS. I combattimenti sono velocissimi, le armi sono potenti e ogni livello è un’opportunità per distruggere nemici in modi spettacolari. Un’esperienza adrenalinica dal principio alla fine.", 5.0, 180, 10),
+("Un capolavoro ad alta velocità", "La velocità e la fluidità del gameplay sono incredibili. Le armi e le nuove meccaniche come il rampino aggiungono una profondità tattica che non esisteva nei precedenti capitoli. DOOM Eternal è la definizione di un FPS moderno.", 5.0, 180, 20),
+("Pura adrenalina", "Non c’è mai un momento di calma in DOOM Eternal. La velocità dei combattimenti e la varietà di nemici rendono ogni scontro qualcosa di epico. La sensazione di potenza mentre si abbattono i nemici è indescrivibile.", 5.0, 180, 30),
+("La miglior esperienza DOOM", "DOOM Eternal ha perfezionato il suo predecessore, aumentando la velocità, la varietà delle armi e la fluidità dei movimenti. Ogni scontro è emozionante e il gioco ti lascia sempre con la voglia di più.", 5.0, 180, 40),
+("Frenesia e precisione", "Il gioco mantiene la sua frenesia ma aggiunge una precisione nelle meccaniche che lo rende ancora più coinvolgente. Non basta premere il grilletto, bisogna essere veloci e astuti per sfruttare ogni abilità al massimo.", 5.0, 180, 50),
+("Non solo un FPS", "DOOM Eternal non è solo un gioco d’azione, è un balletto di distruzione e velocità. Ogni mossa è essenziale per sopravvivere, ed è incredibile come il gioco riesca a combinare azione pura con una strategia leggera.", 5.0, 180, 60),
+("Un’esperienza unica", "Ogni missione in DOOM Eternal è un tour de force di combattimenti, salti e puzzle. Le ambientazioni sono magnifiche, e la colonna sonora, sempre metal, ti spinge a dare il massimo in ogni scontro.", 4.9, 180, 70),
+("Esplosivo e potente", "Le meccaniche di combattimento sono fluide, potenti e stimolanti. DOOM Eternal ti mette costantemente alla prova, ma la soddisfazione di abbattere un nemico con una delle sue armi è impareggiabile.", 5.0, 180, 80),
+("Un FPS che non delude mai", "DOOM Eternal ti spinge al limite, ma non è mai frustrante. Ogni livello è una sequenza di azione continua che ti cattura fin dal primo momento. Un gioco imperdibile per gli amanti dell’FPS.", 5.0, 180, 90);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un’epica avventura fantasy", "Dragon Age: Inquisition è un gioco che cattura l’essenza delle storie fantasy epiche. Con una trama avvincente, mondi vasti da esplorare e un sistema di combattimento interessante, è uno dei migliori giochi di ruolo degli ultimi anni.", 4.9, 53, 1),
+("Un mondo ricco di dettagli", "Il gioco ti offre una storia emozionante e complessa, ma ciò che lo rende speciale sono le sue ambientazioni. Ogni luogo che esplori è ricco di dettagli, e le decisioni che prendi hanno un impatto tangibile sul mondo intorno a te.", 5.0, 53, 10),
+("Combattimenti e scelte morali", "Dragon Age: Inquisition è un gioco che ti mette di fronte a scelte difficili. Ogni missione ti sfida moralmente e la personalizzazione del tuo personaggio ti consente di adattarlo al tuo stile di gioco.", 4.8, 53, 20),
+("Un RPG che non delude", "La qualità della trama e del gameplay in Dragon Age: Inquisition è impressionante. Con un sistema di combattimento che premia la strategia e personaggi ben scritti, il gioco è perfetto per chi cerca un RPG profondo e ricco di contenuti.", 4.9, 53, 30),
+("Immersione totale", "L’atmosfera di Dragon Age: Inquisition è incredibile. Le fazioni, i paesaggi e la trama sono ben costruiti, e la sensazione di essere parte di un mondo vivente è una delle caratteristiche più affascinanti del gioco.", 5.0, 53, 40),
+("Un capolavoro del fantasy", "Dragon Age: Inquisition unisce ottimi combattimenti, una trama interessante e personaggi memorabili. Ogni decisione che prendi ha peso e influenza sul mondo e sulle persone che incontrerai.", 4.9, 53, 50),
+("La saga continua", "Come terzo capitolo della saga, Dragon Age: Inquisition mantiene alta la qualità e l’emozione. La sua storia è coinvolgente e le missioni principali e secondarie sono tutte ben bilanciate.", 4.8, 53, 60),
+("Un gioco che ti fa riflettere", "Le scelte morali che ti vengono proposte in Dragon Age: Inquisition non sono mai facili. Il gioco ti fa riflettere su ciò che è giusto e sbagliato, rendendo ogni decisione più significativa.", 4.9, 53, 70),
+("Un RPG perfetto", "Dragon Age: Inquisition è un gioco che soddisfa ogni appassionato di RPG. Le sue missioni sono avvincenti, il sistema di progressione è ben realizzato e la storia ti tiene incollato allo schermo fino alla fine.", 5.0, 53, 80),
+("Un viaggio epico", "Il viaggio che intraprendi in Dragon Age: Inquisition è straordinario. Con una trama coinvolgente e un mondo ricco di dettagli, è un gioco che ogni appassionato di RPG dovrebbe provare.", 4.9, 53, 90);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Combattimento spettacolare", "Dragon Ball FighterZ è un gioco che porta l’esperienza di combattimento di Dragon Ball a nuovi livelli. Con grafica straordinaria e un gameplay che mette alla prova le tue abilità, è il sogno di ogni fan della saga.", 5.0, 151, 1),
+("Un gioco che fa volare il cuore", "Con il suo stile grafico che ricorda l’animazione originale e la fluidità dei combattimenti, Dragon Ball FighterZ è uno dei migliori picchiaduro degli ultimi anni. Ogni scontro è emozionante e spettacolare.", 5.0, 151, 10),
+("Perfetto per i fan di Dragon Ball", "Questo gioco è un omaggio perfetto per i fan di Dragon Ball. I personaggi sono ben curati, i combattimenti sono frenetici e soddisfacenti, e la possibilità di fare mosse spettacolari ti fa sentire come se fossi davvero nell’anime.", 5.0, 151, 20),
+("Grafica incredibile e gameplay fluido", "Dragon Ball FighterZ è un picchiaduro incredibile con una grafica che sembra uscita direttamente dall’anime. Il gameplay è fluido e coinvolgente, e le combo sono spettacolari.", 4.9, 151, 30),
+("Battaglie mozzafiato", "Ogni combattimento in Dragon Ball FighterZ è un viaggio emozionante. Le mosse speciali, gli attacchi combinati e la grafica 2D curata al dettaglio ti fanno vivere ogni battaglia come se fosse un episodio dell’anime.", 5.0, 151, 40),
+("Divertimento puro", "Dragon Ball FighterZ è divertente da giocare, con un sistema di combattimento che premia i riflessi e la strategia. Le animazioni sono spettacolari e ogni mossa sembra realizzata con grande cura.", 5.0, 151, 50),
+("Un combattimento che non stanca mai", "Non importa quante volte giochi, Dragon Ball FighterZ è sempre emozionante. La varietà di personaggi e la qualità dei combattimenti mantengono l’esperienza fresca e divertente ogni volta che ci giochi.", 4.9, 151, 60),
+("Frenesia e spettacolo", "Le battaglie in Dragon Ball FighterZ sono piene di azione e spettacolari da guardare. La possibilità di combinare mosse e strategie rende ogni partita unica e appassionante.", 5.0, 151, 70),
+("Un must per i fan dei picchiaduro", "Dragon Ball FighterZ è uno dei migliori giochi di combattimento degli ultimi anni. La sua grafica e il sistema di gioco sono perfetti per chi ama i picchiaduro veloci e spettacolari.", 4.8, 151, 80),
+("Il miglior gioco di Dragon Ball", "Questo è senza dubbio il miglior gioco di Dragon Ball mai creato. Il gameplay è fantastico, la grafica è eccezionale e i fan della serie troveranno sicuramente il loro personaggio preferito.", 5.0, 151, 90);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un classico RPG moderno", "Dragon Quest XI S è un gioco che cattura perfettamente lo spirito dei giochi di ruolo classici. La storia è coinvolgente, i personaggi sono ben scritti e il mondo è vasto e ricco di avventure. Un must per ogni appassionato del genere.", 5.0, 63, 1),
+("Un’esperienza indimenticabile", "Questo gioco è una delle migliori esperienze RPG degli ultimi anni. La trama è emozionante, la grafica è splendida e le meccaniche di combattimento sono semplici ma profonde. È un vero gioiello del genere JRPG.", 5.0, 63, 10),
+("Un’avventura epica", "Con una storia che ti tiene incollato, Dragon Quest XI S è un’avventura epica che ti farà vivere momenti indimenticabili. La profondità dei personaggi e delle missioni è straordinaria.", 4.9, 63, 20),
+("Il miglior Dragon Quest di sempre", "Questo capitolo della saga di Dragon Quest è senza dubbio uno dei migliori. Con una trama avvincente, combattimenti strategici e un mondo magnificamente realizzato, è un gioco che ogni fan dei JRPG dovrebbe giocare.", 5.0, 63, 30),
+("Magia e avventura", "La combinazione di magia, combattimenti e avventura in Dragon Quest XI S è perfetta. Ogni zona da esplorare è affascinante, e la personalizzazione dei personaggi è un’altra delle caratteristiche che rende il gioco speciale.", 5.0, 63, 40),
+("Un JRPG che non delude", "Dragon Quest XI S è un RPG classico ma con una modernizzazione che lo rende fruibile anche a chi non ha mai giocato ai capitoli precedenti. La trama è ricca di emozioni e i combattimenti sono sempre interessanti.", 4.8, 63, 50),
+("Un mondo che ti affascina", "Ogni angolo di Dragon Quest XI S è ricco di dettagli, dai paesaggi incantevoli ai personaggi affascinanti. La storia ti cattura dal primo momento, e le meccaniche di gioco sono semplici ma gratificanti.", 4.9, 63, 60),
+("Una gemma nel mondo degli RPG", "Con una trama coinvolgente, mondi da esplorare e combattimenti strategici, Dragon Quest XI S è uno dei migliori RPG in circolazione. Le opzioni di personalizzazione dei personaggi sono ottime e l’atmosfera del gioco è unica.", 5.0, 63, 70),
+("Un JRPG che ti fa sognare", "Dragon Quest XI S è un gioco che ti fa sentire parte di un mondo fantasy ricco di magia e avventura. Ogni area da esplorare è affascinante, e le battaglie sono soddisfacenti e ben bilanciate.", 5.0, 63, 80),
+("Il ritorno di una saga leggendaria", "Dragon Quest XI S è un ritorno trionfale per una delle saghe più amate del genere. La sua trama, i personaggi e il gameplay sono semplicemente perfetti per gli appassionati di RPG.", 4.9, 63, 90);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un gioco incredibile e complesso", "Dwarf Fortress è uno dei giochi più complessi e affascinanti mai creati. La generazione procedurale e la libertà di creazione offrono infinite possibilità, e ogni partita è unica. Un gioco che richiede tempo ma premia l’ingegno.", 5.0, 77, 1),
+("Un’esperienza unica", "Dwarf Fortress è un gioco che mescola gestione, simulazione e avventura in un modo unico. La sua complessità è sia un punto di forza che una barriera per i nuovi giocatori, ma per chi è disposto a imparare, è un’esperienza incredibile.", 5.0, 77, 10),
+("Un capolavoro della simulazione", "La simulazione di Dwarf Fortress è una delle più complesse mai create. Ogni decisione che prendi ha un impatto significativo sulla tua colonia e sul mondo che ti circonda. Un gioco che premia la pianificazione e la strategia.", 4.9, 77, 20),
+("Un gioco per menti strategiche", "Dwarf Fortress non è un gioco facile, ma per chi ama le sfide è un’esperienza senza pari. La profondità della simulazione e le possibilità di personalizzazione sono fenomenali.", 5.0, 77, 30),
+("Complessità infinita", "Dwarf Fortress è un gioco che ti cattura con la sua complessità infinita. Ogni partita è diversa, e ogni scelta che fai può avere enormi conseguenze. È un gioco che ti fa pensare e riflettere su ogni mossa.", 4.9, 77, 40),
+("Un gioco che non smette mai di stupire", "Ogni volta che pensi di aver capito tutto in Dwarf Fortress, il gioco ti sorprende con qualcosa di nuovo. La sua capacità di simulare un intero mondo in dettaglio è incredibile, e ogni partita è un’avventura unica.", 5.0, 77, 50),
+("Per i veri amanti della simulazione", "Dwarf Fortress è per chi ama la simulazione dettagliata e la gestione complessa. La curva di apprendimento è ripida, ma una volta che inizi a comprenderlo, è difficile smettere di giocare.", 4.8, 77, 60),
+("Un gioco di pazienza e strategia", "Dwarf Fortress richiede pazienza e una buona dose di strategia. La gestione della tua colonia e le dinamiche del gioco sono così dettagliate che ogni errore può costarti caro, ma quando riesci a far prosperare la tua colonia, è estremamente soddisfacente.", 5.0, 77, 70),
+("Un vero test per la mente", "Dwarf Fortress è un gioco che mette alla prova la tua capacità di pensare strategicamente. Ogni partita è una sfida, e devi essere pronto a improvvisare quando le cose non vanno come previsto.", 4.9, 77, 80),
+("Un mondo che vive di vita propria", "La cosa che rende Dwarf Fortress speciale è che ogni mondo che crei è completamente dinamico e vivo. Le tue azioni hanno un impatto sulle generazioni future, e ogni gioco è una storia unica.", 5.0, 77, 90);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un’esperienza intensa", "Dying Light 2 è un gioco che mescola azione, esplorazione e sopravvivenza in un mondo aperto devastato. La trama è coinvolgente, le meccaniche di parkour sono straordinarie e la possibilità di influenzare il mondo in base alle tue scelte rende il gioco unico.", 5.0, 20, 1),
+("Un gioco che ti tiene sulla punta dei piedi", "La combinazione di combattimento, esplorazione e parkour in Dying Light 2 è incredibile. Ogni angolo della città è da esplorare, e ogni scelta che fai ha un impatto sul mondo che ti circonda.", 5.0, 20, 10),
+("Un’avventura mozzafiato", "La libertà di movimento offerta dal parkour è uno degli aspetti migliori di Dying Light 2. La trama, sebbene interessante, non è la parte migliore, ma la sensazione di essere un sopravvissuto in un mondo post-apocalittico è davvero immersiva.", 4.8, 20, 20),
+("Un passo avanti rispetto al primo", "Dying Light 2 migliora molti aspetti del suo predecessore, in particolare il sistema di movimento e le scelte narrative. Le città sono immense e piene di opportunità per chi ama esplorare e combattere.", 5.0, 20, 30),
+("Un open world vibrante e pericoloso", "Dying Light 2 riesce a ricreare un mondo di gioco vivido e pericoloso. Le notti sono particolarmente emozionanti, e le missioni secondarie sono tanto ricche quanto la trama principale.", 4.9, 20, 40),
+("L’evoluzione del genere", "Con il suo gameplay basato su parkour e l’ambientazione post-apocalittica, Dying Light 2 è un ottimo esempio di come i giochi open world possano evolversi. La storia è buona, ma il focus sul movimento e sul combattimento lo rende un gioco da vivere e non solo da giocare.", 5.0, 20, 50),
+("Molto divertente, ma con qualche difetto", "Dying Light 2 è incredibilmente divertente grazie alle sue meccaniche di parkour e alla varietà delle missioni. Tuttavia, la storia principale può sembrare un po’ prevedibile in certi momenti.", 4.7, 20, 60),
+("Un mondo dove le scelte contano", "Le scelte che fai in Dying Light 2 non sono solo estetiche, ma influenzano realmente il mondo che ti circonda. Ogni decisione può cambiare la tua esperienza di gioco in modo significativo.", 5.0, 20, 70),
+("Il parkour che rende tutto più dinamico", "Il sistema di parkour è davvero innovativo e rende ogni esplorazione un’esperienza unica. Le ambientazioni sono mozzafiato e l’atmosfera del gioco ti tiene sempre coinvolto.", 4.9, 20, 80),
+("Un gioco che non smette mai di sorprendere", "Dying Light 2 offre un mondo vasto e pieno di sorprese. Ogni zona esplorata ha il suo carattere, e le dinamiche di combattimento sono coinvolgenti e soddisfacenti.", 5.0, 20, 90);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un capolavoro assoluto", "Elden Ring è un gioco che non ha rivali nel suo genere. La vasta libertà di esplorazione, la trama criptica e il combattimento profondo fanno di questo titolo una vera e propria esperienza indimenticabile.", 5.0, 36, 1),
+("Un mondo incantevole e letale", "Elden Ring è un mondo che ti accoglie con grande bellezza, ma che è anche spietato. Ogni angolo nasconde un segreto, e la sensazione di progressione è soddisfacente come non mai. Un must per ogni fan dei giochi di ruolo.", 5.0, 36, 10),
+("Un’esperienza unica", "Elden Ring ti catapulta in un mondo misterioso e affascinante, dove ogni angolo è una sfida. Il design del mondo aperto è fenomenale e l’atmosfera che crea è unica nel suo genere.", 5.0, 36, 20),
+("La sfida di Elden Ring", "Se hai mai giocato a un Soulslike, saprai che ogni vittoria in Elden Ring è una conquista. Con la sua difficoltà, il gioco ti insegna la pazienza, ma le ricompense sono immense. Non è un gioco per tutti, ma per chi è pronto a sfidarsi è un’esperienza imperdibile.", 4.9, 36, 30),
+("Il miglior gioco del 2022", "Elden Ring ha ridefinito il concetto di gioco di ruolo open world. Con una storia affascinante e una vastità di contenuti incredibile, questo titolo si distingue come uno dei migliori degli ultimi anni.", 5.0, 36, 40),
+("Un viaggio epico", "Ogni parte di Elden Ring è un viaggio epico. La difficoltà è impegnativa, ma non ingiusta, e la libertà di esplorazione è infinita. Le battaglie contro i boss sono alcune delle più memorabili che abbia mai affrontato.", 5.0, 36, 50),
+("Un’opera maestosa", "Con il suo mondo aperto, la libertà nelle scelte e la cura nei dettagli, Elden Ring è un gioco che merita di essere giocato da ogni amante dei giochi di ruolo. È un’opera che ti sfida e ti premia allo stesso tempo.", 4.9, 36, 60),
+("Il mondo di Elden Ring è vivo", "Elden Ring è uno dei mondi di gioco più affascinanti che abbia mai esplorato. Ogni zona ha il suo carattere e il suo stile, e le meccaniche di gioco sono incredibilmente soddisfacenti.", 5.0, 36, 70),
+("Un’esperienza da non perdere", "Elden Ring è una delle esperienze più appaganti che si possano vivere nel mondo dei videogiochi. La sua trama misteriosa e la difficoltà stimolante lo rendono un titolo che non puoi assolutamente perdere.", 5.0, 36, 80),
+("Un gioco che cambia la vita", "Elden Ring non è solo un gioco, è un viaggio. La bellezza del mondo di gioco, unita a un combattimento appagante e una trama da scoprire lentamente, lo rende un’esperienza che lascia il segno.", 5.0, 36, 90);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un gioco di puzzle divertente", "Escape Simulator è un gioco di puzzle coinvolgente che ti fa sentire come se stessi davvero cercando di risolvere enigmi per fuggire da una stanza. Ogni livello è unico e offre una sfida interessante.", 4.8, 164, 1),
+("Perfetto per gli amanti degli enigmi", "Se sei un fan dei giochi di fuga, Escape Simulator è un titolo che non puoi perdere. La varietà di puzzle e la possibilità di giocare in modalità cooperativa lo rendono ancora più divertente.", 5.0, 164, 10),
+("Enigmi intriganti", "Le stanze in Escape Simulator sono ben progettate, e la varietà degli enigmi mantiene il gioco fresco. È perfetto per giocare da soli o con amici, e ti farà pensare molto prima di trovare la soluzione.", 4.7, 164, 20),
+("Ottimo per il cooperativo", "Escape Simulator brilla quando giocato in modalità cooperativa. Lavorare insieme per risolvere enigmi è estremamente gratificante, e il gioco offre molte stanze diverse da esplorare.", 5.0, 164, 30),
+("Un’esperienza divertente e stimolante", "Ogni livello di Escape Simulator è un nuovo enigma da decifrare. I puzzle sono ben costruiti e stimolanti, e la sensazione di vittoria quando riesci a risolverli è fantastica.", 4.8, 164, 40),
+("Gioco ideale per una serata con amici", "Escape Simulator è perfetto per passare una serata con gli amici. È divertente, stimolante e offre una varietà di stanze che manterranno occupati anche i giocatori più esperti.", 4.9, 164, 50),
+("Risolvi enigmi e divertiti", "Il gameplay di Escape Simulator è semplice ma efficace: risolvere enigmi per progredire. La grafica è piacevole e le stanze sono ben progettate, facendo del gioco una buona esperienza per chi ama le sfide mentali.", 4.7, 164, 60),
+("Un buon passatempo", "Escape Simulator è un gioco che puoi giocare in brevi sessioni, ma che riesce comunque a essere coinvolgente. I puzzle non sono troppo difficili, ma abbastanza stimolanti da far venire voglia di risolverli tutti.", 4.5, 164, 70),
+("Puzzle ben fatti", "Ogni stanza ha una sua logica, e i puzzle sono abbastanza vari da tenerti impegnato. Escape Simulator è un ottimo gioco se ami mettere alla prova la tua mente con enigmi creativi.", 4.8, 164, 80),
+("Un gioco che ti fa pensare", "Escape Simulator ti fa ragionare, ti costringe a pensare in modo logico e a risolvere enigmi complessi. Le stanze sono varie e divertenti, e l’esperienza complessiva è davvero soddisfacente.", 4.9, 164, 90);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un’esperienza di corsa realistica", "F1 23 offre una simulazione di guida incredibile. I dettagli sui circuiti e le dinamiche di guida sono molto realistici, e la modalità carriera è coinvolgente.", 5.0, 203, 1),
+("Perfetto per gli appassionati di corse", "Se sei un fan della Formula 1, F1 23 è il gioco che fa per te. La fedeltà alla simulazione è impressionante, e la varietà di modalità di gioco offre molto da fare.", 5.0, 203, 10),
+("Un gioco di corse davvero completo", "F1 23 è un gioco che offre sia realismo che divertimento. La grafica è incredibile e la gestione delle auto è così precisa che ti sentirai come un vero pilota di Formula 1.", 4.9, 203, 20),
+("Simulazione impeccabile", "La simulazione in F1 23 è perfetta. Ogni dettaglio, dalle dinamiche di pista alla gestione della macchina, è stato pensato per offrire un’esperienza il più realistica possibile.", 5.0, 203, 30),
+("Ottimo per la carriera", "La modalità carriera di F1 23 è davvero coinvolgente. Puoi creare il tuo pilota, scegliere la tua squadra e competere in campionati intensi. È un ottimo modo per immergersi completamente nel mondo della Formula 1.", 4.8, 203, 40),
+("Un gioco di corse ad alta velocità", "Con F1 23, ogni curva e ogni sorpasso sono intensi. La modalità multigiocatore è fantastica, e le gare online sono sempre emozionanti e competitive.", 4.9, 203, 50),
+("Un’esperienza di corse ad alta definizione", "La grafica di F1 23 è semplicemente sbalorditiva, con una resa dei circuiti e delle auto molto dettagliata. Inoltre, le animazioni dei piloti e gli effetti sonori sono molto realistici.", 5.0, 203, 60),
+("Un gioco per tutti", "Che tu sia un principiante o un esperto di simulazioni di corse, F1 23 ha modalità per tutti. Le opzioni di personalizzazione delle impostazioni di difficoltà ti permettono di adattare il gioco al tuo livello.", 4.8, 203, 70),
+("La competizione è reale", "Le gare in F1 23 sono serrate, e la sensazione di competere contro piloti di livello mondiale ti fa sentire come se fossi davvero su una pista di Formula 1. Il gioco ti sfida e ti fa migliorare.", 5.0, 203, 80),
+("L’esperienza completa di F1", "F1 23 è un gioco che offre tutto ciò che un fan della Formula 1 potrebbe desiderare: gare mozzafiato, modalità carriera coinvolgente e la possibilità di competere online contro altri giocatori.", 5.0, 203, 90);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un classico della magia", "Fable Anniversary è un remake fantastico di un classico intramontabile. La storia, il mondo e le scelte morali sono ancora incredibilmente coinvolgenti, e la grafica aggiornata è un piacere per gli occhi.", 4.8, 47, 1),
+("Un gioco da rigiocare", "Fable Anniversary offre una narrazione ricca e affascinante. Ogni scelta che fai ha un impatto sul mondo di gioco, e la possibilità di diventare un eroe o un cattivo è sempre divertente.", 4.7, 47, 10),
+("Ritorno alla fiera di Albion", "Questo remake di Fable è una meraviglia. La grafica migliorata e l’aggiunta di nuovi contenuti lo rendono un’esperienza fresca, pur mantenendo il fascino dell’originale.", 4.9, 47, 20),
+("Un’avventura indimenticabile", "Fable Anniversary conserva tutto il fascino dell’originale, con un sistema di scelte morali che rende ogni partita unica. È un gioco che non si dimentica facilmente.", 4.8, 47, 30),
+("Un grande remake", "Questo remake di Fable è il modo perfetto per vivere l’avventura in modo moderno. La grafica è sorprendente e la storia rimane incredibilmente coinvolgente. La personalizzazione del personaggio è un altro punto forte.", 4.9, 47, 40),
+("La magia di Albion", "Fable Anniversary ti fa sentire come se stessi vivendo un’avventura epica in un mondo magico. Le scelte che fai hanno un impatto significativo sul mondo, rendendo ogni partita speciale.", 4.7, 47, 50),
+("La nostalgia del primo Fable", "Fable Anniversary è una versione aggiornata di un gioco che ha fatto la storia. Nonostante la grafica migliore, il gioco conserva intatto il suo spirito originale e la sua magia.", 4.8, 47, 60),
+("Un’esperienza unica", "Fable Anniversary è una delle esperienze più uniche nel mondo dei giochi di ruolo. Ogni scelta che fai conta, e il mondo di Albion è tanto affascinante quanto pericoloso.", 5.0, 47, 70),
+("Un tuffo nel passato", "Fable Anniversary è il gioco perfetto per chi vuole rivivere un classico. La nuova grafica lo rende più bello che mai, ma la storia e le scelte morali rimangono il cuore del gioco.", 4.9, 47, 80),
+("Un gioco che non stanca mai", "Fable Anniversary è una delle migliori esperienze RPG di sempre. La storia è emozionante, le opzioni di gioco sono ampie, e la possibilità di scegliere il proprio destino è sempre interessante.", 5.0, 47, 90);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un seguito epico", "Fable II è un gioco fantastico che espande l’universo di Albion con una storia coinvolgente e scelte morali che impattano il mondo. La libertà che offre è senza pari.", 4.9, 204, 1),
+("Un RPG che fa sognare", "Fable II è un gioco che ti cattura fin da subito. La storia è ricca, il mondo è vivo e le tue scelte influenzano davvero l’evolversi degli eventi. Un RPG che non delude mai.", 5.0, 204, 10),
+("Migliore dell’originale", "Fable II migliora ogni aspetto dell’originale, con una trama ancora più affascinante, personaggi più profondi e un mondo aperto che ti invoglia ad esplorare ogni angolo.", 4.8, 204, 20),
+("Un gioco di ruolo straordinario", "Fable II è un gioco di ruolo che si distingue per la sua libertà e la profondità delle scelte morali. Puoi essere un eroe o un malvagio, e il mondo reagisce di conseguenza.", 4.9, 204, 30),
+("Un’avventura da vivere", "La storia in Fable II è emozionante e le scelte che fai rendono ogni partita unica. La possibilità di costruire la tua vita in Albion è una delle caratteristiche che lo rendono speciale.", 5.0, 204, 40),
+("Scelte morali che contano", "Fable II ti mette di fronte a scelte morali significative che influenzano il destino del mondo. Questo è ciò che rende il gioco così interessante e coinvolgente.", 5.0, 204, 50),
+("Un mondo vivo", "Il mondo di Albion in Fable II è vibrante e pieno di vita. Ogni angolo nasconde una nuova avventura e il gameplay non diventa mai noioso. È un’esperienza che non ti stancherai mai di esplorare.", 4.8, 204, 60),
+("Un’esperienza che ti segna", "Fable II non è solo un gioco, è un’esperienza. Le tue azioni hanno conseguenze e il mondo cambia a seconda delle scelte che fai, creando un legame unico con il gioco.", 5.0, 204, 70),
+("La libertà di essere chi vuoi", "In Fable II puoi essere chi vuoi, e il gioco ti lascia totale libertà. Puoi fare ciò che ti pare, e il mondo di Albion ti accoglie in ogni tua decisione.", 4.9, 204, 80),
+("Una storia che non si dimentica", "Fable II è una delle storie più emozionanti che un videogioco possa raccontare. Il legame con il personaggio e le sue scelte è forte, e il mondo ti avvolge completamente.", 5.0, 204, 90);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un’avventura che ti cambia", "Fable III è una continuazione emozionante della saga. Le scelte politiche e morali sono unici, con un’idea innovativa che aggiunge profondità alla trama.", 4.7, 205, 1),
+("Il potere nelle tue mani", "In Fable III, il concetto di potere e responsabilità è al centro della trama. Le tue scelte come sovrano cambiano il destino del regno, rendendo il gioco ancora più coinvolgente.", 4.8, 205, 10),
+("Un’evoluzione della serie", "Fable III porta una ventata di novità alla saga, con un gameplay più fluido e una storia ancora più ricca. La gestione del regno è un’aggiunta interessante, ma la parte più affascinante resta la libertà di scelta.", 4.9, 205, 20),
+("Un regno nelle tue mani", "Fable III ti mette in posizione di potere, dove ogni decisione ha un impatto diretto sul regno e sul suo popolo. La profondità della trama è una delle sue caratteristiche principali.", 4.7, 205, 30),
+("Una storia che evolve", "La storia di Fable III è emozionante, con scelte morali che portano a risultati concreti. Il concetto di leadership rende il gioco diverso dai suoi predecessori, ma altrettanto coinvolgente.", 4.8, 205, 40),
+("Eroe o tiranno", "In Fable III, puoi diventare il sovrano che vuoi essere. Le tue azioni e decisioni cambiano il destino del regno, e il gioco fa un ottimo lavoro nel mettere in luce le conseguenze di queste scelte.", 5.0, 205, 50),
+("La lotta per il potere", "Fable III mette il giocatore al centro di una lotta per il potere, dove ogni decisione, anche quella più piccola, conta. È un’esperienza che ti fa riflettere.", 4.9, 205, 60),
+("Una trama emozionante", "La storia in Fable III è emozionante e ben costruita. Le scelte che fai come sovrano ti pongono di fronte a dilemmi morali che rendono il gioco unico e memorabile.", 5.0, 205, 70),
+("Un gioco che non delude", "Fable III offre un’esperienza che non delude mai. La possibilità di influenzare il regno e fare scelte difficili aggiunge una dimensione interessante alla trama, rendendolo uno dei migliori RPG.", 4.8, 205, 80),
+("Un’epopea politica", "Fable III non è solo un RPG, ma anche un gioco che esplora la politica, il potere e la responsabilità. Ogni decisione ha una grande ripercussione sulla storia, e il gioco ti fa sentire davvero il peso di essere un sovrano.", 5.0, 205, 90);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un divertimento senza fine", "Fall Guys è un gioco divertentissimo, perfetto per divertirsi con amici. Le partite sono veloci e frenetiche, e ogni round è una sorpresa. Adatto a chi cerca una dose di leggerezza!", 4.9, 130, 1),
+("Chaos e risate assicurate", "Fall Guys è il tipo di gioco che non puoi smettere di giocare. Ogni round è un caos totale, ma proprio per questo è così divertente. Le sfide sono sempre diverse, e il design è super colorato.", 5.0, 130, 10),
+("Competizione pazza", "Fall Guys mescola competizione e caos in un mix perfetto. Ogni partita è una corsa all’assurdo, dove ci si può trovare a vincere o a perdere in pochi secondi. È molto più divertente di quanto sembri.", 4.8, 130, 20),
+("Perfetto per le partite veloci", "Fall Guys è ideale per chi cerca un gioco veloce, divertente e leggero. Non serve molto tempo per divertirsi, e le partite sono sempre diverse, tenendo alto l’interesse.", 4.7, 130, 30),
+("Un gioco per tutti", "Fall Guys è accessibile a tutti, anche a chi non è un gamer esperto. Le regole sono semplici, ma le sfide possono essere imprevedibili e divertenti. Ideale per giocare in compagnia!", 4.9, 130, 40),
+("Un caos colorato", "Fall Guys è pura energia. I livelli sono esilaranti e il gioco è frenetico. Non ci si annoia mai, perché ogni partita porta qualcosa di nuovo e divertente.", 5.0, 130, 50),
+("Un party game perfetto", "Fall Guys è la scelta ideale per una sessione di gioco con amici. È semplice, veloce e incredibilmente divertente, con situazioni assurde che ti fanno ridere di continuo.", 4.8, 130, 60),
+("Da non perdere per i fan dei battle royale", "Fall Guys è un battle royale che si distingue per la sua originalità. Invece di sparare, ti ritrovi a correre, saltare e sfidare gli altri giocatori in prove divertenti.", 4.9, 130, 70),
+("Risate a non finire", "Fall Guys è il gioco che ti fa ridere a ogni partita. Le sfide sono facili da comprendere, ma mai scontate. Ogni volta che giochi, ti ritrovi a ridere per le disavventure che ti capitano.", 5.0, 130, 80),
+("Un gioco semplice ma efficace", "Fall Guys non ha bisogno di complicate meccaniche di gioco per essere divertente. È tutto nel caos e nelle risate che nascono dalla competizione tra giocatori. Consigliato per chi cerca un gioco spensierato!", 4.8, 130, 90);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un capolavoro post-apocalittico", "Fallout: New Vegas è un gioco che ti catapulta in un mondo post-apocalittico ricco di scelte morali e storie affascinanti. Le decisioni che prendi hanno un impatto significativo sulla trama, rendendo ogni partita unica.", 5.0, 21, 1),
+("Un RPG che non delude mai", "Con Fallout: New Vegas, Obsidian ha creato un gioco che mescola perfettamente esplorazione, combattimento e narrazione. La libertà che offre al giocatore è straordinaria, e la storia è piena di colpi di scena.", 4.9, 21, 10),
+("La scelta è la chiave", "Fallout: New Vegas ti mette al centro delle scelte morali. Ogni decisione che prendi può cambiare il corso degli eventi e delle alleanze, facendoti sentire veramente responsabile dei tuoi atti.", 5.0, 21, 20),
+("Un mondo aperto straordinario", "Il mondo di Fallout: New Vegas è vasto, dettagliato e pieno di missioni secondarie interessanti. Ogni angolo della mappa nasconde segreti e storie che ti terranno impegnato per ore.", 4.8, 21, 30),
+("Un RPG da non perdere", "Fallout: New Vegas è uno dei migliori RPG mai creati. La trama è coinvolgente e le opzioni di dialogo sono incredibilmente varie, permettendo di vivere una storia personalizzata a seconda delle tue scelte.", 5.0, 21, 40),
+("Un’esperienza unica", "Fallout: New Vegas offre un’esperienza immersiva senza pari. La possibilità di allearti con diverse fazioni e di decidere il destino della città è una delle cose che rende il gioco così speciale.", 4.9, 21, 50),
+("Un’ambientazione da urlo", "L’ambientazione di Fallout: New Vegas è una delle migliori nella storia dei giochi post-apocalittici. La sua atmosfera è unica, con dialoghi ben scritti e personaggi indimenticabili.", 4.8, 21, 60),
+("Un gioco che ti fa riflettere", "Le scelte che fai in Fallout: New Vegas non sono mai facili. Ogni decisione ha delle conseguenze, e il gioco ti spinge a riflettere sul significato di giustizia, lealtà e potere.", 5.0, 21, 70),
+("La libertà è tutto", "Fallout: New Vegas è un gioco che ti permette di scegliere il tuo destino. Puoi essere un eroe o un tiranno, e il gioco ti permette di vivere le tue scelte fino in fondo, con un grande impatto sulla storia.", 4.9, 21, 80),
+("Un gioco che non invecchia mai", "Nonostante gli anni, Fallout: New Vegas resta un gioco senza tempo. Le sue meccaniche sono ancora fresche e le storie che racconta sono sempre attuali, facendone uno dei migliori giochi RPG di sempre.", 4.8, 21, 90);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un’esperienza di sopravvivenza intensa", "Far Cry 2 è un gioco che ti mette alla prova in ogni aspetto, dalla gestione delle risorse alla lotta per la sopravvivenza. Le ambientazioni sono vaste e realistiche, ma la difficoltà può essere frustrante a volte.", 4.6, 206, 1),
+("Un gioco crudo e realistico", "Far Cry 2 è un gioco che ti fa sentire il peso della guerra. Il realismo è impressionante, ma può risultare pesante per chi cerca un’esperienza più leggera. La mappa è vasta, ma può sembrare ripetitiva.", 4.7, 206, 10),
+("Un mondo aperto impervio", "Far Cry 2 offre una mappa vasta e un gameplay impegnativo. La necessità di gestire risorse, riparare le armi e affrontare missioni complesse crea un’esperienza immersiva, ma non è per tutti.", 4.5, 206, 20),
+("L’arte della sopravvivenza", "Far Cry 2 ti costringe a pensare e a pianificare ogni mossa. Ogni viaggio è rischioso e le scelte fatte lungo il percorso possono determinare la tua sorte. È un gioco che premia la pazienza e la strategia.", 4.8, 206, 30),
+("Una sfida costante", "Il gioco è davvero difficile, ma è proprio questa difficoltà che lo rende interessante. Le missioni sono varie, ma il mondo è vasto e alcune aree possono sembrare ripetitive.", 4.6, 206, 40),
+("Un gameplay che mette alla prova", "Far Cry 2 è un gioco che richiede molta attenzione ai dettagli. Dalla gestione delle munizioni alla cura delle armi, il gioco ti immerge in un’esperienza realistica, ma richiede un grande impegno.", 4.7, 206, 50),
+("Un viaggio attraverso la guerra", "Far Cry 2 è un’esperienza cruda e realistica che ti fa sentire come se fossi davvero in guerra. La storia non è particolarmente forte, ma il mondo di gioco è ricco e ti spinge a esplorarlo in profondità.", 4.5, 206, 60),
+("Ottimo ma difficile", "Far Cry 2 è un gioco che offre una grande libertà ma può essere frustrante per via della difficoltà e della gestione delle risorse. Se ti piacciono le sfide, è un gioco che vale la pena provare.", 4.6, 206, 70),
+("Un’esperienza dura ma soddisfacente", "Le meccaniche di Far Cry 2 ti sfidano continuamente a sopravvivere. Le battaglie sono intense, ma la ripetitività nelle missioni può sembrare stancante dopo un po’.", 4.7, 206, 80),
+("Un po’ troppo ripetitivo", "Far Cry 2 offre un’esperienza solida, ma alcune missioni possono sembrare ripetitive. La gestione delle risorse e la difficoltà possono risultare eccessive per alcuni giocatori, ma per chi ama le sfide è un gioco da non perdere.", 4.6, 206, 90);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un’ottima evoluzione del franchise", "Far Cry 3 è un capolavoro che ha perfezionato la formula del franchise. Con una trama coinvolgente, personaggi memorabili e un mondo aperto ricco di attività, è uno dei migliori giochi di sempre.", 5.0, 207, 1),
+("Un’esperienza di gioco unica", "La libertà che offre Far Cry 3 è incredibile. Puoi esplorare la mappa, affrontare nemici o dedicarti alle missioni secondarie, tutto con grande varietà. La storia è solida e il protagonista è ben caratterizzato.", 4.9, 207, 10),
+("Un villaggio di pazzi", "Far Cry 3 ti immerge in un mondo selvaggio dove devi affrontare i pericoli di un’isola infestata da mercenari e criminali. Le meccaniche di combattimento sono migliorate rispetto ai precedenti capitoli e la trama è avvincente.", 5.0, 207, 20),
+("Un classico moderno", "Far Cry 3 è un gioco che ti offre un mondo aperto ricco di possibilità. La varietà delle missioni, la possibilità di personalizzare il personaggio e l’esplorazione sono il cuore del gioco, che ti tiene incollato allo schermo.", 4.8, 207, 30),
+("Un’isola selvaggia", "Il gioco è ambientato su un’isola tropicale piena di pericoli. I nemici sono intelligenti e le opzioni per affrontarli sono molteplici, il che rende ogni approccio unico. Far Cry 3 è un gioco che premia la creatività.", 4.9, 207, 40),
+("Un’ottima combinazione di azione e esplorazione", "Far Cry 3 ti permette di passare dal combattimento intenso all’esplorazione tranquilla dell’isola. La libertà di scelta è enorme, e ogni decisione che prendi può cambiare il corso degli eventi.", 4.8, 207, 50),
+("Un villain indimenticabile", "Vaas, il principale antagonista di Far Cry 3, è uno dei villain più memorabili di sempre. La sua presenza nel gioco è inquietante e rende la storia ancora più interessante.", 5.0, 207, 60),
+("Mondo aperto da esplorare", "L’isola di Far Cry 3 è un mondo aperto ben progettato, ricco di fauna, missioni secondarie e attività. Ogni angolo della mappa ha qualcosa da scoprire, che si tratti di una nuova zona o di una missione nascosta.", 4.9, 207, 70),
+("Difficile non essere catturati", "Far Cry 3 è difficile da lasciare. La trama coinvolgente, i personaggi interessanti e la libertà di esplorare lo rendono un gioco che è facile rigiocare più volte.", 5.0, 207, 80),
+("Un gioco che ti fa sentire vivo", "Far Cry 3 ti fa sentire parte del mondo che esplori. Le ambientazioni sono straordinarie, i combattimenti sono esaltanti e il gioco ti immerge completamente in un’esperienza unica.", 4.9, 207, 90);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Miglioramenti rispetto al predecessore", "Far Cry 4 espande le meccaniche di gioco di Far Cry 3, introducendo una nuova mappa e nuovi strumenti. La trama è coinvolgente e l’ambientazione è ricca di dettagli, ma alcune missioni sono troppo simili a quelle precedenti.", 4.7, 208, 1),
+("Un gioco di azione pura", "Far Cry 4 ti mette in un mondo pieno di azione e possibilità. Esplorare l’Himalaya è fantastico, e la libertà che il gioco ti offre è davvero unica. La grafica è straordinaria, e ogni angolo della mappa ha qualcosa di interessante.", 4.8, 208, 10),
+("Il ritorno del caos", "In Far Cry 4, il caos è ancora protagonista. Combattere contro le forze nemiche e allearsi con diversi gruppi ti permette di giocare come preferisci. La varietà delle missioni è apprezzata, ma alcune sono ripetitive.", 4.6, 208, 20),
+("Un mondo ancora più grande", "Far Cry 4 ti offre un mondo ancora più vasto e interessante rispetto al precedente capitolo. La possibilità di esplorare montagne, valli e villaggi è fantastica, ma la difficoltà del gioco è aumentata.", 4.7, 208, 30),
+("Un’esperienza ancora più grande", "Far Cry 4 è un’esperienza che espande il successo di Far Cry 3, con nuove meccaniche e una storia che ti tiene incollato. Il protagonista è più interessante, ma alcune meccaniche di gioco sono troppo familiari.", 4.8, 208, 40),
+("Un bel gioco, ma un po’ ripetitivo", "La formula di Far Cry 4 funziona bene, ma alcuni elementi sono troppo simili al predecessore. La mappa è bellissima, ma le missioni potrebbero essere più varie. Rimane comunque un ottimo gioco di azione e avventura.", 4.6, 208, 50),
+("Esplorazione senza fine", "L’aspetto migliore di Far Cry 4 è l’esplorazione. La mappa è incredibilmente grande e ricca di dettagli, e ci sono molte attività da fare oltre alla storia principale, come cacciare animali e raccogliere risorse.", 4.8, 208, 60),
+("Semplicemente divertente", "Far Cry 4 è un gioco che non ti fa mai annoiare. Le missioni sono varie, le armi sono fantastiche e la possibilità di giocare in modalità cooperativa lo rende ancora più interessante. La storia non è eccezionale, ma è comunque divertente.", 4.7, 208, 70),
+("Molto simile a Far Cry 3, ma con nuove sfide", "Far Cry 4 è molto simile al suo predecessore, ma le nuove aggiunte, come i veicoli e le armi, lo rendono comunque interessante. Le missioni sono divertenti, ma qualche volta si ripetono troppo.", 4.6, 208, 80),
+("Un must per gli amanti dell’open world", "Se ami i giochi open world, Far Cry 4 è un must. Le opzioni di combattimento sono fantastiche, e l’esplorazione è appagante. Purtroppo, alcune meccaniche sembrano già viste, ma è comunque un ottimo gioco.", 4.7, 208, 90);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un’esperienza di gioco coinvolgente", "Far Cry 5 ti immerge in un mondo di caos e distruzione. La trama è solida, anche se un po’ prevedibile, e la libertà di gioco è fantastica. Le meccaniche di combattimento sono migliorate, ma la storia poteva essere più avvincente.", 4.7, 16, 1),
+("Un’apocalisse rurale", "Far Cry 5 ambienta la sua storia in una zona rurale degli Stati Uniti, dove una setta religiosa prende il controllo. L’ambientazione è originale e interessante, ma il ritmo della storia è un po’ lento in alcuni punti.", 4.6, 16, 10),
+("Un gran gioco, ma con qualche difetto", "La formula di Far Cry funziona ancora, ma in Far Cry 5 ci sono alcuni difetti. Le missioni principali sono un po’ ripetitive e il villain non è memorabile come quelli dei giochi precedenti. Però, la possibilità di esplorare liberamente è il punto forte.", 4.5, 16, 20),
+("Un’ottima evoluzione del gameplay", "Il gameplay di Far Cry 5 è sicuramente migliorato rispetto ai precedenti capitoli. Le armi, i veicoli e la possibilità di affrontare la trama in modo non lineare sono fantastiche. Tuttavia, la trama principale non è all’altezza di Far Cry 3 o 4.", 4.7, 16, 30),
+("Un villaggio da salvare", "Far Cry 5 ti mette contro una setta religiosa che minaccia la pace del villaggio. La trama è interessante, ma alcune missioni sono ripetitive. Nonostante ciò, il gioco offre un’esperienza coinvolgente e divertente.", 4.6, 16, 40),
+("Il ritorno della violenza", "Come nei precedenti capitoli, Far Cry 5 ti permette di affrontare le missioni come vuoi, con grande libertà. La possibilità di reclutare alleati per combattere le forze della setta è un’aggiunta benvenuta.", 4.8, 16, 50),
+("Un buon mix di azione e esplorazione", "Far Cry 5 ti permette di esplorare un’area vasta e ricca di dettagli. Le meccaniche di combattimento sono solite, ma divertenti, mentre la possibilità di personalizzare le armi e scegliere le missioni aggiunge varietà al gioco.", 4.7, 16, 60),
+("Tanta azione, ma qualcosa manca", "Far Cry 5 offre molte ore di azione frenetica, ma qualcosa sembra mancare rispetto ai giochi precedenti. Il villain non è memorabile e la trama potrebbe essere più interessante. Nonostante ciò, è un gioco che merita di essere giocato.", 4.6, 16, 70),
+("La libertà è il suo punto di forza", "Far Cry 5 ti lascia molta libertà per scegliere come affrontare le situazioni. Puoi affrontare la setta come preferisci, ma la trama sembra meno coinvolgente rispetto ai precedenti capitoli. La possibilità di esplorare la mappa è comunque appagante.", 4.7, 16, 80),
+("Un’avventura open world da non perdere", "Far Cry 5 è un gioco che piacerà agli amanti dei mondi aperti. Le missioni sono varie e la possibilità di esplorare l’ambiente circostante è grande. La storia poteva essere più forte, ma il gioco resta comunque divertente.", 4.6, 16, 90),
+("Molto divertente, ma con alcuni difetti", "Far Cry 5 offre tanto divertimento, ma la trama non è all’altezza di Far Cry 3 o 4. Il mondo è fantastico da esplorare, ma alcuni aspetti del gioco sembrano un po’ ripetitivi. In ogni caso, un’esperienza molto divertente.", 4.7, 16, 100);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un gioco di azione che ti immerge nel caos", "Far Cry 6 ti porta in un mondo dominato da una dittatura. L’ambientazione è ben fatta e la possibilità di esplorare una vasta isola è eccellente. La trama, purtroppo, è un po’ scontata, ma le meccaniche di gioco sono solide.", 4.6, 209, 1),
+("Un altro capitolo di Far Cry", "Far Cry 6 è un buon gioco, ma non offre molto di nuovo rispetto ai precedenti capitoli. La possibilità di utilizzare nuovi veicoli e armi è interessante, ma la trama è abbastanza prevedibile. Resta comunque un’esperienza divertente.", 4.5, 209, 10),
+("Un villain da ricordare", "Il villain di Far Cry 6 è carismatico e ben interpretato. Tuttavia, la trama nel suo complesso non brilla, e alcune missioni sono un po’ ripetitive. Nonostante ciò, il gameplay è solido e l’esplorazione è sempre divertente.", 4.7, 209, 20),
+("La libertà di scegliere", "Far Cry 6 ti dà un ampio margine di libertà nella scelta delle missioni e nel modo di affrontarle. Puoi scegliere come organizzare la tua ribellione, ma la storia non è abbastanza coinvolgente per mantenere alta la tensione.", 4.6, 209, 30),
+("Un’ottima evoluzione del gameplay", "Far Cry 6 espande le meccaniche di gioco dei precedenti capitoli, con nuove armi, gadget e veicoli. Il mondo di gioco è ricco di attività, ma la trama non è altrettanto memorabile. In ogni caso, è un gioco che intrattiene e offre molte ore di divertimento.", 4.7, 209, 40),
+("Non abbastanza innovativo", "Far Cry 6 offre molta azione e un bel mondo aperto, ma manca di innovazione. Alcune missioni sembrano già viste e la trama non è particolarmente originale. Tuttavia, rimane un gioco divertente per chi ama la serie.", 4.5, 209, 50),
+("Ottima ambientazione, ma poco più", "L’ambientazione di Far Cry 6 è fantastica, con una ricca varietà di paesaggi e nemici. Tuttavia, la trama non riesce a coinvolgere come ci si aspetterebbe, e le missioni risultano spesso ripetitive.", 4.6, 209, 60),
+("Un buon gioco, ma non il migliore", "Far Cry 6 è un gioco che offre tanto in termini di gameplay, ma la trama non è così avvincente come in altri capitoli della serie. L’esplorazione è comunque gratificante, ma qualcosa di nuovo sarebbe stato gradito.", 4.6, 209, 70),
+("Un’esperienza di gioco intensa", "Far Cry 6 ti mette nei panni di un ribelle contro una dittatura, ma la storia non è originale. Le meccaniche sono ben fatte, e la possibilità di reclutare alleati è una grande aggiunta. Il gioco resta comunque molto divertente.", 4.7, 209, 80),
+("Un’avventura che non delude", "Far Cry 6 è un gioco che non delude mai, ma non aggiunge molto di nuovo alla formula. La trama non è eccezionale, ma l’esperienza complessiva è comunque piacevole, grazie anche a un mondo ben progettato e ricco di attività.", 4.6, 209, 90);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Una grande evoluzione", "FC 24 porta la serie a un nuovo livello, con miglioramenti nel gameplay e nell’IA. Le nuove modalità sono divertenti e la grafica è incredibile. Tuttavia, alcuni bug tecnici potrebbero limitare l’esperienza di gioco.", 4.7, 217, 1),
+("Un passo in avanti", "Il gioco è molto migliorato rispetto al precedente capitolo, ma la mancanza di innovazione nelle modalità di gioco potrebbe deludere alcuni. La grafica è comunque mozzafiato e il gameplay è fluido.", 4.6, 217, 10),
+("Modalità migliorate, ma ancora spazio per crescere", "FC 24 offre nuove modalità di gioco interessanti, ma la ripetitività nelle partite online può diventare frustrante. La personalizzazione dei giocatori è stata migliorata, ma ci sono ancora margini di miglioramento.", 4.5, 217, 20),
+("Il calcio che tutti aspettavamo", "FC 24 è finalmente il gioco di calcio che molti aspettavano. La fluidità nei movimenti dei giocatori e la reattività sono sorprendenti, ma alcune meccaniche potrebbero essere affinato per una maggiore profondità.", 4.8, 217, 30),
+("Una grafica da urlo", "La grafica di FC 24 è incredibile, i dettagli sui giocatori e gli stadi sono ben fatti. Purtroppo, la parte tattica del gioco è ancora un po’ carente rispetto ad altri titoli sportivi.", 4.7, 217, 40),
+("Non senza difetti", "FC 24 ha tante cose positive, come un gameplay solido e nuove modalità di gioco, ma i bug tecnici e il matchmaking online a volte rovinano l’esperienza. Nonostante tutto, è un gioco molto divertente da giocare.", 4.6, 217, 50),
+("Molto realistico", "Il gioco migliora ogni anno, ma questa volta la serie è davvero realistica. Le animazioni dei giocatori sono fluide, ma il sistema di difesa potrebbe essere più intuitivo.", 4.7, 217, 60),
+("Un buon capitolo, ma non il migliore", "FC 24 è sicuramente un buon gioco, ma non riesce a sorprendere come i suoi predecessori. La parte online è divertente, ma la parte manageriale potrebbe essere migliorata.", 4.6, 217, 70),
+("Divertente, ma ripetitivo", "Il gameplay è molto solido, ma le modalità di gioco rischiano di diventare ripetitive dopo un po’. Tuttavia, la parte grafica e le animazioni sono incredibili.", 4.5, 217, 80),
+("Un gioco per tutti gli amanti del calcio", "FC 24 è un must-have per gli appassionati di calcio. Le modalità online sono molto divertenti, ma la parte offline ha ancora margini di miglioramento. In generale, è un gioco che offre molto divertimento.", 4.7, 217, 90);
+
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un’evoluzione ben riuscita", "FC 25 segna una grande evoluzione nella serie, con nuove modalità di gioco e un gameplay fluido. La grafica è ancora migliore, ma alcune meccaniche di gioco potrebbero essere perfezionate per un’esperienza più immersiva.", 4.8, 218, 1),
+("Ottima nuova iterazione", "FC 25 è un miglioramento significativo rispetto al precedente capitolo. Le animazioni sono più naturali e la fisica del pallone è più realistica, anche se alcuni bug persistono nelle partite online.", 4.7, 218, 10),
+("Miglioramenti visivi e di gameplay", "FC 25 porta alcune innovazioni importanti, ma il gioco online potrebbe migliorare. Nonostante ciò, la grafica e il design complessivo sono fantastici. Un ottimo gioco, ma con margini di crescita.", 4.6, 218, 20),
+("Un capitolo solido", "FC 25 migliora la serie in modo significativo, con nuove opzioni e modalità di gioco. Tuttavia, la ripetitività nelle modalità manageriali può diventare un po’ noiosa. Resta comunque un buon gioco.", 4.7, 218, 30),
+("La perfezione nei dettagli", "Ogni aspetto di FC 25 è curato nei minimi dettagli, dalla grafica ai movimenti dei giocatori. Purtroppo, la parte offline non è tanto profonda quanto quella online, che è comunque molto divertente.", 4.8, 218, 40),
+("Innovazione al servizio del gameplay", "FC 25 riesce a innovare, portando nuove dinamiche al gameplay. Le partite online sono equilibrate, ma ci sono ancora alcuni problemi tecnici che potrebbero essere risolti con aggiornamenti futuri.", 4.6, 218, 50),
+("Un’esperienza di calcio completa", "FC 25 offre un’esperienza di calcio completa, con modalità single player e multiplayer di alta qualità. Tuttavia, la difficoltà di alcune sfide manageriali può risultare frustrante.", 4.7, 218, 60),
+("Tante novità, ma qualcosa manca", "FC 25 introduce molte novità, ma alcune modalità, come quella manageriale, non sono ancora abbastanza approfondite. Resta comunque un gioco che offre molte ore di divertimento, con una curva di apprendimento meno ripida.", 4.6, 218, 70),
+("Sempre più realistico", "FC 25 è il gioco di calcio più realistico che abbia mai giocato, con un’intelligenza artificiale ben sviluppata e una grafica che lascia a bocca aperta. Purtroppo, alcuni problemi di lag online abbassano il voto complessivo.", 4.8, 218, 80),
+("Un bel salto in avanti", "FC 25 è sicuramente un passo avanti per la serie. Il gameplay è fluido, ma alcune meccaniche potrebbero essere affinate. In ogni caso, un titolo che non delude mai.", 4.7, 218, 90);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un bel passo in avanti", "FIFA 14 è un miglioramento rispetto ai precedenti capitoli, con una fisica della palla più realistica e un gameplay fluido. Tuttavia, la parte manageriale potrebbe essere più approfondita.", 4.6, 210, 1),
+("Miglioramenti evidenti", "La grafica e le animazioni sono migliorate molto, ma alcuni bug nei match online rovinano l’esperienza. È comunque un gioco divertente e ben progettato.", 4.5, 210, 10),
+("Un ottimo capitolo della serie", "FIFA 14 porta diverse novità, come nuove modalità di gioco e una maggiore immersione. Purtroppo, la difficoltà in alcune modalità di gioco potrebbe non piacere a tutti.", 4.7, 210, 20),
+("Un’esperienza migliorata", "Il gameplay è stato notevolmente migliorato rispetto al passato, ma il sistema di difesa può sembrare poco intuitivo. Nonostante ciò, FIFA 14 rimane uno dei migliori giochi sportivi.", 4.6, 210, 30),
+("Non perfetto, ma divertente", "FIFA 14 ha tante cose positive, come la grafica e le modalità di gioco, ma il matchmaking online è ancora da affinare. Non è perfetto, ma è comunque molto divertente.", 4.5, 210, 40),
+("Il calcio come dovrebbe essere", "FIFA 14 offre una simulazione calcistica davvero realistica. Le animazioni dei giocatori sono ottime, ma la parte manageriale del gioco non offre abbastanza opzioni.", 4.6, 210, 50),
+("Un buon inizio", "FIFA 14 segna un buon inizio per la serie, ma alcuni aspetti come l’intelligenza artificiale dei difensori potrebbero essere migliorati. La modalità carriera è interessante, ma potrebbe essere più approfondita.", 4.4, 210, 60),
+("Molto realistico, ma non perfetto", "La fisica del pallone e la grafica sono fantastiche, ma il gioco a volte può sembrare troppo facile. La difficoltà nella modalità carriera è un po’ sbilanciata, ma è comunque un gioco valido.", 4.5, 210, 70),
+("Manca qualcosa", "FIFA 14 è un buon gioco, ma non raggiunge le aspettative di molti. La modalità manageriale è troppo limitata e la parte multiplayer soffre di alcuni bug.", 4.3, 210, 80),
+("Un classico intramontabile", "FIFA 14 è un gioco che non delude mai. Anche se ha i suoi difetti, come il sistema di collisione, resta comunque uno dei titoli calcistici più divertenti e realistici mai creati.", 4.7, 210, 90);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un’evoluzione importante", "FIFA 17 segna una grande evoluzione con la modalità The Journey e un gameplay molto migliorato. Tuttavia, il sistema di intelligenza artificiale potrebbe essere affinato ulteriormente.", 4.8, 211, 1),
+("Un ottimo passo avanti", "FIFA 17 è una ventata di freschezza nella serie, grazie a nuove modalità e miglioramenti nella fisica della palla. Tuttavia, il matchmaking online non è sempre equilibrato.", 4.7, 211, 10),
+("Grande novità con The Journey", "The Journey è una delle novità migliori di FIFA 17, portando una nuova esperienza narrativa al gioco. La grafica è migliorata, ma alcuni bug nel gioco online rovinano l’esperienza.", 4.6, 211, 20),
+("FIFA 17 migliora su tutti i fronti", "FIFA 17 è sicuramente un miglioramento rispetto ai precedenti, con un gameplay più realistico e l’introduzione di The Journey. Purtroppo, alcuni aspetti come l’intelligenza artificiale dei difensori potrebbero essere migliorati.", 4.7, 211, 30),
+("La nuova modalità The Journey è fantastica", "La nuova modalità carriera con il protagonista Alex Hunter è davvero interessante. FIFA 17 è migliorato molto rispetto ai suoi predecessori, ma alcuni bug e la ripetitività nelle partite online abbassano il voto.", 4.6, 211, 40),
+("Un gioco che non delude mai", "FIFA 17 ha portato tante novità, inclusa una modalità carriera davvero coinvolgente. La grafica è straordinaria, ma la modalità multiplayer ha bisogno di miglioramenti.", 4.7, 211, 50),
+("Innovazioni che piacciono", "The Journey è la grande innovazione di FIFA 17. Il gioco ha anche migliorato il gameplay, ma ci sono ancora margini di miglioramento per quanto riguarda l’interazione tra i giocatori in campo.", 4.6, 211, 60),
+("Il miglior FIFA degli ultimi anni", "FIFA 17 ha portato il calcio virtuale a un altro livello, con una nuova modalità carriera e una fisica della palla straordinaria. Purtroppo, il matchmaking online non è sempre soddisfacente.", 4.8, 211, 70),
+("Non senza difetti", "FIFA 17 ha migliorato la serie, ma non è privo di difetti. La modalità The Journey è fantastica, ma alcune meccaniche di gioco potrebbero essere più fluide.", 4.5, 211, 80),
+("Un FIFA che sa divertire", "FIFA 17 riesce a divertire come pochi altri titoli. La modalità carriera è interessante, ma ci sono ancora margini di miglioramento, specialmente per la parte manageriale e la difficoltà.", 4.7, 211, 90);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un gioco che migliora ogni anno", "FIFA 18 è un altro passo in avanti per la serie, con una grafica migliorata e una maggiore fluidità. Tuttavia, alcune modalità di gioco non sono molto diverse rispetto ai capitoli precedenti.", 4.6, 212, 1),
+("FIFA 18 fa il suo dovere", "Nonostante non porti novità significative, FIFA 18 è un buon gioco con ottime animazioni e una fisica migliorata. La modalità carriera è ancora interessante, ma si potrebbe fare di più.", 4.5, 212, 10),
+("Un buon capitolo, ma non eccellente", "FIFA 18 è un gioco ben fatto, ma non innovativo come sperato. La modalità multiplayer è solida, ma ci sono ancora problemi di matchmaking e il gameplay a volte può sembrare ripetitivo.", 4.4, 212, 20),
+("Molto simile al precedente", "FIFA 18 non ha portato grandi cambiamenti rispetto al suo predecessore, ma la qualità del gioco rimane alta. Il sistema di dribbling è migliorato, ma l’intelligenza artificiale potrebbe fare di più.", 4.5, 212, 30),
+("Non è un FIFA indimenticabile", "FIFA 18 non offre molte novità, ma riesce comunque a essere divertente. La parte manageriale potrebbe essere più approfondita e la modalità carriera non è cambiata molto.", 4.3, 212, 40),
+("Il calcio virtuale è sempre migliore", "FIFA 18 è un titolo che piacerà agli amanti della serie, ma non porterà nulla di particolarmente nuovo. La modalità online è solida, ma la difficoltà in alcune modalità può sembrare squilibrata.", 4.6, 212, 50),
+("Lento ma costante miglioramento", "FIFA 18 continua la tradizione di offrire un calcio virtuale realistico, ma manca di novità significative. Alcuni bug online e una modalità carriera un po’ troppo semplice penalizzano il voto finale.", 4.4, 212, 60),
+("Un passo in avanti", "Non ci sono cambiamenti radicali in FIFA 18, ma i miglioramenti nel gameplay e nella grafica lo rendono comunque un buon gioco. La modalità carriera, purtroppo, non ha subito grosse modifiche.", 4.5, 212, 70),
+("FIFA sempre una garanzia", "FIFA 18 è il solito buon gioco calcistico, ma manca di innovazione. Le animazioni sono eccellenti e il gioco è fluido, ma la parte manageriale è troppo superficiale.", 4.6, 212, 80),
+("FIFA 18: Buono ma non sorprendente", "FIFA 18 fa il suo dovere, ma non riesce a sorprendere come alcuni capitoli precedenti. La parte online è ben realizzata, ma la modalità carriera è un po’ noiosa.", 4.4, 212, 90);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un FIFA da non perdere", "FIFA 19 introduce novità interessanti come il sistema di dribbling avanzato e miglioramenti nella modalità carriera. Tuttavia, la parte online è ancora un po’ instabile.", 4.7, 213, 1),
+("Molto divertente, ma...", "FIFA 19 è un gioco che offre un buon divertimento, ma ci sono ancora problemi con il sistema di difesa. Alcuni bug nei match online possono anche essere frustranti.", 4.5, 213, 10),
+("L’alto livello della serie FIFA", "FIFA 19 è un altro capitolo di successo per la serie. Le animazioni dei giocatori sono ancora migliorate, ma il sistema di intelligenza artificiale potrebbe essere ulteriormente affinato.", 4.6, 213, 20),
+("Siamo sulla strada giusta", "FIFA 19 porta il calcio virtuale a un altro livello, con nuovi movimenti e un gameplay più naturale. Tuttavia, il sistema di difficoltà non sembra equilibrato in tutte le modalità di gioco.", 4.6, 213, 30),
+("Un buon FIFA, ma con margini di miglioramento", "FIFA 19 è un gioco solido, ma non perfetto. La nuova modalità “Champions League” è un’aggiunta interessante, ma ci sono ancora bug e problemi di matchmaking online.", 4.5, 213, 40),
+("Sempre meglio", "FIFA 19 è una versione migliorata del gioco, con nuove modalità e miglioramenti nelle animazioni, ma alcuni difetti persistono, soprattutto nella parte multiplayer.", 4.6, 213, 50),
+("Divertente ma con qualche difetto", "FIFA 19 è molto divertente, ma non è esente da problemi. L’intelligenza artificiale dei difensori e alcuni bug online abbassano un po’ il voto finale.", 4.4, 213, 60),
+("FIFA 19 è in miglioramento", "Il gioco ha fatto passi avanti rispetto ai suoi predecessori, ma ci sono ancora piccoli problemi con la modalità carriera e l’esperienza online non è perfetta.", 4.5, 213, 70),
+("Piacevole, ma manca qualcosa", "FIFA 19 è un buon gioco calcistico, ma alcuni aspetti della carriera e del gameplay potrebbero essere migliorati. La modalità Champions League è sicuramente un’aggiunta interessante.", 4.6, 213, 80),
+("FIFA 19: Un altro capitolo solido", "FIFA 19 è un gioco calcistico ben realizzato, ma non presenta novità significative rispetto ai capitoli precedenti. La parte multiplayer potrebbe beneficiare di qualche miglioramento.", 4.5, 213, 90);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("FIFA 20: Grande potenziale, ma...", "FIFA 20 introduce una nuova modalità volta a rendere il calcio più realistico, ma ci sono ancora alcune problematiche con la difesa e il bilanciamento del gioco online.", 4.5, 214, 1),
+("Un capitolo che delude", "FIFA 20 presenta una modalità VOLTA interessante, ma la mancanza di innovazione nelle modalità tradizionali rende il gioco meno entusiasmante rispetto ai precedenti.", 4.2, 214, 10),
+("Il calcio è sempre bello", "FIFA 20 offre un gameplay che finalmente si avvicina a un’esperienza più realistica, ma la parte online lascia molto a desiderare. Potevano fare di più in termini di gameplay", 4.4, 214, 20),
+("Un buon FIFA, ma non il migliore", "FIFA 20 presenta la nuova modalità VOLTA, che è un buon esperimento, ma non basta a fare la differenza rispetto ai precedenti capitoli della serie.", 4.3, 214, 30),
+("Divertente ma con difetti", "FIFA 20 ha migliorato la fluidità del gioco, ma ha ancora dei problemi con la difesa e l’intelligenza artificiale. La modalità VOLTA è interessante ma non abbastanza per fare da sola.", 4.5, 214, 40),
+("FIFA 20 ha perso un po’ di magia", "FIFA 20 è divertente, ma non ci sono innovazioni davvero entusiasmanti. La modalità carriera e il sistema di matchmaking online sono ancora migliorabili.", 4.4, 214, 50),
+("Siamo sulla strada giusta", "FIFA 20 tenta di offrire qualcosa di nuovo con VOLTA, ma la modalità principale non cambia molto. È comunque un buon gioco per gli amanti della serie.", 4.5, 214, 60),
+("Un buon FIFA", "FIFA 20 non è perfetto, ma offre delle modalità di gioco interessanti. La parte online potrebbe essere più stabile, ma il gameplay e la grafica sono comunque molto belli.", 4.6, 214, 70),
+("Buon miglioramento, ma ancora troppo simile", "FIFA 20 non apporta modifiche radicali, ma la nuova modalità VOLTA è divertente. Rimangono comunque alcune problematiche di bilanciamento e IA.", 4.4, 214, 80),
+("FIFA 20: Rinnovato, ma non abbastanza", "La nuova modalità VOLTA è un’interessante aggiunta, ma non basta per rendere FIFA 20 un gioco veramente diverso dai suoi predecessori. Ci sono ancora problemi da sistemare.", 4.3, 214, 90);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("FIFA 21: Non cambia molto", "FIFA 21 è simile al suo predecessore, ma non ci sono innovazioni significative. La modalità carriera è divertente, ma la parte online ha bisogno di più stabilità.", 4.3, 215, 1),
+("Soli miglioramenti marginali", "FIFA 21 è comunque un buon gioco, ma non offre innovazioni particolarmente interessanti. La modalità carriera e le animazioni sono ben fatte, ma manca di novità.", 4.5, 215, 10),
+("Non perfetto, ma divertente", "FIFA 21 è divertente e le nuove modalità sono interessanti, ma ci sono ancora alcuni problemi di gameplay e la parte online è un po’ instabile.", 4.4, 215, 20),
+("Miglioramenti lenti", "FIFA 21 è simile al suo predecessore, con qualche miglioria qua e là, ma non c’è nulla di rivoluzionario. La parte online continua a essere il punto dolente.", 4.3, 215, 30),
+("Un FIFA solido, ma non sorprendente", "FIFA 21 offre un’esperienza calcistica solida, ma senza grandi sorprese. Alcuni bug persistono, ma nel complesso è un buon gioco per gli amanti della serie.", 4.6, 215, 40),
+("FIFA 21 è più che sufficiente", "Non ci sono grandi novità in FIFA 21, ma i miglioramenti nelle animazioni e nella fluidità del gioco sono apprezzabili. La parte online può ancora migliorare.", 4.5, 215, 50),
+("Nessuna rivoluzione", "FIFA 21 non porta nulla di nuovo e non è il gioco che speravamo, ma riesce comunque a offrire un’esperienza calcistica solida. Alcuni problemi persistono nella modalità carriera e online.", 4.4, 215, 60),
+("Divertente ma non innovativo", "FIFA 21 è un buon gioco calcistico, ma non ci sono cambiamenti abbastanza significativi da giustificare l’acquisto rispetto al precedente capitolo.", 4.5, 215, 70),
+("FIFA 21: Buon gioco, ma nulla di eccezionale", "FIFA 21 non ha le innovazioni che ci si aspettava, ma è comunque un gioco ben realizzato. Gli appassionati di FIFA apprezzeranno comunque le nuove modalità e l’esperienza complessiva.", 4.3, 215, 80),
+("Manca qualcosa", "FIFA 21 è un buon gioco, ma non ha il “wow factor” di altri capitoli della serie. La modalità carriera è migliorata, ma l’esperienza complessiva è simile a quella del passato.", 4.4, 215, 90);
+
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("FIFA 22 è un passo avanti", "FIFA 22 migliora alcuni aspetti del gioco, come l’intelligenza artificiale e la fluidità. Tuttavia, il gameplay rimane in gran parte simile al precedente capitolo.", 4.6, 216, 1),
+("Finalmente un passo avanti", "FIFA 22 offre alcune innovazioni che migliorano l’esperienza di gioco, ma non sono sufficienti per giustificare un grande cambiamento. La parte online è solida ma non perfetta.", 4.5, 216, 10),
+("FIFA 22 ha bisogno di una revisione", "Nonostante il miglioramento nelle animazioni e nell’IA, FIFA 22 non è un gioco che innova abbastanza. La modalità carriera è interessante, ma potrebbe essere più approfondita.", 4.3, 216, 20),
+("Un altro FIFA senza sorprese", "FIFA 22 continua sulla strada dei miglioramenti marginali. La grafica e l’intelligenza artificiale sono migliorate, ma la parte online è ancora poco stabile e la carriera ha bisogno di più profondità.", 4.4, 216, 30),
+("Un gioco divertente ma con difetti", "FIFA 22 è divertente, ma la modalità carriera è poco coinvolgente e il matchmaking online potrebbe essere migliorato. Le animazioni sono comunque eccellenti.", 4.5, 216, 40),
+("Buon miglioramento, ma non abbastanza", "FIFA 22 è sicuramente migliore rispetto a FIFA 21, ma non ci sono innovazioni rivoluzionarie. La modalità carriera è interessante ma può essere migliorata.", 4.6, 216, 50),
+("FIFA 22 fa il suo dovere", "FIFA 22 fa il suo lavoro nel fornire un’esperienza calcistica solida, ma non è un gioco che rivoluziona la serie. La parte online ha bisogno di più attenzione.", 4.5, 216, 60),
+("Un FIFA che sembra stanco", "FIFA 22 non è malvagio, ma non offre novità significative rispetto ai suoi predecessori. Le modalità di gioco sono divertenti, ma c’è poca innovazione.", 4.4, 216, 70),
+("FIFA 22 è la stessa storia", "FIFA 22 offre miglioramenti tecnici e alcune modifiche alla modalità carriera, ma nel complesso è un gioco che non si distacca molto dai capitoli precedenti della serie.", 4.3, 216, 80),
+("Ottimo, ma manca ancora qualcosa", "FIFA 22 è uno dei migliori giochi calcistici, ma non ci sono grandi cambiamenti rispetto ai capitoli precedenti. La parte online è solida ma non perfetta.", 4.5, 216, 90);
 
 
 
