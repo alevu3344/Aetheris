@@ -1709,6 +1709,116 @@ INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
 ("Adatto ai fan degli RTS", "Se sei un fan degli RTS, Halo Wars ti piacerà sicuramente. La storia è solida, ma il gameplay a volte può risultare un po’ ripetitivo.", 4.00, 233, 88),
 ("Gioco divertente ma con potenziale non sfruttato", "Halo Wars ha un ottimo potenziale, ma manca di un po’ di profondità. È comunque un gioco piacevole, ma non è così memorabile.", 3.50, 233, 98);
 
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un capolavoro strategico", "Hearts of Iron IV è un gioco di strategia profondo, che ti permette di controllare ogni aspetto della Seconda Guerra Mondiale. Un must per gli appassionati del genere.", 5.00, 75, 9),
+("Una sfida per i veterani", "Il gioco è complesso e richiede tempo per essere apprezzato appieno. Ma una volta che capisci le meccaniche, diventa incredibilmente gratificante.", 4.50, 75, 19),
+("Strategia a livelli epici", "Hearts of Iron IV è una delle migliori simulazioni di guerra che abbia mai giocato. La varietà di opzioni e strategie rende ogni partita unica.", 5.00, 75, 29),
+("Ottimo, ma difficile", "La curva di apprendimento è ripida, ma il gioco offre una profondità che pochi altri giochi di strategia riescono a eguagliare. Un po’ complesso, ma divertente.", 4.00, 75, 39),
+("Troppo complesso per me", "Hearts of Iron IV è un gioco fantastico, ma troppo complesso per i miei gusti. Ci vuole davvero molto tempo per imparare a giocarci.", 3.50, 75, 49),
+("Gran gioco, ma a volte frustrante", "Le meccaniche di gioco sono incredibilmente dettagliate, ma possono essere frustranti se non le si padroneggia. Una volta che ci si riesce, è molto divertente.", 4.00, 75, 59),
+("Un gioco profondo", "Se ami la storia e la strategia, Hearts of Iron IV è un gioco che devi provare. La varietà delle scelte e degli scenari rende ogni partita unica.", 4.50, 75, 69),
+("Bellissimo ma troppo tecnico", "Le meccaniche sono fantastiche, ma richiedono un impegno notevole per essere padroneggiate. Non è un gioco per tutti, ma sicuramente appagante per i fan del genere.", 4.00, 75, 79),
+("Un must per i fan della Seconda Guerra Mondiale", "Hearts of Iron IV è la simulazione perfetta della Seconda Guerra Mondiale. Dettagliato, strategico e ricco di contenuti. Una gioia per gli appassionati.", 5.00, 75, 89),
+("Ottima simulazione, ma... ", "Il gioco è incredibilmente dettagliato, ma la sua complessità può renderlo difficile da godere per chi cerca un'esperienza piu' accessibile.", 4.00, 75, 99);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un sogno che diventa realtà", "Hogwarts Legacy è finalmente il gioco che ci permette di vivere nell’universo di Harry Potter come mai prima d’ora. La grafica è impressionante e la storia avvincente.", 5.00, 235, 10),
+("Magia in ogni angolo", "Il gioco ti fa sentire come un vero studente di Hogwarts. La possibilità di esplorare il castello e le sue terre è incredibile.", 5.00, 235, 20),
+("Un’esperienza immersiva", "La trama è buona e l’esplorazione è fantastica. Mi è piaciuto molto come il gioco ricrea l’atmosfera della saga di Harry Potter.", 4.50, 235, 30),
+("Magico ma con qualche difetto", "L’esperienza è davvero immersiva, ma alcune meccaniche di gioco sono un po’ ripetitive. La magia è comunque ben realizzata.", 4.00, 235, 40),
+("Splendido ma un po’ lineare", "Hogwarts Legacy ha una grafica mozzafiato, ma la storia principale potrebbe essere più interessante. La magia e l’esplorazione sono il cuore del gioco.", 4.00, 235, 50),
+("Fantastico, ma c’è margine", "Un gioco che porta la magia a un nuovo livello. La grafica è fantastica e la possibilità di personalizzare il personaggio è un’ottima aggiunta, ma c'è ancora spazio per miglioramenti.", 4.50, 235, 60),
+("La magia è viva", "Hogwarts Legacy è un gioco che ti fa sentire parte del mondo magico. L’esplorazione di Hogwarts è incredibile, anche se la trama non è sempre avvincente.", 4.00, 235, 70),
+("Un gioco fantastico, ma...", "L’esperienza è incredibile, ma il gioco soffre di alcune meccaniche di gioco che potrebbero essere migliorate. La magia è comunque realizzata in modo splendido.", 4.00, 235, 80),
+("Magia e avventura", "Hogwarts Legacy è un’esperienza unica per i fan di Harry Potter. La possibilità di esplorare il castello è un sogno, ma la storia principale non è così coinvolgente.", 4.00, 235, 90),
+("Un gioco bellissimo ma a volte lento", "La grafica e l’atmosfera sono mozzafiato, ma la storia a volte si fa un po’ noiosa. La magia e l’esplorazione sono comunque eccezionali.", 4.00, 235, 100);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un capolavoro indie", "Hollow Knight è un gioco incredibile. La sua atmosfera, il gameplay e il design dei livelli sono straordinari. Un must per ogni appassionato di Metroidvania.", 5.00, 43, 11),
+("Fantastico e impegnativo", "Hollow Knight è difficile ma estremamente gratificante. La sua mappa e le sue ambientazioni sono mozzafiato, con tantissimi segreti da scoprire.", 5.00, 43, 21),
+("Una vera gemma indie", "Hollow Knight è un gioco che riesce a combinare perfettamente esplorazione, combattimento e narrazione. Non è facile, ma vale assolutamente la pena giocarlo.", 5.00, 43, 31),
+("Stupendo ma difficile", "Il gioco è bellissimo, ma la sua difficoltà a volte è eccessiva. La sensazione di progressione è comunque appagante.", 4.50, 43, 41),
+("Un metroidvania eccellente", "Hollow Knight è uno dei migliori metroidvania mai creati. La grafica e il design dei livelli sono incredibili, ma la difficoltà può essere troppo alta per alcuni.", 4.50, 43, 51),
+("Un gioco incredibile", "L’atmosfera di Hollow Knight è fantastica, con una trama ben nascosta che si svela solo esplorando. Un gioco che ogni fan del genere dovrebbe provare.", 5.00, 43, 61),
+("Bellissimo ma frustrante", "La grafica e il gameplay sono fantastici, ma la difficoltà è davvero alta. Tuttavia, la soddisfazione di superare una zona difficile è unica.", 4.00, 43, 71),
+("Impegnativo ma gratificante", "Hollow Knight è davvero difficile, ma la sensazione di migliorare e superare i propri limiti è incredibile. Un gioco che ti lascia senza parole.", 4.50, 43, 81),
+("Perfetto per chi ama le sfide", "Il gioco è bellissimo e impegnativo, con tantissime segrete e nemici da affrontare. La difficoltà non è per tutti, ma vale assolutamente la pena.", 4.50, 43, 91),
+("Un piccolo capolavoro", "Hollow Knight è uno dei migliori giochi indie che abbia mai giocato. La sua difficoltà ti spinge a migliorare continuamente, e la sua atmosfera è unica.", 5.00, 43, 101);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Esperienza immersiva", "Horizon Call of the Mountain è un gioco VR straordinario che ti immerge nel mondo di Horizon in un modo mai visto prima. Le ambientazioni sono mozzafiato.", 5.00, 268, 12),
+("Un’avventura visivamente splendida", "Le immagini in VR sono stupende, ma la storia non è altrettanto coinvolgente. Tuttavia, il gameplay è soddisfacente e la grafica è davvero impressionante.", 4.00, 268, 22),
+("Un’esperienza unica", "Se sei un fan di Horizon, questo gioco è imperdibile. L’interazione VR è ben fatta, ma la trama è un po’ sotto le aspettative.", 4.50, 268, 32),
+("Bellissimo, ma troppo breve", "La qualità visiva è incredibile, ma la durata del gioco è troppo corta. Spero che aggiungano più contenuti in futuro.", 4.00, 268, 42),
+("Molto coinvolgente in VR", "Il gioco è estremamente coinvolgente, ma la trama lascia un po’ a desiderare. Nonostante ciò, l’esperienza VR è unica.", 4.00, 268, 52),
+("Un’avventura in VR degna di Horizon", "Il gioco riesce a portare Horizon nel mondo VR in modo convincente, ma la storia avrebbe potuto essere più profonda. Il gameplay è comunque divertente.", 4.50, 268, 62),
+("Bellissimo ma a volte ripetitivo", "L’aspetto grafico e l’interazione VR sono fantastici, ma il gameplay può diventare un po’ ripetitivo. Ottimo per gli amanti della realtà virtuale.", 4.00, 268, 72),
+("Soddisfacente ma con margini di miglioramento", "Il gioco è bello, ma alcune meccaniche in VR non sono così fluide come ci si aspetterebbe. È comunque un buon inizio per la saga in VR.", 3.50, 268, 82),
+("VR fantastico, trama carente", "L’esperienza in VR è fantastica, ma la trama non è all’altezza di altri giochi della serie Horizon. È comunque un’avventura visivamente splendida.", 4.00, 268, 92),
+("Sogno ad occhi aperti", "Come fan della saga, il gioco mi ha sorpreso. L’interazione con l’ambiente in VR è incredibile, ma la trama avrebbe potuto essere più coinvolgente.", 4.50, 268, 102);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un capolavoro visivo", "Horizon Forbidden West porta la serie a nuovi livelli con una grafica straordinaria e un gameplay migliorato. La storia è coinvolgente e le meccaniche ben bilanciate.", 5.00, 39, 13),
+("Un gioco epico", "La bellezza visiva e la profondità della trama rendono Horizon Forbidden West un gioco imperdibile. Ci sono però alcune missioni secondarie un po’ ripetitive.", 4.50, 39, 23),
+("Un’esperienza mozzafiato", "L’esplorazione di Horizon Forbidden West è fantastica, ma la difficoltà nelle missioni di combattimento potrebbe essere migliorata. Comunque, è un gioco stupendo.", 4.50, 39, 33),
+("Incredibile, ma...", "Il gioco è stupendo, ma la gestione delle risorse può risultare un po’ macchinosa. Comunque, le ambientazioni sono tra le migliori che abbia mai visto.", 4.00, 39, 43),
+("Horizon è sempre al top", "Horizon Forbidden West è un grande seguito del primo gioco. Le meccaniche sono migliorate e la trama è coinvolgente. Un gioco che non puoi perderti.", 5.00, 39, 53),
+("Da non perdere", "Un grande sequel, con molte migliorie rispetto al primo gioco. La storia è interessante e l’open world è ricco di dettagli, anche se alcune missioni sono troppo lunghe.", 4.50, 39, 63),
+("Tanta bellezza ma qualche difetto", "Horizon Forbidden West è bellissimo, ma alcuni aspetti del gameplay, come il crafting, potrebbero essere più fluidi. Nonostante questo, è un gioco che vale ogni minuto.", 4.00, 39, 73),
+("Gioco stupendo, ma un po’ ripetitivo", "Le ambientazioni e la grafica sono incredibili, ma alcune meccaniche di gioco risultano un po’ ripetitive. La trama è comunque interessante.", 4.00, 39, 83),
+("Un miglioramento enorme", "Horizon Forbidden West è un grande passo avanti rispetto al primo. La qualità grafica è incredibile e le meccaniche sono molto più rifinite.", 5.00, 39, 93),
+("Un’esperienza che merita", "Il gioco offre un mondo ricco di contenuti e una storia che ti tiene incollato. Non è perfetto, ma è senza dubbio uno dei migliori giochi della sua categoria.", 4.50, 39, 103);
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un gioco spettacolare", "Horizon Zero Dawn è un capolavoro. La storia è avvincente, i personaggi ben scritti, e il gameplay è perfetto. Un must per ogni videogiocatore.", 5.00, 4, 14),
+("Impeccabile sotto ogni aspetto", "La trama è incredibile e il mondo aperto è fantastico da esplorare. Gli animali robotici sono un’idea geniale. Non si può chiedere di più.", 5.00, 4, 24),
+("Un’avventura unica", "Horizon Zero Dawn è un gioco che ti trascina nel suo mondo. L’ambientazione è straordinaria e il gameplay è pieno di scelte strategiche.", 4.50, 4, 34),
+("Ottimo ma troppo lungo", "La storia è incredibile, ma il gioco è un po’ troppo lungo a volte. Alcune missioni secondarie sono inutili e poco interessanti.", 4.00, 4, 44),
+("Un gioco che ti incolla", "La storia di Horizon Zero Dawn ti tiene incollato fino alla fine. Le meccaniche di combattimento sono fluide e soddisfacenti.", 5.00, 4, 54),
+("Uno dei migliori RPG", "Horizon Zero Dawn è un gioco che non lascia nulla al caso. La grafica è splendida, la storia intrigante e il gameplay appagante.", 5.00, 4, 64),
+("Bellissimo ma con qualche difetto", "Il gioco è bellissimo, ma alcune meccaniche di combattimento potrebbero essere migliorate. La storia è comunque fantastica e la mappa è ricca di contenuti.", 4.50, 4, 74),
+("Un must per gli amanti dei mondi aperti", "Se ami i giochi open world, Horizon Zero Dawn è una delle esperienze migliori. La varietà di missioni e l’ambientazione sono eccezionali.", 5.00, 4, 84),
+("Troppo facile in alcuni punti", "Il gioco è incredibile, ma alcuni combattimenti sono troppo facili. La trama e l’ambientazione, però, lo rendono comunque un capolavoro.", 4.00, 4, 94),
+("Un’avventura indimenticabile", "Horizon Zero Dawn è un gioco che vale ogni singolo minuto. La trama è fantastica e la possibilità di esplorare un mondo così ricco è impagabile.", 5.00, 4, 104);
+
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un picchiaduro spettacolare", "Injustice 2 è uno dei migliori picchiaduro con personaggi DC. La grafica è incredibile e il gameplay è fluido e ben bilanciato.", 5.00, 152, 16),
+("Combattimenti epici", "Ogni combattimento in Injustice 2 è spettacolare. La possibilità di usare i personaggi DC in combattimenti intensi è davvero divertente.", 4.50, 152, 26),
+("Un po’ ripetitivo", "Injustice 2 è bello da giocare, ma alcune modalità di gioco sono un po’ ripetitive. Nonostante ciò, il gameplay e i personaggi sono fantastici.", 4.00, 152, 36),
+("Eccellente ma non perfetto", "Il gioco è molto divertente, ma alcune meccaniche di combattimento potrebbero essere migliorate. È comunque uno dei migliori picchiaduro che abbia mai giocato.", 4.50, 152, 46),
+("Un must per i fan di DC", "Injustice 2 offre una varietà incredibile di personaggi e modalità di gioco. Gli amanti dei picchiaduro e dei fumetti DC non possono perderselo.", 5.00, 152, 56),
+("Tanta azione", "Ogni combattimento è pieno di azione e spettacolari animazioni. Un gioco da non perdere per chi ama i picchiaduro.", 4.50, 152, 66),
+("Divertente ma con margini di miglioramento", "La grafica e il combattimento sono ottimi, ma alcune modalità di gioco possono diventare noiose. È comunque un gioco molto divertente.", 4.00, 152, 76),
+("Un picchiaduro sopra la media", "Injustice 2 è un gioco molto divertente, ma non è perfetto. La modalità storia è interessante, ma il multiplayer online può essere frustrante.", 4.00, 152, 86),
+("Pieno di possibilità", "Il gioco ha una grande varietà di personaggi e di modalità, ma le meccaniche potrebbero essere perfezionate. Comunque, è molto divertente", 4.50, 152, 96),
+("Migliorato rispetto al primo", "Injustice 2 è un netto miglioramento rispetto al primo gioco. Le animazioni, la varietà dei personaggi e le nuove meccaniche sono fantastiche.", 5.00, 152, 106);
+
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un gioco che ti tiene incollato", "Inscryption è un’esperienza unica che mescola meccaniche di carte con un’atmosfera psicologica intrigante. Non è un gioco facile, ma ti tiene impegnato.", 5.00, 107, 17),
+("Innovativo e inquietante", "La trama di Inscryption è piena di colpi di scena e il gameplay di carte è originale. È un gioco che ti sorprende ad ogni angolo.", 5.00, 107, 27),
+("Affascinante ma oscuro", "Inscryption è un gioco che ti affascina con la sua atmosfera cupa e le sue meccaniche innovative, ma può risultare troppo complesso per alcuni.", 4.50, 107, 37),
+("Un’esperienza unica", "Se ti piacciono i giochi di carte con una trama avvincente e misteriosa, Inscryption è un gioco da non perdere. È davvero originale.", 5.00, 107, 47),
+("Intrigante ma frustrante", "Il gioco ha una storia affascinante e una meccanica di gioco interessante, ma alcune parti possono risultare frustranti e difficili da comprendere.", 4.00, 107, 57),
+("Un capolavoro psicologico", "Inscryption è un capolavoro che ti fa riflettere mentre ti intrattiene. Le sue meccaniche e la trama sono uniche e ti sorprendono continuamente.", 5.00, 107, 67),
+("Divertente ma difficile", "La combinazione di gioco di carte e horror psicologico è affascinante, ma alcune meccaniche sono difficili da padroneggiare. Non è un gioco per tutti.", 4.00, 107, 77),
+("Storia avvincente", "La storia e il mondo che Inscryption costruisce sono fantastici. Nonostante alcune difficoltà, il gioco è estremamente coinvolgente.", 4.50, 107, 87),
+("Un gioco che ti sorprende", "Inscryption è difficile da descrivere, ma sicuramente ti sorprenderà. Le sue meccaniche e la trama sono molto originali, ma non è un gioco per chi cerca qualcosa di semplice.", 4.50, 107, 97),
+("Misterioso e intrigante", "Inscryption è un gioco che tiene alta la tua attenzione grazie ai suoi continui colpi di scena e alle sue meccaniche uniche. Un must per gli amanti dei giochi misteriosi.", 5.00, 107, 107);
+
+
+INSERT INTO REVIEWS (Title, Comment, Rating, GameID, UserID) VALUES
+("Un capolavoro oscuro", "Inside è un’esperienza unica che mescola suspense e mistero. La sua atmosfera inquietante ti tiene incollato fino alla fine.", 5.00, 110, 18),
+("Profondo e affascinante", "Il gioco è visivamente straordinario, e la trama, pur essendo enigmatica, è affascinante. Ogni puzzle ha un significato che si svela piano piano.", 5.00, 110, 28),
+("Emozionante e inquietante", "Inside è un gioco che riesce a creare una sensazione di costante tensione. Le meccaniche sono semplici ma efficaci, ed è difficile staccarsi dalla storia.", 4.50, 110, 38),
+("Un viaggio oscuro", "Il gioco ha una storia complessa, ma non viene mai esplicitamente raccontata. Il suo fascino sta proprio nell’interpretazione personale di ogni elemento.", 4.50, 110, 48),
+("Affascinante ma breve", "Inside è un gioco incredibile che lascia il segno, anche se purtroppo è piuttosto breve. La sua atmosfera è unica e ti fa pensare anche dopo averlo finito.", 4.00, 110, 58),
+("Un’esperienza indimenticabile", "Non è solo un gioco, è un’esperienza che ti coinvolge e ti lascia con molte domande senza risposta. Ogni momento è pensato per farti riflettere.", 5.00, 110, 68),
+("Bellissimo ma disturbante", "La grafica e la musica sono incredibili, ma l’atmosfera è disturbante. Il gioco è perfetto per chi ama i titoli con una forte componente psicologica.", 4.50, 110, 78),
+("Storia enigmatica", "La trama è interessante e ti spinge a scoprire sempre di più, ma l’interpretazione resta aperta. È un gioco che ti fa riflettere profondamente.", 4.00, 110, 88),
+("Un thriller psicologico", "Inside è come un thriller psicologico. Ogni puzzle ha una logica che ti sfida a pensare in modo diverso. Un gioco che ti lascia senza fiato.", 5.00, 110, 98),
+("Molto intrigante", "Inside è un gioco che non racconta tutto, ma ti invita a riflettere. Le meccaniche di gioco sono semplici, ma la storia ti lascia qualcosa dentro.", 4.50, 110, 108);
 
 
 
