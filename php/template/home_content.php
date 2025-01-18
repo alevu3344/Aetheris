@@ -1,24 +1,33 @@
-<article class="front-page-game">
-  <figure>
-    <img src="../media/covers/legend_of_zelda_todk.jpg" alt="Front page game">
-    <div class="front-page-game-overlay"></div>
-    <figcaption class="figcaption-front-page">
-      <p class="front-page-game-title">The Legend of Zelda: Breath of the Wild</p>
-      <p class="description">An open-world adventure game set in the Zelda universe.</p>
-    </figcaption>
+<div>
+  <button>
+    <img src="upload/icons/left_arrow.svg" alt="Left arrow">
+  </button>
 
-    <div class="front-page-game-buy-details">
-      <div class="price-and-buy-button">
-        <span class="front-page-game-price">59.99€</span>
-        <button class="front-page-game-buy-button">Acquista</button>
+  <article>
+    <figure>
+      <div></div>
+      <img src="../media/covers/legend_of_zelda_todk.jpg" alt="Front page game">
+      <figcaption>
+        <p>The Legend of Zelda: Breath of the Wild</p>
+        <p>Impedisci a Ganondorf di distruggere Hyrule</p>
+      </figcaption>
+
+      <div>
+        <div>
+          <span>59.99€</span>
+          <button>Acquista</button>
+        </div>
+        <button>
+          <img src="upload/icons/add-to-cart.svg" alt="Add to cart icon"/>Aggiungi al carrello
+        </button>
       </div>
-      <button class="front-page-game-add-to-cart">
-        <img src="upload/icons/add-to-cart.svg" alt="Add to cart icon"/>
-        Aggiungi al carrello
-      </button>
-    </div>
-  </figure>
-</article>
+    </figure>
+  </article>
+
+  <button>
+    <img src="upload/icons/right_arrow.svg" alt="Right arrow">
+  </button>
+</div>
 
 
 

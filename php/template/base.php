@@ -9,16 +9,16 @@
 </head>
 <body>
     <header>
-        <div class="header-left">
-            <img src="upload/icons/aetheris_logo.png" alt="Logo" class="logo" />
+        <div>
+            <img src="upload/icons/aetheris_logo.png" alt="Logo"/>
             <h1>Aetheris</h1>
         </div>
 
-        <div class="header-right">
-            <div class="nav-categorie">
+        <div>
+            <div>
                 <a href="#">Categorie</a>
             </div>
-            <div class="nav-accedi">
+            <div>
                 <a href="#">Accedi</a>
             </div>
         </div>
@@ -34,18 +34,17 @@
     </main>
 
     <footer>
-        <div class="footer-top">
+        <div>
             <p>Aetheris</p>
         </div>
-        <div class="footer-middle">
-            
+        <div> 
             <nav>
                 <ul>
-                     <li><img src="upload/icons/instagram.png" alt="Instagram" class="instagram"/><a href="#">Instagram</a></li><li><img src="upload/icons/pinterest.png" alt="Pinterest" class="pinterest"/><a href="#">Pinterest</a></li><li><img src="upload/icons/youtube.png" alt="Youtube" class="youtube"/><a href="#">Youtube</a></li><li><img src="upload/icons/twitter.png" alt="Twitter" class="twitter"/><a href="#">Twitter</a></li>
+                     <li><img src="upload/icons/instagram.png" alt="Instagram"/><a href="#">Instagram</a></li><li><img src="upload/icons/pinterest.png" alt="Pinterest"/><a href="#">Pinterest</a></li><li><img src="upload/icons/youtube.png" alt="Youtube"/><a href="#">Youtube</a></li><li><img src="upload/icons/twitter.png" alt="Twitter"/><a href="#">Twitter</a></li>
                 </ul>
             </nav>        
         </div>
-            <div class="footer-bottom">
+            <div>
                 <a href="#">Track an order</a>
             </div>
     </footer>
