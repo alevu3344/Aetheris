@@ -141,6 +141,13 @@ body > main > div > article {
   box-sizing: border-box; 
 }
 
+body > main > div > article > figure {
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  position: relative;
+}
+
 body > main > div > article > figure > figcaption {
   display: block;
   position: absolute; 
@@ -197,8 +204,8 @@ body > main > div > article > figure > div:nth-child(4) {
   bottom: 0;
   right: 0;
   width: 50%; 
-  height: 100%;
-  padding: 10% 5% 10% 5%;
+  height: 50%;
+  padding: 0 5% 0 5%;
   z-index: 1;
 }
 
@@ -207,7 +214,6 @@ body > main > div > article > figure > div:nth-child(4) > div {
   align-items: center;
   width: 100%;
   height: 20%;
-  margin-top: 40%;
   margin-bottom: 2%;
 }
 
@@ -257,7 +263,7 @@ body > main > div > article > figure > div:nth-child(4) > button > img {
 /*--------------------------      Giochi in offerta  START      ------------------------*/
 body > main > h2 {
   font-family: 'Roboto';
-  margin: 2% 5%;
+  margin: 2% 5% 0% 5%;
   color: white;
 }
 
@@ -265,27 +271,29 @@ body > main > table {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
-  height: 100%; /* Altezza massima del genitore */
+  height: 200px; /* Altezza massima del genitore */
+  border-spacing: 10px;
 }
 
-td {
+
+body > main > table > tbody > tr {
+  height: 100%;
+}
+
+body > main > table > tbody > tr > td {
   padding: 0px;
   width: 50%;
   height: 100%;
 }
 
-tr {
-  height: 100%;
-}
-
-figure{
+body > main > table > tbody > tr > td > article > figure{
   height: 100%;
   width: 100%;
   margin: 0px;
   position: relative;
 }
 
-.figcaption-scroller {
+body > main > table > tbody > tr > td > article > figure > figcaption {
   position: absolute; 
   bottom: 0;
   left: 0;
@@ -299,25 +307,19 @@ figure{
   box-sizing: border-box; 
 }
 
-.bigger-game, .top-game, .bottom-game {
+body > main > table > tbody > tr > td > article {
   border: 1px solid #ccc;
   display: flex; /* Set to flex container */
   flex-direction: column; /* Stack content vertically */
   justify-content: space-between; /* Ensure the content inside takes up full height */
   text-align: left;
-  margin: 0px 2px;
   background-color: #007bff;
   height: 100%; /* Take full height of the parent */
   max-height: 100%;
   box-sizing: border-box; /* Ensure padding/border don't affect height calculation */
 }
 
-.top-game {
-  margin-bottom: 2px;
-}
-
-
-.bigger-game img {
+body > main > table > tbody > tr > td:nth-child(1) > article > figure > img {
   width: 100%;
   height: 100%; /* Ensure the image fills the available height */
   margin: -1px;
@@ -325,7 +327,7 @@ figure{
   object-fit:cover;; /* Maintain aspect ratio, cover the area */
 }
 
-.top-game img, .bottom-game img {
+body > main > table > tbody > tr > td:not(:nth-child(1)) > article > figure > img {
   width: 100%;
   height: auto;
   margin: -1px;
@@ -333,50 +335,45 @@ figure{
   object-fit: fill;
 }
 
-.offerta {
-  margin: 1%;
+body > main > table > tbody > tr > td:nth-child(1) > article > section > p {
+  margin: 2%;
   color: white;
   font-weight: bold;
   font-size: 12px;
 }
 
-.durata {
-  margin: 1%;
-  font-size: 12px;
-  color: white;
-}
 
-.offerta-container {
+body > main > table > tbody > tr > td > article > section > footer, body > main > table > tbody > tr > td > article > footer {
   display: flex;
-  gap: 1%;
-  margin: 1%;
+  align-items: center;
 }
 
-.sconto {
+body > main > table > tbody > tr > td > article > section > footer > span:nth-child(1), body > main > table > tbody > tr > td > article > footer > span:nth-child(1) {
   background-color: rgb(0, 215, 0);
   color: white;
-  padding: 2px 2px;
+  padding: 2%;
   font-weight: bold;
+  font-size: 12px;
+  margin: 2%;
 }
 
-.prezzi {
+body > main > table > tbody > tr > td > article > section > footer > span:nth-child(2), body > main > table > tbody > tr > td > article > footer > span:nth-child(2){
   background-color: rgb(0, 40, 173);
-  padding: 2px 2px;
-  display: flex;
-  gap: 10px;
-}
-
-.prezzo-originale {
   text-decoration: line-through;
   color: rgba(174, 174, 174, 0.68);
   font-size: 12px;
   line-height: 1.5;
+  margin: 2% 0% 2%;
+  padding: 2%;
 }
 
-.prezzo-scontato {
+body > main > table > tbody > tr > td > article > section > footer > span:nth-child(3), body > main > table > tbody > tr > td > article > footer > span:nth-child(3){
+  background-color: rgb(0, 40, 173);
   color: white;
   font-size: 16px;
   font-weight: bold;
+  margin: 2% 0% 2%;
+  padding: 2%;
 }
 
 /*--------------------------      Giochi in offerta END       ------------------------*/
