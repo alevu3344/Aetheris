@@ -11,5 +11,6 @@ $templateParams["categorie"] = $dbh->getCategories();
 $templateParams["giochi"] = $dbh->getGamesByCategory($_GET["nome-categoria"]);
 
 
+
 require("template/base.php");
 ?>
