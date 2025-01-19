@@ -32,10 +32,8 @@
 
 
 <h2>GIOCHI IN OFFERTA</h2>
-<table>
-  <tr>
-    <td rowspan="2">
-      <article>
+<div>
+  <article> <!-- Gioco grande (sinistra)-->
         <figure>
           <img src="../media/covers/5.jpg" alt="Big Game">
           <figcaption>Assassin's Creed Valhalla</figcaption>
@@ -52,39 +50,34 @@
           </footer>
         </section>
       </article>
-    </td>
 
-    <td>
-      <article>
+  <div> <!-- Giochi piccoli (destra)-->
+    <article>
         <figure>
           <img src="../media/covers/23.jpg" alt="Top game"/>
           <figcaption>Cyberpunk 2077</figcaption>
         </figure>
-        <footer>
-          <span>-25%</span>
-          <span>59,99€</span>
-          <span>44,99€</span>
-        </footer>
+          <footer>
+            <span>-50%</span>
+            <span>29,99€</span>
+            <span>14,99€</span>
+          </footer>
       </article>
-    </td>
 
-  </tr>
-  <tr>
-    <td>
       <article>
         <figure>
-        <img src="../media/covers/44.jpg" alt="Bottom game"/>
+          <img src="../media/covers/44.jpg" alt="Bottom game"/>
           <figcaption>Dead Cells</figcaption>
         </figure>
-        <footer>
-          <span>-75%</span>
-          <span>19,99€</span>
-          <span>4,99€</span>
-        </footer>
+          <footer>
+            <span>-50%</span>
+            <span>29,99€</span>
+            <span>14,99€</span>
+          </footer>
       </article>
-    </td>
-  </tr> 
-</table>
+
+  </div>
+</div>
 
 <div>
   <nav>
