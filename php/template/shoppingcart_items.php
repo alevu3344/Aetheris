@@ -29,3 +29,12 @@
         </article>
     </li>
 </ul>
+
+
+<!-- 
+    A button to Checkout
+-->
+
+<button id="checkout">Checkout</button>
+
+
