@@ -86,4 +86,60 @@
   </tr> 
 </table>
 
+<div>
+  <nav>
+      <ul>
+          <li>PIÙ ACQUISTATI</li><li>PIÙ GIOCATI</li>
+      </ul>
+  </nav>
 
+  <div>
+    <ul>
+      <li>
+        <div>
+          <img src="../media/covers/144.jpg" alt="The Evil Within 2">
+          <section>
+            <div>
+              <img src="upload/icons/windows-icon.svg" alt="Windows">
+              <img src="upload/icons/xbox-icon.svg" alt="Xbox">
+              <img src="upload/icons/mac-icon.svg" alt="Mac">
+            </div>
+            <span>19,99€</span>
+          </section>
+        </div>
+      </li>
+      <li>
+        <article>
+          <figure>
+            <img src="../media/covers/108.jpg" alt="Limbo">
+            <figcaption>LIMBO</figcaption>
+          </figure>
+          <section>
+            <div>
+              <img src="upload/icons/windows-icon.svg" alt="Windows">
+              <img src="upload/icons/xbox-icon.svg" alt="Xbox">
+              <img src="upload/icons/mac-icon.svg" alt="Mac">
+            </div>
+            <span>9,99€</span>
+          </section>
+        </article>
+      </li>
+      <li>
+        <article>
+          <figure>
+            <img src="../media/covers/98.jpg" alt="Cuphead">
+            <figcaption>CUPHEAD</figcaption>
+          </figure>
+          <section>
+            <div>
+              <img src="upload/icons/windows-icon.svg" alt="Windows">
+              <img src="upload/icons/xbox-icon.svg" alt="Xbox">
+              <img src="upload/icons/mac-icon.svg" alt="Mac">
+            </div>
+            <span>29,99€</span>
+          </section>
+        </article>
+      </li>
+    </ul>
+  </div>
+</div>
