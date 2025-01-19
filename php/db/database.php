@@ -10,8 +10,21 @@ class DatabaseHelper{
         }
     }
 
+    //done by joining the tables GAMES and GAME_CATEGORIES
     public function getGamesByCategory($category){
-        $query = "SELECT * FROM GAMES WHERE Category = ?";
+        $query = "
+            SELECT 
+                G.Id, 
+                G.Name, 
+                G.Price
+            FROM 
+                GAMES G
+            INNER JOIN 
+                GAME_CATEGORIES GC ON G.Id = GC.GameId
+            INNER JOIN 
+                CATEGORIES C ON GC.CategoryName = C.CategoryName
+            WHERE 
+                C.CategoryName = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("s", $category);
         $stmt->execute();
