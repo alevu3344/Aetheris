@@ -1150,22 +1150,47 @@ body > main > nav > ul > li > a{
   text-decoration: none;
 }
 
-body > main > article {
-  width: 20%;
-  height: 200px;
+body > main > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body > main > ul > li {
+  width: 50%;
+  height: 100px;
+}
+
+body > main > ul > li:nth-child(odd){
+  margin-right: 10%;
+}
+
+body > main > ul > li  > article {
+  width: 40%;
+  height: 100%;
   border: 1px solid white;
   background-color: #007bff;
   box-sizing: border-box;
+  display: inline-block;
+  margin: 10px 10px 10% 0;
 }
 
-body > main > article > figure {
+body > main > ul > li > article:nth-child(odd){
+  margin-right: 10%;
+}
+
+body > main > ul > li > article > figure {
   width: 100%;
   height: 80%;
   margin: 0px;
   position: relative;
 }
 
-body > main > article > figure > figcaption {
+body > main > ul > li > article > figure > figcaption {
   position: absolute; 
   bottom: 0;
   left: 0;
@@ -1178,9 +1203,33 @@ body > main > article > figure > figcaption {
   box-sizing: border-box;
 }
 
-body > main > article > figure > img {
+body > main > ul > li > article > figure > img {
    width: 100%;
    height: 100%;
+}
+
+
+body > main > ul > li > article > footer > span:nth-child(1) {
+  font-family: 'Roboto';
+  font-size: 12px;
+  background-color: #00c83f;
+  color: white;
+  margin-right: 2px;
+}
+
+body > main > ul > li > article > footer > span:nth-child(2) {
+  font-family: 'Roboto';
+  font-size: 12px;
+  text-decoration: line-through;
+  background-color: #0028a2;
+  color: rgb(130, 130, 130);
+}
+
+body > main > ul > li > article > footer > span:nth-child(3) {
+  font-family: 'Roboto';
+  font-size: 12px;
+  background-color: #0028a2;
+  color: white;
 }
 
 /* ------------------------ END CATEGORY GAMES--------------------------- */

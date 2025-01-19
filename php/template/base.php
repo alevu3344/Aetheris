@@ -3,7 +3,11 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><?php echo $templateParams["titolo"]; ?></title>
-    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+<!--if templateParams["stylesheet"] is set, link to that one, otherwise to the standard tyle.cc-->
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <?php if(isset($templateParams["stylesheet"])): ?>
+        <link rel="stylesheet" type="text/css" href="./css/<?= $templateParams["stylesheet"] ?>">
+    <?php endif; ?>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
 </head>
