@@ -725,21 +725,181 @@ input:focus {
                        
 
 
+
+body main > ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body main >  ul > li {
+  margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+
+/* Game card */
+body main > ul > li > div {
+  display: flex;
+  height: 100px;
+  width: 90%;
+  background-color: #000;
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/*the image has*/
+body main > ul > li > div > img {
+  width: auto;
+  height: 100%;
+  border-radius: 4px;
+}
+
+body main > ul > li > div > section {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+body main > ul > li > div > section > header {
+  height: 33%;
+  padding-top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: top;
+}
+
+body main > ul > li > div > section > p {
+  margin: 0;
+  height: 33%;
+}
+
+body main > ul > li > div > section > footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 34%;
+}
+
+body main > ul > li > div > section > header > h2 {
+  font-size: 16px;
+  font-weight: bold;
+  padding-top: 0;
+  margin: 0;
+  
+}
+
+
+
+body main > ul > li > div > section > footer > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+body main > ul > li > div > section > footer > div > button{
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+  width: 25px; 
+  height: 25px; 
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+body main > ul > li > div > section > footer > div > button > img{
+  width: 20px;
+  height: 20px;
+}
+
+body main > ul > li > div > section > footer > div > button > img{
+  width: 20px;
+  height: 20px;
+}
+
+body main > ul > li > div > section > footer > div > button:first-child > img {
+  rotate: -90deg;
+}
+
+body main > ul > li > div > section > footer > div > button:last-child > img {
+  rotate: 90deg;
+}
+
+body main > ul > li > div > section > header > button {
+  border: none;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+
+
+}
+
+body main > ul > li > div > section > header > button > img {
+  height: 100%;
+  width: auto;
+  filter: invert(1);
+}
+
+body main > ul > li > div > section img {
+  width: 30px;
+  height: 30px;
+}
+
+
+body > main > button {
+  background-color: rgba(59, 130, 246, 1);
+
+  padding: 10px 10px;
+  text-align: center;
+  color: white; 
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  margin: 20px 40% 20px 40%;
+  width : 20%;
+  display: block;
+}
+
+
 /* ------------------------ BEGIN SHOPPING CART--------------------------- */
 /* General styles for the shopping cart */
+
+
+
+/*
+
 body > main > ul {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 body > main > ul > li {
   margin-bottom: 20px;
 }
 
-/* Styling for each game entry */
+
 body > main > ul > li > article {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -748,6 +908,7 @@ body > main > ul > li > article {
   background-color: #56565c;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
   gap: 10px;
   position: relative;
 }
@@ -761,61 +922,76 @@ body > main > ul > li > article > footer {
   border-top: 0px;
 }
 
-/* Image on the left */
+
 body > main > ul > li > article > header img {
   max-width: 100px;
   height: auto;
   border-radius: 4px;
-  grid-row: 1 / span 3; /* Spans the entire height of the layout */
-  align-self: start; /* Ensures alignment with the top */
+  grid-row: 1 / span 3; 
+  align-self: start; 
 }
 
 body > main > ul > li > article > section {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  justify-content: flex-start; /* Align content to the top */
+  justify-content: flex-start; 
   margin: 0;
 }
 
 
+body > main > button {
+  background-color: rgba(59, 130, 246, 1);
 
-.title-trash {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start; /* Align Game Title and Trash Bin to the top */
+  padding: 10px 10px;
+  text-align: center;
+  color: white; 
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  margin: 20px 40% 20px 40%;
+  width : 20%;
+  display: block;
 }
 
-.game-title {
+
+
+body > main > ul > li > article > section > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+body > main > ul > li > article > section > header >h2 {
   font-size: 1.2rem;
   font-weight: bold;
   margin: 0;
 }
 
-.platforms {
+body > main > ul > li > article > section > p {
   margin: 0;
 }
 
-.platforms img {
+body > main > ul > li > article > section > p > img {
   width: 30px;
   height: auto;
   margin-right: 10px;
 }
 
-/* Trash bin in the top right */
-.remove-item {
+
+body > main > ul > li > article > section > header > button {
   background: none;
   border: none;
   cursor: pointer;
 }
 
-.remove-item img {
+body > main > ul > li > article > section > header > button > img {
   width: 20px;
   height: 20px;
 }
 
-/* Quantity scroller and price */
-.cart-actions {
+
+body > main > ul > li > article > footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -828,43 +1004,42 @@ body > main > ul > li > article > footer > section {
   gap: 5px;
 }
 
-.quantity-arrow {
+body > main > ul > li > article > footer > section > button {
   background-color: #007bff;
   color: white;
   border: none;
   border-radius: 50%;
   padding: 5px;
   cursor: pointer;
-  width: 25px; /* Fixing button width */
-  height: 25px; /* Fixing button height */
+  width: 25px; 
+  height: 25px; 
   display: flex;
   justify-content: center;
-  align-items: center; /* Center-align arrow content */
+  align-items: center; 
 }
 
-.quantity {
+body > main > ul > li > article > footer > section > span {
   font-size: 1rem;
   width: 30px;
   text-align: center;
 }
 
-.game-price {
+body > main > ul > li > article > footer > p {
   font-size: 1.1rem;
   color: #28a745;
   margin: 0;
 }
 
-/* Hover effects */
-.cart-actions button:hover {
+body > main > ul > li > article > footer > section > button:hover {
   opacity: 0.8;
 }
 
-.remove-item:hover img {
+body > main > ul > li > article > section > header > button:hover img {
   opacity: 0.7;
 }
 
 
-
+*/
 /* ------------------------ END SHOPPING CART--------------------------- */
 
 /* ------------------------ BEGIN CATEGORY GAMES--------------------------- */
@@ -914,4 +1089,4 @@ body > main > nav > ul > li > a{
 
 
 
-/* ------------------------ BEGIN CATEGORY GAMES--------------------------- */
+/* ------------------------ END CATEGORY GAMES--------------------------- */
