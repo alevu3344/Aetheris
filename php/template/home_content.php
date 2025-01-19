@@ -99,46 +99,55 @@
         <div>
           <img src="../media/covers/144.jpg" alt="The Evil Within 2">
           <section>
-            <div>
-              <img src="upload/icons/windows-icon.svg" alt="Windows">
-              <img src="upload/icons/xbox-icon.svg" alt="Xbox">
-              <img src="upload/icons/mac-icon.svg" alt="Mac">
-            </div>
-            <span>19,99€</span>
+            <header>
+              <span>The Evil Within 2</span>
+            </header>
+            <footer>
+              <div>
+                <img src="upload/icons/windows-icon.svg" alt="Windows">
+                <img src="upload/icons/xbox-icon.svg" alt="Xbox">
+                <img src="upload/icons/mac-icon.svg" alt="Mac">
+              </div>
+              <span>39,99€</span>
+            </footer>
           </section>
         </div>
       </li>
       <li>
-        <article>
-          <figure>
-            <img src="../media/covers/108.jpg" alt="Limbo">
-            <figcaption>LIMBO</figcaption>
-          </figure>
+      <div>
+        <img src="../media/covers/108.jpg" alt="Limbo">
           <section>
-            <div>
-              <img src="upload/icons/windows-icon.svg" alt="Windows">
-              <img src="upload/icons/xbox-icon.svg" alt="Xbox">
-              <img src="upload/icons/mac-icon.svg" alt="Mac">
-            </div>
-            <span>9,99€</span>
+            <header>
+              <span>Limbo</span>
+            </header>
+            <footer>
+              <div>
+                <img src="upload/icons/windows-icon.svg" alt="Windows">
+                <img src="upload/icons/xbox-icon.svg" alt="Xbox">
+                <img src="upload/icons/mac-icon.svg" alt="Mac">
+              </div>
+              <span>9,99€</span>
+            </footer>
           </section>
-        </article>
+        </div>
       </li>
       <li>
-        <article>
-          <figure>
-            <img src="../media/covers/98.jpg" alt="Cuphead">
-            <figcaption>CUPHEAD</figcaption>
-          </figure>
+      <div>
+        <img src="../media/covers/98.jpg" alt="Cuphead">
           <section>
-            <div>
-              <img src="upload/icons/windows-icon.svg" alt="Windows">
-              <img src="upload/icons/xbox-icon.svg" alt="Xbox">
-              <img src="upload/icons/mac-icon.svg" alt="Mac">
-            </div>
-            <span>29,99€</span>
+            <header>
+              <span>Cuphead</span>
+            </header>
+            <footer>
+              <div>
+                <img src="upload/icons/windows-icon.svg" alt="Windows">
+                <img src="upload/icons/xbox-icon.svg" alt="Xbox">
+                <img src="upload/icons/mac-icon.svg" alt="Mac">
+              </div>
+              <span>19,99€</span>
+            </footer>
           </section>
-        </article>
+        </div>
       </li>
     </ul>
   </div>
