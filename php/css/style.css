@@ -1645,12 +1645,13 @@ body>footer>div:nth-child(1)>p {
 
 .game_content > main > div:nth-of-type(3) {
   display: flex;
-  align-items: left;
+  align-items: flex-start; /* Align to the start */
   justify-content: space-between;
   flex-direction: column;
   width: 90%;
   margin-left: 5%;
   margin-bottom: 20px;
+  box-sizing: border-box; /* Assicurati che il gap non superi la larghezza totale */
 }
 
 .game_content > main > div:nth-of-type(3) > h2 {
@@ -1665,8 +1666,10 @@ body>footer>div:nth-child(1)>p {
 .game_content > main > div:nth-of-type(3) > div {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 2 columns */
-  gap: 2%; /* space between images */
+  column-gap: 2%;
+  row-gap: 10px;
   width: 100%;
+  box-sizing: content-box; /* Assicurati che il gap non superi la larghezza totale */
 }
 
 .game_content > main > div:nth-of-type(3) > div > img {
@@ -1674,6 +1677,7 @@ body>footer>div:nth-child(1)>p {
   height: auto;
   border-radius: 8px; /* optional: for rounded corners */
   object-fit: cover;
+  
 }
 
 
