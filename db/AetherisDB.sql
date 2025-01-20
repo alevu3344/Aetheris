@@ -4685,10 +4685,7 @@ INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
 (128, "Nintendo Switch"),
 (142, "PC"),
 (142, "PlayStation"),
-(142, "Xbox");
-
-
-INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
+(142, "Xbox"),
 (193, "PC"),
 (193, "PlayStation"),
 (193, "Xbox"),
@@ -4704,9 +4701,7 @@ INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
 (196, "Xbox"),
 (195, "PC"),
 (195, "PlayStation"),
-(195, "Xbox");
-
-INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
+(195, "Xbox"),
 (5, "PC"),
 (5, "PlayStation"),
 (5, "Xbox"),
@@ -4721,11 +4716,7 @@ INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
 (167, "Xbox"),
 (55, "PC"),
 (55, "PlayStation"),
-(55, "Xbox");
-
-
-
-INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
+(55, "Xbox"),
 (9, "PC"),
 (9, "PlayStation"),
 (9, "Xbox"),
@@ -4740,10 +4731,7 @@ INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
 (189, "Xbox"),
 (190, "PC"),
 (190, "PlayStation"),
-(190, "Xbox");
-
-
-INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
+(190, "Xbox"),
 (191, "PC"),
 (191, "PlayStation"),
 (191, "Xbox"),
@@ -4758,10 +4746,7 @@ INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
 (174, "Xbox"),
 (219, "PC"),
 (219, "PlayStation"),
-(219, "Xbox");
-
-
-INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
+(219, "Xbox"),
 (169, "PC"),
 (169, "PlayStation"),
 (169, "Xbox"),
@@ -4791,10 +4776,7 @@ INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
 (222, "Xbox"),
 (223, "PC"),
 (223, "PlayStation"),
-(223, "Xbox");
-
-
-INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
+(223, "Xbox"),
 (224, "PC"),
 (224, "PlayStation"),
 (224, "Xbox"),
@@ -4823,10 +4805,7 @@ INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
 (112, "Xbox"),
 (71, "PC"),
 (71, "PlayStation"),
-(71, "Xbox");
-
-
-INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
+(71, "Xbox"),
 (98, "PC"),
 (98, "PlayStation"),
 (98, "Xbox"),
@@ -4856,10 +4835,7 @@ INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
 (177, "Xbox"),
 (178, "PC"),
 (178, "PlayStation"),
-(178, "Xbox");
-
-
-INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
+(178, "Xbox"),
 (140, "PC"),
 (140, "PlayStation"),
 (140, "Xbox"),
@@ -4887,10 +4863,7 @@ INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
 (54, "PC"),
 (54, "PlayStation"),
 (54, "Xbox"),
-(116, "Nintendo Switch");
-
-
-INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
+(116, "Nintendo Switch"),
 (181, "PC"),
 (181, "PlayStation"),
 (181, "Xbox"),
@@ -4919,10 +4892,7 @@ INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
 (36, "Xbox"),
 (164, "PC"),
 (164, "PlayStation"),
-(164, "Xbox");
-
-
-INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
+(164, "Xbox"),
 (203, "PC"),
 (203, "PlayStation"),
 (203, "Xbox"),
@@ -4949,10 +4919,7 @@ INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
 (208, "Xbox"),
 (16, "PC"),
 (16, "PlayStation"),
-(16, "Xbox");
-
-
-INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
+(16, "Xbox"),
 (209, "PC"),
 (209, "PlayStation"),
 (209, "Xbox"),
@@ -4982,10 +4949,7 @@ INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
 (215, "Xbox"),
 (216, "PC"),
 (216, "PlayStation"),
-(216, "Xbox");
-
-
-INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
+(216, "Xbox"),
 (78, "PC"),
 (78, "PlayStation"),
 (78, "Xbox"),
@@ -5011,10 +4975,7 @@ INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
 (234, "PC"),
 (234, "Xbox"),
 (81, "PC"),
-(81, "Xbox");
-
-
-INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
+(81, "Xbox"),
 (137, "PC"),
 (137, "PlayStation"),
 (137, "Xbox"),
@@ -5055,10 +5016,7 @@ INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
 (232, "PC"),
 (232, "Xbox"),
 (233, "PC"),
-(233, "Xbox");
-
-
-INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
+(233, "Xbox"),
 (75, "PC"),
 (75, "PlayStation"),
 (75, "Xbox"),
@@ -5081,10 +5039,7 @@ INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
 (107, "PC"),
 (107, "PlayStation"),
 (110, "PC"),
-(110, "PlayStation");
-
-
-INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
+(110, "PlayStation"),
 (163, "PC"),
 (163, "PlayStation"),
 (163, "Xbox"),
@@ -5107,10 +5062,7 @@ INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
 (238, "PlayStation"),
 (238, "Xbox"),
 (108, "PC"),
-(108, "PlayStation");
-
-
-INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
+(108, "PlayStation"),
 (109, "PC"),
 (109, "PlayStation"),
 (109, "Xbox"),
@@ -5139,10 +5091,7 @@ INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
 (243, "Xbox"),
 (22, "PC"),
 (22, "PlayStation"),
-(22, "Xbox");
-
-
-INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
+(22, "Xbox"),
 (18, "PC"),
 (18, "PlayStation"),
 (18, "Xbox"),
@@ -5171,10 +5120,7 @@ INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
 (185, "Xbox"),
 (245, "PC"),
 (245, "PlayStation"),
-(245, "Xbox");
-
-
-INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
+(245, "Xbox"),
 (89, "PC"),
 (89, "PlayStation"),
 (89, "Xbox"),
@@ -5204,10 +5150,7 @@ INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
 (33, "Xbox"),
 (249, "PC"),
 (249, "PlayStation"),
-(249, "Xbox");
-
-
-INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
+(249, "Xbox"),
 (250, "PC"),
 (250, "PlayStation"),
 (250, "Xbox"),
@@ -5237,10 +5180,7 @@ INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
 (46, "Xbox"),
 (253, "PC"),
 (253, "PlayStation"),
-(253, "Xbox");
-
-
-INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
+(253, "Xbox"),
 (25, "PlayStation"),
 (25, "Nintendo Switch"),
 (145, "PC"),
@@ -5257,10 +5197,7 @@ INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
 (256, "Nintendo Switch"),
 (257, "Nintendo Switch"),
 (258, "Nintendo Switch"),
-(259, "Nintendo Switch");
-
-
-INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
+(259, "Nintendo Switch"),
 (260, "Nintendo Switch"),
 (157, "PC"),
 (157, "PlayStation"),
@@ -5287,10 +5224,7 @@ INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
 (2, "Xbox"),
 (139, "PC"),
 (139, "PlayStation"),
-(139, "Xbox");
-
-
-INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
+(139, "Xbox"),
 (263, "PC"),
 (263, "PlayStation"),
 (263, "Xbox"),
@@ -5319,10 +5253,7 @@ INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
 (266, "Xbox"),
 (13, "PC"),
 (13, "PlayStation"),
-(13, "Xbox");
-
-
-INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
+(13, "Xbox"),
 (93, "PC"),
 (93, "PlayStation"),
 (93, "Xbox"),
@@ -5348,10 +5279,7 @@ INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
 (10, "PC"),
 (103, "PC"),
 (103, "PlayStation"),
-(103, "Xbox");
-
-
-INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
+(103, "Xbox"),
 (133, "Nintendo Switch"),
 (133, "PC"),
 (113, "PlayStation"),
@@ -5376,10 +5304,7 @@ INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
 (148, "PlayStation"),
 (148, "Xbox"),
 (111, "Nintendo Switch"),
-(153, "Nintendo Switch");
-
-
-INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
+(153, "Nintendo Switch"),
 (61, "PC"),
 (61, "PlayStation"),
 (61, "Xbox"),
@@ -5409,10 +5334,7 @@ INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
 (175, "Xbox"),
 (272, "PC"),
 (272, "PlayStation"),
-(272, "Xbox");
-
-
-INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
+(272, "Xbox"),
 (273, "PC"),
 (273, "PlayStation"),
 (273, "Xbox"),
@@ -5437,10 +5359,7 @@ INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
 (45, "Xbox"),
 (275, "PC"),
 (275, "PlayStation"),
-(275, "Xbox");
-
-
-INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
+(275, "Xbox"),
 (276, "PC"),
 (276, "PlayStation"),
 (276, "Xbox"),
@@ -5470,10 +5389,7 @@ INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
 (90, "Xbox"),
 (106, "PC"),
 (106, "PlayStation"),
-(106, "Xbox");
-
-
-INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
+(106, "Xbox"),
 (8, "PlayStation"),
 (8, "PC"),
 (101, "PC"),
@@ -5499,10 +5415,7 @@ INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
 (58, "PlayStation"),
 (24, "PC"),
 (24, "PlayStation"),
-(24, "Xbox");
-
-
-INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
+(24, "Xbox"),
 (282, "PC"),
 (282, "PlayStation"),
 (282, "Xbox"),
@@ -5544,18 +5457,12 @@ INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
 (199, "Windows 10", "Intel Core i5-4670K / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 570", 35),
 (68, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 760 / AMD Radeon RX 560", 50),
 (128, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 860M / AMD Radeon R9 M370X", 30),
-(142, "Windows 7/10", "Intel Core i3 / AMD A8", 4, "NVIDIA GeForce GTX 460 / ATI Radeon HD 6850", 20);
-
-
-INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(142, "Windows 7/10", "Intel Core i3 / AMD A8", 4, "NVIDIA GeForce GTX 460 / ATI Radeon HD 6850", 20),
 (193, "Windows 10", "Intel Core i7-3770 / AMD FX-8350", 8, "NVIDIA GeForce GTX 970 / AMD Radeon R9 290X", 50),
 (192, "Windows 10", "Intel Core i7-3770 / AMD FX-8350", 8, "NVIDIA GeForce GTX 970 / AMD Radeon R9 290X", 50),
 (194, "Windows 7/10", "Intel Core i5-2400 / AMD Ryzen 5 1400", 6, "NVIDIA GeForce GTX 660 / AMD Radeon R9 270X", 30),
 (196, "Windows 7/10", "Intel Core i5-2500K / AMD Ryzen 5 1400", 6, "NVIDIA GeForce GTX 780 / AMD Radeon R9 290", 40),
-(195, "Windows 7/10", "Intel Core i5-2500K / AMD Ryzen 5 1400", 6, "NVIDIA GeForce GTX 780 / AMD Radeon R9 290", 40);
-
-
-INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(195, "Windows 7/10", "Intel Core i5-2500K / AMD Ryzen 5 1400", 6, "NVIDIA GeForce GTX 780 / AMD Radeon R9 290", 40),
 (5, "Windows 10", "Intel Core i7-9700K / AMD Ryzen 7 3700X", 8, "NVIDIA GeForce RTX 2070 / AMD Radeon RX 5700 XT", 50),
 (94, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 670 / AMD Radeon HD 7870", 30),
 (159, "Windows 7/10", "Intel Core i5-2500 / AMD Ryzen 3 1200", 4, "NVIDIA GeForce GTX 660 / AMD Radeon HD 7870", 5),
@@ -5565,10 +5472,7 @@ INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
 (187, "Windows 10", "Intel Core i5-6600K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 50),
 (188, "Windows 10", "Intel Core i7-9700K / AMD Ryzen 7 3700X", 16, "NVIDIA GeForce RTX 3070 / AMD Radeon RX 6800", 100),
 (189, "Windows 10", "Intel Core i5-6600K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 660 / AMD Radeon HD 7850", 30),
-(190, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 660 / AMD Radeon HD 7850", 40);
-
-
-INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(190, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 660 / AMD Radeon HD 7850", 40),
 (191, "Windows 10", "Intel Core i5-6600K / AMD Ryzen 5 1600", 12, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 50),
 (168, "Windows 7/10", "Intel Core i5-7500 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 30),
 (125, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 40),
@@ -5578,10 +5482,7 @@ INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
 (170, "Windows 7/10", "Intel Core i5-2500K / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 660 / AMD Radeon HD 7850", 40),
 (171, "Windows 7/10", "Intel Core i5-2500K / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 50),
 (172, "Windows 7/10", "Intel Core i5-2500K / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 60),
-(173, "Windows 7/10", "Intel Core i5-2500K / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 50);
-
-
-INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(173, "Windows 7/10", "Intel Core i5-2500K / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 50),
 (179, "Windows 10", "Intel Core i5-2500K / AMD Ryzen 5 1400", 12, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 50),
 (220, "Windows 7/10", "Intel Core i5-6800K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 760 / AMD Radeon RX 560", 40),
 (221, "Windows 7/10", "Intel Core i5-2500K / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 660 / AMD Radeon RX 560", 50),
@@ -5591,10 +5492,7 @@ INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
 (225, "Windows 7/10", "Intel Core i5-2500K / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 660 / AMD Radeon RX 560", 50),
 (96, "Windows 7/10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 4, "NVIDIA GeForce GTX 660 / AMD Radeon RX 560", 10),
 (60, "Windows 7/10", "Intel Core i3-2100 / AMD A8-7600", 2, "NVIDIA GeForce 9600GT / AMD Radeon HD 6570", 5),
-(74, "Windows 7/10", "Intel Core i5-2300 / AMD Phenom II X4 940", 6, "NVIDIA GeForce GTX 560 / AMD Radeon HD 7770", 25);
-
-
-INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(74, "Windows 7/10", "Intel Core i5-2300 / AMD Phenom II X4 940", 6, "NVIDIA GeForce GTX 560 / AMD Radeon HD 7770", 25),
 (67, "Windows 7/10", "Intel Core i5-2500K / AMD Ryzen 5 1400", 4, "NVIDIA GeForce GTX 770 / AMD Radeon RX 570", 15),
 (12, "Windows 10", "Intel Core i5-7500 / AMD Ryzen 5 1600X", 12, "NVIDIA GeForce GTX 1660 Ti / AMD Radeon RX 590", 40),
 (176, "Windows 7/10", "Intel Core i3-4160 / AMD FX-6300", 6, "NVIDIA GeForce GTX 660 / AMD Radeon HD 7870", 15),
@@ -5604,10 +5502,7 @@ INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
 (23, "Windows 10", "Intel Core i7-4790 / AMD Ryzen 5 3600X", 12, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 70),
 (62, "Windows 7/10", "Intel Core i3-2100 / AMD A8-7600", 4, "NVIDIA GeForce GTX 465 / AMD Radeon HD 6850", 10),
 (30, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 25),
-(15, "Windows 10", "Intel Core i5-2500K / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 780 / AMD Radeon RX 480", 40);
-
-
-INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(15, "Windows 10", "Intel Core i5-2500K / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 780 / AMD Radeon RX 480", 40),
 (44, "Windows 7/10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 4, "NVIDIA GeForce GTX 660 / AMD Radeon RX 560", 5),
 (202, "Windows 7/10", "Intel Core i5-4690 / AMD Ryzen 5 1600", 6, "NVIDIA GeForce GTX 760 / AMD Radeon RX 560", 20),
 (155, "Windows 7/10", "Intel Core i5-4690 / AMD Ryzen 5 1600", 6, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 30),
@@ -5617,10 +5512,7 @@ INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
 (14, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 80),
 (31, "Windows 10", "Intel Core i7-9700K / AMD Ryzen 7 3700X", 16, "NVIDIA GeForce RTX 2080 / AMD Radeon RX 5700 XT", 100),
 (200, "Windows 7/10", "Intel Core i5-7500 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 50),
-(201, "Windows 7/10", "Intel Core i5-7500 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 60);
-
-
-INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(201, "Windows 7/10", "Intel Core i5-7500 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 60),
 (88, "Windows 7/10", "Intel Core i5-6600K / AMD Ryzen 5 2600X", 8, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 50),
 (42, "Windows 7/10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 20),
 (19, "Windows 7/10", "Intel Core i7-3770 / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 30),
@@ -5630,10 +5522,7 @@ INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
 (180, "Windows 7/10", "Intel Core i7-6700K / AMD Ryzen 5 2600X", 8, "NVIDIA GeForce GTX 1080 / AMD Radeon RX Vega 56", 50),
 (53, "Windows 7/10", "Intel Core i7-4790 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 50),
 (151, "Windows 7/10", "Intel Core i5-6600K / AMD Ryzen 5 2600X", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 20),
-(63, "Windows 7/10", "Intel Core i7-3770 / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 30);
-
-
-INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(63, "Windows 7/10", "Intel Core i7-3770 / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 30),
 (77, "Windows 7/10", "Intel Core i7-7700K / AMD Ryzen 5 3600X", 4, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 10),
 (20, "Windows 10", "Intel Core i7-4770 / AMD Ryzen 5 1600", 16, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 50),
 (36, "Windows 10", "Intel Core i7-9700K / AMD Ryzen 7 3700X", 16, "NVIDIA GeForce RTX 3070 / AMD Radeon RX 6800", 60),
@@ -5643,10 +5532,7 @@ INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
 (204, "Windows 7/10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 570", 30),
 (205, "Windows 7/10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 570", 30),
 (130, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 10),
-(21, "Windows 7/10", "Intel Core i5-2300 / AMD Phenom II X4 965", 4, "NVIDIA GeForce GTX 460 / AMD Radeon HD 6850", 10);
-
-
-INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(21, "Windows 7/10", "Intel Core i5-2300 / AMD Phenom II X4 965", 4, "NVIDIA GeForce GTX 460 / AMD Radeon HD 6850", 10),
 (206, "Windows 7/10", "Intel Core 2 Quad Q9400 / AMD Phenom II X4 965", 4, "NVIDIA GeForce GTX 460 / AMD Radeon HD 6850", 10),
 (207, "Windows 7/10", "Intel Core i3-550 / AMD Phenom II X4 805", 4, "NVIDIA GeForce GTX 460 / AMD Radeon HD 6850", 10),
 (208, "Windows 7/10", "Intel Core i5-750 / AMD Phenom II X4 955", 4, "NVIDIA GeForce GTX 460 / AMD Radeon HD 6850", 10),
@@ -5666,10 +5552,7 @@ INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
 (122, "Windows 7/10", "Intel Core i7-3770 / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 50),
 (59, "Windows 10", "Intel Core i7-6700 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 60),
 (26, "Windows 10", "Intel Core i7-9700K / AMD Ryzen 7 3700X", 16, "NVIDIA GeForce RTX 2080 / AMD Radeon RX 5700 XT", 100),
-(183, "Windows 7/10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 960 / AMD Radeon RX 470", 20);
-
-
-INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(183, "Windows 7/10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 960 / AMD Radeon RX 470", 20),
 (40, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 960 / AMD Radeon RX 470", 20),
 (51, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 480", 20),
 (234, "Windows 10", "Intel Core i7-3820 / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 30),
@@ -5689,10 +5572,7 @@ INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
 (150, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 20),
 (64, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 30),
 (228, "Windows 7/10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 660 / AMD Radeon RX 560", 20),
-(229, "Windows 7/10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 660 / AMD Radeon RX 560", 20);
-
-
-INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(229, "Windows 7/10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 660 / AMD Radeon RX 560", 20),
 (230, "Windows 10", "Intel Core i5-2500K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1050 / AMD Radeon RX 560", 30),
 (231, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 40),
 (232, "Windows 10", "Intel Core i5-9500 / AMD Ryzen 5 3600", 8, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 50),
@@ -5712,10 +5592,7 @@ INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
 (48, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 30),
 (119, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 30),
 (143, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 960 / AMD Radeon RX 470", 20),
-(238, "Windows 10", "Intel Core i5-7500 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 10);
-
-
-INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(238, "Windows 10", "Intel Core i5-7500 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 10),
 (108, "Windows 10", "Intel Core i3-560 / AMD Phenom II X4 945", 4, "NVIDIA GeForce GTX 460 / AMD Radeon HD 6850", 10),
 (109, "Windows 10", "Intel Core i3-3220 / AMD A8-7600", 4, "NVIDIA GeForce GTX 460 / AMD Radeon HD 6850", 10),
 (146, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 960 / AMD Radeon RX 470", 10),
@@ -5735,10 +5612,7 @@ INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
 (184, "Windows 10", "Intel Core i5-6600K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 30),
 (147, "Windows 10", "Intel Core i7-4790 / AMD Ryzen 7 2700X", 16, "NVIDIA GeForce GTX 1080 / AMD Radeon RX Vega 64", 50),
 (185, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 660 / AMD Radeon RX 560", 20),
-(245, "Windows 10", "Intel Core i5-6600K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 30);
-
-
-INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(245, "Windows 10", "Intel Core i5-6600K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 30),
 (89, "Windows 10", "Intel Core i5-6600K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 30),
 (79, "Windows 10", "Intel Core i5-4430 / AMD FX-8370", 8, "NVIDIA GeForce GTX 760 / AMD Radeon RX 470", 50),
 (246, "Windows 10", "Intel Core i5-4430 / AMD FX-8370", 8, "NVIDIA GeForce GTX 760 / AMD Radeon RX 470", 50),
@@ -5758,10 +5632,7 @@ INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
 (251, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 470", 30),
 (136, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 470", 10),
 (46, "Windows 10", "Intel Core i5-6600K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 30),
-(253, "Windows 10", "Intel Core i5-6600K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 50);
-
-
-INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(253, "Windows 10", "Intel Core i5-6600K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 50),
 (145, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 480", 20),
 (41, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 470", 25),
 (76, "Windows 10", "Intel Core i5-4690 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 20),
@@ -5781,10 +5652,7 @@ INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
 (85, "Windows 10", "Intel Core i5-6600K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 30),
 (105, "Windows 10", "Intel Core i7-2700K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 480", 30),
 (84, "Windows 10", "Intel Core i5-2300 / AMD FX-6300", 8, "NVIDIA GeForce GTX 660 / AMD Radeon RX 460", 20),
-(120, "Windows 10", "Intel Core i5-2500 / AMD FX-6300", 8, "NVIDIA GeForce GTX 750 / AMD Radeon RX 460", 25);
-
-
-INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(120, "Windows 10", "Intel Core i5-2500 / AMD FX-6300", 8, "NVIDIA GeForce GTX 750 / AMD Radeon RX 460", 25),
 (266, "Windows 10", "Intel Core i5-8300H / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 1050 / AMD Radeon RX 560", 30),
 (13, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 50),
 (93, "Windows 10", "Intel Core i5-6500 / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 480", 30),
@@ -5804,10 +5672,7 @@ INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
 (70, "Windows 10", "Intel Core i5-4690 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 25),
 (148, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX Vega 56", 30),
 (61, "Windows 10", "Intel Core i5-6600K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 30),
-(149, "Windows 10", "Intel Core i5-4690 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 480", 20);
-
-
-INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(149, "Windows 10", "Intel Core i5-4690 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 480", 20),
 (270, "Windows 10", "Intel Core i7-6700K / AMD Ryzen 5 1600", 16, "NVIDIA GeForce GTX 1080 / AMD Radeon RX Vega 56", 50),
 (35, "Windows 10", "Intel Core i5-4590 / AMD FX-8350", 4, "NVIDIA GeForce GTX 660 / AMD Radeon HD 7850", 2),
 (271, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 25),
@@ -5827,10 +5692,7 @@ INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
 (276, "Windows 10", "Intel Core i5-2500K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 660 / AMD Radeon HD 7870", 10),
 (277, "Windows 10", "Intel Core i5-2500K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 660 / AMD Radeon HD 7870", 10),
 (7, "Windows 10", "Intel Core i3-3240 / AMD FX-4320", 6, "NVIDIA GeForce GTX 660 / AMD Radeon HD 7770", 5),
-(86, "Windows 10", "Intel Core i5-2300 / AMD FX-6300", 8, "NVIDIA GeForce GTX 760 / AMD Radeon RX 560", 20);
-
-
-INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(86, "Windows 10", "Intel Core i5-2300 / AMD FX-6300", 8, "NVIDIA GeForce GTX 760 / AMD Radeon RX 560", 20),
 (279, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 10),
 (291, "Windows 10", "Intel Core i5-6600K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 480", 40),
 (292, "Windows 10", "Intel Core i5-6600K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 480", 40),
@@ -5850,10 +5712,7 @@ INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
 (283, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX Vega 56", 20),
 (284, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX Vega 56", 20),
 (121, "Windows 10", "Intel Core i5-3450 / AMD Ryzen 3 3300X", 4, "NVIDIA GeForce GTX 760 / AMD Radeon RX 560", 0),
-(285, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 960 / AMD Radeon RX 470", 50);
-
-
-INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(285, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 960 / AMD Radeon RX 470", 50),
 (91, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 50),
 (286, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 50),
 (287, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 50),
