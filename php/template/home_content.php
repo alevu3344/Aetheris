@@ -185,12 +185,13 @@
 
   <div>
     <ul>
+      <?php foreach($templateParams["mostratedgames"] as $mostratedgame): ?>
       <li>
         <div>
-          <img src="../media/covers/26.jpg" alt="Final Fantasy XVI">
+          <img src="<?php echo UPLOAD_DIR.$mostratedgame["imggioco"]; ?>" alt="" />
           <section>
             <header>
-              <span>Final Fantasy XVI</span>
+              <span><?php echo $mostratedgame["nomegioco"]; ?></span>
             </header>
             <footer>
               <div>
@@ -198,11 +199,12 @@
                 <img src="upload/icons/xbox-icon.svg" alt="Xbox">
                 <img src="upload/icons/mac-icon.svg" alt="Mac">
               </div>
-              <span>39,99€</span>
+              <span><?php echo $mostratedgame["prezzogioco"]; ?></span>
             </footer>
           </section>
         </div>
       </li>
+      <?php endforeach; ?>
       <li>
       <div>
         <img src="../media/covers/102.jpg" alt="Slay The Spire">
