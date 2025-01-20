@@ -446,6 +446,200 @@ body>footer>div:nth-child(1)>p {
 }
 
 
+/****************************  BEGIN OFFERTE DI LANCIO **********************/
+
+
+
+.home_content > main > #home-offers {
+  display: flex;
+  height: 200px;
+  flex-direction: column;
+  margin: 50px 5%;
+  box-sizing: border-box;
+  border: 1px solid white;
+  background-image: url('../upload/icons/phoenix.png');
+  background-size: cover; /* Makes sure the image covers the div */
+  background-position: center; /* Centers the image inside the div */
+}
+
+.home_content > main > #home-offers > section {
+  height: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  background-color: rgba(25, 121, 255, 0.7);
+  box-sizing: border-box;
+  border-bottom: 1px solid white;
+}
+
+.home_content > main > #home-offers > section > h2 {
+  font-family: 'Rampart One';
+  color: white;
+  height: 65%;
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.home_content > main > #home-offers > section > p {
+  font-family: 'Roboto';
+  color: white;
+  font-size: 12px;
+  height: 35%;
+  margin: 0;
+  padding: 0;
+}
+
+.home_content > main > #home-offers > div {
+  display: flex;
+  height: 65%;
+  justify-content: space-between;
+  align-items: center;
+  vertical-align: middle;
+  
+}
+
+.home_content > main > #home-offers > div > img {
+  width: 20px;
+  height: 20px;
+  filter: invert(1);
+}
+
+.home_content > main > #home-offers > div > img:nth-of-type(2){
+  rotate: 180deg;
+}
+
+.home_content > main > #home-offers > div > nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  height: 80%;
+}
+
+.home_content > main > #home-offers > div > nav > ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  font-size: 0;
+}
+
+.home_content > main > #home-offers > div > nav > ul > li {
+  width: 33%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #007bff;
+  color: white;
+  font-family: 'Roboto';
+  font-size: initial; 
+}
+
+.home_content > main > #home-offers > div > nav > ul > li > article {
+  width: 100%;
+  height: 100%;
+  border: 1px solid white;
+  background-color: #007bff;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.home_content > main > #home-offers > div > nav > ul > li > article > figure {
+
+  width: 100%;
+  height: 80%;
+  margin: 0px;
+  position: relative;
+}
+
+.home_content > main > #home-offers > div > nav > ul > li > article > figure > figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  font-family: 'Roboto';
+  box-sizing: border-box;
+}
+
+.home_content > main > #home-offers > div > nav > ul > li > article > figure > img {
+  width: 100%;
+  height: 100%;
+}
+
+.home_content > main > #home-offers > div > nav > ul > li > article > footer>span:nth-child(1) {
+  font-family: 'Roboto';
+  font-size: 12px;
+  background-color: #00c83f;
+  color: white;
+  margin-right: 2px;
+}
+
+.home_content > main > #home-offers > div > nav > ul > li > article > footer>span:nth-child(2) {
+  font-family: 'Roboto';
+  font-size: 12px;
+  text-decoration: line-through;
+  background-color: #0028a2;
+  color: rgb(130, 130, 130);
+}
+
+.home_content > main > #home-offers > div > nav > ul > li > article > footer>span:nth-child(3) {
+  font-family: 'Roboto';
+  font-size: 12px;
+  background-color: #0028a2;
+  color: white;
+} 
+
+.home_content > main > #home-offers > div > nav > ul > li > article > footer {
+  justify-content: left;
+  height: 20%;
+  align-items: end;
+  display: flex;
+
+  text-align: left;
+  padding: 2px;
+  box-sizing: border-box; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/****************************  END OFFERTE DI LANCIO **********************/
+
+
 /*--------------------------      Giochi in offerta END    ------------------------*/
 
 
@@ -1114,10 +1308,34 @@ body>footer>div:nth-child(1)>p {
 
 .categorygames_content>main > div {
   display: flex;
-  width: 40%;
-  justify-content: center;
+  height: 30px;
+  justify-content: space-between;
   align-items: center;
-  margin: 20px 30%;
+  margin: 20px 40%;
+  background-color: #007bff;
+  border-radius: 10px;
+}
+
+.categorygames_content>main > div > span {
+  font-weight: bold;
+  font-family: 'Roboto';
+  font-size: 20px;
+  margin: 0 10px;
+}
+
+.categorygames_content>main > div > img {
+  width: 30px;
+  height: 30px;
+  transition: filter 0.5s ease-in-out;
+}
+
+.categorygames_content>main > div > img:hover {
+  filter: invert(1);
+}
+
+
+.categorygames_content>main > div > img:nth-of-type(2) {
+  rotate: 180deg;
 }
 
 /* ------------------------ END CATEGORY GAMES--------------------------- */

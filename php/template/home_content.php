@@ -145,3 +145,59 @@
     </ul>
   </div>
 </div>
+
+
+<div id = "home-offers">
+  <section>
+    <h2>OFFERTE DI LANCIO</h2>
+    <p>FESTEGGIA IL LANCIO DI AETHERIS CON OFFERTE IMPERDIBILI</p>
+  </section>
+  <div>
+    <img src="upload/icons/left_arrow.svg" alt="Left arrow">
+    <nav>
+      <ul>
+        <li>
+          <article>
+            <figure>
+              <img src="../media/covers/22.jpg" alt="Top game"/>
+              <figcaption>Cyberpunk 2077</figcaption>
+            </figure>
+            <footer>
+              <span>-50%</span>
+              <span>29,99€</span>
+              <span>14,99€</span>
+            </footer>
+        </article>
+        </li>
+        <li>
+          <article>
+            <figure>
+              <img src="../media/covers/26.jpg" alt="Top game"/>
+              <figcaption>Cyberpunk 2077</figcaption>
+            </figure>
+            <footer>
+              <span>-50%</span>
+              <span>29,99€</span>
+              <span>14,99€</span>
+            </footer>
+        </article>
+        </li>
+        <li>
+          <article>
+            <figure>
+              <img src="../media/covers/77.jpg" alt="Top game"/>
+              <figcaption>Cyberpunk 2077</figcaption>
+            </figure>
+            <footer>
+              <span>-50%</span>
+              <span>29,99€</span>
+              <span>14,99€</span>
+            </footer>
+          </article>
+        </li>
+      </ul>
+    </nav>
+    <img src="upload/icons/left_arrow.svg" alt="Right arrow">
+  </div>
+
+</div>
