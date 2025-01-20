@@ -291,7 +291,6 @@ body>main>div:nth-child(3) {
 }
 
 body>main>div:nth-child(3)>article {
-  /*Gioco sinistra */
   width: 49%;
   height: 100%;
   border: 1px solid white;
@@ -300,7 +299,7 @@ body>main>div:nth-child(3)>article {
 }
 
 body>main>div:nth-child(3)>div {
-  /*Div contenente giochi destra */
+
   width: 49%;
   height: 100%;
   display: flex;
@@ -567,13 +566,6 @@ body>main>div:nth-child(4)>div:nth-child(2)>ul>li>div>section>footer>div>img {
 
 
 /*--------------------------      Giochi più giocati e acquistati END   ------------------------*/
-
-
-
-
-
-
-
 
 
 
@@ -852,7 +844,6 @@ body>main>div:nth-child(4)>div:nth-child(2)>ul>li>div>section>footer>div>img {
 }
 
 
-/* Game card */
 .shoppingcart_items main>ul>li>div {
   display: flex;
   height: 100px;
@@ -866,7 +857,6 @@ body>main>div:nth-child(4)>div:nth-child(2)>ul>li>div>section>footer>div>img {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/*the image has*/
 .shoppingcart_items main>ul>li>div>img {
   width: auto;
   height: 100%;
@@ -996,16 +986,11 @@ body>main>div:nth-child(4)>div:nth-child(2)>ul>li>div>section>footer>div>img {
   margin-top: 20px;
   margin-bottom: 20px;
   font-size: 48px;
-  /* Testo molto grande */
   font-weight: bold;
   color: #333;
-  /* Grigio scuro */
   text-transform: uppercase;
-  /* Testo tutto maiuscolo */
   letter-spacing: 2px;
-  /* Spaziatura tra le lettere */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  /* Ombra leggera per effetto */
 }
 
 .categorygames_content>main>nav {
@@ -1125,6 +1110,17 @@ body>main>div:nth-child(4)>div:nth-child(2)>ul>li>div>section>footer>div>img {
   font-size: 12px;
   background-color: #0028a2;
   color: white;
+}
+
+.categorygames_content>main>ul>li>article>footer {
+  justify-content: left;
+  height: 20%;
+  align-items: end;
+  display: flex;
+
+  text-align: left;
+  padding: 2px;
+  box-sizing: border-box; 
 }
 
 /* ------------------------ END CATEGORY GAMES--------------------------- */
