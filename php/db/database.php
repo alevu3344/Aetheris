@@ -103,7 +103,7 @@ class DatabaseHelper{
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    public function getDiscountedGames(){
+    public function getDiscountedGames($lim){
         $query = "
             SELECT 
                 G.*, 
@@ -115,9 +115,13 @@ class DatabaseHelper{
             INNER JOIN 
                 DISCOUNTED_GAMES DG ON G.Id = DG.GameId
             WHERE 
-                CURDATE() BETWEEN DG.StartDate AND DG.EndDate";
+                CURDATE() BETWEEN DG.StartDate AND DG.EndDate
+            ORDER BY RAND()
+            LIMIT ?
+                ";
         
         $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $lim);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);

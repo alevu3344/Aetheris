@@ -81,7 +81,7 @@
 
   <nav>
       <ul>
-          <li>PIÙ ACQUISTATI</li><li>PIÙ GIOCATI</li>
+          <li>PIÙ ACQUISTATI</li><li>PIÙ AMATI</li>
       </ul>
   </nav>
 
@@ -185,98 +185,28 @@
 
   <div>
     <ul>
+      <?php foreach($templateParams["giochi-amati"] as $mostratedgame): ?>
       <li>
         <div>
-          <img src="../media/covers/26.jpg" alt="Final Fantasy XVI">
+          <img src="<?php echo "../media/covers/".$mostratedgame["Id"].".jpg" ?>" alt="<?php echo $mostratedgame["Name"]; ?>" />
           <section>
             <header>
-              <span>Final Fantasy XVI</span>
+              <span><?php echo $mostratedgame["Name"]; ?></span>
             </header>
             <footer>
               <div>
-                <img src="upload/icons/windows-icon.svg" alt="Windows">
-                <img src="upload/icons/xbox-icon.svg" alt="Xbox">
-                <img src="upload/icons/mac-icon.svg" alt="Mac">
+                <?php foreach($mostratedgame["Platforms"] as $platform): ?>
+                  <img src="<?php echo "upload/icons/".$platform["Platform"].".svg" ?>" alt="<?php echo $platform["Platform"]; ?>" />
+              
+              
+                <?php endforeach; ?>
               </div>
-              <span>39,99€</span>
+              <span><?= number_format($mostratedgame['Price'] * (1 - $mostratedgame['Discount'] / 100), 2)?>€</span>
             </footer>
           </section>
         </div>
       </li>
-      <li>
-      <div>
-        <img src="../media/covers/102.jpg" alt="Slay The Spire">
-          <section>
-            <header>
-              <span>Slay The Spire</span>
-            </header>
-            <footer>
-              <div>
-                <img src="upload/icons/windows-icon.svg" alt="Windows">
-                <img src="upload/icons/xbox-icon.svg" alt="Xbox">
-                <img src="upload/icons/mac-icon.svg" alt="Mac">
-              </div>
-              <span>9,99€</span>
-            </footer>
-          </section>
-        </div>
-      </li>
-      <li>
-      <div>
-        <img src="../media/covers/187.jpg" alt="Battlefield 1">
-          <section>
-            <header>
-              <span>Battlefield 1</span>
-            </header>
-            <footer>
-              <div>
-                <img src="upload/icons/windows-icon.svg" alt="Windows">
-                <img src="upload/icons/xbox-icon.svg" alt="Xbox">
-                <img src="upload/icons/mac-icon.svg" alt="Mac">
-              </div>
-              <span>19,99€</span>
-            </footer>
-          </section>
-        </div>
-      </li>
-
-      <li>
-      <div>
-        <img src="../media/covers/31.jpg" alt="Diablo 4">
-          <section>
-            <header>
-              <span>Diablo 4</span>
-            </header>
-            <footer>
-              <div>
-                <img src="upload/icons/windows-icon.svg" alt="Windows">
-                <img src="upload/icons/xbox-icon.svg" alt="Xbox">
-                <img src="upload/icons/mac-icon.svg" alt="Mac">
-              </div>
-              <span>19,99€</span>
-            </footer>
-          </section>
-        </div>
-      </li>
-
-      <li>
-      <div>
-        <img src="../media/covers/272.jpg" alt="The Chant">
-          <section>
-            <header>
-              <span>The Chant</span>
-            </header>
-            <footer>
-              <div>
-                <img src="upload/icons/windows-icon.svg" alt="Windows">
-                <img src="upload/icons/xbox-icon.svg" alt="Xbox">
-                <img src="upload/icons/mac-icon.svg" alt="Mac">
-              </div>
-              <span>19,99€</span>
-            </footer>
-          </section>
-        </div>
-      </li>
+      <?php endforeach; ?>
     </ul>
   </div>
 </div>
