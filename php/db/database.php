@@ -37,6 +37,29 @@ class DatabaseHelper{
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function getTopRatedGames($lim){
+        $query = "
+            SELECT 
+                G.Id, 
+                G.Name, 
+                G.Price, 
+                AVG(R.Rating) AS AvgRating
+            FROM 
+                GAMES G
+            LEFT JOIN 
+                REVIEWS R ON G.Id = R.GameId
+            GROUP BY 
+                G.Id
+            ORDER BY 
+                AvgRating DESC
+            LIMIT ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $lim);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
     
     // this function returns a list of tuples (GameId, GameName, Quantity, OriginalPrice, Discount (0% if not discounted))
     public function getShoppingCart($userId){
@@ -98,6 +121,35 @@ class DatabaseHelper{
                 ";
         
         $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+
+    //get the most rated games by joining the GAMES and REVIEWS tables and computing the average rating for each game, algo join with discount in order to get the discount
+    public function getMostRatedGames($lim){
+        $query = "
+            SELECT 
+                G.Id, 
+                G.Name, 
+                G.Price, 
+                AVG(R.Rating) AS AvgRating, 
+                IFNULL(DG.Percentage, 0) AS Discount
+            FROM 
+                GAMES G
+            LEFT JOIN 
+                REVIEWS R ON G.Id = R.GameId
+            LEFT JOIN 
+                DISCOUNTED_GAMES DG ON G.Id = DG.GameId
+                AND CURRENT_DATE BETWEEN DG.StartDate AND DG.EndDate
+            GROUP BY 
+                G.Id
+            ORDER BY 
+                AvgRating DESC
+            LIMIT ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $lim);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
