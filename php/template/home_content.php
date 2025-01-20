@@ -79,7 +79,7 @@
   </div>
 </div>
 
-  <nav id="nav-più-acquistati-più-giocati">
+  <nav>
       <ul>
           <li>PIÙ ACQUISTATI</li><li>PIÙ GIOCATI</li>
       </ul>

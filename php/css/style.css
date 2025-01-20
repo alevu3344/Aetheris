@@ -457,16 +457,29 @@ body>main>div:nth-child(3)>div>article>footer>span:nth-child(3) {
 
 /*--------------------------      Giochi più giocati e acquistati START   ------------------------*/
 
-.nav-più-acquistati-più-giocati {
+body > main > nav {
   width: 90%;
   margin: 5%;
 }
 
-.nav-più-acquistati-più-giocati > ul {
+body > main > nav  > ul {
   list-style: none;
   font-family: 'Roboto';
   color: white;
+  display: flex;
+  justify-content: center;
+  padding: 0px;
 }
+
+body > main > nav > ul > li {
+  width: 45%;
+  text-align: center;
+}
+
+body > main > nav > ul > li:nth-child(1) {
+  margin-right: 10%;
+}
+
 
 body>main>div:nth-child(4)>nav>ul>li {
   display: inline-block;
@@ -476,9 +489,6 @@ body>main>div:nth-child(4)>nav>ul>li {
   background-color: transparent;
   margin: 0px;
 }
-
-
-
 
 body>main>div:nth-child(4)>div:nth-child(2) {
   width: 50%;
