@@ -1,6 +1,6 @@
-<section class="registration-container">
-    <h2 class="title">Register</h2>
-    <form class="form">
+<section>
+    <p>Register</p>
+    <form>
         <fieldset>
             <label for="name">Name</label>
             <input type="text" name="name" id="name" placeholder="Your Name">
@@ -20,13 +20,13 @@
             <label for="repeat-password">Repeat Password</label>
             <input type="password" name="repeat-password" id="repeat-password" placeholder="Repeat your Password">
 
-            <p class="forgot">
+            <p class>
                 <a rel="noopener noreferrer" href="#">Already have an account? Login</a>
             </p>
 
-            <button type="submit" class="sign">Register</button>
+            <button type="submit">Register</button>
         </fieldset>
     </form>
 
-    <p class="signup">By registering, you agree to our terms and conditions.</p>
+    <p">By registering, you agree to our terms and conditions.</p>
 </section>
