@@ -22,10 +22,17 @@
                         <?php endif; ?>
                         <span><?= $game['Price'] ?>€</span>
                         <?php if (!empty($game['Discount'])): ?>
-                        <span><?= $game['Price'] * (1 - $game['Discount']/100) ?>€</span>
+                        <span><?= number_format($game['Price'] * (1 - $game['Discount'] / 100), 2)?>€</span>
                     <?php endif; ?>
                 </footer>
             </article>
         </li>
     <?php endforeach; ?>
 </ul>
+
+
+<div>
+    <img src="upload/icons/left_arrow.svg" alt="Left arrow"/>
+    <span class="page-number">1</span> <!-- Current page number -->
+    <img src="upload/icons/left_arrow.svg" alt="Right arrow"/>
+</div>
