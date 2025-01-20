@@ -1578,6 +1578,105 @@ body>footer>div:nth-child(1)>p {
 }
 
 
+.game_content > main > article {
+  width: 90%;
+  margin-left: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+}
+
+.game_content > main > article > section{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: left;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-bottom: #fff 4px solid;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.game_content > main > article > section > h2 {
+  font-family: 'Roboto';
+  font-size: 20px;
+  color: white;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.game_content > main > article > section > p {
+  font-family: 'Roboto';
+  font-size: 16px;
+  color: white;
+  margin: 0;
+}
+
+.game_content > main > article > section:nth-of-type(2) > dl {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.game_content > main > article > section:nth-of-type(2) > dl > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: left;
+  width: 100%;
+}
+
+.game_content > main > article > section:nth-of-type(2) > dl > div > dt {
+  font-family: 'Roboto';
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.game_content > main > article > section:nth-of-type(2) > dl > div > dd {
+  font-family: 'Roboto';
+  font-size: 16px;
+  color: white;
+}
+
+.game_content > main > div:nth-of-type(3) {
+  display: flex;
+  align-items: left;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 90%;
+  margin-left: 5%;
+  margin-bottom: 20px;
+}
+
+.game_content > main > div:nth-of-type(3) > h2 {
+  font-family: 'Roboto';
+  font-size: 20px;
+  color: white;
+  margin: 0;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.game_content > main > div:nth-of-type(3) > div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  gap: 2%; /* space between images */
+  width: 100%;
+}
+
+.game_content > main > div:nth-of-type(3) > div > img {
+  width: 100%; /* make images fill the container */
+  height: auto;
+  border-radius: 8px; /* optional: for rounded corners */
+  object-fit: cover;
+}
+
+
 
 
 /* ------------------------ END SINGLE GAME--------------------------- */

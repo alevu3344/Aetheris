@@ -66,7 +66,38 @@
     </section>
     <section>
         <h2>Requisiti minimi</h2>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor, dolore. A quasi dolorum distinctio, aut dolores laudantium, velit suscipit minus atque cum dolorem doloremque necessitatibus reprehenderit quisquam laborum, autem exercitationem.</p>
+        <dl>
+            <div>
+                <dt>Sistema operativo: </dt>
+                <dd>Windows 10</dd>
+            </div>
+            <div>
+                <dt>CPU: </dt>
+                <dd>Intel Core i5-4460</dd>
+            </div>
+            <div>
+                <dt>Memoria: </dt>
+                <dd>128 GB</dd>
+            </div>
+            <div>
+                <dt>GPU: </dt>
+                <dd>NVIDIA GeForce GTX 760</dd>
+            </div>
+            <div>
+                <dt>RAM: </dt>
+                <dd>8 GB</dd>
+            </div>
+        </dl>
     </section>
 </article>
+
+<div>
+        <h2>Immagini</h2>
+        <div>
+            <img src="../media/screenshots/1_frame_1.jpg" alt="game">
+            <img src="../media/screenshots/1_frame_2.jpg" alt="game">
+            <img src="../media/screenshots/1_frame_3.jpg" alt="game">
+            <img src="../media/screenshots/1_frame_4.jpg" alt="game">
+        </div>
+</div>
 
