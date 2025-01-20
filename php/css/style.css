@@ -1,4 +1,4 @@
-img{
+img {
   width: 10px;
   height: 10px;
 }
@@ -8,37 +8,39 @@ body {
   margin: 0px 0px;
 }
 
-body > header > h1, body > footer > p {
+body>header>h1,
+body>footer>p {
   font-family: 'Courier New', Courier, monospace;
 }
+
 /* Header styling */
-body > header {
+body>header {
   display: flex;
   background-color: rgb(25, 121, 255);
   text-align: center;
   justify-content: space-between;
   color: white;
-  margin-bottom: 10px; /* Spazio tra header e primo div */
+  margin-bottom: 10px;
   height: 80px;
   border-bottom: 2px solid white;
 }
 
-body > header > div:nth-child(1) > img {
-  width: 80px; /* Adjust to fit your logo */
+body>header>div:nth-child(1)>img {
+  width: 80px;
   height: 80px;
 }
 
-body > footer > div:nth-child(2) > nav > ul > li > img {
-  width: 30px; /* Adjust to fit your logo */
+body>footer>div:nth-child(2)>nav>ul>li>img {
+  width: 30px;
   height: 30px;
 }
 
-body > header > div:nth-child(1) > h1 {
+body>header>div:nth-child(1)>h1 {
   font-size: 32px;
 }
 
 /* Right section: Navigation, Sign In, and Language */
-body > header > div:nth-child(2) {
+body>header>div:nth-child(2) {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -47,7 +49,7 @@ body > header > div:nth-child(2) {
 }
 
 /* Left section: Navigation, Sign In, and Language */
-body > header > div:nth-child(1)  {
+body>header>div:nth-child(1) {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -55,11 +57,11 @@ body > header > div:nth-child(1)  {
 
 
 /* Navigation links container (left-aligned links) */
-body > header > div:nth-child(2) > div {
+body>header>div:nth-child(2)>div {
   display: flex;
 }
 
-body > header > div:nth-child(2) > div > a{
+body>header>div:nth-child(2)>div>a {
   color: white;
   text-decoration: none;
   font-size: 16px;
@@ -67,7 +69,7 @@ body > header > div:nth-child(2) > div > a{
 
 
 /* Footer styling */
-body > footer {
+body>footer {
   background-color: rgb(25, 121, 255);
   color: white;
   text-align: center;
@@ -75,55 +77,59 @@ body > footer {
   border-top: 2px solid white;
 }
 
-body > footer > div:nth-child(2) > nav > ul {
-  display: flex; /* Make the list items align horizontally */
-  justify-content: center; /* Center the social links */
-  align-items: center; /* Align items vertically */
+body>footer>div:nth-child(2)>nav>ul {
+  display: flex;
+  /* Make the list items align horizontally */
+  justify-content: center;
+  /* Center the social links */
+  align-items: center;
+  /* Align items vertically */
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-body > footer > div:nth-child(2) > nav > ul > li {
-  display: flex; 
-  align-items: center; 
+body>footer>div:nth-child(2)>nav>ul>li {
+  display: flex;
+  align-items: center;
   width: 19%;
   justify-content: center;
- 
+
 }
 
 
-body > footer > div:nth-child(2) > nav > ul > li:not(:last-child){
+body>footer>div:nth-child(2)>nav>ul>li:not(:last-child) {
   margin-right: 8%;
- 
+
 }
 
-body > footer > div:nth-child(2) > nav > ul > li > img {
-  width: 24px; /* Set size for social logos */
+body>footer>div:nth-child(2)>nav>ul>li>img {
+  width: 24px;
+  /* Set size for social logos */
   height: 24px;
 }
 
-body > footer > div:nth-child(2) > nav > ul > li > a {
+body>footer>div:nth-child(2)>nav>ul>li>a {
   color: #fff;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   text-decoration: none;
   font-size: 14px;
-} 
+}
 
-body > footer > div:nth-child(1) > p {
+body>footer>div:nth-child(1)>p {
   color: white;
 }
 
 
 /* ------------------------ Front page games START--------------------------- */
 
-body > main > div:nth-child(1) {
+body>main>div:nth-child(1) {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-body > main > div:nth-child(1) > button {
+body>main>div:nth-child(1)>button {
   height: 50px;
   width: 10%;
   background-color: transparent;
@@ -132,50 +138,50 @@ body > main > div:nth-child(1) > button {
   padding: 0px;
 }
 
-body > main > div:nth-child(1) > button > img {
+body>main>div:nth-child(1)>button>img {
   height: 100%;
   width: 100%;
 }
 
-body > main > div:nth-child(1) > article {
-  display: flex; 
+body>main>div:nth-child(1)>article {
+  display: flex;
   flex-direction: column;
   text-align: left;
   width: 80%;
-  height: 200px; 
-  box-sizing: border-box; 
+  height: 200px;
+  box-sizing: border-box;
 }
 
-body > main > div:nth-child(1) > article > figure {
+body>main>div:nth-child(1)>article>figure {
   height: 100%;
   width: 100%;
   margin: 0px;
   position: relative;
 }
 
-body > main > div:nth-child(1) > article > figure > figcaption {
+body>main>div:nth-child(1)>article>figure>figcaption {
   display: block;
-  position: absolute; 
+  position: absolute;
   bottom: 0;
   left: 0;
-  width: 50%; 
+  width: 50%;
   height: 100%;
-  text-align: left; 
+  text-align: left;
   z-index: 1;
 }
 
-body > main > div:nth-child(1) > article > figure > div:nth-child(1) {
+body>main>div:nth-child(1)>article>figure>div:nth-child(1) {
   position: relative;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to right, rgba(0,0,0,1),rgba(0,0,0,0));
+  background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
   border-radius: 10%;
   border: 1px solid white;
   margin: -1px;
   z-index: 1;
 }
 
-body > main > div:nth-child(1) > article > figure > img {
+body>main>div:nth-child(1)>article>figure>img {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -184,7 +190,7 @@ body > main > div:nth-child(1) > article > figure > img {
   border-radius: 10%;
 }
 
-body > main > div:nth-child(1) > article > figure > figcaption > p:nth-child(1) {
+body>main>div:nth-child(1)>article>figure>figcaption>p:nth-child(1) {
   font-family: "Sedgwick Ave Display", sans-serif;
   font-size: 24px;
   margin: 0px;
@@ -192,7 +198,7 @@ body > main > div:nth-child(1) > article > figure > figcaption > p:nth-child(1) 
   padding: 15% 0% 2% 15%;
 }
 
-body > main > div:nth-child(1) > article > figure > figcaption > p:nth-child(2) {
+body>main>div:nth-child(1)>article>figure>figcaption>p:nth-child(2) {
   margin: 0px;
   color: white;
   font-family: 'Roboto';
@@ -200,21 +206,21 @@ body > main > div:nth-child(1) > article > figure > figcaption > p:nth-child(2) 
   padding: 2% 0% 15% 15%
 }
 
-body > main > div:nth-child(1) > article > figure > div:nth-child(4) {
+body>main>div:nth-child(1)>article>figure>div:nth-child(4) {
   display: block;
   position: absolute;
-  box-sizing: border-box; 
+  box-sizing: border-box;
   align-items: center;
   justify-content: center;
   bottom: 0;
   right: 0;
-  width: 50%; 
+  width: 50%;
   height: 50%;
   padding: 0 5% 0 5%;
   z-index: 1;
 }
 
-body > main > div:nth-child(1) > article > figure > div:nth-child(4) > div {
+body>main>div:nth-child(1)>article>figure>div:nth-child(4)>div {
   display: flex;
   align-items: center;
   width: 100%;
@@ -222,14 +228,14 @@ body > main > div:nth-child(1) > article > figure > div:nth-child(4) > div {
   margin-bottom: 2%;
 }
 
-body > main > div:nth-child(1) > article > figure > div:nth-child(4) > div > span{
+body>main>div:nth-child(1)>article>figure>div:nth-child(4)>div>span {
   color: white;
   font-family: 'Roboto';
   font-size: 20px;
   margin-right: 2%;
 }
 
-body > main > div:nth-child(1) > article > figure > div:nth-child(4) > div > button{
+body>main>div:nth-child(1)>article>figure>div:nth-child(4)>div>button {
   border: none;
   border-radius: 10px;
   height: 80%;
@@ -239,7 +245,7 @@ body > main > div:nth-child(1) > article > figure > div:nth-child(4) > div > but
   padding: 0px;
 }
 
-body > main > div:nth-child(1) > article > figure > div:nth-child(4) >  button{
+body>main>div:nth-child(1)>article>figure>div:nth-child(4)>button {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -254,7 +260,7 @@ body > main > div:nth-child(1) > article > figure > div:nth-child(4) >  button{
   padding: 0px;
 }
 
-body > main > div:nth-child(1) > article > figure > div:nth-child(4) > button > img {
+body>main>div:nth-child(1)>article>figure>div:nth-child(4)>button>img {
   height: 80%;
   width: 20%;
   filter: invert(1);
@@ -268,14 +274,14 @@ body > main > div:nth-child(1) > article > figure > div:nth-child(4) > button > 
 
 
 
-body > main > h2 {
+body>main>h2 {
   font-family: 'Roboto';
   margin: 5%;
   color: white;
   font-size: 20px;
 }
 
-body > main > div:nth-child(3) {
+body>main>div:nth-child(3) {
   width: 90%;
   margin-left: 5%;
   margin-right: 5%;
@@ -284,7 +290,8 @@ body > main > div:nth-child(3) {
   gap: 2%;
 }
 
-body > main > div:nth-child(3) > article {   /*Gioco sinistra */
+body>main>div:nth-child(3)>article {
+  /*Gioco sinistra */
   width: 49%;
   height: 100%;
   border: 1px solid white;
@@ -292,7 +299,8 @@ body > main > div:nth-child(3) > article {   /*Gioco sinistra */
   box-sizing: border-box;
 }
 
-body > main > div:nth-child(3) > div { /*Div contenente giochi destra */
+body>main>div:nth-child(3)>div {
+  /*Div contenente giochi destra */
   width: 49%;
   height: 100%;
   display: flex;
@@ -300,7 +308,7 @@ body > main > div:nth-child(3) > div { /*Div contenente giochi destra */
   gap: 4%;
 }
 
-body > main > div:nth-child(3) > div > article { 
+body>main>div:nth-child(3)>div>article {
   width: 100%;
   height: 48%;
   border: 1px solid white;
@@ -308,57 +316,57 @@ body > main > div:nth-child(3) > div > article {
   box-sizing: border-box;
 }
 
-body > main > div:nth-child(3) > div > article > figure{ 
+body>main>div:nth-child(3)>div>article>figure {
   width: 100%;
   height: 80%;
   margin: 0px;
   position: relative;
 }
 
-body > main > div:nth-child(3) > div > article > figure > figcaption { 
-  position: absolute; 
+body>main>div:nth-child(3)>div>article>figure>figcaption {
+  position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%; 
+  width: 100%;
   background: rgba(0, 0, 0, 0.7);
   color: white;
-  text-align: center; 
-  font-size: 12px; 
+  text-align: center;
+  font-size: 12px;
   font-family: 'Roboto';
-  box-sizing: border-box; 
+  box-sizing: border-box;
 }
 
-body > main > div:nth-child(3) > div > article > figure > img { 
+body>main>div:nth-child(3)>div>article>figure>img {
   width: 100%;
   height: 100%;
 }
 
-body > main > div:nth-child(3) > article > figure {  
+body>main>div:nth-child(3)>article>figure {
   width: 100%;
   height: 60%;
   margin: 0px;
   position: relative;
 }
 
-body > main > div:nth-child(3) > article > figure > figcaption {  
-  position: absolute; 
+body>main>div:nth-child(3)>article>figure>figcaption {
+  position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%; 
+  width: 100%;
   background: rgba(0, 0, 0, 0.7);
   color: white;
-  text-align: center; 
-  font-size: 12px; 
+  text-align: center;
+  font-size: 12px;
   font-family: 'Roboto';
-  box-sizing: border-box; 
+  box-sizing: border-box;
 }
 
-body > main > div:nth-child(3) > article > figure > img { 
+body>main>div:nth-child(3)>article>figure>img {
   width: 100%;
   height: 100%;
 }
 
-body > main > div:nth-child(3) > article > section {  
+body>main>div:nth-child(3)>article>section {
   width: 100%;
   height: 40%;
   margin: 0px;
@@ -367,7 +375,7 @@ body > main > div:nth-child(3) > article > section {
   box-sizing: border-box;
 }
 
-body > main > div:nth-child(3) > article > section > p {  
+body>main>div:nth-child(3)>article>section>p {
   margin: 0px;
   color: white;
   font-family: 'Roboto';
@@ -375,18 +383,18 @@ body > main > div:nth-child(3) > article > section > p {
   height: 30%;
 }
 
-body > main > div:nth-child(3) > article > section > p:nth-child(1){
+body>main>div:nth-child(3)>article>section>p:nth-child(1) {
   font-weight: bold;
 }
 
-body > main > div:nth-child(3) > article > section > footer{
+body>main>div:nth-child(3)>article>section>footer {
   justify-content: left;
   height: 40%;
   align-items: end;
   display: flex;
 }
 
-body > main > div:nth-child(3) > article > section > footer > span:nth-child(1) {
+body>main>div:nth-child(3)>article>section>footer>span:nth-child(1) {
   font-family: 'Roboto';
   font-size: 12px;
   background-color: #00c83f;
@@ -394,7 +402,7 @@ body > main > div:nth-child(3) > article > section > footer > span:nth-child(1) 
   margin-right: 2px;
 }
 
-body > main > div:nth-child(3) > article > section > footer > span:nth-child(2) {
+body>main>div:nth-child(3)>article>section>footer>span:nth-child(2) {
   font-family: 'Roboto';
   font-size: 12px;
   text-decoration: line-through;
@@ -402,14 +410,14 @@ body > main > div:nth-child(3) > article > section > footer > span:nth-child(2) 
   color: rgb(130, 130, 130);
 }
 
-body > main > div:nth-child(3) > article > section > footer > span:nth-child(3) {
+body>main>div:nth-child(3)>article>section>footer>span:nth-child(3) {
   font-family: 'Roboto';
   font-size: 12px;
   background-color: #0028a2;
   color: white;
 }
 
-body > main > div:nth-child(3) > div > article > footer {
+body>main>div:nth-child(3)>div>article>footer {
   justify-content: left;
   height: 20%;
   align-items: end;
@@ -420,7 +428,7 @@ body > main > div:nth-child(3) > div > article > footer {
   box-sizing: border-box;
 }
 
-body > main > div:nth-child(3) > div > article > footer > span:nth-child(1) {
+body>main>div:nth-child(3)>div>article>footer>span:nth-child(1) {
   font-family: 'Roboto';
   font-size: 12px;
   background-color: #00c83f;
@@ -428,7 +436,7 @@ body > main > div:nth-child(3) > div > article > footer > span:nth-child(1) {
   margin-right: 2px;
 }
 
-body > main > div:nth-child(3) > div > article > footer > span:nth-child(2) {
+body>main>div:nth-child(3)>div>article>footer>span:nth-child(2) {
   font-family: 'Roboto';
   font-size: 12px;
   text-decoration: line-through;
@@ -436,7 +444,7 @@ body > main > div:nth-child(3) > div > article > footer > span:nth-child(2) {
   color: rgb(130, 130, 130);
 }
 
-body > main > div:nth-child(3) > div > article > footer > span:nth-child(3) {
+body>main>div:nth-child(3)>div>article>footer>span:nth-child(3) {
   font-family: 'Roboto';
   font-size: 12px;
   background-color: #0028a2;
@@ -461,7 +469,7 @@ body > main > div:nth-child(3) > div > article > footer > span:nth-child(3) {
   color: white;
 }
 
-.nav-più-acquistati-più-giocati > ul > li{
+body>main>div:nth-child(4)>nav>ul>li {
   display: inline-block;
   width: 45%;
   text-align: center;
@@ -473,31 +481,25 @@ body > main > div:nth-child(3) > div > article > footer > span:nth-child(3) {
 
 
 
-body > main > div:nth-child(5) {
-  width: 90%;
-  margin-left: 5%;
-  margin-right: 5%;
-}
-
-body > main > div:nth-child(5){
+body>main>div:nth-child(4)>div:nth-child(2) {
   width: 50%;
   display: block;
   height: 100%
 }
 
-body > main > div:nth-child(5) > ul{
+body>main>div:nth-child(4)>div:nth-child(2)>ul {
   list-style: none;
   width: 100%;
   height: 100%;
   padding: 0px;
 }
 
-body > main > div:nth-child(5) > ul > li{
+body>main>div:nth-child(4)>div:nth-child(2)>ul>li {
   height: 100%;
   width: 100%;
 }
 
-body > main > div:nth-child(5) > ul > li > div{
+body>main>div:nth-child(4)>div:nth-child(2)>ul>li>div {
   width: 100%;
   height: 200px;
   border: 1px solid white;
@@ -507,7 +509,7 @@ body > main > div:nth-child(5) > ul > li > div{
 }
 
 
-body > main > div:nth-child(4) > div:nth-child(2) > ul > li > div > section{
+body>main>div:nth-child(4)>div:nth-child(2)>ul>li>div>section {
   width: 50%;
   height: 100%;
   margin: 0px;
@@ -518,21 +520,21 @@ body > main > div:nth-child(4) > div:nth-child(2) > ul > li > div > section{
   box-sizing: border-box;
 }
 
-body > main > div:nth-child(4) > div:nth-child(2) > ul > li > div > section > header > span{
+body>main>div:nth-child(4)>div:nth-child(2)>ul>li>div>section>header>span {
   font-family: 'Roboto';
   font-size: 12px;
   color: white;
 }
 
 
-body > main > div:nth-child(4) > div:nth-child(2) > ul > li > div > img{
+body>main>div:nth-child(4)>div:nth-child(2)>ul>li>div>img {
   width: 50%;
   height: 100%;
   border-right: 1px solid white;
-  object-fit: cover; 
+  object-fit: cover;
 }
 
-body > main > div:nth-child(4) > div:nth-child(2) > ul > li > div > section > footer {
+body>main>div:nth-child(4)>div:nth-child(2)>ul>li>div>section>footer {
   width: 100%;
   height: 100%;
   display: flex;
@@ -541,18 +543,18 @@ body > main > div:nth-child(4) > div:nth-child(2) > ul > li > div > section > fo
   margin-bottom: 0px;
 }
 
-body > main > div:nth-child(4) > div:nth-child(2) > ul > li > div > section > footer > span {
+body>main>div:nth-child(4)>div:nth-child(2)>ul>li>div>section>footer>span {
   color: white;
   font-family: 'Roboto';
   font-size: 12px;
   align-content: center;
 }
 
-body > main > div:nth-child(4) > div:nth-child(2) > ul > li > div > section > footer > div {
+body>main>div:nth-child(4)>div:nth-child(2)>ul>li>div>section>footer>div {
   align-content: center;
 }
 
-body > main > div:nth-child(4) > div:nth-child(2) > ul > li > div > section > footer > div > img{
+body>main>div:nth-child(4)>div:nth-child(2)>ul>li>div>section>footer>div>img {
   width: 20%;
   height: 100%;
   filter: invert(1);
@@ -577,26 +579,26 @@ body > main > div:nth-child(4) > div:nth-child(2) > ul > li > div > section > fo
 
 
 
-                            /*LOGIN FORM*/
+/*LOGIN FORM*/
 /*******************************************************************/
 
 
-.login-container {
+.login-form > main > section {
   max-width: 90%;
   width: 100%;
   border-radius: 0.75rem;
-  background-color: white; /* White background */
-  color: rgba(17, 24, 39, 1); /* Dark text for contrast */
+  background-color: white;
+  color: rgba(17, 24, 39, 1);
   padding: 2rem;
   margin: 3rem auto;
   box-sizing: border-box;
   display: flex;
-  flex-direction: column; /* Stacks children vertically */
-  align-items: center; /* Centers children horizontally */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.form {
+.login-form > main > section > form {
   width: 100%;
   max-width: 400px;
   margin-top: 1.5rem;
@@ -605,16 +607,16 @@ body > main > div:nth-child(4) > div:nth-child(2) > ul > li > div > section > fo
   align-items: center;
 }
 
-fieldset {
+.login-form > main > section > form > fieldset {
   width: 100%;
   border: none;
   padding: 0;
   margin: 0;
 }
 
-label {
+.login-form > main > section > form > fieldset > label {
   display: block;
-  color: rgba(55, 65, 81, 1); /* Darker text for contrast */
+  color: rgba(55, 65, 81, 1);
   margin-bottom: 4px;
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -622,75 +624,77 @@ label {
   text-align: left;
 }
 
-input {
+.login-form > main > section > form > fieldset > input {
   width: 100%;
   border-radius: 0.375rem;
-  border: 1px solid rgba(209, 213, 219, 1); /* Light gray border */
+  border: 1px solid rgba(209, 213, 219, 1);
   outline: 0;
-  background-color: white; /* Matches the container background */
+  background-color: white;
   padding: 0.75rem 1rem;
-  color: rgba(17, 24, 39, 1); /* Dark text */
+  color: rgba(17, 24, 39, 1);
   font-size: 0.875rem;
   line-height: 1.25rem;
   box-sizing: border-box;
   margin-bottom: 1rem;
-  transition: border-color 0.2s ease-in-out; /* Smooth focus effect */
+  transition: border-color 0.2s ease-in-out;
 }
 
-input:focus {
-  border-color: rgba(59, 130, 246, 1); /* Blue border on focus */
+.login-form > main > section > form > fieldset > input:focus {
+  border-color: rgba(59, 130, 246, 1);
 }
 
-.forgot {
+.login-form > main > section > form > fieldset > p {
   display: flex;
   justify-content: flex-end;
   width: 100%;
   font-size: 0.75rem;
   line-height: 1rem;
-  color: rgba(107, 114, 128, 1); /* Medium gray text */
+  color: rgba(107, 114, 128, 1);
   margin: 8px 0 14px 0;
 }
 
-.forgot a, .signup a {
-  color: rgba(59, 130, 246, 1); /* Blue links */
+.login-form > main > section > form > fieldset > p > a,
+.login-form > main > section > p > a {
+  color: rgba(59, 130, 246, 1);
   text-decoration: none;
   font-size: 14px;
 }
 
-.forgot a:hover, .signup a:hover {
+.login-form > main > section > form > fieldset > p > a:hover,
+.login-form > main > section > p > a:hover {
   text-decoration: underline;
 }
 
-.sign {
+.login-form > main > section > form > fieldset > button {
   width: 100%;
-  background-color: rgba(59, 130, 246, 1); /* Blue button */
+  background-color: rgba(59, 130, 246, 1);
   padding: 0.75rem;
   text-align: center;
-  color: white; /* White text for contrast */
+  color: white;
   border: none;
   border-radius: 0.375rem;
   font-weight: 600;
-  transition: background-color 0.2s ease-in-out; /* Smooth hover effect */
+  transition: background-color 0.2s ease-in-out;
 }
 
-.sign:hover {
-  background-color: rgba(37, 99, 235, 1); /* Darker blue on hover */
+.login-form > main > section > form > fieldset > button:hover {
+  background-color: rgba(37, 99, 235, 1);
 }
 
-.signup {
+.login-form > main > section > p:nth-child(3) {
   text-align: center;
   font-size: 0.75rem;
   line-height: 1rem;
-  color: rgba(107, 114, 128, 1); /* Medium gray text */
+  color: rgba(107, 114, 128, 1);
   margin-top: 1rem;
 }
 
-.title {
+.login-form > main > section > p:nth-child(1) {
   text-align: center;
   font-size: 2rem;
   line-height: 2.5rem;
   font-weight: 700;
-  color: rgba(17, 24, 39, 1); /* Dark title */
+  color: rgba(17, 24, 39, 1);
   margin-bottom: 1rem;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -700,24 +704,24 @@ input:focus {
 
 /*******************************************************************/
 
-                      /*REGISTRATION FORM*/
-          
-.registration-container {
+/*REGISTRATION FORM*/
+
+.registration-form>main>section {
   max-width: 90%;
   width: 100%;
   border-radius: 0.75rem;
-  background-color: white; /* White background */
-  color: rgba(17, 24, 39, 1); /* Dark text for contrast */
+  background-color: white;
+  color: rgba(17, 24, 39, 1);
   padding: 2rem;
   margin: 3rem auto;
   box-sizing: border-box;
   display: flex;
-  flex-direction: column; /* Stacks children vertically */
-  align-items: center; /* Centers children horizontally */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.form {
+.registration-form>main>section>form {
   width: 100%;
   max-width: 400px;
   margin-top: 1.5rem;
@@ -726,16 +730,16 @@ input:focus {
   align-items: center;
 }
 
-fieldset {
+.registration-form>main>section>form>fieldset {
   width: 100%;
   border: none;
   padding: 0;
   margin: 0;
 }
 
-label {
+.registration-form>main>section>form>fieldset>label {
   display: block;
-  color: rgba(55, 65, 81, 1); /* Darker text for contrast */
+  color: rgba(55, 65, 81, 1);
   margin-bottom: 4px;
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -743,87 +747,94 @@ label {
   text-align: left;
 }
 
-input {
+.registration-form>main>section>form>fieldset>input {
   width: 100%;
   border-radius: 0.375rem;
-  border: 1px solid rgba(209, 213, 219, 1); /* Light gray border */
+  border: 1px solid rgba(209, 213, 219, 1);
   outline: 0;
-  background-color: white; /* Matches the container background */
+  background-color: white;
   padding: 0.75rem 1rem;
-  color: rgba(17, 24, 39, 1); /* Dark text */
+  color: rgba(17, 24, 39, 1);
   font-size: 0.875rem;
   line-height: 1.25rem;
   box-sizing: border-box;
   margin-bottom: 1rem;
-  transition: border-color 0.2s ease-in-out; /* Smooth focus effect */
+  transition: border-color 0.2s ease-in-out;
 }
 
-input:focus {
-  border-color: rgba(59, 130, 246, 1); /* Blue border on focus */
+.registration-form>main>section>form>fieldset>input:focus {
+  border-color: rgba(59, 130, 246, 1);
 }
 
-.forgot {
+.registration-form>main>section>form>fieldset>p {
   display: flex;
   justify-content: flex-end;
   width: 100%;
   font-size: 0.75rem;
   line-height: 1rem;
-  color: rgba(107, 114, 128, 1); /* Medium gray text */
+  color: rgba(107, 114, 128, 1);
   margin: 8px 0 14px 0;
 }
 
-.forgot a, .signup a {
-  color: rgba(59, 130, 246, 1); /* Blue links */
+.registration-form>main>section>form>fieldset>p>a,
+.registration-form>main>section>p {
+  color: rgba(59, 130, 246, 1);
   text-decoration: none;
   font-size: 14px;
 }
 
-.forgot a:hover, .signup a:hover {
+.registration-form>main>section>form>fieldset>p>a:hover,
+.registration-form>main>section>p:hover {
   text-decoration: underline;
 }
 
-.sign {
+.registration-form>main>section>form>fieldset>button {
   width: 100%;
-  background-color: rgba(59, 130, 246, 1); /* Blue button */
+  background-color: rgba(59, 130, 246, 1);
   padding: 0.75rem;
   text-align: center;
-  color: white; /* White text for contrast */
+  color: white;
   border: none;
   border-radius: 0.375rem;
   font-weight: 600;
-  transition: background-color 0.2s ease-in-out; /* Smooth hover effect */
+  transition: background-color 0.2s ease-in-out;
 }
 
-.sign:hover {
-  background-color: rgba(37, 99, 235, 1); /* Darker blue on hover */
+.registration-form>main>section>form>fieldset>button:hover {
+  background-color: rgba(37, 99, 235, 1);
 }
 
-.signup {
+.registration-form>main>section>p {
   text-align: center;
   font-size: 0.75rem;
   line-height: 1rem;
-  color: rgba(107, 114, 128, 1); /* Medium gray text */
+  color: rgba(107, 114, 128, 1);
   margin-top: 1rem;
 }
 
-.title {
+.registration-form>main>section>h1 {
   text-align: center;
   font-size: 2rem;
   line-height: 2.5rem;
   font-weight: 700;
-  color: rgba(17, 24, 39, 1); /* Dark title */
+  color: rgba(17, 24, 39, 1);
   margin-bottom: 1rem;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-                           /*END REGISTRATION FORM*/
+/*END REGISTRATION FORM*/
 /************************************************************************/
-                       
 
 
 
-body main > ul {
+
+
+
+/* ------------------------ BEGIN SHOPPING CART--------------------------- */
+/* General styles for the shopping cart */
+
+.shoppingcart_items main>ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -833,7 +844,7 @@ body main > ul {
   align-items: center;
 }
 
-body main >  ul > li {
+.shoppingcart_items main>ul>li {
   margin-bottom: 20px;
   width: 100%;
   display: flex;
@@ -842,7 +853,7 @@ body main >  ul > li {
 
 
 /* Game card */
-body main > ul > li > div {
+.shoppingcart_items main>ul>li>div {
   display: flex;
   height: 100px;
   width: 90%;
@@ -856,20 +867,20 @@ body main > ul > li > div {
 }
 
 /*the image has*/
-body main > ul > li > div > img {
+.shoppingcart_items main>ul>li>div>img {
   width: auto;
   height: 100%;
   border-radius: 4px;
 }
 
-body main > ul > li > div > section {
+.shoppingcart_items main>ul>li>div>section {
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-body main > ul > li > div > section > header {
+.shoppingcart_items main>ul>li>div>section>header {
   height: 33%;
   padding-top: 0;
   display: flex;
@@ -877,67 +888,67 @@ body main > ul > li > div > section > header {
   align-items: top;
 }
 
-body main > ul > li > div > section > p {
+.shoppingcart_items main>ul>li>div>section>p {
   margin: 0;
   height: 33%;
 }
 
-body main > ul > li > div > section > footer {
+.shoppingcart_items main>ul>li>div>section>footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 34%;
 }
 
-body main > ul > li > div > section > header > h2 {
+.shoppingcart_items main>ul>li>div>section>header>h2 {
   font-size: 16px;
   font-weight: bold;
   padding-top: 0;
   margin: 0;
-  
+
 }
 
 
 
-body main > ul > li > div > section > footer > div {
+.shoppingcart_items main>ul>li>div>section>footer>div {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-body main > ul > li > div > section > footer > div > button{
+.shoppingcart_items main>ul>li>div>section>footer>div>button {
   background-color: #007bff;
   color: white;
   border: none;
   border-radius: 50%;
   padding: 5px;
   cursor: pointer;
-  width: 25px; 
-  height: 25px; 
+  width: 25px;
+  height: 25px;
   display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
 }
 
-body main > ul > li > div > section > footer > div > button > img{
+.shoppingcart_items main>ul>li>div>section>footer>div>button>img {
   width: 20px;
   height: 20px;
 }
 
-body main > ul > li > div > section > footer > div > button > img{
+.shoppingcart_items main>ul>li>div>section>footer>div>button>img {
   width: 20px;
   height: 20px;
 }
 
-body main > ul > li > div > section > footer > div > button:first-child > img {
+.shoppingcart_items main>ul>li>div>section>footer>div>button:first-child>img {
   rotate: -90deg;
 }
 
-body main > ul > li > div > section > footer > div > button:last-child > img {
+.shoppingcart_items main>ul>li>div>section>footer>div>button:last-child>img {
   rotate: 90deg;
 }
 
-body main > ul > li > div > section > header > button {
+.shoppingcart_items main>ul>li>div>section>header>button {
   border: none;
   cursor: pointer;
   height: 100%;
@@ -949,219 +960,65 @@ body main > ul > li > div > section > header > button {
 
 }
 
-body main > ul > li > div > section > header > button > img {
+.shoppingcart_items main>ul>li>div>section>header>button>img {
   height: 100%;
   width: auto;
   filter: invert(1);
 }
 
-body main > ul > li > div > section img {
+.shoppingcart_items main>ul>li>div>section img {
   width: 30px;
   height: 30px;
 }
 
 
-body > main > button {
+.shoppingcart_items>main>button {
   background-color: rgba(59, 130, 246, 1);
 
   padding: 10px 10px;
   text-align: center;
-  color: white; 
-  border: none;
-  border-radius: 10px;
-  font-weight: 600;
-  margin: 20px 40% 20px 40%;
-  width : 20%;
-  display: block;
-}
-
-
-/* ------------------------ BEGIN SHOPPING CART--------------------------- */
-/* General styles for the shopping cart */
-
-
-
-/*
-
-body > main > ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-body > main > ul > li {
-  margin-bottom: 20px;
-}
-
-
-body > main > ul > li > article {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto 1fr auto;
-  padding: 15px;
-  background-color: #56565c;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  gap: 10px;
-  position: relative;
-}
-
-body > main > ul > li > article > footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #56565c;
-  margin: 0;
-  border-top: 0px;
-}
-
-
-body > main > ul > li > article > header img {
-  max-width: 100px;
-  height: auto;
-  border-radius: 4px;
-  grid-row: 1 / span 3; 
-  align-self: start; 
-}
-
-body > main > ul > li > article > section {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  justify-content: flex-start; 
-  margin: 0;
-}
-
-
-body > main > button {
-  background-color: rgba(59, 130, 246, 1);
-
-  padding: 10px 10px;
-  text-align: center;
-  color: white; 
-  border: none;
-  border-radius: 10px;
-  font-weight: 600;
-  margin: 20px 40% 20px 40%;
-  width : 20%;
-  display: block;
-}
-
-
-
-body > main > ul > li > article > section > header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-body > main > ul > li > article > section > header >h2 {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin: 0;
-}
-
-body > main > ul > li > article > section > p {
-  margin: 0;
-}
-
-body > main > ul > li > article > section > p > img {
-  width: 30px;
-  height: auto;
-  margin-right: 10px;
-}
-
-
-body > main > ul > li > article > section > header > button {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-body > main > ul > li > article > section > header > button > img {
-  width: 20px;
-  height: 20px;
-}
-
-
-body > main > ul > li > article > footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  grid-column: 2;
-}
-
-body > main > ul > li > article > footer > section {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-body > main > ul > li > article > footer > section > button {
-  background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 50%;
-  padding: 5px;
-  cursor: pointer;
-  width: 25px; 
-  height: 25px; 
-  display: flex;
-  justify-content: center;
-  align-items: center; 
-}
-
-body > main > ul > li > article > footer > section > span {
-  font-size: 1rem;
-  width: 30px;
-  text-align: center;
-}
-
-body > main > ul > li > article > footer > p {
-  font-size: 1.1rem;
-  color: #28a745;
-  margin: 0;
-}
-
-body > main > ul > li > article > footer > section > button:hover {
-  opacity: 0.8;
-}
-
-body > main > ul > li > article > section > header > button:hover img {
-  opacity: 0.7;
+  border-radius: 10px;
+  font-weight: 600;
+  margin: 20px 40% 20px 40%;
+  width: 20%;
+  display: block;
 }
 
 
-*/
 /* ------------------------ END SHOPPING CART--------------------------- */
 
 /* ------------------------ BEGIN CATEGORY GAMES--------------------------- */
-body > main > h1 {
+
+.categorygames_content>main>h1 {
   text-align: center;
   margin-top: 20px;
   margin-bottom: 20px;
-  font-size: 48px; /* Testo molto grande */
+  font-size: 48px;
+  /* Testo molto grande */
   font-weight: bold;
-  color: #333; /* Grigio scuro */
-  text-transform: uppercase; /* Testo tutto maiuscolo */
-  letter-spacing: 2px; /* Spaziatura tra le lettere */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Ombra leggera per effetto */
+  color: #333;
+  /* Grigio scuro */
+  text-transform: uppercase;
+  /* Testo tutto maiuscolo */
+  letter-spacing: 2px;
+  /* Spaziatura tra le lettere */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  /* Ombra leggera per effetto */
 }
 
-body > main > nav{
+.categorygames_content>main>nav {
   margin: 0 5%;
 }
 
-body > main >nav > ul{
+.categorygames_content>main>nav>ul {
   list-style: none;
   padding: 0;
+  margin: 0 5%;
 }
 
-body > main > nav > ul > li{
+.categorygames_content>main>nav>ul>li {
   display: inline-block;
   width: 45%;
   margin: 10px 0 0;
@@ -1170,13 +1027,15 @@ body > main > nav > ul > li{
   border-radius: 10px;
 }
 
-body > main > nav > ul > li:nth-child(odd){
+.categorygames_content>main>nav>ul>li:nth-child(odd) {
   margin-right: 10%;
 }
 
-body > main > nav > ul > li > a{
+
+
+.categorygames_content>main>nav>ul>li>a {
   display: inline-block;
-  width:100%;
+  width: 100%;
   height: 100%;
   padding: 5px 0;
   color: #fff;
@@ -1185,5 +1044,87 @@ body > main > nav > ul > li > a{
 }
 
 
+.categorygames_content>main> ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 5%;
+  font-size: 0;
+
+}
+
+.categorygames_content>main>ul>li {
+  height: 100px;
+  width: 45%;
+  margin: 10px 0;
+
+  display: inline-block;
+  box-sizing: border-box;
+  font-size: initial; /* Ripristina la dimensione del font per i figli */
+}
+
+.categorygames_content>main>ul>li:nth-child(odd) {
+  margin-right: 10%;
+}
+
+
+
+.categorygames_content>main>ul>li>article {
+  width: 100%;
+  height: 100%;
+  border: 1px solid white;
+  background-color: #007bff;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+
+.categorygames_content>main>ul>li>article>figure {
+  width: 100%;
+  height: 80%;
+  margin: 0px;
+  position: relative;
+}
+
+.categorygames_content>main>ul>li>article>figure>figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  font-family: 'Roboto';
+  box-sizing: border-box;
+}
+
+.categorygames_content>main>ul>li>article>figure>img {
+  width: 100%;
+  height: 100%;
+}
+
+
+.categorygames_content>main>ul>li>article>footer>span:nth-child(1) {
+  font-family: 'Roboto';
+  font-size: 12px;
+  background-color: #00c83f;
+  color: white;
+  margin-right: 2px;
+}
+
+.categorygames_content>main>ul>li>article>footer>span:nth-child(2) {
+  font-family: 'Roboto';
+  font-size: 12px;
+  text-decoration: line-through;
+  background-color: #0028a2;
+  color: rgb(130, 130, 130);
+}
+
+.categorygames_content>main>ul>li>article>footer>span:nth-child(3) {
+  font-family: 'Roboto';
+  font-size: 12px;
+  background-color: #0028a2;
+  color: white;
+}
 
 /* ------------------------ END CATEGORY GAMES--------------------------- */

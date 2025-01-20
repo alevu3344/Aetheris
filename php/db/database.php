@@ -10,15 +10,34 @@ class DatabaseHelper{
         }
     }
 
-    public function getGamesByCategory($category){
-        $query = "SELECT * FROM GAMES WHERE Category = ?";
+    public function getGamesByCategory($category, $lim){
+        $query = "
+            SELECT 
+                G.Id, 
+                G.Name, 
+                G.Price, 
+                DG.Percentage AS Discount
+            FROM 
+                GAMES G
+            INNER JOIN 
+                GAME_CATEGORIES GC ON G.Id = GC.GameId
+            INNER JOIN 
+                CATEGORIES C ON GC.CategoryName = C.CategoryName
+            LEFT JOIN 
+                DISCOUNTED_GAMES DG ON G.Id = DG.GameId
+                AND CURRENT_DATE BETWEEN DG.StartDate AND DG.EndDate
+            WHERE 
+                C.CategoryName = ?
+            ORDER BY G.Price DESC
+            LIMIT ?
+                ";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("s", $category);
+        $stmt->bind_param("si", $category, $lim);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-
+    
     // this function returns a list of tuples (GameId, GameName, Quantity, OriginalPrice, Discount (0% if not discounted))
     public function getShoppingCart($userId){
         $query = "
