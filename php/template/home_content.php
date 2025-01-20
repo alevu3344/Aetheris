@@ -81,7 +81,7 @@
 
   <nav>
       <ul>
-          <li>PIÙ ACQUISTATI</li><li>PIÙ GIOCATI</li>
+          <li>PIÙ ACQUISTATI</li><li>PIÙ AMATI</li>
       </ul>
   </nav>
 
