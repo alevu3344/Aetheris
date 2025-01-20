@@ -216,7 +216,7 @@ class DatabaseHelper{
 
     //get all the reviews for a game, ordered by date
     public function getReviewsByGame($id){
-        $query = "SELECT * FROM REVIEWS WHERE GameId = ? ORDER BY Date DESC";
+        $query = "SELECT * FROM REVIEWS WHERE GameId = ? ORDER BY CreatedAt DESC";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $id);
         $stmt->execute();
