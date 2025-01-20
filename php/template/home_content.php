@@ -79,13 +79,13 @@
   </div>
 </div>
 
-<div>
   <nav>
       <ul>
           <li>PIÙ ACQUISTATI</li><li>PIÙ GIOCATI</li>
       </ul>
   </nav>
 
+<div>
   <div>
     <ul>
       <li>
@@ -130,6 +130,141 @@
           <section>
             <header>
               <span>Cuphead</span>
+            </header>
+            <footer>
+              <div>
+                <img src="upload/icons/windows-icon.svg" alt="Windows">
+                <img src="upload/icons/xbox-icon.svg" alt="Xbox">
+                <img src="upload/icons/mac-icon.svg" alt="Mac">
+              </div>
+              <span>19,99€</span>
+            </footer>
+          </section>
+        </div>
+      </li>
+      <li>
+      <div>
+        <img src="../media/covers/66.jpg" alt="Grim Dawn">
+          <section>
+            <header>
+              <span>Grim Dawn</span>
+            </header>
+            <footer>
+              <div>
+                <img src="upload/icons/windows-icon.svg" alt="Windows">
+                <img src="upload/icons/xbox-icon.svg" alt="Xbox">
+                <img src="upload/icons/mac-icon.svg" alt="Mac">
+              </div>
+              <span>19,99€</span>
+            </footer>
+          </section>
+        </div>
+      </li>
+      <li>
+      <div>
+        <img src="../media/covers/74.jpg" alt="Cities Skylines">
+          <section>
+            <header>
+              <span>Cities Skylines</span>
+            </header>
+            <footer>
+              <div>
+                <img src="upload/icons/windows-icon.svg" alt="Windows">
+                <img src="upload/icons/xbox-icon.svg" alt="Xbox">
+                <img src="upload/icons/mac-icon.svg" alt="Mac">
+              </div>
+              <span>19,99€</span>
+            </footer>
+          </section>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div></div>
+
+  <div>
+    <ul>
+      <li>
+        <div>
+          <img src="../media/covers/26.jpg" alt="Final Fantasy XVI">
+          <section>
+            <header>
+              <span>Final Fantasy XVI</span>
+            </header>
+            <footer>
+              <div>
+                <img src="upload/icons/windows-icon.svg" alt="Windows">
+                <img src="upload/icons/xbox-icon.svg" alt="Xbox">
+                <img src="upload/icons/mac-icon.svg" alt="Mac">
+              </div>
+              <span>39,99€</span>
+            </footer>
+          </section>
+        </div>
+      </li>
+      <li>
+      <div>
+        <img src="../media/covers/102.jpg" alt="Slay The Spire">
+          <section>
+            <header>
+              <span>Slay The Spire</span>
+            </header>
+            <footer>
+              <div>
+                <img src="upload/icons/windows-icon.svg" alt="Windows">
+                <img src="upload/icons/xbox-icon.svg" alt="Xbox">
+                <img src="upload/icons/mac-icon.svg" alt="Mac">
+              </div>
+              <span>9,99€</span>
+            </footer>
+          </section>
+        </div>
+      </li>
+      <li>
+      <div>
+        <img src="../media/covers/187.jpg" alt="Battlefield 1">
+          <section>
+            <header>
+              <span>Battlefield 1</span>
+            </header>
+            <footer>
+              <div>
+                <img src="upload/icons/windows-icon.svg" alt="Windows">
+                <img src="upload/icons/xbox-icon.svg" alt="Xbox">
+                <img src="upload/icons/mac-icon.svg" alt="Mac">
+              </div>
+              <span>19,99€</span>
+            </footer>
+          </section>
+        </div>
+      </li>
+
+      <li>
+      <div>
+        <img src="../media/covers/31.jpg" alt="Diablo 4">
+          <section>
+            <header>
+              <span>Diablo 4</span>
+            </header>
+            <footer>
+              <div>
+                <img src="upload/icons/windows-icon.svg" alt="Windows">
+                <img src="upload/icons/xbox-icon.svg" alt="Xbox">
+                <img src="upload/icons/mac-icon.svg" alt="Mac">
+              </div>
+              <span>19,99€</span>
+            </footer>
+          </section>
+        </div>
+      </li>
+
+      <li>
+      <div>
+        <img src="../media/covers/272.jpg" alt="The Chant">
+          <section>
+            <header>
+              <span>The Chant</span>
             </header>
             <footer>
               <div>

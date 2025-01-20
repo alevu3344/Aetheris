@@ -1,8 +1,3 @@
-img {
-  width: 10px;
-  height: 10px;
-}
-
 body {
   background-color: #221f1f;
   margin: 0px 0px;
@@ -116,8 +111,8 @@ body>footer>div:nth-child(1)>p {
   color: white;
 }
 
-
 /* ------------------------ Front page games START--------------------------- */
+
 .home_content >main>div:nth-child(1) {
     display: flex;
     justify-content: center;
@@ -271,7 +266,7 @@ body>footer>div:nth-child(1)>p {
 
 .home_content >main>h2 {
   font-family: 'Roboto';
-  margin: 2% 5% 0% 5%;
+  margin: 5%;
   color: white;
   font-size: 20px;
 }
@@ -646,52 +641,77 @@ body>footer>div:nth-child(1)>p {
 
 /*--------------------------      Giochi più giocati e acquistati START   ------------------------*/
 
-.home_content >main>div:nth-child(4) {
-  width: 100%;
-  height: 100%;
+.home_content > main > nav {
+  width: 90%;
+  margin: 5%;
 }
 
-.home_content >main>div:nth-child(4)>nav>ul {
+.home_content > main > nav  > ul {
   list-style: none;
   font-family: 'Roboto';
   color: white;
+  display: flex;
+  justify-content: center;
+  padding: 0px;
 }
 
-.home_content >main>div:nth-child(4)>nav>ul>li {
-  display: inline-block;
+.home_content > main > nav > ul > li {
   width: 45%;
   text-align: center;
-  font-size: 20px;
 }
 
-.home_content >main>div:nth-child(4)>div:nth-child(2) {
-  width: 50%;
-  display: block;
-  height: 100%
+.home_content > main > nav > ul > li:nth-child(1) {
+  margin-right: 10%;
 }
 
-.home_content >main>div:nth-child(4)>div:nth-child(2)>ul {
+.home_content > main > div:nth-child(5){
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  display: flex;
+  justify-content: space-between;
+  height: 300px;
+}
+
+.home_content > main > div:nth-child(5) > div:nth-child(2) { /*separatore colonne giochi*/
+  width: 1%;
+  height: 100%;
+  background: white;
+  border-radius: 20%;
+}
+
+.home_content >main>div:nth-child(5)> div:not(:nth-child(2)){
+  width: 45.5%;
+  height: 100%;
+}
+
+.home_content >main>div:nth-child(5)>div>ul {
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 100%;
   height: 100%;
+  padding: 0px;
+  margin: 0px;
 }
 
-.home_content >main>div:nth-child(4)>div:nth-child(2)>ul>li {
+.home_content >main>div:nth-child(5)>div>ul>li {
+  height: 19%;
+  width: 100%;
+}
+
+.home_content >main>div:nth-child(5)>div>ul>li>div {
+  width: 100%;
   height: 100%;
-  width: 100%;
-}
-
-.home_content >main>div:nth-child(4)>div:nth-child(2)>ul>li>div {
-  width: 100%;
-  height: 200px;
   border: 1px solid white;
-  margin-bottom: 2%;
   background-color: #007bff;
   display: flex;
+  box-sizing: border-box;
 }
 
 
-.home_content >main>div:nth-child(4)>div:nth-child(2)>ul>li>div>section {
+.home_content >main>div:nth-child(5)>div>ul>li>div>section {
   width: 50%;
   height: 100%;
   margin: 0px;
@@ -702,41 +722,53 @@ body>footer>div:nth-child(1)>p {
   box-sizing: border-box;
 }
 
-.home_content >main>div:nth-child(4)>div:nth-child(2)>ul>li>div>section>header>span {
+.home_content >main>div:nth-child(5)>div>ul>li>div>section>header {
+  height: 70%;
+  width: 100%;
+}
+
+.home_content >main>div:nth-child(5)>div>ul>li>div>section>header>span {
   font-family: 'Roboto';
   font-size: 12px;
   color: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
 }
 
 
-.home_content >main>div:nth-child(4)>div:nth-child(2)>ul>li>div>img {
+.home_content >main>div:nth-child(5)>div>ul>li>div>img {
   width: 50%;
   height: 100%;
   border-right: 1px solid white;
   object-fit: cover;
 }
 
-.home_content >main>div:nth-child(4)>div:nth-child(2)>ul>li>div>section>footer {
+.home_content >main>div:nth-child(5)>div>ul>li>div>section>footer {
   width: 100%;
-  height: 100%;
+  height: 30%;
   display: flex;
   justify-content: space-between;
-  align-content: center;
   margin-bottom: 0px;
+  align-items: end;
 }
 
-.home_content >main>div:nth-child(4)>div:nth-child(2)>ul>li>div>section>footer>span {
+.home_content >main>div:nth-child(5)>div>ul>li>div>section>footer>span {
   color: white;
   font-family: 'Roboto';
-  font-size: 12px;
+  font-size: 10px;
   align-content: center;
+  height: 100%;
+  width: 50%;
 }
 
-.home_content >main>div:nth-child(4)>div:nth-child(2)>ul>li>div>section>footer>div {
+.home_content >main>div:nth-child(5)>div>ul>li>div>section>footer>div {
   align-content: center;
+  height: 100%;
+  width: 50%;
 }
 
-.home_content >main>div:nth-child(4)>div:nth-child(2)>ul>li>div>section>footer>div>img {
+.home_content >main>div:nth-child(5)>div>ul>li>div>section>footer>div>img {
   width: 20%;
   height: 100%;
   filter: invert(1);
