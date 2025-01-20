@@ -59,3 +59,14 @@
 </section>
 
 
+<article>
+    <section>
+        <h2>Descrizione</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor, dolore. A quasi dolorum distinctio, aut dolores laudantium, velit suscipit minus atque cum dolorem doloremque necessitatibus reprehenderit quisquam laborum, autem exercitationem.</p>
+    </section>
+    <section>
+        <h2>Requisiti minimi</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor, dolore. A quasi dolorum distinctio, aut dolores laudantium, velit suscipit minus atque cum dolorem doloremque necessitatibus reprehenderit quisquam laborum, autem exercitationem.</p>
+    </section>
+</article>
+

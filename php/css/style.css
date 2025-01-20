@@ -1506,12 +1506,13 @@ body>footer>div:nth-child(1)>p {
 
 .game_content > main > section:nth-of-type(2) > dl {
   display: flex;
+  width: 100%;
   flex-direction: column;
   justify-content: space-between;
-  vertical-align: top;
+  
 }
 
-.game_content > main > section:nth-of-type(2) > dl > div {
+.game_content > main > section:nth-of-type(2) > dl > div:not(:last-of-type) {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1538,7 +1539,7 @@ body>footer>div:nth-child(1)>p {
   height: 30px;
   filter: invert(1);
 }
-
+/*GENERI*/
 .game_content > main > section:nth-of-type(2) > dl > div:nth-of-type(4) {
   display: flex;
   flex-direction: column;
@@ -1547,6 +1548,7 @@ body>footer>div:nth-child(1)>p {
   padding-bottom: 10px;
   padding-top: 10px;
   border-bottom: #fff 4px solid;
+  width: 100%;
 }
 
 .game_content > main > section:nth-of-type(2) > dl > div:nth-of-type(4) > dt {
@@ -1556,8 +1558,10 @@ body>footer>div:nth-child(1)>p {
 }
 
 .game_content > main > section:nth-of-type(2) > dl > div:nth-of-type(4) > dd {
-  display: inline-block;
-  justify-items: start;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
   font-size: 0;
   margin: 0;
 }

@@ -38,6 +38,18 @@ CREATE TABLE GAMES (
   UNIQUE KEY (Name)
 );
 
+CREATE TABLE PC_GAME_REQUIREMENTS (
+  GameId      int(11) NOT NULL,
+  OS          varchar(50) NOT NULL,
+  CPU         varchar(50) NOT NULL,
+  RAM         int(5) NOT NULL, -- In GB
+  GPU         varchar(50) NOT NULL,
+  SSD         int(5) NOT NULL, -- In GB
+
+  PRIMARY KEY (GameId),
+  FOREIGN KEY (GameId) REFERENCES GAMES(Id)
+);
+
 CREATE TABLE SUPPORTED_PLATFORMS (
   GameId      int(11) NOT NULL,
   Platform    enum("PC", "PlayStation", "Xbox","Nintendo Switch") NOT NULL,
@@ -45,6 +57,9 @@ CREATE TABLE SUPPORTED_PLATFORMS (
   PRIMARY KEY (GameId, Platform),
   FOREIGN KEY (GameId) REFERENCES GAMES(Id)
 );
+
+
+
 
 CREATE TABLE GAME_CATEGORIES (
   GameId        int(11) NOT NULL,
@@ -5524,6 +5539,327 @@ INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform) VALUES
 (52, "Xbox");
 
 
+INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(198, "Windows 10", "Intel Core i5-3300 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 760 / AMD Radeon RX 560", 25),
+(199, "Windows 10", "Intel Core i5-4670K / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 570", 35),
+(68, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 760 / AMD Radeon RX 560", 50),
+(128, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 860M / AMD Radeon R9 M370X", 30),
+(142, "Windows 7/10", "Intel Core i3 / AMD A8", 4, "NVIDIA GeForce GTX 460 / ATI Radeon HD 6850", 20);
+
+
+INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(193, "Windows 10", "Intel Core i7-3770 / AMD FX-8350", 8, "NVIDIA GeForce GTX 970 / AMD Radeon R9 290X", 50),
+(192, "Windows 10", "Intel Core i7-3770 / AMD FX-8350", 8, "NVIDIA GeForce GTX 970 / AMD Radeon R9 290X", 50),
+(194, "Windows 7/10", "Intel Core i5-2400 / AMD Ryzen 5 1400", 6, "NVIDIA GeForce GTX 660 / AMD Radeon R9 270X", 30),
+(196, "Windows 7/10", "Intel Core i5-2500K / AMD Ryzen 5 1400", 6, "NVIDIA GeForce GTX 780 / AMD Radeon R9 290", 40),
+(195, "Windows 7/10", "Intel Core i5-2500K / AMD Ryzen 5 1400", 6, "NVIDIA GeForce GTX 780 / AMD Radeon R9 290", 40);
+
+
+INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(5, "Windows 10", "Intel Core i7-9700K / AMD Ryzen 7 3700X", 8, "NVIDIA GeForce RTX 2070 / AMD Radeon RX 5700 XT", 50),
+(94, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 670 / AMD Radeon HD 7870", 30),
+(159, "Windows 7/10", "Intel Core i5-2500 / AMD Ryzen 3 1200", 4, "NVIDIA GeForce GTX 660 / AMD Radeon HD 7870", 5),
+(167, "Windows 10", "Intel Core i7-4770K / AMD Ryzen 5 1600", 16, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 50),
+(55, "Windows 10", "Intel Core i5-4690K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 60),
+(9, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 760 / AMD Radeon RX 560", 45),
+(187, "Windows 10", "Intel Core i5-6600K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 50),
+(188, "Windows 10", "Intel Core i7-9700K / AMD Ryzen 7 3700X", 16, "NVIDIA GeForce RTX 3070 / AMD Radeon RX 6800", 100),
+(189, "Windows 10", "Intel Core i5-6600K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 660 / AMD Radeon HD 7850", 30),
+(190, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 660 / AMD Radeon HD 7850", 40);
+
+
+INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(191, "Windows 10", "Intel Core i5-6600K / AMD Ryzen 5 1600", 12, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 50),
+(168, "Windows 7/10", "Intel Core i5-7500 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 30),
+(125, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 40),
+(174, "Windows 7/10", "Intel Core i5-2500K / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 660 / AMD Radeon RX 560", 20),
+(219, "Windows 7/10", "Intel Core i7-3770 / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 760 / AMD Radeon RX 560", 30),
+(169, "Windows 7/10", "Intel Core i5-6800K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 760 / AMD Radeon RX 560", 30),
+(170, "Windows 7/10", "Intel Core i5-2500K / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 660 / AMD Radeon HD 7850", 40),
+(171, "Windows 7/10", "Intel Core i5-2500K / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 50),
+(172, "Windows 7/10", "Intel Core i5-2500K / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 60),
+(173, "Windows 7/10", "Intel Core i5-2500K / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 50);
+
+
+INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(179, "Windows 10", "Intel Core i5-2500K / AMD Ryzen 5 1400", 12, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 50),
+(220, "Windows 7/10", "Intel Core i5-6800K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 760 / AMD Radeon RX 560", 40),
+(221, "Windows 7/10", "Intel Core i5-2500K / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 660 / AMD Radeon RX 560", 50),
+(222, "Windows 7/10", "Intel Core i5-2500K / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 960 / AMD Radeon RX 560", 50),
+(223, "Windows 7/10", "Intel Core i5-2500K / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 960 / AMD Radeon RX 560", 50),
+(224, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 960 / AMD Radeon RX 560", 50),
+(225, "Windows 7/10", "Intel Core i5-2500K / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 660 / AMD Radeon RX 560", 50),
+(96, "Windows 7/10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 4, "NVIDIA GeForce GTX 660 / AMD Radeon RX 560", 10),
+(60, "Windows 7/10", "Intel Core i3-2100 / AMD A8-7600", 2, "NVIDIA GeForce 9600GT / AMD Radeon HD 6570", 5),
+(74, "Windows 7/10", "Intel Core i5-2300 / AMD Phenom II X4 940", 6, "NVIDIA GeForce GTX 560 / AMD Radeon HD 7770", 25);
+
+
+INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(67, "Windows 7/10", "Intel Core i5-2500K / AMD Ryzen 5 1400", 4, "NVIDIA GeForce GTX 770 / AMD Radeon RX 570", 15),
+(12, "Windows 10", "Intel Core i5-7500 / AMD Ryzen 5 1600X", 12, "NVIDIA GeForce GTX 1660 Ti / AMD Radeon RX 590", 40),
+(176, "Windows 7/10", "Intel Core i3-4160 / AMD FX-6300", 6, "NVIDIA GeForce GTX 660 / AMD Radeon HD 7870", 15),
+(112, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 480", 50),
+(71, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 50),
+(98, "Windows 7/10", "Intel Core i5-7500 / AMD Ryzen 5 1600", 4, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 10),
+(23, "Windows 10", "Intel Core i7-4790 / AMD Ryzen 5 3600X", 12, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 70),
+(62, "Windows 7/10", "Intel Core i3-2100 / AMD A8-7600", 4, "NVIDIA GeForce GTX 465 / AMD Radeon HD 6850", 10),
+(30, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 25),
+(15, "Windows 10", "Intel Core i5-2500K / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 780 / AMD Radeon RX 480", 40);
+
+
+INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(44, "Windows 7/10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 4, "NVIDIA GeForce GTX 660 / AMD Radeon RX 560", 5),
+(202, "Windows 7/10", "Intel Core i5-4690 / AMD Ryzen 5 1600", 6, "NVIDIA GeForce GTX 760 / AMD Radeon RX 560", 20),
+(155, "Windows 7/10", "Intel Core i5-4690 / AMD Ryzen 5 1600", 6, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 30),
+(177, "Windows 7/10", "Intel Core i7-2600 / AMD FX-6350", 8, "NVIDIA GeForce GTX 560 Ti / AMD Radeon HD 6850", 20),
+(178, "Windows 7/10", "Intel Core i7-2600 / AMD FX-6350", 8, "NVIDIA GeForce GTX 660 / AMD Radeon RX 570", 30),
+(140, "Windows 10", "Intel Core i7-6700K / AMD Ryzen 5 2600X", 16, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 50),
+(14, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 80),
+(31, "Windows 10", "Intel Core i7-9700K / AMD Ryzen 7 3700X", 16, "NVIDIA GeForce RTX 2080 / AMD Radeon RX 5700 XT", 100),
+(200, "Windows 7/10", "Intel Core i5-7500 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 50),
+(201, "Windows 7/10", "Intel Core i5-7500 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 60);
+
+
+INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(88, "Windows 7/10", "Intel Core i5-6600K / AMD Ryzen 5 2600X", 8, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 50),
+(42, "Windows 7/10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 20),
+(19, "Windows 7/10", "Intel Core i7-3770 / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 30),
+(54, "Windows 7/10", "Intel Core i7-4770K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 50),
+(181, "Windows 7/10", "Intel Core i7-6700K / AMD Ryzen 5 2600X", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 50),
+(182, "Windows 7/10", "Intel Core i7-3770 / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 660 / AMD Radeon RX 570", 20),
+(180, "Windows 7/10", "Intel Core i7-6700K / AMD Ryzen 5 2600X", 8, "NVIDIA GeForce GTX 1080 / AMD Radeon RX Vega 56", 50),
+(53, "Windows 7/10", "Intel Core i7-4790 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 50),
+(151, "Windows 7/10", "Intel Core i5-6600K / AMD Ryzen 5 2600X", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 20),
+(63, "Windows 7/10", "Intel Core i7-3770 / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 30);
+
+
+INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(77, "Windows 7/10", "Intel Core i7-7700K / AMD Ryzen 5 3600X", 4, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 10),
+(20, "Windows 10", "Intel Core i7-4770 / AMD Ryzen 5 1600", 16, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 50),
+(36, "Windows 10", "Intel Core i7-9700K / AMD Ryzen 7 3700X", 16, "NVIDIA GeForce RTX 3070 / AMD Radeon RX 6800", 60),
+(164, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 20),
+(203, "Windows 10", "Intel Core i5-8400 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1660 Ti / AMD Radeon RX 590", 50),
+(47, "Windows 7/10", "Intel Core i3-6300 / AMD FX-6300", 4, "NVIDIA GeForce GTX 650 / AMD Radeon HD 7750", 10),
+(204, "Windows 7/10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 570", 30),
+(205, "Windows 7/10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 570", 30),
+(130, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 10),
+(21, "Windows 7/10", "Intel Core i5-2300 / AMD Phenom II X4 965", 4, "NVIDIA GeForce GTX 460 / AMD Radeon HD 6850", 10);
+
+
+INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(206, "Windows 7/10", "Intel Core 2 Quad Q9400 / AMD Phenom II X4 965", 4, "NVIDIA GeForce GTX 460 / AMD Radeon HD 6850", 10),
+(207, "Windows 7/10", "Intel Core i3-550 / AMD Phenom II X4 805", 4, "NVIDIA GeForce GTX 460 / AMD Radeon HD 6850", 10),
+(208, "Windows 7/10", "Intel Core i5-750 / AMD Phenom II X4 955", 4, "NVIDIA GeForce GTX 460 / AMD Radeon HD 6850", 10),
+(16, "Windows 7/10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 30),
+(209, "Windows 10", "Intel Core i7-6700 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 50),
+(217, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 960 / AMD Radeon RX 470", 20),
+(218, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 960 / AMD Radeon RX 470", 20),
+(210, "Windows 7/10", "Intel Core i5-7600 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1050 Ti / AMD Radeon RX 560", 10),
+(211, "Windows 7/10", "Intel Core i3-6100 / AMD FX-4350", 8, "NVIDIA GeForce GTX 660 / AMD Radeon HD 7850", 15),
+(212, "Windows 7/10", "Intel Core i3-6100 / AMD FX-4350", 8, "NVIDIA GeForce GTX 660 / AMD Radeon HD 7850", 15),
+(213, "Windows 7/10", "Intel Core i3-6100 / AMD FX-4350", 8, "NVIDIA GeForce GTX 660 / AMD Radeon HD 7850", 15),
+(214, "Windows 7/10", "Intel Core i3-6100 / AMD FX-4350", 8, "NVIDIA GeForce GTX 660 / AMD Radeon HD 7850", 15),
+(215, "Windows 7/10", "Intel Core i3-6100 / AMD FX-4350", 8, "NVIDIA GeForce GTX 660 / AMD Radeon HD 7850", 15),
+(216, "Windows 7/10", "Intel Core i3-6100 / AMD FX-4350", 8, "NVIDIA GeForce GTX 660 / AMD Radeon HD 7850", 15),
+(78, "Windows 7/10", "Intel Core i3-6100 / AMD FX-4350", 8, "NVIDIA GeForce GTX 660 / AMD Radeon HD 7850", 20),
+(27, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1600", 16, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 50),
+(122, "Windows 7/10", "Intel Core i7-3770 / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 50),
+(59, "Windows 10", "Intel Core i7-6700 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 60),
+(26, "Windows 10", "Intel Core i7-9700K / AMD Ryzen 7 3700X", 16, "NVIDIA GeForce RTX 2080 / AMD Radeon RX 5700 XT", 100),
+(183, "Windows 7/10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 960 / AMD Radeon RX 470", 20);
+
+
+INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(40, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 960 / AMD Radeon RX 470", 20),
+(51, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 480", 20),
+(234, "Windows 10", "Intel Core i7-3820 / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 30),
+(81, "Windows 10", "Intel Core i7-3820 / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 30),
+(137, "Windows 7/10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 760 / AMD Radeon RX 560", 10),
+(28, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1600", 16, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 50),
+(6, "Windows 10", "Intel Core i5-2500K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 50),
+(3, "Windows 10", "Intel Core i7-4770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 50),
+(226, "Windows 10", "Intel Core i7-4770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 50),
+(227, "Windows 10", "Intel Core i7-6700K / AMD Ryzen 5 1600X", 8, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 50),
+(87, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 960 / AMD Radeon RX 470", 10),
+(82, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 20),
+(49, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 960 / AMD Radeon RX 470", 20),
+(66, "Windows 7/10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 960 / AMD Radeon RX 470", 20),
+(100, "Windows 10", "Intel Core i3-2100 / AMD A8-6500", 4, "NVIDIA GeForce GTX 650 / AMD Radeon HD 7750", 10),
+(123, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 30),
+(150, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 20),
+(64, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 30),
+(228, "Windows 7/10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 660 / AMD Radeon RX 560", 20),
+(229, "Windows 7/10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 660 / AMD Radeon RX 560", 20);
+
+
+INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(230, "Windows 10", "Intel Core i5-2500K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1050 / AMD Radeon RX 560", 30),
+(231, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 40),
+(232, "Windows 10", "Intel Core i5-9500 / AMD Ryzen 5 3600", 8, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 50),
+(233, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 960 / AMD Radeon RX 470", 20),
+(75, "Windows 10", "Intel Core i5-7500 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1050 / AMD Radeon RX 560", 20),
+(235, "Windows 10", "Intel Core i5-9600K / AMD Ryzen 7 2700X", 16, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 50),
+(43, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 760 / AMD Radeon RX 560", 10),
+(39, "Windows 10", "Intel Core i7-2700K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 50),
+(4, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 50),
+(160, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 960 / AMD Radeon RX 470", 20),
+(152, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 960 / AMD Radeon RX 470", 20),
+(107, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 660 / AMD Radeon RX 560", 10),
+(110, "Windows 10", "Intel Core i3-2100 / AMD A8-6500", 4, "NVIDIA GeForce GTX 650 / AMD Radeon HD 7750", 10),
+(163, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 20),
+(131, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 660 / AMD Radeon RX 560", 10),
+(156, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 960 / AMD Radeon RX 470", 20),
+(48, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 30),
+(119, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 30),
+(143, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 960 / AMD Radeon RX 470", 20),
+(238, "Windows 10", "Intel Core i5-7500 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 10);
+
+
+INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(108, "Windows 10", "Intel Core i3-560 / AMD Phenom II X4 945", 4, "NVIDIA GeForce GTX 460 / AMD Radeon HD 6850", 10),
+(109, "Windows 10", "Intel Core i3-3220 / AMD A8-7600", 4, "NVIDIA GeForce GTX 460 / AMD Radeon HD 6850", 10),
+(146, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 960 / AMD Radeon RX 470", 10),
+(124, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 960 / AMD Radeon RX 470", 30),
+(239, "Windows 10", "Intel Core i5-3570K / AMD Ryzen 3 1300X", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 50),
+(129, "Windows 10", "Intel Core i5-2500K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 30),
+(240, "Windows 10", "Intel Core i5-6600K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 50),
+(241, "Windows 10", "Intel Core i5-2500K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 30),
+(242, "Windows 10", "Intel Core i5-2500K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 30),
+(243, "Windows 10", "Intel Core i5-2500K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 30),
+(22, "Windows 10", "Intel Core i5-3570K / AMD Ryzen 3 1300X", 8, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 50),
+(18, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 660 / AMD Radeon RX 560", 20),
+(244, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 40),
+(186, "Windows 10", "Intel Core i3-3210 / AMD A8-7600", 4, "NVIDIA GeForce GTX 460 / AMD Radeon HD 6850", 10),
+(29, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 50),
+(161, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 960 / AMD Radeon RX 470", 10),
+(184, "Windows 10", "Intel Core i5-6600K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 30),
+(147, "Windows 10", "Intel Core i7-4790 / AMD Ryzen 7 2700X", 16, "NVIDIA GeForce GTX 1080 / AMD Radeon RX Vega 64", 50),
+(185, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 660 / AMD Radeon RX 560", 20),
+(245, "Windows 10", "Intel Core i5-6600K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 30);
+
+
+INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(89, "Windows 10", "Intel Core i5-6600K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 30),
+(79, "Windows 10", "Intel Core i5-4430 / AMD FX-8370", 8, "NVIDIA GeForce GTX 760 / AMD Radeon RX 470", 50),
+(246, "Windows 10", "Intel Core i5-4430 / AMD FX-8370", 8, "NVIDIA GeForce GTX 760 / AMD Radeon RX 470", 50),
+(247, "Windows 10", "Intel Core i5-4430 / AMD FX-8370", 8, "NVIDIA GeForce GTX 760 / AMD Radeon RX 470", 50),
+(83, "Windows 10", "Intel Core i5-6600K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 30),
+(127, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 50),
+(248, "Windows 10", "Intel Core i5-6600K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 50),
+(56, "Windows 10", "Intel Core i5-2300 / AMD FX-6300", 8, "NVIDIA GeForce GTX 660 / AMD Radeon RX 460", 40),
+(33, "Windows 10", "Intel Core i5-4670K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 780 / AMD Radeon RX 580", 30),
+(249, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 50),
+(250, "Windows 10", "Intel Core i5-7600K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 50),
+(34, "Windows 10", "Intel Core i3-3210 / AMD A8-7600", 4, "NVIDIA GeForce GTX 760 / AMD Radeon RX 470", 10),
+(117, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 480", 20),
+(99, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 480", 20),
+(252, "Windows 10", "Intel Core i3-3220 / AMD A8-7600", 4, "NVIDIA GeForce GTX 460 / AMD Radeon HD 6850", 10),
+(141, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 470", 20),
+(251, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 470", 30),
+(136, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 470", 10),
+(46, "Windows 10", "Intel Core i5-6600K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 30),
+(253, "Windows 10", "Intel Core i5-6600K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 50);
+
+
+INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(145, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 480", 20),
+(41, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 470", 25),
+(76, "Windows 10", "Intel Core i5-4690 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 20),
+(157, "Windows 10", "Intel Core i3-530 / AMD Phenom II X4 810", 4, "NVIDIA GeForce GTX 560 / AMD Radeon HD 6850", 8),
+(261, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 480", 30),
+(135, "Windows 10", "Intel Core i5-6600K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 25),
+(162, "Windows 10", "Intel Core i3-530 / AMD Phenom II X4 810", 4, "NVIDIA GeForce GTX 560 / AMD Radeon HD 6850", 10),
+(262, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 480", 50),
+(114, "Windows 10", "Intel Core i5-4670 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 480", 30),
+(118, "Windows 10", "Intel Core i5-7500 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 480", 20),
+(2, "Windows 10", "Intel Core i7-4770K / AMD Ryzen 5 1600", 12, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 480", 150),
+(139, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 50),
+(263, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 480", 50),
+(264, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 480", 50),
+(265, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 50),
+(138, "Windows 10", "Intel Core i7-4770K / AMD Ryzen 5 1600", 12, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 480", 50),
+(85, "Windows 10", "Intel Core i5-6600K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 30),
+(105, "Windows 10", "Intel Core i7-2700K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 480", 30),
+(84, "Windows 10", "Intel Core i5-2300 / AMD FX-6300", 8, "NVIDIA GeForce GTX 660 / AMD Radeon RX 460", 20),
+(120, "Windows 10", "Intel Core i5-2500 / AMD FX-6300", 8, "NVIDIA GeForce GTX 750 / AMD Radeon RX 460", 25);
+
+
+INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(266, "Windows 10", "Intel Core i5-8300H / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 1050 / AMD Radeon RX 560", 30),
+(13, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 50),
+(93, "Windows 10", "Intel Core i5-6500 / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 480", 30),
+(102, "Windows 10", "Intel Core i5-5300U / AMD Ryzen 3 3200G", 4, "NVIDIA GeForce GT 630 / AMD Radeon HD 8370D", 3),
+(92, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 480", 50),
+(115, "Windows 10", "Intel Core i5-4670 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 25),
+(154, "Windows 10", "Intel Core i5-4690 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 20),
+(267, "Windows 10", "Intel Core i7-6700K / AMD Ryzen 5 1600", 16, "NVIDIA GeForce RTX 3080 / AMD Radeon RX 6800", 100),
+(10, "Windows 10", "Intel Core i5-4670K / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 480", 40),
+(103, "Windows 10", "Intel Core i5-6500 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 480", 15),
+(133, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 480", 25),
+(113, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 760 / AMD Radeon RX 560", 20),
+(126, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 30),
+(95, "Windows 10", "Intel Core i5-2300 / AMD FX-6300", 4, "NVIDIA GeForce GTX 760 / AMD Radeon RX 560", 8),
+(57, "Windows 10", "Intel Core i7-6700K / AMD Ryzen 5 1600", 16, "NVIDIA GeForce GTX 1080 / AMD Radeon RX Vega 56", 100),
+(269, "Windows 10", "Intel Core i5-2500K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 480", 20),
+(70, "Windows 10", "Intel Core i5-4690 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 25),
+(148, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX Vega 56", 30),
+(61, "Windows 10", "Intel Core i5-6600K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 30),
+(149, "Windows 10", "Intel Core i5-4690 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 480", 20);
+
+
+INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(270, "Windows 10", "Intel Core i7-6700K / AMD Ryzen 5 1600", 16, "NVIDIA GeForce GTX 1080 / AMD Radeon RX Vega 56", 50),
+(35, "Windows 10", "Intel Core i5-4590 / AMD FX-8350", 4, "NVIDIA GeForce GTX 660 / AMD Radeon HD 7850", 2),
+(271, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 25),
+(158, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 25),
+(65, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 25),
+(104, "Windows 10", "Intel Core i5-2000 / AMD Ryzen 3 1200", 4, "NVIDIA GeForce GTX 460 / AMD Radeon HD 6850", 0.5),
+(175, "Windows 10", "Intel Core i7-6700K / AMD Ryzen 7 1800X", 16, "NVIDIA GeForce RTX 3070 / AMD Radeon RX 6800", 40),
+(272, "Windows 10", "Intel Core i7-6700K / AMD Ryzen 5 1600", 16, "NVIDIA GeForce GTX 1080 / AMD Radeon RX Vega 56", 20),
+(273, "Windows 10", "Intel Core i7-4770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 480", 50),
+(38, "Windows 10", "Intel Core i5-750 / AMD Phenom II X4 955", 6, "NVIDIA GeForce GTX 470 / AMD Radeon HD 6870", 6),
+(144, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 480", 50),
+(274, "Windows 10", "Intel Core i7-4770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 480", 30),
+(278, "Windows 10", "Intel Core i7-6700K / AMD Ryzen 7 1800X", 16, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 50),
+(11, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX Vega 56", 50),
+(45, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 480", 25),
+(275, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 20),
+(276, "Windows 10", "Intel Core i5-2500K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 660 / AMD Radeon HD 7870", 10),
+(277, "Windows 10", "Intel Core i5-2500K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 660 / AMD Radeon HD 7870", 10),
+(7, "Windows 10", "Intel Core i3-3240 / AMD FX-4320", 6, "NVIDIA GeForce GTX 660 / AMD Radeon HD 7770", 5),
+(86, "Windows 10", "Intel Core i5-2300 / AMD FX-6300", 8, "NVIDIA GeForce GTX 760 / AMD Radeon RX 560", 20);
+
+
+INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(279, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 10),
+(291, "Windows 10", "Intel Core i5-6600K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 480", 40),
+(292, "Windows 10", "Intel Core i5-6600K / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 480", 40),
+(69, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 480", 120),
+(90, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 10),
+(106, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 10),
+(8, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 960 / AMD Radeon RX 470", 50),
+(101, "Windows 10", "Intel Core i3-2130 / AMD FX-4300", 4, "NVIDIA GeForce GTX 660 / AMD Radeon HD 7870", 1),
+(165, "Windows 10", "Intel Core i5-4590 / AMD Ryzen 5 1500X", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 10),
+(50, "Windows 10", "Intel Core i5-7500 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 480", 50),
+(17, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 960 / AMD Radeon RX 470", 40),
+(280, "Windows 10", "Intel Core i5-2300 / AMD FX-6300", 8, "NVIDIA GeForce GTX 460 / AMD Radeon HD 6850", 10),
+(281, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 50),
+(58, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX Vega 56", 40),
+(24, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX Vega 56", 50),
+(282, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX Vega 56", 30),
+(283, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX Vega 56", 20),
+(284, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX Vega 56", 20),
+(121, "Windows 10", "Intel Core i5-3450 / AMD Ryzen 3 3300X", 4, "NVIDIA GeForce GTX 760 / AMD Radeon RX 560", 0),
+(285, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 960 / AMD Radeon RX 470", 50);
+
+
+INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(91, "Windows 10", "Intel Core i5-4460 / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 50),
+(286, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 50),
+(287, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56", 50),
+(72, "Windows 10", "Intel Core i3-550 / AMD Phenom II X4 965", 4, "NVIDIA GeForce GTX 460 / AMD Radeon HD 6850", 30),
+(288, "Windows 10", "Intel Core i5-2500K / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 20),
+(52, "Windows 10", "Intel Core i5-6300U / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 50);
 
 
 
