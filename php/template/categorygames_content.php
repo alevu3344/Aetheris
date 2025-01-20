@@ -5,7 +5,7 @@
         <li><a>Tendenza</a></li><li><a>Nuove uscite</a></li><li><a>Migliori</a></li><li><a>Offerte</a></li>
     </ul>
 </nav>
-<ul>
+<ul id = "category-games-ul">
     <?php foreach ($templateParams["giochi"] as $game): ?>
         <li>
             <article>

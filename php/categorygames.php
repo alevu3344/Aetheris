@@ -9,7 +9,7 @@ $templateParams["titolo"] = "Aetheris - ".$_GET["nome-categoria"];
 
 $templateParams["nome"] = "categorygames_content.php";
 $templateParams["categorie"] = $dbh->getCategories();
-$templateParams["giochi"] = $dbh->getGamesByCategory($_GET["nome-categoria"]);
+$templateParams["giochi"] = $dbh->getGamesByCategory($_GET["nome-categoria"], 10);
 
 
 
