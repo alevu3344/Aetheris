@@ -123,6 +123,32 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getSupportedPlatforms($gameId){
+        $query = "
+            SELECT 
+                SP.Platform
+            FROM 
+                SUPPORTED_PLATFORMS SP
+            WHERE 
+                SP.GameId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $gameId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $var = $result->fetch_all(MYSQLI_ASSOC);
+        
+        return $var;
+    }
+
+    public function addSupportedPlatforms($games){
+
+        foreach($games as &$game){
+            $gameId = $game["Id"];
+            $game["Platforms"] = $this->getSupportedPlatforms($gameId);
+        }
+
+        return $games;
+    }
 
     //get the most rated games by joining the GAMES and REVIEWS tables and computing the average rating for each game, algo join with discount in order to get the discount
     public function getMostRatedGames($lim){
@@ -144,6 +170,29 @@ class DatabaseHelper{
                 G.Id
             ORDER BY 
                 AvgRating DESC
+            LIMIT ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $lim);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $this->addSupportedPlatforms($result->fetch_all(MYSQLI_ASSOC));
+    }
+    //retrieved the games the games from the GAMES (ordered by release date) table that have a discount in the DISCOUNTED_GAMES table
+    public function getLaunchOffers($lim){
+        $query = "
+            SELECT 
+                G.*, 
+                DG.Percentage, 
+                DG.StartDate, 
+                DG.EndDate
+            FROM 
+                GAMES G
+            INNER JOIN 
+                DISCOUNTED_GAMES DG ON G.Id = DG.GameId
+            WHERE 
+                CURDATE() BETWEEN DG.StartDate AND DG.EndDate
+            ORDER BY 
+                G.ReleaseDate DESC
             LIMIT ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $lim);

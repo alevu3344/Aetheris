@@ -291,48 +291,32 @@
     <img src="upload/icons/left_arrow.svg" alt="Left arrow">
     <nav>
       <ul>
-        <li>
-          <article>
-            <figure>
-              <img src="../media/covers/22.jpg" alt="Top game"/>
-              <figcaption>Cyberpunk 2077</figcaption>
-            </figure>
-            <footer>
-              <span>-50%</span>
-              <span>29,99€</span>
-              <span>14,99€</span>
-            </footer>
-        </article>
-        </li>
-        <li>
-          <article>
-            <figure>
-              <img src="../media/covers/26.jpg" alt="Top game"/>
-              <figcaption>Cyberpunk 2077</figcaption>
-            </figure>
-            <footer>
-              <span>-50%</span>
-              <span>29,99€</span>
-              <span>14,99€</span>
-            </footer>
-        </article>
-        </li>
-        <li>
-          <article>
-            <figure>
-              <img src="../media/covers/77.jpg" alt="Top game"/>
-              <figcaption>Cyberpunk 2077</figcaption>
-            </figure>
-            <footer>
-              <span>-50%</span>
-              <span>29,99€</span>
-              <span>14,99€</span>
-            </footer>
-          </article>
-        </li>
+        <?php foreach ($templateParams["offerte-di-lancio"] as $game): ?>
+          <li>
+              <article>
+                  <figure>
+
+                      <img src= <?= "../media/covers/".$game['Id'].".jpg" ?>
+                          alt="<?= $game["Name"] ?>"/>
+                      <figcaption><?= $game["Name"] ?></figcaption>
+                  </figure>
+                  <footer>
+                      <!-- Use 'discount', 'price', and 'discounted_price' keys dynamically -->
+                      <?php if (!empty($game['Discount'])): ?>
+                          <span>-<? echo $game['Discount']?>%</span>
+                          <?php endif; ?>
+                          <span><?= $game['Price'] ?>€</span>
+                          <?php if (!empty($game['Discount'])): ?>
+                          <span><?= number_format($game['Price'] * (1 - $game['Discount'] / 100), 2)?>€</span>
+                      <?php endif; ?>
+                  </footer>
+              </article>
+          </li>
+      <?php endforeach; ?>
       </ul>
     </nav>
     <img src="upload/icons/left_arrow.svg" alt="Right arrow">
   </div>
 
 </div>
+
