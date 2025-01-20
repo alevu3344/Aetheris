@@ -79,8 +79,7 @@
   </div>
 </div>
 
-<div>
-  <nav>
+  <nav id="nav-più-acquistati-più-giocati">
       <ul>
           <li>PIÙ ACQUISTATI</li><li>PIÙ GIOCATI</li>
       </ul>
@@ -144,4 +143,3 @@
       </li>
     </ul>
   </div>
-</div>
