@@ -29,12 +29,11 @@
 </div>
 
 
-<!--
 
 <section>
     <dl>
         <div>
-            <dt>Sviluppatore:</dt>
+            <dt>Sviluppatore</dt>
             <dd>Creative Assembly</dd>
         </div>
         <div>
@@ -48,8 +47,15 @@
                 <img src="upload/icons/PlayStation.svg" alt="game">
             </dd>
         </div>
+        <div>
+            <dt>Generi</dt>
+            <dd>
+                <span>Action</span>
+                <span>Horror</span>
+                <span>Ziopera</span>
+            </dd>
+        </div>
     </dl>
 </section>
 
--->
 
