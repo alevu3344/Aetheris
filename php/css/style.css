@@ -1155,6 +1155,8 @@ body>main>div:nth-child(4)>div:nth-child(2)>ul>li>div>section>footer>div>img {
   margin-right: 10%;
 }
 
+
+
 .categorygames_content>main>nav>ul>li>a {
   display: inline-block;
   width: 100%;
@@ -1166,22 +1168,29 @@ body>main>div:nth-child(4)>div:nth-child(2)>ul>li>div>section>footer>div>img {
 }
 
 
-.categorygames_content>main>#category-games-ul {
+.categorygames_content>main> ul {
   list-style: none;
   padding: 0;
-  margin: 0 0 5%;
+  margin: 0 5%;
+  font-size: 0;
 
 }
 
 .categorygames_content>main>ul>li {
   height: 100px;
   width: 45%;
-  margin: 10px 0 0;
+  margin: 10px 0;
+
+  display: inline-block;
+  box-sizing: border-box;
+  font-size: initial; /* Ripristina la dimensione del font per i figli */
 }
 
 .categorygames_content>main>ul>li:nth-child(odd) {
   margin-right: 10%;
 }
+
+
 
 .categorygames_content>main>ul>li>article {
   width: 100%;
@@ -1190,12 +1199,8 @@ body>main>div:nth-child(4)>div:nth-child(2)>ul>li>div>section>footer>div>img {
   background-color: #007bff;
   box-sizing: border-box;
   display: inline-block;
-  margin: 10px 10px 10% 0;
 }
 
-.categorygames_content>main>ul>li>article:nth-child(odd) {
-  margin-right: 10%;
-}
 
 .categorygames_content>main>ul>li>article>figure {
   width: 100%;
