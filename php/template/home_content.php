@@ -185,100 +185,28 @@
 
   <div>
     <ul>
-      <?php foreach($templateParams["mostratedgames"] as $mostratedgame): ?>
+      <?php foreach($templateParams["giochi-amati"] as $mostratedgame): ?>
       <li>
         <div>
-          <img src="<?php echo UPLOAD_DIR.$mostratedgame["imggioco"]; ?>" alt="" />
+          <img src="<?php echo "../media/covers/".$mostratedgame["Id"].".jpg" ?>" alt="<?php echo $mostratedgame["Name"]; ?>" />
           <section>
             <header>
-              <span><?php echo $mostratedgame["nomegioco"]; ?></span>
+              <span><?php echo $mostratedgame["Name"]; ?></span>
             </header>
             <footer>
               <div>
-                <img src="upload/icons/windows-icon.svg" alt="Windows">
-                <img src="upload/icons/xbox-icon.svg" alt="Xbox">
-                <img src="upload/icons/mac-icon.svg" alt="Mac">
+                <?php foreach($mostratedgame["Platforms"] as $platform): ?>
+                  <img src="<?php echo "upload/icons/".$platform["Platform"].".svg" ?>" alt="<?php echo $platform["Platform"]; ?>" />
+              
+              
+                <?php endforeach; ?>
               </div>
-              <span><?php echo $mostratedgame["prezzogioco"]; ?></span>
+              <span><?= number_format($mostratedgame['Price'] * (1 - $mostratedgame['Discount'] / 100), 2)?>€</span>
             </footer>
           </section>
         </div>
       </li>
       <?php endforeach; ?>
-      <li>
-      <div>
-        <img src="../media/covers/102.jpg" alt="Slay The Spire">
-          <section>
-            <header>
-              <span>Slay The Spire</span>
-            </header>
-            <footer>
-              <div>
-                <img src="upload/icons/windows-icon.svg" alt="Windows">
-                <img src="upload/icons/xbox-icon.svg" alt="Xbox">
-                <img src="upload/icons/mac-icon.svg" alt="Mac">
-              </div>
-              <span>9,99€</span>
-            </footer>
-          </section>
-        </div>
-      </li>
-      <li>
-      <div>
-        <img src="../media/covers/187.jpg" alt="Battlefield 1">
-          <section>
-            <header>
-              <span>Battlefield 1</span>
-            </header>
-            <footer>
-              <div>
-                <img src="upload/icons/windows-icon.svg" alt="Windows">
-                <img src="upload/icons/xbox-icon.svg" alt="Xbox">
-                <img src="upload/icons/mac-icon.svg" alt="Mac">
-              </div>
-              <span>19,99€</span>
-            </footer>
-          </section>
-        </div>
-      </li>
-
-      <li>
-      <div>
-        <img src="../media/covers/31.jpg" alt="Diablo 4">
-          <section>
-            <header>
-              <span>Diablo 4</span>
-            </header>
-            <footer>
-              <div>
-                <img src="upload/icons/windows-icon.svg" alt="Windows">
-                <img src="upload/icons/xbox-icon.svg" alt="Xbox">
-                <img src="upload/icons/mac-icon.svg" alt="Mac">
-              </div>
-              <span>19,99€</span>
-            </footer>
-          </section>
-        </div>
-      </li>
-
-      <li>
-      <div>
-        <img src="../media/covers/272.jpg" alt="The Chant">
-          <section>
-            <header>
-              <span>The Chant</span>
-            </header>
-            <footer>
-              <div>
-                <img src="upload/icons/windows-icon.svg" alt="Windows">
-                <img src="upload/icons/xbox-icon.svg" alt="Xbox">
-                <img src="upload/icons/mac-icon.svg" alt="Mac">
-              </div>
-              <span>19,99€</span>
-            </footer>
-          </section>
-        </div>
-      </li>
     </ul>
   </div>
 </div>
@@ -293,48 +221,32 @@
     <img src="upload/icons/left_arrow.svg" alt="Left arrow">
     <nav>
       <ul>
-        <li>
-          <article>
-            <figure>
-              <img src="../media/covers/22.jpg" alt="Top game"/>
-              <figcaption>Cyberpunk 2077</figcaption>
-            </figure>
-            <footer>
-              <span>-50%</span>
-              <span>29,99€</span>
-              <span>14,99€</span>
-            </footer>
-        </article>
-        </li>
-        <li>
-          <article>
-            <figure>
-              <img src="../media/covers/26.jpg" alt="Top game"/>
-              <figcaption>Cyberpunk 2077</figcaption>
-            </figure>
-            <footer>
-              <span>-50%</span>
-              <span>29,99€</span>
-              <span>14,99€</span>
-            </footer>
-        </article>
-        </li>
-        <li>
-          <article>
-            <figure>
-              <img src="../media/covers/77.jpg" alt="Top game"/>
-              <figcaption>Cyberpunk 2077</figcaption>
-            </figure>
-            <footer>
-              <span>-50%</span>
-              <span>29,99€</span>
-              <span>14,99€</span>
-            </footer>
-          </article>
-        </li>
+        <?php foreach ($templateParams["offerte-di-lancio"] as $game): ?>
+          <li>
+              <article>
+                  <figure>
+
+                      <img src= <?= "../media/covers/".$game['Id'].".jpg" ?>
+                          alt="<?= $game["Name"] ?>"/>
+                      <figcaption><?= $game["Name"] ?></figcaption>
+                  </figure>
+                  <footer>
+                      <!-- Use 'discount', 'price', and 'discounted_price' keys dynamically -->
+                      <?php if (!empty($game['Discount'])): ?>
+                          <span>-<? echo $game['Discount']?>%</span>
+                          <?php endif; ?>
+                          <span><?= $game['Price'] ?>€</span>
+                          <?php if (!empty($game['Discount'])): ?>
+                          <span><?= number_format($game['Price'] * (1 - $game['Discount'] / 100), 2)?>€</span>
+                      <?php endif; ?>
+                  </footer>
+              </article>
+          </li>
+      <?php endforeach; ?>
       </ul>
     </nav>
     <img src="upload/icons/left_arrow.svg" alt="Right arrow">
   </div>
 
 </div>
+
