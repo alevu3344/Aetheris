@@ -1,5 +1,5 @@
 <section class="registration-container">
-    <p class="title">Register</p>
+    <h2 class="title">Register</h2>
     <form class="form">
         <fieldset>
             <label for="name">Name</label>

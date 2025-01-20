@@ -11,8 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
 </head>
-    <!-- the body will have the class extracted from templateParams["nome"]-->
-<body class="<?= $templateParams["nome"] ?>">
+    <!-- the body will have the class extracted from templateParams["nome"] without the .php-->
+<body class="<?= explode(".", $templateParams["nome"])[0] ?>">
     <header>
         <div>
             <img src="upload/icons/aetheris_logo.png" alt="Logo"/>
