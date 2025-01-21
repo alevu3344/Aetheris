@@ -178,13 +178,14 @@
 <h2>Recensioni</h2>
 
 <ul>
+    <?php foreach($templateParams["recensioni"] as $recensione): ?>
     <li>
         <article>
             <header>
-                <img src="../media/avatars/dog.png" alt="usr">
+                <img src="../media/avatars/<?= $recensione["Avatar"] ?>" alt="avatar">
                 <section> 
                     <div>
-                        <span>Username</span>
+                        <span><?= $recensione["Username"] ?></span>
                         <div>
                             <img src="upload/icons/star.svg" alt="star">
                             <img src="upload/icons/star.svg" alt="star">
@@ -193,13 +194,14 @@
                             <img src="upload/icons/star.svg" alt="star">
                         </div>
                     </div>
-                    <h2>Titolo</h2>            
+                    <h2><?= $recensione["Title"] ?></h2>            
                 </section>
             </header>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptates. Quisquam, voluptates.</p>
+            <p><?= $recensione["Comment"] ?></p>
             <footer>
-                <span>14/02/2023</span>
+                <span><?= $recensione["CreatedAt"] ?></span>
             </footer>
         </article>
     </li>
+    <?php endforeach; ?>
 </ul>
