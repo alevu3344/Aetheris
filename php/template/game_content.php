@@ -205,3 +205,9 @@
     </li>
     <?php endforeach; ?>
 </ul>
+
+<div>
+    <button>Carica più recensioni</button>
+    <img src="upload/icons/double-arrow.png" alt="arrow">
+</div>
+
