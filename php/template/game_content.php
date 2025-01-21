@@ -193,12 +193,12 @@
                             <img src="upload/icons/star.svg" alt="star">
                         </div>
                     </div>
-                    <span>Titolo</span>            
+                    <h2>Titolo</h2>            
                 </section>
             </header>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptates. Quisquam, voluptates.</p>
             <footer>
-                <span>Pubblicato il 14/02/2023</span>
+                <span>14/02/2023</span>
             </footer>
         </article>
     </li>
