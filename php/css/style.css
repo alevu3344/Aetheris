@@ -805,6 +805,12 @@ body>footer>div:nth-child(1)>p {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.login-form > main > section > h2 {
+  margin: 0;
+  padding: 0;
+  font-size:xx-large;
+}
+
 .login-form > main > section > form {
   width: 100%;
   max-width: 400px;
@@ -926,6 +932,19 @@ body>footer>div:nth-child(1)>p {
   flex-direction: column;
   align-items: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.registration-form>main>section > h2 {
+  margin: 0;
+  padding: 0;
+  font-size:xx-large;
+}
+
+.registration-form>main>section > p {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  color: rgba(107, 114, 128, 1);
 }
 
 .registration-form>main>section>form {

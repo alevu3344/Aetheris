@@ -1,5 +1,5 @@
 <section>
-    <p>Login</p>
+    <h2>Login</h2>
     <form>
         <fieldset>
             <label for="username">Username</label>
