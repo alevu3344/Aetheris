@@ -106,72 +106,80 @@
 <div>
     
     <img src="upload/icons/left_arrow.svg" alt="Left arrow">
-    <div>
-        <article>
-            <figure>
+    <ul>
+        <li>
+            <article>
+                <figure>
 
-                <img src="../media/covers/5.jpg"
-                    alt="game" />
-                <figcaption>game</figcaption>
-            </figure>
-            <footer>
-                <span>-50%</span>
+                    <img src="../media/covers/5.jpg"
+                        alt="game" />
+                    <figcaption>game</figcaption>
+                </figure>
+                <footer>
+                    <span>-50%</span>
 
-                <span>60€</span>
+                    <span>60€</span>
 
-                <span>40€</span>
+                    <span>40€</span>
 
-            </footer>
-        </article>
-        <article>
-            <figure>
+                </footer>
+            </article>
+        </li>
+        <li>
+            <article>
+                <figure>
 
-                <img src="../media/covers/5.jpg"
-                    alt="game" />
-                <figcaption>game</figcaption>
-            </figure>
-            <footer>
-                <span>-50%</span>
+                    <img src="../media/covers/5.jpg"
+                        alt="game" />
+                    <figcaption>game</figcaption>
+                </figure>
+                <footer>
+                    <span>-50%</span>
 
-                <span>60€</span>
+                    <span>60€</span>
 
-                <span>40€</span>
+                    <span>40€</span>
 
-            </footer>
-        </article>
-        <article>
-            <figure>
+                </footer>
+            </article>
+        </li>
+        <li>
+            <article>
+                <figure>
 
-                <img src="../media/covers/5.jpg"
-                    alt="game" />
-                <figcaption>game</figcaption>
-            </figure>
-            <footer>
-                <span>-50%</span>
+                    <img src="../media/covers/5.jpg"
+                        alt="game" />
+                    <figcaption>game</figcaption>
+                </figure>
+                <footer>
+                    <span>-50%</span>
 
-                <span>60€</span>
+                    <span>60€</span>
 
-                <span>40€</span>
+                    <span>40€</span>
 
-            </footer>
-        </article>
-        <article>
-            <figure>
+                </footer>
+            </article>
+        </li>
+        <li>
+            <article>
+                <figure>
 
-                <img src="../media/covers/5.jpg"
-                    alt="game" />
-                <figcaption>game</figcaption>
-            </figure>
-            <footer>
-                <span>-50%</span>
+                    <img src="../media/covers/5.jpg"
+                        alt="game" />
+                    <figcaption>game</figcaption>
+                </figure>
+                <footer>
+                    <span>-50%</span>
 
-                <span>60€</span>
+                    <span>60€</span>
 
-                <span>40€</span>
+                    <span>40€</span>
 
-            </footer>
-        </article>
-    </div>
+                </footer>
+            </article>
+        </li>
+    </ul>
     <img src="upload/icons/left_arrow.svg" alt="Left arrow">
 </div>
 
