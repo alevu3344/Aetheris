@@ -81,103 +81,33 @@
 
   <nav>
       <ul>
-          <li>PIÙ ACQUISTATI</li><li>PIÙ AMATI</li>
+          <li><h2>PIÙ ACQUISTATI</h2></li><li><h2>PIÙ AMATI</h2></li>
       </ul>
   </nav>
 
 <div>
   <div>
     <ul>
-      <li>
-        <div>
-          <img src="../media/covers/144.jpg" alt="The Evil Within 2">
-          <section>
-            <header>
-              <span>The Evil Within 2</span>
-            </header>
-            <footer>
-              <div>
-                <img src="upload/icons/windows-icon.svg" alt="Windows">
-                <img src="upload/icons/xbox-icon.svg" alt="Xbox">
-                <img src="upload/icons/mac-icon.svg" alt="Mac">
-              </div>
-              <span>39,99€</span>
-            </footer>
-          </section>
-        </div>
-      </li>
-      <li>
-      <div>
-        <img src="../media/covers/108.jpg" alt="Limbo">
-          <section>
-            <header>
-              <span>Limbo</span>
-            </header>
-            <footer>
-              <div>
-                <img src="upload/icons/windows-icon.svg" alt="Windows">
-                <img src="upload/icons/xbox-icon.svg" alt="Xbox">
-                <img src="upload/icons/mac-icon.svg" alt="Mac">
-              </div>
-              <span>9,99€</span>
-            </footer>
-          </section>
-        </div>
-      </li>
-      <li>
-      <div>
-        <img src="../media/covers/98.jpg" alt="Cuphead">
-          <section>
-            <header>
-              <span>Cuphead</span>
-            </header>
-            <footer>
-              <div>
-                <img src="upload/icons/windows-icon.svg" alt="Windows">
-                <img src="upload/icons/xbox-icon.svg" alt="Xbox">
-                <img src="upload/icons/mac-icon.svg" alt="Mac">
-              </div>
-              <span>19,99€</span>
-            </footer>
-          </section>
-        </div>
-      </li>
-      <li>
-      <div>
-        <img src="../media/covers/66.jpg" alt="Grim Dawn">
-          <section>
-            <header>
-              <span>Grim Dawn</span>
-            </header>
-            <footer>
-              <div>
-                <img src="upload/icons/windows-icon.svg" alt="Windows">
-                <img src="upload/icons/xbox-icon.svg" alt="Xbox">
-                <img src="upload/icons/mac-icon.svg" alt="Mac">
-              </div>
-              <span>19,99€</span>
-            </footer>
-          </section>
-        </div>
-      </li>
-      <li>
-      <div>
-        <img src="../media/covers/74.jpg" alt="Cities Skylines">
-          <section>
-            <header>
-              <span>Cities Skylines</span>
-            </header>
-            <footer>
-              <div>
-                <img src="upload/icons/windows-icon.svg" alt="Windows">
-                <img src="upload/icons/xbox-icon.svg" alt="Xbox">
-                <img src="upload/icons/mac-icon.svg" alt="Mac">
-              </div>
-              <span>19,99€</span>
-            </footer>
-          </section>
-        </div>
-      </li>
+      <?php foreach($templateParams["giochi-acquistati"] as $mostsoldgames): ?>
+        <li>
+        <img src="<?php echo "../media/covers/".$mostsoldgames["Id"].".jpg" ?>" alt="<?php echo $mostsoldgames["Name"]; ?>" />
+            <section>
+              <header>
+                <span><?php echo $mostsoldgames["Name"]; ?></span>
+              </header>
+              <footer>
+                <div>
+                  <?php foreach($mostsoldgames["Platforms"] as $platform): ?>
+                    <img src="<?php echo "upload/icons/".$platform["Platform"].".svg" ?>" alt="<?php echo $platform["Platform"]; ?>" />
+                
+                
+                  <?php endforeach; ?>
+                </div>
+                <span><?= number_format($mostsoldgames['Price'] * (1 - $mostsoldgames['Discount'] / 100), 2)?>€</span>
+              </footer>
+            </section>
+        </li>
+      <?php endforeach; ?>
     </ul>
   </div>
 
@@ -187,7 +117,6 @@
     <ul>
       <?php foreach($templateParams["giochi-amati"] as $mostratedgame): ?>
       <li>
-        <div>
           <img src="<?php echo "../media/covers/".$mostratedgame["Id"].".jpg" ?>" alt="<?php echo $mostratedgame["Name"]; ?>" />
           <section>
             <header>
@@ -204,7 +133,6 @@
               <span><?= number_format($mostratedgame['Price'] * (1 - $mostratedgame['Discount'] / 100), 2)?>€</span>
             </footer>
           </section>
-        </div>
       </li>
       <?php endforeach; ?>
     </ul>

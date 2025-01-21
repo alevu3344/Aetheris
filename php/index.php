@@ -9,6 +9,7 @@ $templateParams["giochi-in-evidenza"] = $dbh->getRelevantGames(5);
 $templateParams["categorie"] = $dbh->getCategories();
 $templateParams["offerte-di-lancio"] = $dbh->getLaunchOffers(3);
 $templateParams["giochi-amati"]= $dbh->getMostRatedGames(5);
+$templateParams["giochi-acquistati"]= $dbh->getMostSoldGames(5);
 
 require("template/base.php");
 ?>

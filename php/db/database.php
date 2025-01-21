@@ -181,6 +181,34 @@ class DatabaseHelper{
         $result = $stmt->get_result();
         return $this->addSupportedPlatforms($result->fetch_all(MYSQLI_ASSOC));
     }
+
+    public function getMostSoldGames($lim){
+        $query = "
+            SELECT 
+                G.Id, 
+                G.Name, 
+                G.Price, 
+                AVG(R.Rating) AS AvgRating, 
+                IFNULL(DG.Percentage, 0) AS Discount
+            FROM 
+                GAMES G
+            LEFT JOIN 
+                REVIEWS R ON G.Id = R.GameId
+            LEFT JOIN 
+                DISCOUNTED_GAMES DG ON G.Id = DG.GameId
+                AND CURRENT_DATE BETWEEN DG.StartDate AND DG.EndDate
+            GROUP BY 
+                G.Id
+            ORDER BY 
+                CopiesSold DESC
+            LIMIT ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $lim);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $this->addSupportedPlatforms($result->fetch_all(MYSQLI_ASSOC));
+    }
+
     //retrieved the games the games from the GAMES (ordered by release date) table that have a discount in the DISCOUNTED_GAMES table
     public function getLaunchOffers($lim){
         $query = "

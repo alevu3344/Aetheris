@@ -114,148 +114,148 @@ body>footer>div:nth-child(1)>p {
 /* ------------------------ Front page games START--------------------------- */
 
 .home_content >main>div:nth-child(1) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .home_content >main>div:nth-child(1)>button {
-    height: 50px;
-    width: 10%;
-    background-color: transparent;
-    border: none;
-    filter: invert(1);
-    padding: 0px;
-  }
-  
-  .home_content >main>div:nth-child(1)>button>img {
-    height: 100%;
-    width: 100%;
-  }
-  
-  .home_content >main>div:nth-child(1)>article {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    width: 80%;
-    height: 200px;
-    box-sizing: border-box;
-  }
-  
-  .home_content >main>div:nth-child(1)>article>figure {
-    height: 100%;
-    width: 100%;
-    margin: 0px;
-    position: relative;
-  }
-  
-  .home_content >main>div:nth-child(1)>article>figure>figcaption {
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 50%;
-    height: 100%;
-    text-align: left;
-    z-index: 1;
-  }
-  
-  .home_content >main>div:nth-child(1)>article>figure>div:nth-child(1) {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-    border-radius: 10%;
-    border: 1px solid white;
-    margin: -1px;
-    z-index: 1;
-  }
-  
-  .home_content >main>div:nth-child(1)>article>figure>img {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 10%;
-  }
-  
-  .home_content >main>div:nth-child(1)>article>figure>figcaption>p:nth-child(1) {
-    font-family: "Sedgwick Ave Display", sans-serif;
-    font-size: 24px;
-    margin: 0px;
-    color: white;
-    padding: 15% 0% 2% 15%;
-  }
-  
-  .home_content >main>div:nth-child(1)>article>figure>figcaption>p:nth-child(2) {
-    margin: 0px;
-    color: white;
-    font-family: 'Roboto';
-    font-size: 12px;
-    padding: 2% 0% 15% 15%
-  }
-  
-  .home_content >main>div:nth-child(1)>article>figure>div:nth-child(4) {
-    display: block;
-    position: absolute;
-    box-sizing: border-box;
-    align-items: center;
-    justify-content: center;
-    bottom: 0;
-    right: 0;
-    width: 50%;
-    height: 50%;
-    padding: 0 5% 0 5%;
-    z-index: 1;
-  }
-  
-  .home_content >main>div:nth-child(1)>article>figure>div:nth-child(4)>div {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 20%;
-    margin-bottom: 2%;
-  }
-  
-  .home_content >main>div:nth-child(1)>article>figure>div:nth-child(4)>div>span {
-    color: white;
-    font-family: 'Roboto';
-    font-size: 20px;
-    margin-right: 2%;
-  }
-  
-  .home_content >main>div:nth-child(1)>article>figure>div:nth-child(4)>div>button {
-    border: none;
-    border-radius: 10px;
-    height: 80%;
-    width: 100%;
-    font-size: 12px;
-    font-family: 'Roboto';
-    padding: 0px;
-  }
-  
-  .home_content >main>div:nth-child(1)>article>figure>div:nth-child(4)>button {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    height: 20%;
-    width: 100%;
-    background-color: transparent;
-    border: none;
-    border-radius: 10px;
-    color: white;
-    font-family: 'Roboto';
-    font-size: 10px;
-    padding: 0px;
-  }
-  
-  .home_content >main>div:nth-child(1)>article>figure>div:nth-child(4)>button>img {
-    height: 80%;
-    width: 20%;
-    filter: invert(1);
-    margin-right: 2%;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home_content >main>div:nth-child(1)>button {
+  height: 50px;
+  width: 10%;
+  background-color: transparent;
+  border: none;
+  filter: invert(1);
+  padding: 0px;
+}
+
+.home_content >main>div:nth-child(1)>button>img {
+  height: 100%;
+  width: 100%;
+}
+
+.home_content >main>div:nth-child(1)>article {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 80%;
+  height: 200px;
+  box-sizing: border-box;
+}
+
+.home_content >main>div:nth-child(1)>article>figure {
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  position: relative;
+}
+
+.home_content >main>div:nth-child(1)>article>figure>figcaption {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  text-align: left;
+  z-index: 1;
+}
+
+.home_content >main>div:nth-child(1)>article>figure>div:nth-child(1) {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  border-radius: 10%;
+  border: 1px solid white;
+  margin: -1px;
+  z-index: 1;
+}
+
+.home_content >main>div:nth-child(1)>article>figure>img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10%;
+}
+
+.home_content >main>div:nth-child(1)>article>figure>figcaption>p:nth-child(1) {
+  font-family: "Sedgwick Ave Display", sans-serif;
+  font-size: 24px;
+  margin: 0px;
+  color: white;
+  padding: 15% 0% 2% 15%;
+}
+
+.home_content >main>div:nth-child(1)>article>figure>figcaption>p:nth-child(2) {
+  margin: 0px;
+  color: white;
+  font-family: 'Roboto';
+  font-size: 12px;
+  padding: 2% 0% 15% 15%
+}
+
+.home_content >main>div:nth-child(1)>article>figure>div:nth-child(4) {
+  display: block;
+  position: absolute;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  height: 50%;
+  padding: 0 5% 0 5%;
+  z-index: 1;
+}
+
+.home_content >main>div:nth-child(1)>article>figure>div:nth-child(4)>div {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 20%;
+  margin-bottom: 2%;
+}
+
+.home_content >main>div:nth-child(1)>article>figure>div:nth-child(4)>div>span {
+  color: white;
+  font-family: 'Roboto';
+  font-size: 20px;
+  margin-right: 2%;
+}
+
+.home_content >main>div:nth-child(1)>article>figure>div:nth-child(4)>div>button {
+  border: none;
+  border-radius: 10px;
+  height: 80%;
+  width: 100%;
+  font-size: 12px;
+  font-family: 'Roboto';
+  padding: 0px;
+}
+
+.home_content >main>div:nth-child(1)>article>figure>div:nth-child(4)>button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 20%;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-family: 'Roboto';
+  font-size: 10px;
+  padding: 0px;
+}
+
+.home_content >main>div:nth-child(1)>article>figure>div:nth-child(4)>button>img {
+  height: 80%;
+  width: 20%;
+  filter: invert(1);
+  margin-right: 2%;
+}
 
 /* ------------------------      Front page games END    --------------------------- */
 
@@ -648,8 +648,6 @@ body>footer>div:nth-child(1)>p {
 
 .home_content > main > nav  > ul {
   list-style: none;
-  font-family: 'Roboto';
-  color: white;
   display: flex;
   justify-content: center;
   padding: 0px;
@@ -658,6 +656,13 @@ body>footer>div:nth-child(1)>p {
 .home_content > main > nav > ul > li {
   width: 45%;
   text-align: center;
+}
+
+.home_content > main > nav > ul > li > h2{
+  font-family: 'Roboto';
+  color: white;
+  margin: 0px;
+  font-size: 20px;
 }
 
 .home_content > main > nav > ul > li:nth-child(1) {
@@ -699,19 +704,13 @@ body>footer>div:nth-child(1)>p {
 .home_content >main>div:nth-child(5)>div>ul>li {
   height: 19%;
   width: 100%;
-}
-
-.home_content >main>div:nth-child(5)>div>ul>li>div {
-  width: 100%;
-  height: 100%;
   border: 1px solid white;
   background-color: #007bff;
   display: flex;
   box-sizing: border-box;
 }
 
-
-.home_content >main>div:nth-child(5)>div>ul>li>div>section {
+.home_content >main>div:nth-child(5)>div>ul>li>section {
   width: 50%;
   height: 100%;
   margin: 0px;
@@ -722,12 +721,12 @@ body>footer>div:nth-child(1)>p {
   box-sizing: border-box;
 }
 
-.home_content >main>div:nth-child(5)>div>ul>li>div>section>header {
+.home_content >main>div:nth-child(5)>div>ul>li>section>header {
   height: 70%;
   width: 100%;
 }
 
-.home_content >main>div:nth-child(5)>div>ul>li>div>section>header>span {
+.home_content >main>div:nth-child(5)>div>ul>li>section>header>span {
   font-family: 'Roboto';
   font-size: 12px;
   color: white;
@@ -737,14 +736,14 @@ body>footer>div:nth-child(1)>p {
 }
 
 
-.home_content >main>div:nth-child(5)>div>ul>li>div>img {
+.home_content >main>div:nth-child(5)>div>ul>li>img {
   width: 50%;
   height: 100%;
   border-right: 1px solid white;
   object-fit: cover;
 }
 
-.home_content >main>div:nth-child(5)>div>ul>li>div>section>footer {
+.home_content >main>div:nth-child(5)>div>ul>li>section>footer {
   width: 100%;
   height: 30%;
   display: flex;
@@ -753,7 +752,7 @@ body>footer>div:nth-child(1)>p {
   align-items: end;
 }
 
-.home_content >main>div:nth-child(5)>div>ul>li>div>section>footer>span {
+.home_content >main>div:nth-child(5)>div>ul>li>section>footer>span {
   color: white;
   font-family: 'Roboto';
   font-size: 10px;
@@ -763,13 +762,13 @@ body>footer>div:nth-child(1)>p {
   width: 50%;
 }
 
-.home_content >main>div:nth-child(5)>div>ul>li>div>section>footer>div {
+.home_content >main>div:nth-child(5)>div>ul>li>section>footer>div {
   align-content: center;
   height: 100%;
   width: 50%;
 }
 
-.home_content >main>div:nth-child(5)>div>ul>li>div>section>footer>div>img {
+.home_content >main>div:nth-child(5)>div>ul>li>section>footer>div>img {
   width: 20%;
   height: 100%;
   filter: invert(1);
