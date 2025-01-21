@@ -174,3 +174,26 @@
     </div>
     <img src="upload/icons/left_arrow.svg" alt="Left arrow">
 </div>
+
+<h2>Recensioni</h2>
+
+<ul>
+    <li>
+        <section>
+            <figure>
+                <img src="upload/icons/stars.svg" alt="usr">
+                <figcaption>Ale</figcaption>
+            </figure>
+            <article>
+                <header>
+                    <span>Titolo</span>
+                    <span>Stelle</span>
+                </header>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptates. Quisquam, voluptates.</p>
+                <footer>
+                    <span>Pubblicato il 14/02/2023</span>
+                </footer>
+            </article>
+        </section>
+    </li>
+</ul>

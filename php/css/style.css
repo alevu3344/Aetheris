@@ -1701,6 +1701,7 @@ body>footer>div:nth-child(1)>p {
   justify-content:center;
   align-items: center;
   vertical-align: middle;
+  margin-bottom: 20px;
 }
 
 .game_content > main > div:nth-of-type(4) > img {
@@ -1791,7 +1792,32 @@ body>footer>div:nth-child(1)>p {
   box-sizing: border-box; 
 }
 
+.game_content > main > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 5%;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+}
 
+.game_content > main > ul > li {
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
 
+.game_content > main > ul > li > section {
+  display: flex;
+  width: 100%;
+}
+
+.game_content > main > ul > li > section > figure {
+  width: 30%;
+  height: auto;
+  margin: 0;
+  position: relative;
+}
 
 /* ------------------------ END SINGLE GAME--------------------------- */

@@ -85,6 +85,40 @@ CREATE TABLE DISCOUNTED_GAMES (
   CHECK (StartDate < EndDate)
 );
 
+CREATE TABLE AVATARS (
+  Avatar    varchar(255) NOT NULL,
+  Id        INT AUTO_INCREMENT PRIMARY KEY
+);
+
+INSERT INTO AVATARS(Avatar) VALUES
+("anaconda.png"),
+("captain.png"),
+("cat_1.png"),
+("cat.png"),
+("chicken.png"),
+("dog.png"),
+("dragon.png"),
+("firefox.png"),
+("giraffe.png"),
+("gorilla.png"),
+("hedgehog.png"),
+("jaguar_1.png"),
+("jaguar.png"),
+("koala.png"),
+("man.png"),
+("meerkat.png"),
+("panda-bear_1.png"),
+("panda-bear.png"),
+("panda.png"),
+("penguin.png"),
+("rabbit_1.png"),
+("rabbit.png"),
+("sea-lion.png"),
+("sloth.png"),
+("snowy-owl.png"),
+("walrus.png"),
+("wolf.png");
+
 CREATE TABLE USERS (
     UserID           INT AUTO_INCREMENT PRIMARY KEY,                                  -- Unique identifier for the user
     Username         VARCHAR(50) NOT NULL UNIQUE,                                     -- Unique username for login
@@ -104,8 +138,17 @@ CREATE TABLE USERS (
     Status           ENUM("Active", "Inactive", "Banned") DEFAULT "Active",           -- Account status
     LastLoginAt      TIMESTAMP NULL,                                                  -- Timestamp of the last login
     LoginAttempts    INT DEFAULT 0,                                                   -- Count for failed login attempts
-    Balance          DECIMAL(10,2) DEFAULT 0.00                                       -- User"s account balance
+    Balance          DECIMAL(10,2) DEFAULT 0.00,
+    AvatarId         INT  DEFAULT 1,
+
+    FOREIGN KEY (AvatarId) REFERENCES AVATARS(Id)
 );
+
+
+
+
+UPDATE USERS
+SET AvatarId = FLOOR(1 + (RAND() * 25));
 
 
 -- I can do this because a user can have only one cart at a time
