@@ -4,24 +4,7 @@
   </button>
 
   <article>
-    <figure>
-      <div></div>
-      <img src="../media/covers/legend_of_zelda_todk.jpg" alt="Front page game">
-      <figcaption>
-        <p>The Legend of Zelda: Breath of the Wild</p>
-        <p>Impedisci a Ganondorf di distruggere Hyrule</p>
-      </figcaption>
-
-      <div>
-        <div>
-          <span>59.99€</span>
-          <button>Acquista</button>
-        </div>
-        <button>
-          <img src="upload/icons/add-to-cart.svg" alt="Add to cart icon"/>Aggiungi al carrello
-        </button>
-      </div>
-    </figure>
+    
   </article>
 
   <button>
@@ -178,3 +161,4 @@
 
 </div>
 
+<script src="../js/front-page-game.js" type="text/javascript"></script> 
