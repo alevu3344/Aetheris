@@ -4,7 +4,7 @@
 <div>
     <div>
 
-    <!-- Game stars-->
+        <!-- Game stars-->
         <img src="upload/icons/star.svg" alt="star">
         <img src="upload/icons/star.svg" alt="star">
         <img src="upload/icons/star.svg" alt="star">
@@ -92,12 +92,82 @@
 </article>
 
 <div>
-        <h2>Immagini</h2>
-        <div>
-            <img src="../media/screenshots/1_frame_1.jpg" alt="game">
-            <img src="../media/screenshots/1_frame_2.jpg" alt="game">
-            <img src="../media/screenshots/1_frame_3.jpg" alt="game">
-            <img src="../media/screenshots/1_frame_4.jpg" alt="game">
-        </div>
+    <h2>Immagini</h2>
+    <div>
+        <img src="../media/screenshots/1_frame_1.jpg" alt="game">
+        <img src="../media/screenshots/1_frame_2.jpg" alt="game">
+        <img src="../media/screenshots/1_frame_3.jpg" alt="game">
+        <img src="../media/screenshots/1_frame_4.jpg" alt="game">
+    </div>
 </div>
 
+
+<h2>Giochi</h2>
+<div>
+
+    <article>
+        <figure>
+
+            <img src="../media/covers/5.jpg"
+                alt="game" />
+            <figcaption>game</figcaption>
+        </figure>
+        <footer>
+            <span>-50%</span>
+
+            <span>60€</span>
+
+            <span>40€</span>
+
+        </footer>
+    </article>
+    <article>
+        <figure>
+
+            <img src="../media/covers/5.jpg"
+                alt="game" />
+            <figcaption>game</figcaption>
+        </figure>
+        <footer>
+            <span>-50%</span>
+
+            <span>60€</span>
+
+            <span>40€</span>
+
+        </footer>
+    </article>
+    <article>
+        <figure>
+
+            <img src="../media/covers/5.jpg"
+                alt="game" />
+            <figcaption>game</figcaption>
+        </figure>
+        <footer>
+            <span>-50%</span>
+
+            <span>60€</span>
+
+            <span>40€</span>
+
+        </footer>
+    </article>
+    <article>
+        <figure>
+
+            <img src="../media/covers/5.jpg"
+                alt="game" />
+            <figcaption>game</figcaption>
+        </figure>
+        <footer>
+            <span>-50%</span>
+
+            <span>60€</span>
+
+            <span>40€</span>
+
+        </footer>
+    </article>
+
+</div>
