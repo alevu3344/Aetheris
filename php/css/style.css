@@ -1693,6 +1693,7 @@ body>footer>div:nth-child(1)>p {
   border-bottom: #fff 4px solid;
 }
 
+/*GIOCHI SIMILi*/
 .game_content > main > div:nth-of-type(4) {
   display: flex;
   width: 90%;
@@ -1715,22 +1716,31 @@ body>footer>div:nth-child(1)>p {
 }
 
 .game_content > main > div:nth-of-type(4) > div{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2%; 
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping of inline-block elements */
+  gap: 0; /* Remove the gap since margins will handle spacing */
   width: 90%;
   height: 100%;
-  box-sizing: content-box;
 }
 
 
 .game_content > main > div:nth-of-type(4) > div > article {
-  width: 100%;
-  height: auto;
+  width: 45%;
+  height: 45%;
   border: 1px solid white;
   background-color: #007bff;
   box-sizing: border-box;
   display: inline-block;
+}
+
+.game_content > main > div:nth-of-type(4) > div > article:nth-child(1),
+.game_content > main > div:nth-of-type(4) > div > article:nth-child(2) {
+  margin-bottom: 10%; /* Apply margin-bottom to the first two articles */
+}
+
+
+.game_content > main > div:nth-of-type(4) > div > article:nth-child(odd) {
+  margin-right: 10%; 
 }
 
 .game_content > main > div:nth-of-type(4) > div >article > figure {
