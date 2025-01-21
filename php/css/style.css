@@ -1868,12 +1868,13 @@ body>footer>div:nth-child(1)>p {
   width: 100%;
 }
 
-.game_content > main > ul > li > article > header > section > h2 {
+.game_content > main > ul > li > article > h2 {
   display: flex;
   width: 100%;
   justify-content: flex-start;
   margin: 0;
   padding: 0;
+  color: #fff;
 }
 
 

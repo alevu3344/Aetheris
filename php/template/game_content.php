@@ -193,10 +193,10 @@
                             <img src="upload/icons/star.svg" alt="star">
                             <img src="upload/icons/star.svg" alt="star">
                         </div>
-                    </div>
-                    <h2><?= $recensione["Title"] ?></h2>            
+                    </div>            
                 </section>
             </header>
+            <h2><?= $recensione["Title"] ?></h2>
             <p><?= $recensione["Comment"] ?></p>
             <footer>
                 <span><?= $recensione["CreatedAt"] ?></span>
