@@ -1808,16 +1808,69 @@ body>footer>div:nth-child(1)>p {
   justify-content: center;
 }
 
-.game_content > main > ul > li > section {
+.game_content > main > ul > li > article {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.game_content > main > ul > li > article > header {
   display: flex;
   width: 100%;
 }
 
-.game_content > main > ul > li > section > figure {
-  width: 30%;
+.game_content > main > ul > li > article > header > img {
+  width: 20%;
   height: auto;
-  margin: 0;
-  position: relative;
+  object-fit: cover;
 }
+
+.game_content > main > ul > li > article > header > section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0;
+  width: 80%;
+  padding-left: 10px;
+}
+
+.game_content > main > ul > li > article > header > section > div {
+
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.game_content > main > ul > li > article > header > section > div > span {
+  margin: 0;
+  width: 50%;
+}
+
+.game_content > main > ul > li > article > header > section > div {
+  display: flex;
+  width: 100%;
+}
+
+.game_content > main > ul > li > article > header > section > span {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+
+.game_content > main > ul > li > article > header > section > div > div {
+  display: flex;
+  width: 50%;
+}
+
+/*fit 5 stars inside the span automatically*/
+.game_content > main > ul > li > article > header > section > div > div > img {
+  width: 20%;
+  height: auto;
+
+}
+
+
+
 
 /* ------------------------ END SINGLE GAME--------------------------- */

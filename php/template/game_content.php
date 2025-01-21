@@ -179,21 +179,27 @@
 
 <ul>
     <li>
-        <section>
-            <figure>
-                <img src="upload/icons/stars.svg" alt="usr">
-                <figcaption>Ale</figcaption>
-            </figure>
-            <article>
-                <header>
-                    <span>Titolo</span>
-                    <span>Stelle</span>
-                </header>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptates. Quisquam, voluptates.</p>
-                <footer>
-                    <span>Pubblicato il 14/02/2023</span>
-                </footer>
-            </article>
-        </section>
+        <article>
+            <header>
+                <img src="../media/avatars/dog.png" alt="usr">
+                <section> 
+                    <div>
+                        <span>Username</span>
+                        <div>
+                            <img src="upload/icons/star.svg" alt="star">
+                            <img src="upload/icons/star.svg" alt="star">
+                            <img src="upload/icons/star.svg" alt="star">
+                            <img src="upload/icons/star.svg" alt="star">
+                            <img src="upload/icons/star.svg" alt="star">
+                        </div>
+                    </div>
+                    <span>Titolo</span>            
+                </section>
+            </header>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptates. Quisquam, voluptates.</p>
+            <footer>
+                <span>Pubblicato il 14/02/2023</span>
+            </footer>
+        </article>
     </li>
 </ul>
