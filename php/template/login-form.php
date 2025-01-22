@@ -3,10 +3,10 @@
     <form>
         <fieldset>
             <label for="username">Username</label>
-            <input type="text" name="username" id="username" placeholder="">
+            <input type="text" name="username" id="username" placeholder="" required>
 
             <label for="password">Password</label>
-            <input type="password" name="password" id="password" placeholder="">
+            <input type="password" name="password" id="password" placeholder="" required>
 
             <p>
                 <a rel="noopener noreferrer" href="#">Forgot Password?</a>

@@ -4,6 +4,10 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><?php echo $templateParams["titolo"]; ?></title>
+    <link rel="icon" type="image/ico" href="/e-shop/php/upload/icons/aetheris_logo.ico">
+
+
+
     <!--if templateParams["stylesheet"] is set, link to that one, otherwise to the standard tyle.cc-->
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <?php if (isset($templateParams["stylesheet"])): ?>
@@ -12,7 +16,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Rampart One' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <!-- the body will have the class extracted from templateParams["nome"] without the .php-->
 
@@ -25,7 +28,6 @@
         </div>
 
         <div>
-            <a>Categorie</a>
             <?php if (isset($_SESSION["UserID"])): ?>
                 <figure>
                     <img src="../media/avatars/<?= $_SESSION["Avatar"] ?>" alt="Avatar">
