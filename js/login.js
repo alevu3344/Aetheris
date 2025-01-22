@@ -1,3 +1,6 @@
+
+console.log("SCRIPT DI ALE QUAAAA");
+
 function generateLoginForm(loginerror = null) {
     //modify the class of the body element in the DOM
     document.querySelector("body").className = "login-form";
@@ -137,8 +140,10 @@ async function getLoginData() {
 let body = document.querySelector("body");
 let main = body.querySelector("main");
 let originalMain = main.innerHTML;
+
+
 let originalClass = body.className;
-console.log(originalClass);
+
 console.log("login.js");
 
 getLoginData();  

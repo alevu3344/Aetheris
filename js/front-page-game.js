@@ -1,3 +1,5 @@
+console.log("Script di stira QUAAAA")
+
 function generateRelevantGame(game){
     let placeholder = `
     <figure>
@@ -77,6 +79,7 @@ async function initializeGameBuffer() {
 document.querySelector(".home_content > main > div:first-child > button:last-child").addEventListener("click", function(e){
     currentIndex = (currentIndex+1) % bufferGames.length;
     e.preventDefault();
+    console.log("CIAO");
     animateFigure(bufferGames[currentIndex],false);
 });
 

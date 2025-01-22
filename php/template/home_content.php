@@ -3,9 +3,26 @@
     <img src="upload/icons/left_arrow.svg" alt="Left arrow">
   </button>
 
-  <article>
+    <article>
+      <figure>
+        <div></div>
+        <img src="../media/covers/<?= $templateParams["giochi-in-evidenza"][4]["Id"] ?>.jpg" alt="Front page game">
+        <figcaption>
+          <p><?= $templateParams["giochi-in-evidenza"][4]["Name"] ?></p>
+          <p><?= $templateParams["giochi-in-evidenza"][4]["Description"] ?></p>
+        </figcaption>
 
-  </article>
+        <div>
+          <div>
+            <span><?= $templateParams["giochi-in-evidenza"][4]["Price"] ?></span>
+            <button>Acquista</button>
+          </div>
+          <button>
+            <img src="upload/icons/add-to-cart.svg" alt="Add to cart icon"/>Aggiungi al carrello
+          </button>
+        </div>
+      </figure>
+    </article>
 
   <button>
     <img src="upload/icons/right_arrow.svg" alt="Right arrow">
