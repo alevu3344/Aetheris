@@ -31,6 +31,49 @@ function generateLoginForm(loginerror = null) {
     return form;
 }
 
+function generateRegistrationForm(loginerror = null) {
+    //modify the class of the body element in the DOM
+    document.querySelector("body").className = "registration-form";
+    let form = `
+    <section>
+        <div>
+            <img src="upload/icons/cross.png" alt="Logo">
+        </div>
+        <h2>Register</h2>
+        <form>
+            <fieldset>
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" placeholder="Your Name">
+
+                <label for="surname">Surname</label>
+                <input type="text" name="surname" id="surname" placeholder="Your Surname">
+
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="Your Email">
+
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" placeholder="Choose a Username">
+
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="Choose a Password">
+
+                <label for="repeat-password">Repeat Password</label>
+                <input type="password" name="repeat-password" id="repeat-password" placeholder="Repeat your Password">
+
+                <p class>
+                    <a id="back-to-login" href="#">Already have an account? Login</a>
+                </p>
+
+                <button type="submit">Register</button>
+            </fieldset>
+        </form>
+
+        <p>By registering, you agree to our terms and conditions.</p>
+</section>
+    `;
+    return form;
+}
+
 function putAvatar(avatar, username){
     let header_accedi = document.querySelector("body > header > div:nth-child(2) > a:nth-child(2)");
     let figure = `
@@ -79,8 +122,13 @@ async function getLoginData() {
     }
 }
 
-const main = document.querySelector("main");
+let body = document.querySelector("body");
+let main = body.querySelector("main");
+let originalMain = main.innerHTML;
+let originalClass = body.className;
+console.log(originalClass);
 console.log("login.js");
+
 getLoginData();  
 
 
@@ -88,16 +136,31 @@ getLoginData();
 
 function createLoginForm() {
 
-    const previousContent = main.innerHTML;
-    const previousBodyClass = document.querySelector("body").className;
-    // Utente NON loggato
+
+  
     let form = generateLoginForm();
     main.innerHTML = form;
 
     // Handle the close button click
     document.querySelector(".login-form > main > section > div > img").addEventListener("click", function () {
-        document.querySelector("body").className = previousBodyClass; // Restore
-        main.innerHTML = previousContent; // Restore the previous content
+        main.innerHTML = originalMain; // Restore the previous content
+        document.querySelector("body").className = originalClass;
+        console.log("Close button clicked");
+    });
+
+    //handle the sign up link click
+    document.querySelector(".login-form > main > section > p > a").addEventListener("click", function (event) {
+        event.preventDefault();
+        let form = generateRegistrationForm();
+        main.innerHTML = form;
+        document.querySelector("body").className = "registration-form";
+        //add a listener on the sign in link of the registration form
+        document.querySelector(".registration-form > main > section > form > fieldset > p > a").addEventListener("click", function (event) {
+            event.preventDefault();
+            console.log("Sign up link clicked");
+            createLoginForm();
+        });
+        
     });
     // Gestisco tentativo di login
     document.querySelector(".login-form > main > section > form").addEventListener("submit", function (event) {
