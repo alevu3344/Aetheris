@@ -94,8 +94,7 @@ async function register(name, surname, birthday, city, address, phonenumber, ema
             let newButton = document.createElement("a");
 
             newButton.href = document.referrer || "index.php";
-            newButton.style.backgroundColor = "green";
-            newButton.innerHTML = "Back to page";
+            newButton.innerText = "Back to page";
             button.replaceWith(newButton);
             
         }
@@ -136,8 +135,7 @@ async function login(username, password) {
             let newButton = document.createElement("a");
 
             newButton.href = document.referrer || "index.php";
-            newButton.style.backgroundColor = "green";
-            newButton.innerHTML = "Back to page";
+            newButton.innerText = "Back to page";
             button.replaceWith(newButton);
             console.log("Login successful");
         }

@@ -38,8 +38,11 @@
                 <p class>
                     <a id="back-to-login" href="#">Already have an account? Login</a>
                 </p>
-
-                <button type="submit">Register</button>
+                <?php if(isset($_SESSION["Username"])): ?>
+                    <a href="index.php">Back to page</a>
+                <?php else :?>
+                    <button type="submit">Register</button>
+                <?php endif; ?>
             </fieldset>
         </form>
 

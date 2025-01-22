@@ -12,7 +12,11 @@
                 <a rel="noopener noreferrer" href="#">Forgot Password?</a>
             </p>
 
-            <button type="submit">Sign in</button>
+            <?php if(isset($_SESSION["Username"])): ?>
+                    <a href="index.php">Back to page</a>
+                <?php else :?>
+                    <button type="submit">Sign In</button>
+                <?php endif; ?>
         </fieldset>
     </form>
 
