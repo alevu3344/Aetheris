@@ -43,14 +43,16 @@
                 <?php endif; ?>
             </div>
         </div>
-        <nav>
-            <button id="categories-toggle">Categories</button>
-            <ul id="categories-list" style="display: none; overflow-y: scroll; max-height: 200px;">
-                <?php foreach ($templateParams["categorie"] as $categoria): ?>
-                    <li><a href="categorygames.php?category=<?= $categoria["CategoryName"] ?>"><?= $categoria["CategoryName"] ?></a></li>
-                <?php endforeach; ?>
-            </ul>
-        </nav>
+        <?php if(isset($templateParams["categorie"])): ?>
+            <nav>
+                <button id="categories-toggle">Categories</button>
+                <ul id="categories-list" style="display: none; overflow-y: scroll; max-height: 200px;">
+                    <?php foreach ($templateParams["categorie"] as $categoria): ?>
+                        <li><a href="categorygames.php?category=<?= $categoria["CategoryName"] ?>"><?= $categoria["CategoryName"] ?></a></li>
+                    <?php endforeach; ?>
+                </ul>
+            </nav>
+        <?php endif; ?>
     </header>
 
     <main>

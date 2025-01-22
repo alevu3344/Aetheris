@@ -1,4 +1,9 @@
 <section>
+    <div>
+    <a href = "index.php">
+            <img src="upload/icons/cross.png" alt="Logo">
+    </a>
+</div>
     <h2>Login</h2>
     <form>
         <fieldset>

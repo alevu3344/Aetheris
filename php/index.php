@@ -12,5 +12,6 @@ $templateParams["giochi-amati"]= $dbh->getMostRatedGames(5);
 $templateParams["giochi-acquistati"]= $dbh->getMostSoldGames(5);
 $templateParams["giochi-ultimi-usciti"]= $dbh->getRelevantGames(5);
 
+
 require("template/base.php");
 ?>

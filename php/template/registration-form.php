@@ -1,7 +1,10 @@
 <section>
         <div>
-            <img src="upload/icons/cross.png" alt="Logo">
+            <a href = "index.php">
+                <img src="upload/icons/cross.png" alt="Logo">
+            </a>
         </div>
+        
         <h2>Register</h2>
         <form>
             <fieldset>
