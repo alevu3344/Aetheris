@@ -95,58 +95,65 @@ body>header>div:nth-child(2) > div > img {
 
 /* Footer styling */
 
-body>footer>div:nth-child(2)>nav>ul>li>img {
-  width: 30px;
-  height: 30px;
-}
 
 
 body>footer {
   background-color: rgb(25, 121, 255);
   color: white;
   text-align: center;
-  padding: 10px;
+  padding: 10px 5% 10px 5%;
   border-top: 2px solid white;
+  display:flex;
+  flex-direction: column;
+  box-sizing: border-box;
 }
 
-body>footer>div:nth-child(2)>nav>ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  list-style: none;
-  padding: 0;
+body>footer>p {
+  color: white;
   margin: 0;
 }
 
-body>footer>div:nth-child(2)>nav>ul>li {
+body>footer >nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+body>footer >nav>ul {
   display: flex;
   align-items: center;
-  width: 19%;
+  list-style: none;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+body>footer >nav>ul>li {
+  display: flex;
+  align-items: center;
   justify-content: center;
+}
 
+body>footer>nav>ul>li>img {
+  width: 30px;
+  height: 30px;
 }
 
 
-body>footer>div:nth-child(2)>nav>ul>li:not(:last-child) {
-  margin-right: 8%;
 
-}
-
-body>footer>div:nth-child(2)>nav>ul>li>img {
-  width: 24px;
-  height: 24px;
-}
-
-body>footer>div:nth-child(2)>nav>ul>li>a {
+body>footer >nav>ul>li>a {
   color: #fff;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   text-decoration: none;
   font-size: 14px;
+  margin: 0;
 }
 
-body>footer>div:nth-child(1)>p {
-  color: white;
-}
+
 
 /* ------------------------ Front page games START--------------------------- */
 
