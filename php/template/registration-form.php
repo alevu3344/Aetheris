@@ -1,5 +1,5 @@
 <section>
-    <p>Register</p>
+    <h2>Register</h2>
     <form>
         <fieldset>
             <label for="name">Name</label>
@@ -28,5 +28,5 @@
         </fieldset>
     </form>
 
-    <p">By registering, you agree to our terms and conditions.</p>
+    <p>By registering, you agree to our terms and conditions.</p>
 </section>

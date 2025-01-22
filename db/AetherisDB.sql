@@ -147,8 +147,7 @@ CREATE TABLE USERS (
 
 
 
-UPDATE USERS
-SET AvatarId = FLOOR(1 + (RAND() * 25));
+
 
 
 -- I can do this because a user can have only one cart at a time
@@ -179,21 +178,21 @@ CREATE TABLE REVIEWS (
 
 CREATE TABLE ORDERS (
   Id int(11) NOT NULL AUTO_INCREMENT, -- Unique ID for the order
-  UserId varchar(50) NOT NULL, -- Links to USERS table
+  UserId INT NOT NULL, -- Links to USERS table
   OrderDate datetime NOT NULL DEFAULT current_timestamp(), -- When the order was placed
   TotalCost decimal(10,2) NOT NULL, -- Total cost of the order
   Status enum("Pending", "Completed", "Shipped", "Canceled") NOT NULL DEFAULT "Pending", -- Order status
-  Platform enum("PC", "PlayStation", "Xbox","Nintendo Switch") NOT NULL, -- Platform for which the order was made
   PRIMARY KEY (Id),
-  FOREIGN KEY (UserId) REFERENCES USERS(Username) -- Links to USERS table
+  FOREIGN KEY (UserId) REFERENCES USERS(UserID) -- Links to USERS table
 );
 
 CREATE TABLE ORDER_ITEMS (
   OrderId int(11) NOT NULL, -- Links to ORDERS table
   GameId int(11) NOT NULL, -- Links to GAMES table
   Quantity int(11) NOT NULL, -- Number of copies ordered
-  Price decimal(10,2) NOT NULL, -- Price at the time of the order (for historical data)
-  PRIMARY KEY (OrderId, GameId), -- Composite key ensures no duplicate game in the same order
+  FinalPrice decimal(10,2) NOT NULL, -- Price at the time of the order (for historical data)
+  Platform enum("PC", "PlayStation", "Xbox","Nintendo Switch") NOT NULL, -- Platform for which the order was made
+  PRIMARY KEY (OrderId, GameId, Platform), -- Composite key ensures no duplicate game in the same order
   FOREIGN KEY (OrderId) REFERENCES ORDERS(Id), -- Links to ORDERS table
   FOREIGN KEY (GameId) REFERENCES GAMES(Id) -- Links to GAMES table
 );
@@ -5763,6 +5762,9 @@ INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
 (288, "Windows 10", "Intel Core i5-2500K / AMD Ryzen 5 1400", 8, "NVIDIA GeForce GTX 970 / AMD Radeon RX 580", 20),
 (52, "Windows 10", "Intel Core i5-6300U / AMD Ryzen 3 1200", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 50);
 
+
+UPDATE USERS
+SET AvatarId = FLOOR(1 + (RAND() * 25));
 
 
 COMMIT;
