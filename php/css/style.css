@@ -191,7 +191,7 @@ body>footer >nav>ul>li>a {
   width: 100%;
   margin: 0px;
   position: relative;
-  transition: transform 1s ease, opacity 1s ease;
+  transition: transform 0.1s ease, opacity 0.1s ease;
 }
 
 .home_content >main>div:nth-child(1)>article>figure.slide-out-left{
@@ -199,14 +199,9 @@ body>footer >nav>ul>li>a {
   opacity: 0;
 }
 
-.home_content >main>div:nth-child(1)>article>figure.slide-in-right{
+.home_content >main>div:nth-child(1)>article>figure.slide-out-right{
   transform: translateX(100%);
   opacity: 0;
-}
-
-.home_content >main>div:nth-child(1)>article>figure.active{
-  transform: translateX(0);
-  opacity: 1;
 }
 
 .home_content >main>div:nth-child(1)>article>figure>figcaption {

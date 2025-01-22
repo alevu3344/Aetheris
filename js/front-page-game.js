@@ -1,17 +1,16 @@
-function generateRelevantGame(games,index){
-
-    let game = `
+function generateRelevantGame(game){
+    let placeholder = `
     <figure>
       <div></div>
-      <img src="../media/covers/${games[index]["Id"]}.jpg" alt="${games[index]["Name"]}">
+      <img src="../media/covers/${game["Id"]}.jpg" alt="${game["Name"]}">
       <figcaption>
-        <p>${games[index]["Name"]}</p>
-        <p>${games[index]["Description"]}</p>
+        <p>${game["Name"]}</p>
+        <p>${game["Description"]}</p>
       </figcaption>
 
       <div>
         <div>
-          <span>${games[index]["Price"]}</span>
+          <span>${game["Price"]}</span>
           <button>Acquista</button>
         </div>
         <button>
@@ -21,55 +20,67 @@ function generateRelevantGame(games,index){
     </figure>
     `;
 
-    return game;
+    return placeholder;
 }
 
-
-async function getRelevantGame(index) {
-    const url = 'front-page-game.php';
-    try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error(`Response status: ${response.status}`);
-        }
-        const json = await response.json();
-        const relevantGame = generateRelevantGame(json,index);
-        const figure = document.querySelector(".home_content > main > div:first-child > article");
-        figure.innerHTML = relevantGame;
-    } catch (error) {
-        console.log(error.message);
-    }
+async function generateGameBuffer() {
+  const url = 'front-page-game.php';
+  try {
+      const response = await fetch(url);
+      if (!response.ok) {
+          throw new Error(`Response status: ${response.status}`);
+      }
+      const json = await response.json();
+      return json;
+  } catch (error) {
+      console.log(error.message);
+  }
 }
 
-function animateFigure() {
-    const curFigure = document.querySelector(".home_content >main>div:nth-child(1)>article>figure");
-    curFigure.classList.add("slide-out-left");
+async function createRelevantGame(game) {
+  const relevantGame = generateRelevantGame(game);
+  const figure = document.querySelector(".home_content > main > div:first-child > article");
+  figure.innerHTML = relevantGame;
+}
+
+function animateFigure(game,direction) {
+    curFigure = document.querySelector(".home_content >main>div:nth-child(1)>article>figure");
+    curFigure.classList.add(direction ? "slide-out-left" : "slide-out-right");
 
     setTimeout(() => {
-        curFigure.classList.remove("slide-out-left");
-        curFigure.classList.add("slide-in-right");
-
+        curFigure.classList.remove(direction ? "slide-out-left" : "slide-out-right");
+        createRelevantGame(game);
+        curFigure = document.querySelector(".home_content >main>div:nth-child(1)>article>figure");
+        curFigure.classList.add(direction ? "slide-out-right" : "slide-out-left");
         setTimeout(() => {
-            curFigure.classList.remove("slide-in-right");
-            curFigure.classList.add("active");
-            
-        }, 1000);
-    }, 1000);
+          curFigure.classList.add(direction ? "slide-out-left" : "slide-out-right");
+          curFigure.classList.remove(direction ? "slide-out-right" : "slide-out-left");
+          curFigure.classList.remove(direction ? "slide-out-left" : "slide-out-right");
+        }, 100);
+    }, 100);
 }
 
-let currentIndex = 0;
+async function initializeGameBuffer() {
+  bufferGames = await generateGameBuffer();
+  if (bufferGames && bufferGames.length > 0) {
+    createRelevantGame(bufferGames[0]);
+  } else {
+    console.error("Buffer vuoto");
+  }
+}
   document.querySelector(".home_content > main > div:first-child > button:first-child").addEventListener("click", function(e){
-    currentIndex = (currentIndex - 1 + dim) % 10;
+    currentIndex = (currentIndex - 1 + bufferGames.length) % bufferGames.length;
     e.preventDefault();
-    getRelevantGame(currentIndex);
-    animateFigure();
+    animateFigure(bufferGames[currentIndex],true);
 });
 
 document.querySelector(".home_content > main > div:first-child > button:last-child").addEventListener("click", function(e){
-    currentIndex = (currentIndex+1) % 10;
+    currentIndex = (currentIndex+1) % bufferGames.length;
     e.preventDefault();
-    getRelevantGame(currentIndex);
-    animateFigure();
+    animateFigure(bufferGames[currentIndex],false);
 });
 
-getRelevantGame(0);
+let currentIndex = 0;
+let bufferGames = [];
+
+initializeGameBuffer();
