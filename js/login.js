@@ -20,7 +20,7 @@ if(document.querySelector("body").className == "registration-form"){
     // add a listener to the submit button in the registration form
     document.querySelector(".registration-form > main > section > form").addEventListener("submit", function (event) {
         event.preventDefault();
-        console.log("Registration form submitted");
+
         const name = document.querySelector("#name").value;
         const surname = document.querySelector("#surname").value;
         const birthday = document.querySelector("#birthday").value;
@@ -85,7 +85,7 @@ async function register(name, surname, birthday, city, address, phonenumber, ema
         }
         const json = await response.json();
 
-        console.log(json);
+
         if(json["Success"]){
             document.querySelector(".registration-form > main > section > p").innerText = "Registration successful";
             putAvatar(json["Avatar"], json["Username"]);
@@ -100,7 +100,7 @@ async function register(name, surname, birthday, city, address, phonenumber, ema
         }
         else{
             document.querySelector(".registration-form > main > section > p").innerText = json["Errore"];
-            console.log("Registrazione NOOOOO");
+    
         }
 
 
@@ -127,7 +127,7 @@ async function login(username, password) {
         }
         const json = await response.json();
 
-        console.log(json);
+    
         if(json["LoggedIn"]){
             putAvatar(json["Avatar"], json["Username"]);
             let button = document.querySelector(".login-form > main > section > form > fieldset > button");
@@ -137,11 +137,11 @@ async function login(username, password) {
             newButton.href = document.referrer || "index.php";
             newButton.innerText = "Back to page";
             button.replaceWith(newButton);
-            console.log("Login successful");
+
         }
         else{
             document.querySelector(".login-form > main > section > p").innerText = json["ErroreLogin"];
-            console.log("Login NOOOOO");
+        
         }
 
 

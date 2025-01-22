@@ -1121,6 +1121,8 @@ body>footer >nav>ul>li>a {
   transition: border-color 0.2s ease-in-out;
 }
 
+
+
 .registration-form>main>section>form>fieldset>input:focus {
   border-color: rgba(59, 130, 246, 1);
 }
