@@ -202,6 +202,7 @@ body>footer>div:nth-child(1)>p {
   margin: 0px;
   color: white;
   padding: 15% 0% 2% 15%;
+  overflow: hidden;
 }
 
 .home_content >main>div:nth-child(1)>article>figure>figcaption>p:nth-child(2) {
@@ -209,7 +210,8 @@ body>footer>div:nth-child(1)>p {
   color: white;
   font-family: 'Roboto';
   font-size: 12px;
-  padding: 2% 0% 15% 15%
+  padding: 2% 0% 15% 15%;
+  overflow: hidden;
 }
 
 .home_content >main>div:nth-child(1)>article>figure>div:nth-child(4) {
