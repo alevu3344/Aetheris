@@ -1,16 +1,19 @@
 <?php
 require_once 'bootstrap.php';
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
 $result["LoggedIn"] = false;
+
 
 if(isset($_POST["Username"]) && isset($_POST["Password"])){
     $login_result = $dbh->login($_POST["Username"], $_POST["Password"]);
     if(!$login_result){
         //Login fallito
-        $result["errorelogin"] = "Username e/o password errati";
-    }
-    else{
-        registerLoggedUser($login_result[0]);
+        $result["ErroreLogin"] = "Username e/o password errati";
     }
 }
 

@@ -28,13 +28,21 @@ function generateLoginForm(loginerror = null) {
     return form;
 }
 
-function putAvatar(avatar){
-    let header = document.querySelector("body > header > div > div:nth-child(2)");
-    header.innerHTML = `<img src="img/${avatar}" alt="Avatar">`;
-    let logout = document.createElement("a");
-    logout.href = "logout-api.php";
-    logout.innerText = "Logout";
-    header.appendChild(logout);
+function putAvatar(avatar, username){
+    let header_accedi = document.querySelector("body > header > div:nth-child(2) > a:nth-child(2)");
+    let figure = `
+        <img src="../media/avatars/${avatar}" alt="Avatar">
+        <figcaption>${username}</figcaption>
+    `;
+    let newFigure = document.createElement("figure");
+    newFigure.innerHTML = figure;
+    header_accedi.replaceWith(newFigure);
+    let logout = document.createElement("div");
+    logout.innerHTML = `
+        <img src="upload/icons/logout.png" alt="Logout"/>
+        `;
+    let header_right_div = document.querySelector("body > header > div:nth-child(2)");
+    header_right_div.appendChild(logout);
     logout.addEventListener("click", function (event) {
         event.preventDefault();
         getLoginData();
@@ -52,11 +60,11 @@ async function getLoginData() {
         const json = await response.json();
         console.log(json);
         if(json["LoggedIn"]){
-            putAvatar(json["Avatar"]);
+            putAvatar(json["Avatar"], json["Username"]);
         }
         else{
             //add an event listener to the Accedi button in the header
-            document.querySelector("body > header > div:nth-child(2) > div:nth-child(2) > a").addEventListener("click", function (event) {
+            document.querySelector("body > header > div:nth-child(2) > #signin").addEventListener("click", function (event) {
                 event.preventDefault();
                 createLoginForm();
             });
@@ -92,8 +100,8 @@ function createLoginForm() {
 async function login(username, password) {
     const url = 'login-api.php';
     const formData = new FormData();
-    formData.append('username', username);
-    formData.append('password', password);
+    formData.append('Username', username);
+    formData.append('Password', password);
     try {
 
         const response = await fetch(url, {
@@ -105,12 +113,16 @@ async function login(username, password) {
             throw new Error(`Response status: ${response.status}`);
         }
         const json = await response.json();
+
+        console.log(json);
         if(json["LoggedIn"]){
             // Go back to the main page
+            console.log("Login successful");
             getLoginData();
         }
         else{
-            document.querySelector("form > p").innerText = json["ErroreLogin"];
+            document.querySelector(".login-form > main > section > p").innerText = json["ErroreLogin"];
+            console.log("Login NOOOOO");
         }
 
 

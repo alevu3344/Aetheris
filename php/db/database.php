@@ -275,14 +275,14 @@ class DatabaseHelper
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-
+    /*
     function checkbrute($UserID)
     {
         // Recupero il timestamp
         $now = time();
         // Vengono analizzati tutti i tentativi di login a partire dalle ultime due ore.
         $valid_attempts = $now - (2 * 60 * 60);
-        if ($stmt = $this->db->prepare("SELECT time FROM login_attempts WHERE UserID = ? AND time > '$valid_attempts'")) {
+        if ($stmt = $this->db->prepare("SELECT time FROM LoginAttempts WHERE UserID = ? AND time > '$valid_attempts'")) {
             $stmt->bind_param('i', $UserID);
             // Eseguo la query creata.
             $stmt->execute();
@@ -295,6 +295,7 @@ class DatabaseHelper
             }
         }
     }
+        */
 
     function getUser($UserID)
     {
@@ -305,42 +306,43 @@ class DatabaseHelper
         return $result->fetch_assoc();
     }
 
-    function login($email, $password)
+    function login($Username, $password)
     {
         // Usando statement sql 'prepared' non sarà possibile attuare un attacco di tipo SQL injection.
-        if ($stmt = $this->db->prepare("SELECT UserID, Username, PasswordHash, Salt FROM USERS WHERE Email = ? LIMIT 1")) {
-            $stmt->bind_param('s', $email); // esegue il bind del parametro '$email'.
+        if ($stmt = $this->db->prepare("SELECT UserID, Email, PasswordHash, Salt FROM USERS WHERE Username = ? LIMIT 1")) {
+            $stmt->bind_param('s', $Username); // esegue il bind del parametro '$email'.
             $stmt->execute(); // esegue la query appena creata.
             $stmt->store_result();
-            $UserID = $Username = $db_password =  $salt = "";
-            $stmt->bind_result($UserID, $Username, $db_password, $salt); // recupera il risultato della query e lo memorizza nelle relative variabili.
+            $UserID = $Email = $db_password =  $salt = "";
+            $stmt->bind_result($UserID, $Email, $db_password, $salt); // recupera il risultato della query e lo memorizza nelle relative variabili.
             $stmt->fetch();
             $password = hash('sha256', $password . $salt); // codifica la password usando una chiave univoca.
             if ($stmt->num_rows == 1) { // se l'utente esiste
                 // verifichiamo che non sia disabilitato in seguito all'esecuzione di troppi tentativi di accesso errati.
-                if ($this->checkbrute($UserID, $this->db) == true) {
+                /*if ($this->checkbrute($UserID, $this->db) == true) {
                     //empy tuple
                     return false;
-                } else {
-                    if ($db_password == $password) { // Verifica che la password memorizzata nel database corrisponda alla password fornita dall'utente.
-                        // Password corretta!            
-                        $user_browser = $_SERVER['HTTP_USER_AGENT']; // Recupero il parametro 'user-agent' relativo all'utente corrente.
+                    */
 
-                        $UserID = preg_replace("/[^0-9]+/", "", $UserID); // ci proteggiamo da un attacco XSS
-                        $_SESSION['UserID'] = $UserID;
-                        $Username = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $Username); // ci proteggiamo da un attacco XSS
-                        $_SESSION['Username'] = $Username;
-                        $_SESSION['LoginString'] = hash('sha256', $password . $user_browser);
-                        $_SESSION['Avatar'] = $this->getUser($UserID)["Avatar"];
-                        // Login eseguito con successo.
-                        return true;
-                    } else {
-                        // Password incorretta.
-                        // Registriamo il tentativo fallito nel database.
-                        $now = time();
-                        //$this->db->query("INSERT INTO login_attempts (UserID, time) VALUES ('$UserID', '$now')");
-                        return false;
-                    }
+                if ($db_password == $password) { // Verifica che la password memorizzata nel database corrisponda alla password fornita dall'utente.
+                    // Password corretta!            
+                    $user_browser = $_SERVER['HTTP_USER_AGENT']; // Recupero il parametro 'user-agent' relativo all'utente corrente.
+
+                    $UserID = preg_replace("/[^0-9]+/", "", $UserID); // ci proteggiamo da un attacco XSS
+                    $_SESSION['UserID'] = $UserID;
+                    $Username = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $Username); // ci proteggiamo da un attacco XSS
+                    $_SESSION['Username'] = $Username;
+                    $_SESSION['Email'] = $Email;
+                    $_SESSION['LoginString'] = hash('sha256', $password . $user_browser);
+                    $_SESSION['Avatar'] = $this->getUser($UserID)["Avatar"];
+                    // Login eseguito con successo.
+                    return true;
+                } else {
+                    // Password incorretta.
+                    // Registriamo il tentativo fallito nel database.
+                    $now = time();
+                    //$this->db->query("INSERT INTO login_attempts (UserID, time) VALUES ('$UserID', '$now')");
+                    return false;
                 }
             } else {
                 // L'utente inserito non esiste.

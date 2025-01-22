@@ -23,12 +23,8 @@
         </div>
 
         <div>
-            <div>
-                <a href="#">Categorie</a>
-            </div>
-            <div>
-                <a href="#">Accedi</a>
-            </div>
+                <a>Categorie</a>
+                <a id="signin">Accedi</a>
         </div>
     </header>
 
