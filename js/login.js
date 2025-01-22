@@ -3,6 +3,9 @@ function generateLoginForm(loginerror = null) {
     document.querySelector("body").className = "login-form";
     let form = `
     <section>
+    <div>
+        <img src="upload/icons/cross.png" alt="Logo">
+    </div>
     <h2>Login</h2>
     <form>
         <fieldset>
@@ -84,9 +87,18 @@ getLoginData();
 
 
 function createLoginForm() {
+
+    const previousContent = main.innerHTML;
+    const previousBodyClass = document.querySelector("body").className;
     // Utente NON loggato
     let form = generateLoginForm();
     main.innerHTML = form;
+
+    // Handle the close button click
+    document.querySelector(".login-form > main > section > div > img").addEventListener("click", function () {
+        document.querySelector("body").className = previousBodyClass; // Restore
+        main.innerHTML = previousContent; // Restore the previous content
+    });
     // Gestisco tentativo di login
     document.querySelector(".login-form > main > section > form").addEventListener("submit", function (event) {
         event.preventDefault();
