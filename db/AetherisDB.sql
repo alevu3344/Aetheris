@@ -183,17 +183,17 @@ CREATE TABLE ORDERS (
   OrderDate datetime NOT NULL DEFAULT current_timestamp(), -- When the order was placed
   TotalCost decimal(10,2) NOT NULL, -- Total cost of the order
   Status enum("Pending", "Completed", "Shipped", "Canceled") NOT NULL DEFAULT "Pending", -- Order status
-  Platform enum("PC", "PlayStation", "Xbox","Nintendo Switch") NOT NULL, -- Platform for which the order was made
   PRIMARY KEY (Id),
-  FOREIGN KEY (UserId) REFERENCES USERS(Username) -- Links to USERS table
+  FOREIGN KEY (UserId) REFERENCES USERS(UserID) -- Links to USERS table
 );
 
 CREATE TABLE ORDER_ITEMS (
   OrderId int(11) NOT NULL, -- Links to ORDERS table
   GameId int(11) NOT NULL, -- Links to GAMES table
   Quantity int(11) NOT NULL, -- Number of copies ordered
-  Price decimal(10,2) NOT NULL, -- Price at the time of the order (for historical data)
-  PRIMARY KEY (OrderId, GameId), -- Composite key ensures no duplicate game in the same order
+  FinalPrice decimal(10,2) NOT NULL, -- Price at the time of the order (for historical data)
+  Platform enum("PC", "PlayStation", "Xbox","Nintendo Switch") NOT NULL, -- Platform for which the order was made
+  PRIMARY KEY (OrderId, GameId, Platform), -- Composite key ensures no duplicate game in the same order
   FOREIGN KEY (OrderId) REFERENCES ORDERS(Id), -- Links to ORDERS table
   FOREIGN KEY (GameId) REFERENCES GAMES(Id) -- Links to GAMES table
 );

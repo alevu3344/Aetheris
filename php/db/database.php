@@ -12,6 +12,59 @@ class DatabaseHelper
         }
     }
 
+    public function getOrdersForUser($UserID)
+    {
+        $query = "
+        SELECT * 
+        FROM 
+            ORDERS 
+        WHERE 
+            UserID = ?
+        ";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $UserID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getOrderDetails($OrderID)
+    {
+        // Define the SQL query with the necessary joins
+        $query = "
+            SELECT 
+            O.*,
+            U.UserID AS UserID, 
+            G.Name AS GameName,
+            G.Id AS GameID,
+            OI.*
+            FROM 
+                ORDERS O
+            INNER JOIN 
+                USERS U ON O.UserId = U.UserID -- Correct join column
+            INNER JOIN 
+                ORDER_ITEMS OI ON O.Id = OI.OrderId
+            INNER JOIN 
+                GAMES G ON OI.GameId = G.Id
+            WHERE O.Id = ?;
+        ";
+
+        // Prepare the statement
+        $stmt = $this->db->prepare($query);
+
+        // Bind the OrderID parameter
+        $stmt->bind_param('i', $OrderID);
+
+        // Execute the query
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        // Fetch all results
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+
     public function getGamesByCategory($category, $lim)
     {
         $query = "
