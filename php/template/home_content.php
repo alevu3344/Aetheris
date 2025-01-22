@@ -161,4 +161,3 @@
 
 </div>
 
-<script src="../js/front-page-game.js" type="text/javascript"></script> 

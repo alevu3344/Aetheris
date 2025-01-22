@@ -12,7 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Rampart One' rel='stylesheet'>
+
     <script src="../js/login.js" defer="true"></script>
+    <script src="../js/front-page-game.js" defer="true"></script>
 </head>
 <!-- the body will have the class extracted from templateParams["nome"] without the .php-->
 
