@@ -1,12 +1,15 @@
 <?php
 require_once("bootstrap.php");
 
+$templateParams["categorie"] = $dbh->getCategories();
 
-$templateParams["titolo"] = "Aetheris - ".$_GET["category"];
+$category = $_GET["category"] ?? $templateParams["categorie"][0]["CategoryName"];
+
+$templateParams["titolo"] = "Aetheris - ".$category;
 
 $templateParams["nome"] = "categorygames_content.php";
-$templateParams["categorie"] = $dbh->getCategories();
-$templateParams["giochi"] = $dbh->getGamesByCategory($_GET["category"], 10);
+
+$templateParams["giochi"] = $dbh->getGamesByCategory($category, 10);
 
 
 
