@@ -959,11 +959,29 @@ body>footer >nav>ul>li>a {
   transition: background-color 0.2s ease-in-out;
 }
 
+.login-form > main > section > form > fieldset > a:last-of-type {
+  width: 100%;
+  background-color: green;
+  padding: 0.75rem;
+  text-align: center;
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease-in-out;
+} 
+
+.login-form > main > section > form > fieldset > a:last-of-type:hover {
+  background-color: #00c83f;
+}
+
 .login-form > main > section > form > fieldset > button:hover {
   background-color: rgba(37, 99, 235, 1);
 }
 
-.login-form > main > section > p:nth-child(4) {
+
+
+.login-form > main > section > p {
   text-align: center;
   font-size: 0.75rem;
   line-height: 1rem;
@@ -971,7 +989,7 @@ body>footer >nav>ul>li>a {
   margin-top: 1rem;
 }
 
-.login-form > main > section > p:nth-child(1) {
+.login-form > main > section > h2 {
   text-align: center;
   font-size: 2rem;
   line-height: 2.5rem;
@@ -1109,6 +1127,23 @@ body>footer >nav>ul>li>a {
 
 .registration-form>main>section>form>fieldset>button:hover {
   background-color: rgba(37, 99, 235, 1);
+}
+
+
+.login-form > main > section > form > fieldset > a:last-of-type {
+  width: 100%;
+  background-color: green;
+  padding: 0.75rem;
+  text-align: center;
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease-in-out;
+} 
+
+.login-form > main > section > form > fieldset > a:last-of-type:hover {
+  background-color: #00c83f;
 }
 
 .registration-form>main>section>p {

@@ -45,3 +45,5 @@
 
         <p>By registering, you agree to our terms and conditions.</p>
 </section>
+
+<script src="../js/login.js" defer="true"></script>

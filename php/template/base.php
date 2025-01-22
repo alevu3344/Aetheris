@@ -12,9 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Rampart One' rel='stylesheet'>
-
-    <script src="../js/login.js" defer="true"></script>
-    <script src="../js/front-page-game.js" defer="true"></script>
 </head>
 <!-- the body will have the class extracted from templateParams["nome"] without the .php-->
 
@@ -28,7 +25,17 @@
 
         <div>
             <a>Categorie</a>
-            <a id="signin">Accedi</a>
+            <?php if (isset($_SESSION["UserID"])): ?>
+                <figure>
+                    <img src="../media/avatars/<?= $_SESSION["Avatar"] ?>" alt="Avatar">
+                    <figcaption><?= $_SESSION["Username"] ?></figcaption>
+                </figure>
+                <div>
+                    <img src="upload/icons/logout.png" alt="Logout"/>  
+                </div>
+            <?php else: ?>
+                <a id="signin" href="login.php">Accedi</a>
+            <?php endif; ?>
         </div>
     </header>
 

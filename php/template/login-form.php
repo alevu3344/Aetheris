@@ -17,6 +17,8 @@
     </form>
 
     <p>Don't have an account?
-        <a rel="noopener noreferrer" href="#" class="">Sign up</a>
+        <a rel="noopener noreferrer" href="register.php" class="">Sign up</a>
     </p>
 </section>
+
+<script src="../js/login.js" defer="true"></script>
