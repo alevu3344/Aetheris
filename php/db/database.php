@@ -361,7 +361,7 @@ class DatabaseHelper
 
     public function registerNewUser($Userdata)
     {
-        $query = "INSERT INTO USERS (Username, Email, PasswordHash, Salt, FirstName, LastName, PhoneNumber, Address, City, DateOfBirth, AvatarId) VALUES (? ? ? ? ? ? ? ? ? ? ?)";
+        $query = "INSERT INTO USERS (Username, Email, PasswordHash, Salt, FirstName, LastName, PhoneNumber, Address, City, DateOfBirth, AvatarId) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         $stmt = $this->db->prepare($query);
         $salt = hash('sha256', uniqid(mt_rand(), true));
         $password = hash('sha256', $Userdata["Password"] . $salt);
