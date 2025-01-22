@@ -145,12 +145,39 @@ class DatabaseHelper
 
     public function getGameById($id)
     {
-        $query = "SELECT * FROM GAMES WHERE Id = ?";
+    $query = "
+        SELECT G.*, DG.Percentage AS Discount
+        FROM GAMES G
+        LEFT JOIN DISCOUNTED_GAMES DG ON G.Id = DG.GameId
+        WHERE G.Id = ? AND (CURDATE() BETWEEN DG.StartDate AND DG.EndDate OR DG.GameId IS NULL)";
+    
+    $stmt = $this->db->prepare($query);
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    // Fetch the game data (including discount if available and valid)
+    return $result->fetch_assoc();
+    }
+
+    public function getGameRequirements($id)
+    {
+        $query = "SELECT * FROM PC_GAME_REQUIREMENTS WHERE GameId = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $id);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_assoc();
+    }
+
+    public function getGameCategories($id)
+    {
+        $query = "SELECT * FROM GAME_CATEGORIES WHERE GameId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     //based on the latest published games
@@ -205,6 +232,37 @@ class DatabaseHelper
 
         return $var;
     }
+
+    //i guess
+    public function getSimilarGames($gameId, $lim)
+    {
+        $query = "
+            SELECT 
+                G.*, 
+                DG.Percentage AS Discount
+            FROM 
+                GAMES G
+            INNER JOIN 
+                GAME_CATEGORIES GC ON G.Id = GC.GameId
+            INNER JOIN 
+                GAME_CATEGORIES GC2 ON GC.CategoryName = GC2.CategoryName
+            LEFT JOIN 
+                DISCOUNTED_GAMES DG ON G.Id = DG.GameId
+                AND CURRENT_DATE BETWEEN DG.StartDate AND DG.EndDate
+            WHERE 
+                GC2.GameId = ?
+            AND 
+                G.Id != ?
+            ORDER BY 
+                RAND()
+            LIMIT ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("iii", $gameId, $gameId, $lim);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
 
     public function addSupportedPlatforms($games)
     {

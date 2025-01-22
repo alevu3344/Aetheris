@@ -5766,5 +5766,15 @@ INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
 UPDATE USERS
 SET AvatarId = FLOOR(1 + (RAND() * 25));
 
+UPDATE GAMES
+JOIN (
+    SELECT GameID, AVG(Rating) AS avg_rating
+    FROM REVIEWS
+    GROUP BY GameID
+) AS avg_reviews
+ON GAMES.Id = avg_reviews.GameID
+SET GAMES.Rating = avg_reviews.avg_rating;
+
+
 
 COMMIT;

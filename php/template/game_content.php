@@ -1,4 +1,4 @@
-<h1>GAME TITLE</h1>
+<h1><?= $templateParams["gioco"]["Name"] ?></h1>
 
 
 <div>
@@ -11,16 +11,21 @@
         <img src="upload/icons/star.svg" alt="star">
         <img src="upload/icons/star.svg" alt="star">
     </div>
-    <span>4.6</span>
+    <span><?= $templateParams["gioco"]["Rating"] ?></span>
 </div>
 
 <!-- Game cover image -->
-<img src="../media/covers/3.jpg" alt="game">
+<img src="../media/covers/<?= $templateParams["gioco"]["Id"] ?>.jpg" alt="game">
 
 <section>
-    <span>-60%</span>
-    <span>59.99€</span>
-    <span>23.99€</span>
+    <!-- Use 'discount', 'price', and 'discounted_price' keys dynamically -->
+    <?php if (!empty($templateParams["gioco"]['Discount'])): ?>
+        <span>-<? echo $templateParams["gioco"]['Discount'] ?>%</span>
+    <?php endif; ?>
+    <span><?= $templateParams["gioco"]['Price'] ?>€</span>
+    <?php if (!empty($templateParams["gioco"]['Discount'])): ?>
+        <span><?= number_format($templateParams["gioco"]['Price'] * (1 - $templateParams["gioco"]['Discount'] / 100), 2) ?>€</span>
+    <?php endif; ?>
 </section>
 
 <div>
@@ -34,25 +39,26 @@
     <dl>
         <div>
             <dt>Sviluppatore</dt>
-            <dd>Creative Assembly</dd>
+            <dd><?= $templateParams["gioco"]["Publisher"] ?></dd>
         </div>
         <div>
             <dt>Data di uscita</dt>
-            <dd>17/02/22</dd>
+            <dd><?= $templateParams["gioco"]["ReleaseDate"] ?></dd>
         </div>
         <div>
             <dt>Piattaforma</dt>
             <dd>
-                <img src="upload/icons/PC.svg" alt="game">
-                <img src="upload/icons/PlayStation.svg" alt="game">
+                <? foreach ($templateParams["platforms"] as $platform): ?>
+                    <img src="upload/icons/<?= $platform["Platform"] ?>.svg" alt="game">
+                <? endforeach; ?>
             </dd>
         </div>
         <div>
             <dt>Generi</dt>
             <dd>
-                <span>Action</span>
-                <span>Horror</span>
-                <span>Ziopera</span>
+                <?php foreach ($templateParams["game-categories"] as $category): ?>
+                    <span><?= $category["CategoryName"] ?></span>
+                <?php endforeach; ?>
             </dd>
         </div>
     </dl>
@@ -62,123 +68,76 @@
 <article>
     <section>
         <h2>Descrizione</h2>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor, dolore. A quasi dolorum distinctio, aut dolores laudantium, velit suscipit minus atque cum dolorem doloremque necessitatibus reprehenderit quisquam laborum, autem exercitationem.</p>
+        <p><?= $templateParams["gioco"]["Description"] ?></p>
     </section>
-    <section>
-        <h2>Requisiti minimi</h2>
-        <dl>
-            <div>
-                <dt>Sistema operativo: </dt>
-                <dd>Windows 10</dd>
-            </div>
-            <div>
-                <dt>CPU: </dt>
-                <dd>Intel Core i5-4460</dd>
-            </div>
-            <div>
-                <dt>Memoria: </dt>
-                <dd>128 GB</dd>
-            </div>
-            <div>
-                <dt>GPU: </dt>
-                <dd>NVIDIA GeForce GTX 760</dd>
-            </div>
-            <div>
-                <dt>RAM: </dt>
-                <dd>8 GB</dd>
-            </div>
-        </dl>
-    </section>
+    <?php if (!empty($templateParams["requirements"])): ?>
+        <section>
+            <h2>Requisiti minimi</h2>
+            <dl>
+                <div>
+                    <dt>Sistema operativo: </dt>
+                    <dd><?= $templateParams["requirements"]["OS"]?></dd>
+                </div>
+                <div>
+                    <dt>CPU: </dt>
+                    <dd><?= $templateParams["requirements"]["CPU"]?></dd>
+                </div>
+                <div>
+                    <dt>Memoria: </dt>
+                    <dd><?= $templateParams["requirements"]["SSD"]?> GB</dd>
+                </div>
+                <div>
+                    <dt>GPU: </dt>
+                    <dd><?= $templateParams["requirements"]["GPU"]?></dd>
+                </div>
+                <div>
+                    <dt>RAM: </dt>
+                    <dd><?= $templateParams["requirements"]["RAM"]?> GB</dd>
+                </div>
+            </dl>
+        </section>
+    <?php endif; ?>
 </article>
 
 <div>
     <h2>Immagini</h2>
     <div>
-        <img src="../media/screenshots/1_frame_1.jpg" alt="game">
-        <img src="../media/screenshots/1_frame_2.jpg" alt="game">
-        <img src="../media/screenshots/1_frame_3.jpg" alt="game">
-        <img src="../media/screenshots/1_frame_4.jpg" alt="game">
+        <img src="../media/screenshots/<?= $templateParams["gioco"]["Id"] ?>_frame_1.jpg" alt="game">
+        <img src="../media/screenshots/<?= $templateParams["gioco"]["Id"] ?>_frame_2.jpg" alt="game">
+        <img src="../media/screenshots/<?= $templateParams["gioco"]["Id"] ?>_frame_3.jpg" alt="game">
+        <img src="../media/screenshots/<?= $templateParams["gioco"]["Id"] ?>_frame_4.jpg" alt="game">
     </div>
 </div>
 
 
-<h2>Giochi</h2>
+<h2>Giochi simili</h2>
 <div>
-    
+
     <img src="upload/icons/left_arrow.svg" alt="Left arrow">
     <ul>
-        <li>
-            <article>
-                <figure>
+        <?php foreach ($templateParams["similar-games"] as $game): ?>
+            <li>
+                <article>
+                    <figure>
 
-                    <img src="../media/covers/5.jpg"
-                        alt="game" />
-                    <figcaption>game</figcaption>
-                </figure>
-                <footer>
-                    <span>-50%</span>
+                        <img src="../media/covers/<?= $game["Id"]?>.jpg"
+                            alt="game" />
+                        <figcaption><?= $game["Name"]?></figcaption>
+                    </figure>
+                    <footer>
+                        <!-- Use 'discount', 'price', and 'discounted_price' keys dynamically -->
+                        <?php if (!empty($game['Discount'])): ?>
+                            <span>-<? echo $game['Discount'] ?>%</span>
+                        <?php endif; ?>
+                        <span><?= $game['Price'] ?>€</span>
+                        <?php if (!empty($game['Discount'])): ?>
+                            <span><?= number_format($game['Price'] * (1 - $game['Discount'] / 100), 2) ?>€</span>
+                        <?php endif; ?>
 
-                    <span>60€</span>
-
-                    <span>40€</span>
-
-                </footer>
-            </article>
-        </li>
-        <li>
-            <article>
-                <figure>
-
-                    <img src="../media/covers/5.jpg"
-                        alt="game" />
-                    <figcaption>game</figcaption>
-                </figure>
-                <footer>
-                    <span>-50%</span>
-
-                    <span>60€</span>
-
-                    <span>40€</span>
-
-                </footer>
-            </article>
-        </li>
-        <li>
-            <article>
-                <figure>
-
-                    <img src="../media/covers/5.jpg"
-                        alt="game" />
-                    <figcaption>game</figcaption>
-                </figure>
-                <footer>
-                    <span>-50%</span>
-
-                    <span>60€</span>
-
-                    <span>40€</span>
-
-                </footer>
-            </article>
-        </li>
-        <li>
-            <article>
-                <figure>
-
-                    <img src="../media/covers/5.jpg"
-                        alt="game" />
-                    <figcaption>game</figcaption>
-                </figure>
-                <footer>
-                    <span>-50%</span>
-
-                    <span>60€</span>
-
-                    <span>40€</span>
-
-                </footer>
-            </article>
-        </li>
+                    </footer>
+                </article>
+            </li>
+        <?php endforeach; ?>
     </ul>
     <img src="upload/icons/left_arrow.svg" alt="Left arrow">
 </div>
@@ -186,31 +145,31 @@
 <h2>Recensioni</h2>
 
 <ul>
-    <?php foreach($templateParams["recensioni"] as $recensione): ?>
-    <li>
-        <article>
-            <header>
-                <img src="../media/avatars/<?= $recensione["Avatar"] ?>" alt="avatar">
-                <section> 
-                    <div>
-                        <span><?= $recensione["Username"] ?></span>
+    <?php foreach ($templateParams["recensioni"] as $recensione): ?>
+        <li>
+            <article>
+                <header>
+                    <img src="../media/avatars/<?= $recensione["Avatar"] ?>" alt="avatar">
+                    <section>
                         <div>
-                            <img src="upload/icons/star.svg" alt="star">
-                            <img src="upload/icons/star.svg" alt="star">
-                            <img src="upload/icons/star.svg" alt="star">
-                            <img src="upload/icons/star.svg" alt="star">
-                            <img src="upload/icons/star.svg" alt="star">
+                            <span><?= $recensione["Username"] ?></span>
+                            <div>
+                                <img src="upload/icons/star.svg" alt="star">
+                                <img src="upload/icons/star.svg" alt="star">
+                                <img src="upload/icons/star.svg" alt="star">
+                                <img src="upload/icons/star.svg" alt="star">
+                                <img src="upload/icons/star.svg" alt="star">
+                            </div>
                         </div>
-                    </div>            
-                </section>
-            </header>
-            <h2><?= $recensione["Title"] ?></h2>
-            <p><?= $recensione["Comment"] ?></p>
-            <footer>
-                <span><?= $recensione["CreatedAt"] ?></span>
-            </footer>
-        </article>
-    </li>
+                    </section>
+                </header>
+                <h2><?= $recensione["Title"] ?></h2>
+                <p><?= $recensione["Comment"] ?></p>
+                <footer>
+                    <span><?= $recensione["CreatedAt"] ?></span>
+                </footer>
+            </article>
+        </li>
     <?php endforeach; ?>
 </ul>
 
@@ -218,4 +177,3 @@
     <button>Carica più recensioni</button>
     <img src="upload/icons/double-arrow.png" alt="arrow">
 </div>
-

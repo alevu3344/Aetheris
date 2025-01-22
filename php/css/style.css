@@ -733,6 +733,15 @@ body>footer >nav>ul>li>a {
   color: white;
 } 
 
+
+/* Default rule for when there is only one <span> */
+.home_content > main > #home-offers > div > nav > ul > li > article > footer>span:only-child{
+  font-family: 'Roboto';
+  font-size: 12px;
+  background-color: #0028a2;
+  color: white;
+}
+
 .home_content > main > #home-offers > div > nav > ul > li > article > footer {
   justify-content: left;
   height: 20%;
@@ -1588,6 +1597,9 @@ body>footer >nav>ul>li>a {
 }
 
 
+
+
+/* First span rule when there are exactly 3 spans */
 .categorygames_content>main>ul>li>article>footer>span:nth-child(1) {
   font-family: 'Roboto';
   font-size: 12px;
@@ -1596,6 +1608,7 @@ body>footer >nav>ul>li>a {
   margin-right: 2px;
 }
 
+/* Second span rule when there are exactly 3 spans */
 .categorygames_content>main>ul>li>article>footer>span:nth-child(2) {
   font-family: 'Roboto';
   font-size: 12px;
@@ -1604,7 +1617,16 @@ body>footer >nav>ul>li>a {
   color: rgb(130, 130, 130);
 }
 
+/* Third span rule when there are exactly 3 spans */
 .categorygames_content>main>ul>li>article>footer>span:nth-child(3) {
+  font-family: 'Roboto';
+  font-size: 12px;
+  background-color: #0028a2;
+  color: white;
+}
+
+/* Default rule for when there is only one <span> */
+.categorygames_content>main>ul>li>article>footer>span:only-child {
   font-family: 'Roboto';
   font-size: 12px;
   background-color: #0028a2;
@@ -2077,6 +2099,14 @@ body>footer >nav>ul>li>a {
 }
 
 .game_content > main > div:nth-of-type(4) > ul > li > article >footer>span:nth-child(3) {
+  font-family: 'Roboto';
+  font-size: 12px;
+  background-color: #0028a2;
+  color: white;
+}
+
+/* Default rule for when there is only one <span> */
+.game_content > main > div:nth-of-type(4) > ul > li > article >footer>span:only-child{
   font-family: 'Roboto';
   font-size: 12px;
   background-color: #0028a2;
