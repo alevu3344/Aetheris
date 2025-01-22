@@ -9,13 +9,97 @@ body>footer>p {
 }
 
 /* Header styling */
-body>header {
+
+body>header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  color: white;
+  text-align: center;
+
+}
+
+body>header > nav {
+  position: relative; /* Needed for positioning the dropdown */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    
+    border: #fff 2px solid;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: #007bff; /* Blue background for the button */
+}
+
+/* Style the button */
+#categories-toggle {
+  box-sizing: border-box;
+  padding: 10px;
+  background-color: #007bff; /* Blue background for the button */
+  color: white; /* White text */
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+#categories-toggle:hover {
+  background-color: #0056b3; /* Darker blue when hovered */
+}
+
+/* Style the dropdown menu */
+#categories-list {
+  
+  display: none;
+  position: absolute; /* Position the dropdown relative to the button */
+  top: 100%; /* Place it right below the button */
+  left: 50%; /* Move it to the center horizontally */
+  transform: translateX(-50%); /* Adjust it back to be centered */
+  background-color: #000000;
+  border: 1px solid rgba(209, 213, 219, 1);
+  border-radius: 0.375rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Ensure it appears above other content */
+  overflow-y: scroll;
+  max-height: 200px;
+  width: 200px; /* Adjust width if necessary */
+  padding: 0;
+}
+
+/* Style the dropdown list items */
+#categories-list li {
+  list-style: none;
+  border: 1px solid rgb(255, 255, 255);
+  
+}
+
+#categories-list li a {
+  text-decoration: none;
+  color: white; 
+  padding: 10px 20px;
+  display: block;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#categories-list li a:hover {
+  background-color: #f0f0f0; /* Light background on hover */
+  color: #007bff; /* Change text color on hover */
+}
+
+/* Display the dropdown when the button is clicked */
+#categories-toggle.active + #categories-list {
+  display: block;
+}
+
+body>header > div {
   display: flex;
   background-color: rgb(25, 121, 255);
   text-align: center;
   justify-content: space-between;
   color: white;
-  margin-bottom: 10px;
   height: 80px;
   border-bottom: 2px solid white;
   width: 100%;
@@ -23,46 +107,46 @@ body>header {
   box-sizing: border-box;
 }
 
-body>header>div {
+body>header>div > div {
   width: 50%;
   margin: 0;
   height: 100%;
 }
 
-body>header>div:nth-child(1) {
+body>header>div >div:nth-of-type(1) {
   display: flex;
   align-items: center;
 }
 
-body>header>div:nth-child(2) {
+body>header>div >div:nth-of-type(2) {
   display: flex;
   justify-content: flex-end; /* Pushes items to the right */
-  /*space between each child*/
+  /*space between each of-type*/
   gap: 20px;
 
   align-items: center;     /* Centers items vertically */
 }
 
-body>header>div:nth-child(1)>img {
+body>header> div >div:nth-of-type(1)>img {
   height: 80%;
   width: auto;
 }
 
 
-body>header>div:nth-child(1)>h1 {
+body>header > div >div:nth-of-type(1)>h1 {
   font-size: 32px;
   margin: 0;
 }
 
 
 
-body>header>div:nth-child(2) > a {
+body>header > div >div:nth-of-type(2) > a {
   color: white;
   text-decoration: none;
   font-size: 16px;
 }
 
-body>header>div:nth-child(2)  > figure {
+body>header > div>div:nth-of-type(2)  > figure {
   height: 90%;
   display: flex;
   flex-direction: column;
@@ -70,22 +154,22 @@ body>header>div:nth-child(2)  > figure {
   margin: 0;
 }
 
-body>header>div:nth-child(2) > figure > img {
+body>header > div >div:nth-of-type(2) > figure > img {
   height: 80%;
   width: auto;
 }
-body>header>div:nth-child(2) > figure > figcaption {
+body>header> div >div:nth-of-type(2) > figure > figcaption {
   font-size: 10px;
   margin: 0;
   height: 20%;
 }
 
-body>header>div:nth-child(2) > div {
+body>header > div >div:nth-of-type(2) > div {
   height: 90%;
   margin: 0;
 }
 
-body>header>div:nth-child(2) > div > img {
+body>header > div >div:nth-of-type(2) > div > img {
   height: 80%;
   width: auto;
 }

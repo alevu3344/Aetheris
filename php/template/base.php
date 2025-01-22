@@ -16,6 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Rampart One' rel='stylesheet'>
+    <script src="../js/base.js" defer="true"></script>
 </head>
 <!-- the body will have the class extracted from templateParams["nome"] without the .php-->
 
@@ -23,23 +24,33 @@
 
     <header>
         <div>
-            <img src="upload/icons/aetheris_logo.png" alt="Logo" />
-            <h1>Aetheris</h1>
-        </div>
+            <div>
+                <img src="upload/icons/aetheris_logo.png" alt="Logo" />
+                <h1>Aetheris</h1>
+            </div>
 
-        <div>
-            <?php if (isset($_SESSION["UserID"])): ?>
-                <figure>
-                    <img src="../media/avatars/<?= $_SESSION["Avatar"] ?>" alt="Avatar">
-                    <figcaption><?= $_SESSION["Username"] ?></figcaption>
-                </figure>
-                <div>
-                    <img src="upload/icons/logout.png" alt="Logout"/>  
-                </div>
-            <?php else: ?>
-                <a id="signin" href="login.php">Accedi</a>
-            <?php endif; ?>
+            <div>
+                <?php if (isset($_SESSION["UserID"])): ?>
+                    <figure>
+                        <img src="../media/avatars/<?= $_SESSION["Avatar"] ?>" alt="Avatar">
+                        <figcaption><?= $_SESSION["Username"] ?></figcaption>
+                    </figure>
+                    <div>
+                        <img src="upload/icons/logout.png" alt="Logout"/>  
+                    </div>
+                <?php else: ?>
+                    <a id="signin" href="login.php">Accedi</a>
+                <?php endif; ?>
+            </div>
         </div>
+        <nav>
+            <button id="categories-toggle">Categories</button>
+            <ul id="categories-list" style="display: none; overflow-y: scroll; max-height: 200px;">
+                <?php foreach ($templateParams["categorie"] as $categoria): ?>
+                    <li><a href="categorygames.php?category=<?= $categoria["CategoryName"] ?>"><?= $categoria["CategoryName"] ?></a></li>
+                <?php endforeach; ?>
+            </ul>
+        </nav>
     </header>
 
     <main>
