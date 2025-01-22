@@ -178,3 +178,5 @@
 
 </div>
 
+<script src="../js/front-page-game.js" type="text/javascript"></script> 
+<script src="../js/most-sold-loved-games.js" type="text/javascript"></script> 
