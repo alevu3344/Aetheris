@@ -48,6 +48,18 @@ function generateRegistrationForm(loginerror = null) {
                 <label for="surname">Surname</label>
                 <input type="text" name="surname" id="surname" placeholder="Your Surname">
 
+                <label for="birthday">Birthday</label>
+                <input type="text" name="birthday" id="birthday" placeholder="13/03/2003">
+
+                <label for="city">City</label>
+                <input type="text" name="city" id="city" placeholder="Milano">
+
+                <label for="address">Address</label>
+                <input type="text" name="address" id="address" placeholder="Corso Cavour 3">
+
+                <label for="phonenumber">Phone Number</label>
+                <input type="phonenumber" name="phonenumber" id="phonenumber" placeholder="3480406954">
+
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" placeholder="Your Email">
 
@@ -69,7 +81,7 @@ function generateRegistrationForm(loginerror = null) {
         </form>
 
         <p>By registering, you agree to our terms and conditions.</p>
-</section>
+    </section>
     `;
     return form;
 }
@@ -141,11 +153,11 @@ function createLoginForm() {
     let form = generateLoginForm();
     main.innerHTML = form;
 
-    // Handle the close button click
+    // Handle the close button click in the login form
     document.querySelector(".login-form > main > section > div > img").addEventListener("click", function () {
         main.innerHTML = originalMain; // Restore the previous content
         document.querySelector("body").className = originalClass;
-        console.log("Close button clicked");
+        console.log("Close button clicked in the login form");
     });
 
     //handle the sign up link click
@@ -160,6 +172,35 @@ function createLoginForm() {
             console.log("Sign up link clicked");
             createLoginForm();
         });
+        //handle the close button in the registration form
+        document.querySelector(".registration-form > main > section > div > img").addEventListener("click", function () {
+            main.innerHTML = originalMain; // Restore the previous content
+            document.querySelector("body").className = originalClass;
+            console.log("Close button clicked in the registration form");
+        });
+
+        // add a listener to the submit button in the registration form
+        document.querySelector(".registration-form > main > section > form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            console.log("Registration form submitted");
+            const name = document.querySelector("#name").value;
+            const surname = document.querySelector("#surname").value;
+            const birthday = document.querySelector("#birthday").value;
+            const city = document.querySelector("#city").value;
+            const address = document.querySelector("#address").value;
+            const phonenumber = document.querySelector("#phonenumber").value;
+            const email = document.querySelector("#email").value;
+            const username = document.querySelector("#username").value;
+            const password = document.querySelector("#password").value;
+            const repeatPassword = document.querySelector("#repeat-password").value;
+
+            if(password != repeatPassword){
+                document.querySelector(".login-form > main > section > p").innerText = "Passwords don't match";
+            }
+            else{
+                register(name, surname, birthday, city, address, phonenumber, email, username, password);
+            }
+        });
         
     });
     // Gestisco tentativo di login
@@ -171,6 +212,63 @@ function createLoginForm() {
         login(username, password);
     });
 }
+
+async function register(name, surname, birthday, city, address, phonenumber, email, username, password) {
+    
+    
+    const url = 'register-api.php';
+    const formData = new FormData();
+    formData.append('FirstName', name);
+    formData.append('LastName', surname);
+    formData.append('Email', email);
+    formData.append('Username', username);
+    formData.append('Password', password);
+    formData.append('DateOfBirth', birthday);
+    formData.append('City', city);
+    formData.append('Address', address);
+    formData.append('PhoneNumber', phonenumber);
+    formData.append('AvatarId', 1);
+
+
+    
+    try {
+
+        const response = await fetch(url, {
+            method: "POST",                   
+            body: formData
+        });
+
+        if (!response.ok) {
+            throw new Error(`Response status: ${response.status}`);
+        }
+        const json = await response.json();
+
+        console.log(json);
+        if(json["Success"]){
+            document.querySelector(".registration-form > main > section > p").innerText = "Registration successful";
+            putAvatar(json["Avatar"], json["Username"]);
+            //modify the register button in order for it to become green to display Back to page
+            let button = document.querySelector(".registration-form > main > section > form > fieldset > button");
+            button.innerText = "Back to page";
+            button.style.backgroundColor = "green";
+            button.addEventListener("click", function (event) {
+                event.preventDefault();
+                main.innerHTML = originalMain; // Restore the previous content
+                document.querySelector("body").className = originalClass;
+                
+            });
+        }
+        else{
+            document.querySelector(".registration-form > main > section > p").innerText = json["Errore"];
+            console.log("Registrazione NOOOOO");
+        }
+
+
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
 
 async function login(username, password) {
     const url = 'login-api.php';
