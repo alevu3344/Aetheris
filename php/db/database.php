@@ -350,7 +350,7 @@ class DatabaseHelper
     }
         */
 
-    function getUser($UserID)
+    public function getUser($UserID)
     {
         $stmt = $this->db->prepare("SELECT * FROM USERS JOIN AVATARS ON USERS.AvatarId = AVATARS.Id WHERE UserID = ?");
         $stmt->bind_param('i', $UserID);
@@ -359,7 +359,26 @@ class DatabaseHelper
         return $result->fetch_assoc();
     }
 
-    function login($Username, $password)
+    public function registerNewUser($Userdata)
+    {
+        $query = "INSERT INTO USERS (Username, Email, PasswordHash, Salt, FirstName, LastName, PhoneNumber, Address, City, DateOfBirth, AvatarId) VALUES (? ? ? ? ? ? ? ? ? ? ?)";
+        $stmt = $this->db->prepare($query);
+        $salt = hash('sha256', uniqid(mt_rand(), true));
+        $password = hash('sha256', $Userdata["Password"] . $salt);
+        //check for email and username uniqueness
+        $verify_unique = $this->db->prepare("SELECT * FROM USERS WHERE Email = ? OR Username = ?");
+        $verify_unique->bind_param('ss', $Userdata["Email"], $Userdata["Username"]);
+        $verify_unique->execute();
+        $verify_result = $verify_unique->get_result();
+        if ($verify_result->num_rows > 0) {
+            return false;
+        }
+        $stmt->bind_param('ssssssssssi', $Userdata["Username"], $Userdata["Email"], $password, $salt, $Userdata["FirstName"], $Userdata["LastName"], $Userdata["PhoneNumber"], $Userdata["Address"], $Userdata["City"], $Userdata["DateOfBirth"], $Userdata["AvatarId"]);
+        $stmt->execute();
+        return true;
+    }
+
+    public function login($Username, $password)
     {
         // Usando statement sql 'prepared' non sarà possibile attuare un attacco di tipo SQL injection.
         if ($stmt = $this->db->prepare("SELECT UserID, Email, PasswordHash, Salt FROM USERS WHERE Username = ? LIMIT 1")) {
