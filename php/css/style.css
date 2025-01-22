@@ -1545,6 +1545,8 @@ body>footer >nav>ul>li>a {
 
 }
 
+
+
 .categorygames_content>main>ul>li {
   height: 100px;
   width: 45%;
@@ -1555,13 +1557,21 @@ body>footer >nav>ul>li>a {
   font-size: initial; /* Ripristina la dimensione del font per i figli */
 }
 
+.categorygames_content>main>ul>li > a {
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .categorygames_content>main>ul>li:nth-child(odd) {
   margin-right: 10%;
 }
 
 
 
-.categorygames_content>main>ul>li>article {
+.categorygames_content>main>ul>li>a>article {
   width: 100%;
   height: 100%;
   border: 1px solid white;
@@ -1571,14 +1581,14 @@ body>footer >nav>ul>li>a {
 }
 
 
-.categorygames_content>main>ul>li>article>figure {
+.categorygames_content>main>ul>li>a>article>figure {
   width: 100%;
   height: 80%;
   margin: 0px;
   position: relative;
 }
 
-.categorygames_content>main>ul>li>article>figure>figcaption {
+.categorygames_content>main>ul>li>a>article>figure>figcaption {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -1591,7 +1601,7 @@ body>footer >nav>ul>li>a {
   box-sizing: border-box;
 }
 
-.categorygames_content>main>ul>li>article>figure>img {
+.categorygames_content>main>ul>li>a>article>figure>img {
   width: 100%;
   height: 100%;
 }
@@ -1600,7 +1610,7 @@ body>footer >nav>ul>li>a {
 
 
 /* First span rule when there are exactly 3 spans */
-.categorygames_content>main>ul>li>article>footer>span:nth-child(1) {
+.categorygames_content>main>ul>li>a>article>footer>span:nth-child(1) {
   font-family: 'Roboto';
   font-size: 12px;
   background-color: #00c83f;
@@ -1609,7 +1619,7 @@ body>footer >nav>ul>li>a {
 }
 
 /* Second span rule when there are exactly 3 spans */
-.categorygames_content>main>ul>li>article>footer>span:nth-child(2) {
+.categorygames_content>main>ul>li>a>article>footer>span:nth-child(2) {
   font-family: 'Roboto';
   font-size: 12px;
   text-decoration: line-through;
@@ -1618,7 +1628,7 @@ body>footer >nav>ul>li>a {
 }
 
 /* Third span rule when there are exactly 3 spans */
-.categorygames_content>main>ul>li>article>footer>span:nth-child(3) {
+.categorygames_content>main>ul>li>a>article>footer>span:nth-child(3) {
   font-family: 'Roboto';
   font-size: 12px;
   background-color: #0028a2;
@@ -1626,14 +1636,14 @@ body>footer >nav>ul>li>a {
 }
 
 /* Default rule for when there is only one <span> */
-.categorygames_content>main>ul>li>article>footer>span:only-child {
+.categorygames_content>main>ul>li>a>article>footer>span:only-child {
   font-family: 'Roboto';
   font-size: 12px;
   background-color: #0028a2;
   color: white;
 }
 
-.categorygames_content>main>ul>li>article>footer {
+.categorygames_content>main>ul>li>a>article>footer {
   justify-content: left;
   height: 20%;
   align-items: end;
