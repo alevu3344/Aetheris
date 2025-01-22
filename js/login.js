@@ -1,5 +1,5 @@
 function putAvatar(avatar, username){
-    let header_accedi = document.querySelector("body > header > div:nth-child(2) > a:nth-child(2)");
+    let header_accedi = document.querySelector("body > header > div > div:nth-of-type(2) > a");
     let figure = `
         <img src="../media/avatars/${avatar}" alt="Avatar">
         <figcaption>${username}</figcaption>
@@ -11,7 +11,7 @@ function putAvatar(avatar, username){
     logout.innerHTML = `
         <img src="upload/icons/logout.png" alt="Logout"/>
         `;
-    let header_right_div = document.querySelector("body > header > div:nth-child(2)");
+    let header_right_div = document.querySelector("body > header > div > div:nth-of-type(2)");
     header_right_div.appendChild(logout);
 }
 
@@ -47,6 +47,7 @@ if(document.querySelector("body").className == "login-form"){
         event.preventDefault();
         const username = document.querySelector("#username").value;
         const password = document.querySelector("#password").value;
+        console.log("submit pressed")
         login(username, password);
     });
 }
