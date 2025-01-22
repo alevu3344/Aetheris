@@ -257,8 +257,6 @@ body>footer >nav>ul>li>a {
   display: block;
   position: absolute;
   box-sizing: border-box;
-  align-items: center;
-  justify-content: center;
   bottom: 0;
   right: 0;
   width: 50%;
@@ -321,7 +319,7 @@ body>footer >nav>ul>li>a {
 
 
 
-.home_content >main>h2 {
+.home_content > main > h2 {
   font-family: 'Roboto';
   margin: 5%;
   color: white;
@@ -720,6 +718,7 @@ body>footer >nav>ul>li>a {
   color: white;
   margin: 0px;
   font-size: 20px;
+  cursor: pointer;
 }
 
 .home_content > main > nav > ul > li:nth-child(1) {
@@ -746,6 +745,38 @@ body>footer >nav>ul>li>a {
   width: 45.5%;
   height: 100%;
 }
+
+/* Animazione sbriciolamento INIZIO */
+
+.crumble {
+  animation: crumble 0.5s forwards ease-out;
+}
+
+.crumbleInverse {
+  animation: crumbleInverse 0.5s forwards ease-out;
+}
+
+@keyframes crumble {
+  0% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+      visibility: hidden;
+  }
+}
+
+@keyframes crumbleInverse {
+  0% {
+      opacity: 0;
+      visibility: show;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+/* Animazione sbriciolamento FINE */
 
 .home_content >main>div:nth-child(5)>div>ul {
   list-style: none;
