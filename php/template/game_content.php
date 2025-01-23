@@ -43,7 +43,7 @@
         </div>
         <div>
             <dt>Data di uscita</dt>
-            <dd><?= $templateParams["gioco"]["ReleaseDate"] ?></dd>
+            <dd><?= date("j/n/y", strtotime($templateParams["gioco"]["ReleaseDate"])) ?></dd>
         </div>
         <div>
             <dt>Piattaforma</dt>

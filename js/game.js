@@ -32,3 +32,15 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+/*Listener per aggiungi al carrello*/
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".game_content > main > div:nth-of-type(2) > ").forEach((li) => {
+        const button = li.querySelector("article > footer > button");
+        button.addEventListener("click", function () {
+            const cart = document.querySelector(".cart_content > main > ul");
+            const clone = li.cloneNode(true);
+            cart.appendChild(clone);
+        });
+    });
+});

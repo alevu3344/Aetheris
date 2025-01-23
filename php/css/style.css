@@ -2291,6 +2291,7 @@ body>footer >nav>ul>li>a {
   gap: 4px;
   display: flex;
   width: 50%;
+  align-items: center;
 }
 
 .game_content > main > ul > li > article > header > section > div > .stars .star {
