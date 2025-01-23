@@ -2,15 +2,15 @@
 
 
 <div>
-    <div>
+    <div class="stars">
 
-        <!-- Game stars-->
-        <img src="upload/icons/star.svg" alt="star">
-        <img src="upload/icons/star.svg" alt="star">
-        <img src="upload/icons/star.svg" alt="star">
-        <img src="upload/icons/star.svg" alt="star">
-        <img src="upload/icons/star.svg" alt="star">
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
     </div>
+
     <span><?= $templateParams["gioco"]["Rating"] ?></span>
 </div>
 
@@ -172,6 +172,7 @@
                 </footer>
             </article>
         </li>
+        
     <?php endforeach; ?>
 </ul>
 
@@ -179,5 +180,6 @@
     <button>Carica più recensioni</button>
     <img src="upload/icons/double-arrow.png" alt="arrow">
 </div>
+
 
 <script src="../js/game.js"></script>
