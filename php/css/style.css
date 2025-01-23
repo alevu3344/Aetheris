@@ -546,6 +546,13 @@ body>footer >nav>ul>li>a {
   color: white;
 }
 
+.home_content >main>div:nth-child(3)>article>section>footer>span:only-child{
+  font-family: 'Roboto';
+  font-size: 12px;
+  background-color: #0028a2;
+  color: white;
+}
+
 .home_content >main>div:nth-child(3)>div>article>footer {
   justify-content: left;
   height: 20%;
@@ -574,6 +581,13 @@ body>footer >nav>ul>li>a {
 }
 
 .home_content >main>div:nth-child(3)>div>article>footer>span:nth-child(3) {
+  font-family: 'Roboto';
+  font-size: 12px;
+  background-color: #0028a2;
+  color: white;
+}
+
+.home_content >main>div:nth-child(3)>div>article>footer>span:only-child {
   font-family: 'Roboto';
   font-size: 12px;
   background-color: #0028a2;

@@ -190,12 +190,22 @@ class DatabaseHelper
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function getDiscountedRelevantGames($num){
+        $query = "SELECT G.*, DG.Percentage AS Discount FROM GAMES G INNER JOIN DISCOUNTED_GAMES DG ON G.Id = DG.GameId WHERE CURDATE() BETWEEN DG.StartDate AND DG.EndDate ORDER BY G.ReleaseDate DESC LIMIT ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $num);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     public function getDiscountedGames($lim)
     {
         $query = "
             SELECT 
                 G.*, 
-                DG.Percentage, 
+                DG.Percentage AS Discount,
                 DG.StartDate, 
                 DG.EndDate
             FROM 
@@ -204,7 +214,7 @@ class DatabaseHelper
                 DISCOUNTED_GAMES DG ON G.Id = DG.GameId
             WHERE 
                 CURDATE() BETWEEN DG.StartDate AND DG.EndDate
-            ORDER BY RAND()
+            ORDER BY DG.EndDate DESC
             LIMIT ?
                 ";
 

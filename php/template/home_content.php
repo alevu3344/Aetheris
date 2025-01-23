@@ -35,18 +35,23 @@
 <div>
   <article> <!-- Gioco grande (sinistra)-->
         <figure>
-          <img src="../media/covers/5.jpg" alt="Big Game">
-          <figcaption>Assassin's Creed Valhalla</figcaption>
+          <img src="../media/covers/<?= $templateParams["giochi-in-offerta"][0]["Id"]?>.jpg" alt="Big Game">
+          <figcaption><?= $templateParams["giochi-in-offerta"][0]["Name"]?></figcaption>
         </figure>
 
         <section>
           <p>OFFERTA A TEMPO LIMITATO</p>
-          <p>Fino al 30 novembre!</p>
+          <p>Fino al <?= date("d/m", strtotime($templateParams["giochi-in-offerta"][0]["EndDate"])) ?>!</p>
 
           <footer>
-            <span>-50%</span>
-            <span>29,99€</span>
-            <span>14,99€</span>
+          <!-- Use 'discount', 'price', and 'discounted_price' keys dynamically -->
+          <?php if (!empty($templateParams["giochi-in-offerta"][0]['Discount'])): ?>
+                            <span>-<? echo $templateParams["giochi-in-offerta"][0]['Discount']?>%</span>
+                            <?php endif; ?>
+                            <span><?= $templateParams["giochi-in-offerta"][0]['Price'] ?>€</span>
+                            <?php if (!empty($templateParams["giochi-in-offerta"][0]['Discount'])): ?>
+                            <span><?= number_format($templateParams["giochi-in-offerta"][0]['Price'] * (1 - $templateParams["giochi-in-offerta"][0]['Discount'] / 100), 2)?>€</span>
+                        <?php endif; ?>
           </footer>
         </section>
       </article>
@@ -54,25 +59,35 @@
   <div> <!-- Giochi piccoli (destra)-->
     <article>
         <figure>
-          <img src="../media/covers/23.jpg" alt="Top game"/>
-          <figcaption>Cyberpunk 2077</figcaption>
+          <img src="../media/covers/<?= $templateParams["giochi-in-offerta"][1]["Id"]?>.jpg" alt="Top game"/>
+          <figcaption><?= $templateParams["giochi-in-offerta"][1]["Name"]?></figcaption>
         </figure>
           <footer>
-            <span>-50%</span>
-            <span>29,99€</span>
-            <span>14,99€</span>
+            <!-- Use 'discount', 'price', and 'discounted_price' keys dynamically -->
+            <?php if (!empty($templateParams["giochi-in-offerta"][1]['Discount'])): ?>
+                            <span>-<? echo $templateParams["giochi-in-offerta"][1]['Discount']?>%</span>
+                            <?php endif; ?>
+                            <span><?= $templateParams["giochi-in-offerta"][1]['Price'] ?>€</span>
+                            <?php if (!empty($templateParams["giochi-in-offerta"][1]['Discount'])): ?>
+                            <span><?= number_format($templateParams["giochi-in-offerta"][1]['Price'] * (1 - $templateParams["giochi-in-offerta"][1]['Discount'] / 100), 2)?>€</span>
+                        <?php endif; ?>
           </footer>
       </article>
 
       <article>
         <figure>
-          <img src="../media/covers/44.jpg" alt="Bottom game"/>
-          <figcaption>Dead Cells</figcaption>
+          <img src="../media/covers/<?= $templateParams["giochi-in-offerta"][2]["Id"]?>.jpg" alt="Bottom game"/>
+          <figcaption><?= $templateParams["giochi-in-offerta"][2]["Name"]?></figcaption>
         </figure>
           <footer>
-            <span>-50%</span>
-            <span>29,99€</span>
-            <span>14,99€</span>
+            <!-- Use 'discount', 'price', and 'discounted_price' keys dynamically -->
+            <?php if (!empty($templateParams["giochi-in-offerta"][2]['Discount'])): ?>
+                            <span>-<? echo $templateParams["giochi-in-offerta"][2]['Discount']?>%</span>
+                            <?php endif; ?>
+                            <span><?= $templateParams["giochi-in-offerta"][2]['Price'] ?>€</span>
+                            <?php if (!empty($templateParams["giochi-in-offerta"][2]['Discount'])): ?>
+                            <span><?= number_format($templateParams["giochi-in-offerta"][2]['Price'] * (1 - $templateParams["giochi-in-offerta"][2]['Discount'] / 100), 2)?>€</span>
+                        <?php endif; ?>
           </footer>
       </article>
 
