@@ -3,7 +3,9 @@ require_once("bootstrap.php");
 
 $templateParams["categorie"] = $dbh->getCategories();
 
-$category = $_GET["category"] ?? $templateParams["categorie"][0]["CategoryName"];
+$category = $_GET["category"];
+
+$templateParams["category"] = $category;
 
 $templateParams["titolo"] = "Aetheris - ".$category;
 

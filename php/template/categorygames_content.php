@@ -1,4 +1,4 @@
-<h1>Azione</h1>
+<h1><?= $templateParams["category"] ?></h1>
 
 <nav class="navbar">
     <ul>
