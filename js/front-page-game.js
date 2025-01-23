@@ -2,24 +2,26 @@
 
 function generateRelevantGame(game){
     let placeholder = `
-    <figure>
-      <div></div>
-      <img src="../media/covers/${game["Id"]}.jpg" alt="${game["Name"]}">
-      <figcaption>
-        <p>${game["Name"]}</p>
-        <p>${game["Description"]}</p>
-      </figcaption>
+    <a href = "game.php?id=${game["Id"]}">
+      <figure>
+        <div></div>
+        <img src="../media/covers/${game["Id"]}.jpg" alt="${game["Name"]}">
+        <figcaption>
+          <p>${game["Name"]}</p>
+          <p>${game["Description"]}</p>
+        </figcaption>
 
-      <div>
         <div>
-          <span>${game["Price"]}</span>
-          <button>Acquista</button>
+          <div>
+            <span>${game["Price"]}</span>
+            <button>Acquista</button>
+          </div>
+          <button>
+            <img src="upload/icons/add-to-cart.svg" alt="Add to cart icon"/>Aggiungi al carrello
+          </button>
         </div>
-        <button>
-          <img src="upload/icons/add-to-cart.svg" alt="Add to cart icon"/>Aggiungi al carrello
-        </button>
-      </div>
-    </figure>
+      </figure>
+    </a>
     `;
 
     return placeholder;
@@ -43,6 +45,10 @@ async function createRelevantGame(game) {
   const relevantGame = generateRelevantGame(game);
   const figure = document.querySelector(".home_content > main > div:first-child > article");
   figure.innerHTML = relevantGame;
+
+  document.querySelector(".home_content >main>div:nth-child(1)>article>a>figure>div:nth-child(4)>div>button").addEventListener("click", function(e){
+    e.preventDefault();
+  });
 }
 
 function animateFigure(game,direction) {

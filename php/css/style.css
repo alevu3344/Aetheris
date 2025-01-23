@@ -277,7 +277,12 @@ body>footer >nav>ul>li>a {
   box-sizing: border-box;
 }
 
-.home_content >main>div:nth-child(1)>article>figure {
+.home_content >main>div:nth-child(1)>article>a {
+  width: 100%;
+  height: 100%;
+}
+
+.home_content >main>div:nth-child(1)>article>a>figure {
   height: 100%;
   width: 100%;
   margin: 0px;
@@ -285,17 +290,17 @@ body>footer >nav>ul>li>a {
   transition: transform 0.1s ease, opacity 0.1s ease;
 }
 
-.home_content >main>div:nth-child(1)>article>figure.slide-out-left{
+.home_content >main>div:nth-child(1)>article>a>figure.slide-out-left{
   transform: translateX(-100%);
   opacity: 0;
 }
 
-.home_content >main>div:nth-child(1)>article>figure.slide-out-right{
+.home_content >main>div:nth-child(1)>article>a>figure.slide-out-right{
   transform: translateX(100%);
   opacity: 0;
 }
 
-.home_content >main>div:nth-child(1)>article>figure>figcaption {
+.home_content >main>div:nth-child(1)>article>a>figure>figcaption {
   display: block;
   position: absolute;
   bottom: 0;
@@ -306,7 +311,7 @@ body>footer >nav>ul>li>a {
   z-index: 1;
 }
 
-.home_content >main>div:nth-child(1)>article>figure>div:nth-child(1) {
+.home_content >main>div:nth-child(1)>article>a>figure>div:nth-child(1) {
   position: relative;
   width: 100%;
   height: 100%;
@@ -317,7 +322,7 @@ body>footer >nav>ul>li>a {
   z-index: 1;
 }
 
-.home_content >main>div:nth-child(1)>article>figure>img {
+.home_content >main>div:nth-child(1)>article>a>figure>img {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -326,7 +331,7 @@ body>footer >nav>ul>li>a {
   border-radius: 10%;
 }
 
-.home_content >main>div:nth-child(1)>article>figure>figcaption>p:nth-child(1) {
+.home_content >main>div:nth-child(1)>article>a>figure>figcaption>p:nth-child(1) {
   font-family: "Sedgwick Ave Display", sans-serif;
   font-size: 24px;
   margin: 0px;
@@ -335,7 +340,7 @@ body>footer >nav>ul>li>a {
   overflow: hidden;
 }
 
-.home_content >main>div:nth-child(1)>article>figure>figcaption>p:nth-child(2) {
+.home_content >main>div:nth-child(1)>article>a>figure>figcaption>p:nth-child(2) {
   margin: 0px;
   color: white;
   font-family: 'Roboto';
@@ -344,7 +349,7 @@ body>footer >nav>ul>li>a {
   overflow: hidden;
 }
 
-.home_content >main>div:nth-child(1)>article>figure>div:nth-child(4) {
+.home_content >main>div:nth-child(1)>article>a>figure>div:nth-child(4) {
   display: block;
   position: absolute;
   box-sizing: border-box;
@@ -356,7 +361,7 @@ body>footer >nav>ul>li>a {
   z-index: 1;
 }
 
-.home_content >main>div:nth-child(1)>article>figure>div:nth-child(4)>div {
+.home_content >main>div:nth-child(1)>article>a>figure>div:nth-child(4)>div {
   display: flex;
   align-items: center;
   width: 100%;
@@ -364,14 +369,14 @@ body>footer >nav>ul>li>a {
   margin-bottom: 2%;
 }
 
-.home_content >main>div:nth-child(1)>article>figure>div:nth-child(4)>div>span {
+.home_content >main>div:nth-child(1)>article>a>figure>div:nth-child(4)>div>span {
   color: white;
   font-family: 'Roboto';
   font-size: 20px;
   margin-right: 2%;
 }
 
-.home_content >main>div:nth-child(1)>article>figure>div:nth-child(4)>div>button {
+.home_content >main>div:nth-child(1)>article>a>figure>div:nth-child(4)>div>button {
   border: none;
   border-radius: 10px;
   height: 80%;
@@ -381,7 +386,7 @@ body>footer >nav>ul>li>a {
   padding: 0px;
 }
 
-.home_content >main>div:nth-child(1)>article>figure>div:nth-child(4)>button {
+.home_content >main>div:nth-child(1)>article>a>figure>div:nth-child(4)>button {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -396,7 +401,7 @@ body>footer >nav>ul>li>a {
   padding: 0px;
 }
 
-.home_content >main>div:nth-child(1)>article>figure>div:nth-child(4)>button>img {
+.home_content >main>div:nth-child(1)>article>a>figure>div:nth-child(4)>button>img {
   height: 80%;
   width: 20%;
   filter: invert(1);
@@ -942,6 +947,7 @@ body>footer >nav>ul>li>a {
   width: 100%;
   height: 100%;
   display: flex;
+  overflow: hidden;
 }
 
 
@@ -2068,7 +2074,7 @@ body>footer >nav>ul>li>a {
   border-bottom: #fff 4px solid;
 }
 
-/*GIOCHI SIMILi*/
+/*GIOCHI SIMILI*/
 .game_content > main > div:nth-of-type(4) {
   display: flex;
   width: 90%;
@@ -2112,9 +2118,15 @@ body>footer >nav>ul>li>a {
 }
 
 
+.game_content > main > div:nth-of-type(4) > ul > li > a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
 
 
-.game_content > main > div:nth-of-type(4) > ul > li > article {
+
+.game_content > main > div:nth-of-type(4) > ul > li > a > article {
   width: 100%;
   height: 100%;
   border: 1px solid white;
@@ -2127,14 +2139,14 @@ body>footer >nav>ul>li>a {
 
 
 
-.game_content > main > div:nth-of-type(4) > ul > li >article > figure {
+.game_content > main > div:nth-of-type(4) > ul > li > a >article > figure {
   width: 100%;
   height: 80%;
   margin: 0px;
   position: relative;
 }
 
-.game_content > main > div:nth-of-type(4) > ul > li > article > figure > figcaption {
+.game_content > main > div:nth-of-type(4) > ul > li > a > article > figure > figcaption {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -2147,12 +2159,12 @@ body>footer >nav>ul>li>a {
   box-sizing: border-box;
 }
 
-.game_content > main > div:nth-of-type(4) > ul > li >  article > figure > img {
+.game_content > main > div:nth-of-type(4) > ul > li > a >  article > figure > img {
   width: 100%;
   height: 100%;
 }
 
-.game_content > main > div:nth-of-type(4) > ul > li > article >footer>span:nth-child(1) {
+.game_content > main > div:nth-of-type(4) > ul > li > a > article >footer>span:nth-child(1) {
   font-family: 'Roboto';
   font-size: 12px;
   background-color: #00c83f;
@@ -2160,7 +2172,7 @@ body>footer >nav>ul>li>a {
   margin-right: 2px;
 }
 
-.game_content > main > div:nth-of-type(4) > ul > li > article >footer>span:nth-child(2) {
+.game_content > main > div:nth-of-type(4) > ul > li > a > article >footer>span:nth-child(2) {
   font-family: 'Roboto';
   font-size: 12px;
   text-decoration: line-through;
@@ -2168,7 +2180,7 @@ body>footer >nav>ul>li>a {
   color: rgb(130, 130, 130);
 }
 
-.game_content > main > div:nth-of-type(4) > ul > li > article >footer>span:nth-child(3) {
+.game_content > main > div:nth-of-type(4) > ul > li > a > article >footer>span:nth-child(3) {
   font-family: 'Roboto';
   font-size: 12px;
   background-color: #0028a2;
@@ -2176,14 +2188,14 @@ body>footer >nav>ul>li>a {
 }
 
 /* Default rule for when there is only one <span> */
-.game_content > main > div:nth-of-type(4) > ul > li > article >footer>span:only-child{
+.game_content > main > div:nth-of-type(4) > ul > li > a > article >footer>span:only-child{
   font-family: 'Roboto';
   font-size: 12px;
   background-color: #0028a2;
   color: white;
 }
 
-.game_content > main > div:nth-of-type(4) > ul > li > article >footer {
+.game_content > main > div:nth-of-type(4) > ul > li > a > article >footer {
   justify-content: left;
   height: 20%;
   align-items: end;
