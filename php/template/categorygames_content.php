@@ -33,6 +33,8 @@
 </ul>
 
 
+<!-- TO BE CHANGED DO A NAV -->
+
 <div>
     <img src="upload/icons/left_arrow.svg" alt="Left arrow"/>
     <span class="page-number">1</span> <!-- Current page number -->

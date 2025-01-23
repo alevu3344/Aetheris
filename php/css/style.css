@@ -2174,7 +2174,7 @@ body>footer >nav>ul>li>a {
   width: 100%;
   padding: 5px;
   border: #fff 1px solid;
-  background-color: black;
+  background-color: rgb(0, 0, 0);
 
 }
 
@@ -2243,13 +2243,43 @@ body>footer >nav>ul>li>a {
   width: 50%;
 }
 
-/*fit 5 stars inside the span automatically*/
-.game_content > main > ul > li > article > header > section > div > div > img {
-  width: 20%;
-  height: auto;
-  filter: invert(1);
 
+
+
+/**************************/
+.stars {
+  display: flex;
+  gap: 4px;
 }
+
+.star {
+  width: 24px; /* Set your desired star size */
+  height: 24px;
+  background: gray; /* Fallback background color */
+  mask: url('../upload/icons/star.svg') no-repeat center;
+  -webkit-mask: url('../upload/icons/star.svg') no-repeat center;
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  background-color: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.star::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--fill-width, 0); /* Dynamically set width */
+  height: 100%;
+  background: gold; /* Filled color */
+  z-index: 1;
+}
+
+/*************************************/
+
+
+
 
 .game_content > main > div:nth-of-type(5) {
   display : flex;

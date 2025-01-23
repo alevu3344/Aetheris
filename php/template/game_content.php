@@ -153,12 +153,14 @@
                     <section>
                         <div>
                             <span><?= $recensione["Username"] ?></span>
-                            <div>
-                                <img src="upload/icons/star.svg" alt="star">
-                                <img src="upload/icons/star.svg" alt="star">
-                                <img src="upload/icons/star.svg" alt="star">
-                                <img src="upload/icons/star.svg" alt="star">
-                                <img src="upload/icons/star.svg" alt="star">
+                            <div class="stars">
+                                <span><?= $recensione["Rating"] ?></span>
+                                <div class="star"></div>
+                                <div class="star"></div>
+                                <div class="star"></div>
+                                <div class="star"></div>
+                                <div class="star"></div>
+                                
                             </div>
                         </div>
                     </section>
@@ -177,3 +179,5 @@
     <button>Carica più recensioni</button>
     <img src="upload/icons/double-arrow.png" alt="arrow">
 </div>
+
+<script src="../js/game.js"></script>
