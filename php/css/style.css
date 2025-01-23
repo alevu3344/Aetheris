@@ -942,6 +942,7 @@ body>footer >nav>ul>li>a {
   width: 100%;
   height: 100%;
   display: flex;
+  overflow: hidden;
 }
 
 
@@ -2068,7 +2069,7 @@ body>footer >nav>ul>li>a {
   border-bottom: #fff 4px solid;
 }
 
-/*GIOCHI SIMILi*/
+/*GIOCHI SIMILI*/
 .game_content > main > div:nth-of-type(4) {
   display: flex;
   width: 90%;
@@ -2112,9 +2113,15 @@ body>footer >nav>ul>li>a {
 }
 
 
+.game_content > main > div:nth-of-type(4) > ul > li > a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
 
 
-.game_content > main > div:nth-of-type(4) > ul > li > article {
+
+.game_content > main > div:nth-of-type(4) > ul > li > a > article {
   width: 100%;
   height: 100%;
   border: 1px solid white;
@@ -2127,14 +2134,14 @@ body>footer >nav>ul>li>a {
 
 
 
-.game_content > main > div:nth-of-type(4) > ul > li >article > figure {
+.game_content > main > div:nth-of-type(4) > ul > li > a >article > figure {
   width: 100%;
   height: 80%;
   margin: 0px;
   position: relative;
 }
 
-.game_content > main > div:nth-of-type(4) > ul > li > article > figure > figcaption {
+.game_content > main > div:nth-of-type(4) > ul > li > a > article > figure > figcaption {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -2147,12 +2154,12 @@ body>footer >nav>ul>li>a {
   box-sizing: border-box;
 }
 
-.game_content > main > div:nth-of-type(4) > ul > li >  article > figure > img {
+.game_content > main > div:nth-of-type(4) > ul > li > a >  article > figure > img {
   width: 100%;
   height: 100%;
 }
 
-.game_content > main > div:nth-of-type(4) > ul > li > article >footer>span:nth-child(1) {
+.game_content > main > div:nth-of-type(4) > ul > li > a > article >footer>span:nth-child(1) {
   font-family: 'Roboto';
   font-size: 12px;
   background-color: #00c83f;
@@ -2160,7 +2167,7 @@ body>footer >nav>ul>li>a {
   margin-right: 2px;
 }
 
-.game_content > main > div:nth-of-type(4) > ul > li > article >footer>span:nth-child(2) {
+.game_content > main > div:nth-of-type(4) > ul > li > a > article >footer>span:nth-child(2) {
   font-family: 'Roboto';
   font-size: 12px;
   text-decoration: line-through;
@@ -2168,7 +2175,7 @@ body>footer >nav>ul>li>a {
   color: rgb(130, 130, 130);
 }
 
-.game_content > main > div:nth-of-type(4) > ul > li > article >footer>span:nth-child(3) {
+.game_content > main > div:nth-of-type(4) > ul > li > a > article >footer>span:nth-child(3) {
   font-family: 'Roboto';
   font-size: 12px;
   background-color: #0028a2;
@@ -2176,14 +2183,14 @@ body>footer >nav>ul>li>a {
 }
 
 /* Default rule for when there is only one <span> */
-.game_content > main > div:nth-of-type(4) > ul > li > article >footer>span:only-child{
+.game_content > main > div:nth-of-type(4) > ul > li > a > article >footer>span:only-child{
   font-family: 'Roboto';
   font-size: 12px;
   background-color: #0028a2;
   color: white;
 }
 
-.game_content > main > div:nth-of-type(4) > ul > li > article >footer {
+.game_content > main > div:nth-of-type(4) > ul > li > a > article >footer {
   justify-content: left;
   height: 20%;
   align-items: end;

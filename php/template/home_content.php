@@ -47,7 +47,7 @@
           <footer>
           <!-- Use 'discount', 'price', and 'discounted_price' keys dynamically -->
           <?php if (!empty($templateParams["giochi-in-offerta"][0]['Discount'])): ?>
-                            <span>-<? echo $templateParams["giochi-in-offerta"][0]['Discount']?>%</span>
+                            <span>-<?= $templateParams["giochi-in-offerta"][0]['Discount']?>%</span>
                             <?php endif; ?>
                             <span><?= $templateParams["giochi-in-offerta"][0]['Price'] ?>€</span>
                             <?php if (!empty($templateParams["giochi-in-offerta"][0]['Discount'])): ?>
@@ -56,7 +56,7 @@
           </footer>
         </section>
       </article>
-      </a>
+    </a>
 
   <div> <!-- Giochi piccoli (destra)-->
   <a href = "game.php?id=<?= $templateParams["giochi-in-offerta"][1]["Id"]?>">
@@ -68,7 +68,7 @@
           <footer>
             <!-- Use 'discount', 'price', and 'discounted_price' keys dynamically -->
             <?php if (!empty($templateParams["giochi-in-offerta"][1]['Discount'])): ?>
-                            <span>-<? echo $templateParams["giochi-in-offerta"][1]['Discount']?>%</span>
+                            <span>-<?= $templateParams["giochi-in-offerta"][1]['Discount']?>%</span>
                             <?php endif; ?>
                             <span><?= $templateParams["giochi-in-offerta"][1]['Price'] ?>€</span>
                             <?php if (!empty($templateParams["giochi-in-offerta"][1]['Discount'])): ?>
@@ -86,7 +86,7 @@
           <footer>
             <!-- Use 'discount', 'price', and 'discounted_price' keys dynamically -->
             <?php if (!empty($templateParams["giochi-in-offerta"][2]['Discount'])): ?>
-                            <span>-<? echo $templateParams["giochi-in-offerta"][2]['Discount']?>%</span>
+                            <span>-<?= $templateParams["giochi-in-offerta"][2]['Discount']?>%</span>
                             <?php endif; ?>
                             <span><?= $templateParams["giochi-in-offerta"][2]['Price'] ?>€</span>
                             <?php if (!empty($templateParams["giochi-in-offerta"][2]['Discount'])): ?>
@@ -185,7 +185,7 @@
                   <footer>
                       <!-- Use 'discount', 'price', and 'discounted_price' keys dynamically -->
                       <?php if (!empty($game['Discount'])): ?>
-                          <span>-<? echo $game['Discount']?>%</span>
+                          <span>-<?= $game['Discount']?>%</span>
                           <?php endif; ?>
                           <span><?= $game['Price'] ?>€</span>
                           <?php if (!empty($game['Discount'])): ?>

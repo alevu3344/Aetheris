@@ -20,7 +20,7 @@
 <section>
     <!-- Use 'discount', 'price', and 'discounted_price' keys dynamically -->
     <?php if (!empty($templateParams["gioco"]['Discount'])): ?>
-        <span>-<? echo $templateParams["gioco"]['Discount'] ?>%</span>
+        <span>-<?= $templateParams["gioco"]['Discount'] ?>%</span>
     <?php endif; ?>
     <span><?= $templateParams["gioco"]['Price'] ?>€</span>
     <?php if (!empty($templateParams["gioco"]['Discount'])): ?>
@@ -48,9 +48,9 @@
         <div>
             <dt>Piattaforma</dt>
             <dd>
-                <? foreach ($templateParams["platforms"] as $platform): ?>
+                <?php foreach ($templateParams["platforms"] as $platform): ?>
                     <img src="upload/icons/<?= $platform["Platform"] ?>.svg" alt="game">
-                <? endforeach; ?>
+                <?php endforeach; ?>
             </dd>
         </div>
         <div>
@@ -117,25 +117,27 @@
     <ul>
         <?php foreach ($templateParams["similar-games"] as $game): ?>
             <li>
-                <article>
-                    <figure>
+                <a href = "game.php?id=<?= $game["Id"]?>">
+                    <article>
+                        <figure>
 
-                        <img src="../media/covers/<?= $game["Id"]?>.jpg"
-                            alt="game" />
-                        <figcaption><?= $game["Name"]?></figcaption>
-                    </figure>
-                    <footer>
-                        <!-- Use 'discount', 'price', and 'discounted_price' keys dynamically -->
-                        <?php if (!empty($game['Discount'])): ?>
-                            <span>-<? echo $game['Discount'] ?>%</span>
-                        <?php endif; ?>
-                        <span><?= $game['Price'] ?>€</span>
-                        <?php if (!empty($game['Discount'])): ?>
-                            <span><?= number_format($game['Price'] * (1 - $game['Discount'] / 100), 2) ?>€</span>
-                        <?php endif; ?>
+                            <img src="../media/covers/<?= $game["Id"]?>.jpg"
+                                alt="game" />
+                            <figcaption><?= $game["Name"]?></figcaption>
+                        </figure>
+                        <footer>
+                            <!-- Use 'discount', 'price', and 'discounted_price' keys dynamically -->
+                            <?php if (!empty($game['Discount'])): ?>
+                                <span>-<?= $game['Discount'] ?>%</span>
+                            <?php endif; ?>
+                            <span><?= $game['Price'] ?>€</span>
+                            <?php if (!empty($game['Discount'])): ?>
+                                <span><?= number_format($game['Price'] * (1 - $game['Discount'] / 100), 2) ?>€</span>
+                            <?php endif; ?>
 
-                    </footer>
-                </article>
+                        </footer>
+                    </article>
+                </a>
             </li>
         <?php endforeach; ?>
     </ul>
