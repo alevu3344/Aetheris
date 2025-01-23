@@ -28,7 +28,7 @@
     <?php endif; ?>
 </section>
 
-<div>
+<div id="<?=$templateParams["gioco"]["Id"]?>">
     <button>Acquista ora</button>
     <button>Aggiungi al carrello</button>
 </div>
