@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-/*Listener per aggiungi al carrello*/
+/*Listener per acquista ora*/
 document.querySelector(".game_content > main > div:nth-of-type(2) > button:nth-of-type(1)").addEventListener("click",function (event) {
     event.preventDefault();
     let gameId = document.querySelector(".game_content > main > div:nth-of-type(2)").id;
@@ -41,6 +41,25 @@ document.querySelector(".game_content > main > div:nth-of-type(2) > button:nth-o
     let popup = document.createElement("div");
     popup.id = "popup";
     popup.innerHTML = popupHtml;
+
+
+    //listener per il bottone acquista
+    popup.querySelector("button[type='submit']").addEventListener("click", function (event) {
+        event.preventDefault();
+        let form = popup.querySelector("form");
+        let formData = new FormData(form);
+        let platform = formData.get("platform");
+        let quantity = formData.get("quantity");
+        console.log(platform, quantity);
+        popup.remove();
+    });
+
+    //listener per il bottone annulla
+
+    popup.querySelector("button[type='button']").addEventListener("click", function (event) {   
+        event.preventDefault();
+        popup.remove();
+    });
     //metti l'elemento in testa al body
     document.body.insertBefore(popup, document.body.firstChild);
 
