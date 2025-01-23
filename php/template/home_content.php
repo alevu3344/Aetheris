@@ -170,6 +170,7 @@
       <ul>
         <?php foreach ($templateParams["offerte-di-lancio"] as $game): ?>
           <li>
+            <a href = "game.php?id=<?= $game['Id']?>">
               <article>
                   <figure>
 
@@ -188,6 +189,7 @@
                       <?php endif; ?>
                   </footer>
               </article>
+            </a>
           </li>
       <?php endforeach; ?>
       </ul>
