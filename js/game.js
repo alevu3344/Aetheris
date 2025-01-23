@@ -24,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function () {
       
 
         const stars = li.querySelectorAll("article > header > section > div > .stars .star");
-        console.log(stars);
 
         stars.forEach((star, index) => {
             const fillAmount = Math.min(Math.max(rating - index, 0), 1); // Calculate how much of the star should be filled
