@@ -35,9 +35,9 @@
                         <img src="../media/avatars/<?= $_SESSION["Avatar"] ?>" alt="Avatar">
                         <figcaption><?= $_SESSION["Username"] ?></figcaption>
                     </figure>
-                    <div>
+                    <a>
                         <img src="upload/icons/logout.png" alt="Logout"/>  
-                    </div>
+                    </a>
                 <?php else: ?>
                     <a id="signin" href="login.php">Accedi</a>
                 <?php endif; ?>

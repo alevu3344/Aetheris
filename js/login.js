@@ -1,4 +1,4 @@
-function putAvatar(avatar, username){
+function putAvatar(avatar, username) {
     let header_accedi = document.querySelector("body > header > div > div:nth-of-type(2) > a");
     let figure = `
         <img src="../media/avatars/${avatar}" alt="Avatar">
@@ -7,13 +7,24 @@ function putAvatar(avatar, username){
     let newFigure = document.createElement("figure");
     newFigure.innerHTML = figure;
     header_accedi.replaceWith(newFigure);
-    let logout = document.createElement("div");
-    logout.innerHTML = `
+
+    let logoutButton = document.createElement("a"); // Renamed variable
+    logoutButton.innerHTML = `
         <img src="upload/icons/logout.png" alt="Logout"/>
-        `;
+    `;
+    logoutButton.style.cursor = "pointer"; // Add pointer cursor to indicate interactivity
+
+    // Add event listener to logout element
+    logoutButton.addEventListener("click", function () {
+        console.log("logout pressed");
+        logoutButton.remove(); // Remove the logout element
+        logout(); // Call the actual logout function
+    });
+
     let header_right_div = document.querySelector("body > header > div > div:nth-of-type(2)");
-    header_right_div.appendChild(logout);
+    header_right_div.appendChild(logoutButton);
 }
+
 
 
 if(document.querySelector("body").className == "registration-form"){
@@ -53,7 +64,37 @@ if(document.querySelector("body").className == "login-form"){
 }
 
 
+async function logout(){
+    const url = 'logout-api.php';
+    try {
 
+        const response = await fetch(url, {
+            method: "POST"
+        });
+
+        if (!response.ok) {
+            throw new Error(`Response status: ${response.status}`);
+        }
+        const json = await response.json();
+
+        if(json["Success"]){
+            let header = document.querySelector("body > header > div > div:nth-of-type(2) > a:nth-of-type(1)");
+      
+            let newAccedi = document.createElement("a");
+            newAccedi.href = "login.php";
+            newAccedi.innerText = "Accedi";
+            newAccedi.id = "signin";
+            
+            header.replaceWith(newFigure);
+        }
+        else{
+            console.log("Error logging out");
+        }
+
+    } catch (error) {
+        console.log(error.message);
+    }
+}
 
 
 async function register(name, surname, birthday, city, address, phonenumber, email, username, password) {

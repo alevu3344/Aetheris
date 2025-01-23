@@ -141,10 +141,12 @@ body>header > div >div:nth-of-type(1)>h1 {
 
 
 
-body>header > div >div:nth-of-type(2) > a {
+body>header > div >div:nth-of-type(2) > a:only-child {
   color: white;
   text-decoration: none;
   font-size: 16px;
+  margin: 0;
+  padding: 0;
 }
 
 body>header > div>div:nth-of-type(2)  > figure {
@@ -165,12 +167,16 @@ body>header> div >div:nth-of-type(2) > figure > figcaption {
   height: 20%;
 }
 
-body>header > div >div:nth-of-type(2) > div {
+body>header > div >div:nth-of-type(2) > a:nth-child(2) {
   height: 90%;
   margin: 0;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+
 }
 
-body>header > div >div:nth-of-type(2) > div > img {
+body>header > div >div:nth-of-type(2) > a > img {
   height: 80%;
   width: auto;
 }
@@ -798,11 +804,9 @@ body>footer >nav>ul>li>a {
 /****************************  END OFFERTE DI LANCIO **********************/
 
 
-/*--------------------------      Giochi in offerta END    ------------------------*/
 
 
-
-/*--------------------------      Giochi più giocati e acquistati START   ------------------------*/
+/*--------------------------      Giochi più AMATI e ACQUISTATI  ------------------------*/
 
 .home_content > main > nav {
   width: 90%;
@@ -976,7 +980,7 @@ body>footer >nav>ul>li>a {
 
 
 
-/*--------------------------      Giochi più giocati e acquistati END   ------------------------*/
+/*--------------------------      Giochi più AMATI e ACQUISTATI END   ------------------------*/
 
 
 
