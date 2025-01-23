@@ -1,11 +1,9 @@
-
-
 function generateRelevantGame(game){
     let placeholder = `
     <a href = "game.php?id=${game["Id"]}">
       <figure>
         <div></div>
-        <img src="../media/covers/${game["Id"]}.jpg" alt="${game["Name"]}">
+        <img src="../media/covers/${game["Id"]}.jpg" alt="${game["Name"]}"/>
         <figcaption>
           <p>${game["Name"]}</p>
           <p>${game["Description"]}</p>
@@ -17,18 +15,17 @@ function generateRelevantGame(game){
             <button>Acquista</button>
           </div>
           <button>
-            <img src="upload/icons/add-to-cart.svg" alt="Add to cart icon"/>Aggiungi al carrello
+            <img src="upload/icons/add-to-cart.svg" alt="Add to cart icon"/>
+            Aggiungi al carrello
           </button>
         </div>
       </figure>
     </a>
     `;
-
     return placeholder;
 }
 
-async function generateGameBuffer() {
-  const url = 'front-page-game.php';
+async function generateGameBuffer(url) {
   try {
       const response = await fetch(url);
       if (!response.ok) {
@@ -52,13 +49,13 @@ async function createRelevantGame(game) {
 }
 
 function animateFigure(game,direction) {
-    curFigure = document.querySelector(".home_content >main>div:nth-child(1)>article>figure");
+    curFigure = document.querySelector(".home_content >main>div:nth-child(1)>article>a>figure");
     curFigure.classList.add(direction ? "slide-out-left" : "slide-out-right");
 
     setTimeout(() => {
         curFigure.classList.remove(direction ? "slide-out-left" : "slide-out-right");
         createRelevantGame(game);
-        curFigure = document.querySelector(".home_content >main>div:nth-child(1)>article>figure");
+        curFigure = document.querySelector(".home_content >main>div:nth-child(1)>article>a>figure");
         curFigure.classList.add(direction ? "slide-out-right" : "slide-out-left");
         setTimeout(() => {
           curFigure.classList.add(direction ? "slide-out-left" : "slide-out-right");
@@ -68,27 +65,28 @@ function animateFigure(game,direction) {
     }, 100);
 }
 
-async function initializeGameBuffer() {
-  bufferGames = await generateGameBuffer();
-  if (bufferGames && bufferGames.length > 0) {
-    createRelevantGame(bufferGames[0]);
+async function initializeFrontPage(url) {
+  bufferFrontPage = await generateGameBuffer(url);
+  if (bufferFrontPage && bufferFrontPage.length > 0) {
+    createRelevantGame(bufferFrontPage[0]);
   } else {
     console.error("Buffer vuoto");
   }
 }
+
   document.querySelector(".home_content > main > div:first-child > button:first-child").addEventListener("click", function(e){
-    currentIndex = (currentIndex - 1 + bufferGames.length) % bufferGames.length;
+    indexFrontPage = (indexFrontPage - 1 + bufferFrontPage.length) % bufferFrontPage.length;
     e.preventDefault();
-    animateFigure(bufferGames[currentIndex],true);
+    animateFigure(bufferFrontPage[indexFrontPage],0);
 });
 
 document.querySelector(".home_content > main > div:first-child > button:last-child").addEventListener("click", function(e){
-    currentIndex = (currentIndex+1) % bufferGames.length;
+    indexFrontPage = (indexFrontPage+1) % bufferFrontPage.length;
     e.preventDefault();
-    animateFigure(bufferGames[currentIndex],false);
+    animateFigure(bufferFrontPage[indexFrontPage],1);
 });
 
-let currentIndex = 0;
-let bufferGames = [];
+let indexFrontPage = 0;
+let bufferFrontPage = [];
 
-initializeGameBuffer();
+initializeFrontPage('front-page-game.php');

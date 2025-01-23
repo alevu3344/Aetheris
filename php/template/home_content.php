@@ -92,15 +92,15 @@
         <?php foreach($templateParams["giochi-acquistati"] as $mostsoldgames): ?>
         <li>
           <a href = "game.php?id=<?= $mostsoldgames["Id"]?>">
-            <img src="<?php echo "../media/covers/".$mostsoldgames["Id"].".jpg" ?>" alt="<?php echo $mostsoldgames["Name"]; ?>" />
+            <img src="<?= "../media/covers/".$mostsoldgames["Id"].".jpg" ?>" alt="<?= $mostsoldgames["Name"]; ?>" />
             <section>
               <header>
-                <span><?php echo $mostsoldgames["Name"]; ?></span>
+                <span><?= $mostsoldgames["Name"]; ?></span>
               </header>
               <footer>
                 <div>
                   <?php foreach($mostsoldgames["Platforms"] as $platform): ?>
-                    <img src="<?php echo "upload/icons/".$platform["Platform"].".svg" ?>" alt="<?php echo $platform["Platform"]; ?>" />
+                    <img src="<?= "upload/icons/".$platform["Platform"].".svg" ?>" alt="<?= $platform["Platform"]; ?>" />
                 
                 
                   <?php endforeach; ?>
@@ -121,15 +121,15 @@
       <?php foreach($templateParams["giochi-amati"] as $mostratedgame): ?>
       <li>
         <a href = "game.php?id=<?= $mostratedgame["Id"]?>">
-          <img src="<?php echo "../media/covers/".$mostratedgame["Id"].".jpg" ?>" alt="<?php echo $mostratedgame["Name"]; ?>" />
+          <img src="<?= "../media/covers/".$mostratedgame["Id"].".jpg" ?>" alt="<?= $mostratedgame["Name"]; ?>" />
           <section>
             <header>
-              <span><?php echo $mostratedgame["Name"]; ?></span>
+              <span><?= $mostratedgame["Name"]; ?></span>
             </header>
             <footer>
               <div>
                 <?php foreach($mostratedgame["Platforms"] as $platform): ?>
-                  <img src="<?php echo "upload/icons/".$platform["Platform"].".svg" ?>" alt="<?php echo $platform["Platform"]; ?>" />
+                  <img src="<?= "upload/icons/".$platform["Platform"].".svg" ?>" alt="<?= $platform["Platform"]; ?>" />
               
               
                 <?php endforeach; ?>
@@ -154,30 +154,7 @@
     <img src="upload/icons/left_arrow.svg" alt="Left arrow">
     <nav>
       <ul>
-        <?php foreach ($templateParams["offerte-di-lancio"] as $game): ?>
-          <li>
-            <a href = "game.php?id=<?= $game['Id']?>">
-              <article>
-                  <figure>
-
-                      <img src= <?= "../media/covers/".$game['Id'].".jpg" ?>
-                          alt="<?= $game["Name"] ?>"/>
-                      <figcaption><?= $game["Name"] ?></figcaption>
-                  </figure>
-                  <footer>
-                      <!-- Use 'discount', 'price', and 'discounted_price' keys dynamically -->
-                      <?php if (!empty($game['Discount'])): ?>
-                          <span>-<?= $game['Discount']?>%</span>
-                          <?php endif; ?>
-                          <span><?= $game['Price'] ?>€</span>
-                          <?php if (!empty($game['Discount'])): ?>
-                          <span><?= number_format($game['Price'] * (1 - $game['Discount'] / 100), 2)?>€</span>
-                      <?php endif; ?>
-                  </footer>
-              </article>
-            </a>
-          </li>
-      <?php endforeach; ?>
+        
       </ul>
     </nav>
     <img src="upload/icons/left_arrow.svg" alt="Right arrow">
@@ -187,3 +164,4 @@
 
 <script src="../js/front-page-game.js" type="text/javascript"></script> 
 <script src="../js/most-sold-loved-games.js" type="text/javascript"></script> 
+<script src="../js/launch-offers.js" type="text/javascript"></script> 

@@ -290,12 +290,12 @@ body>footer >nav>ul>li>a {
   transition: transform 0.1s ease, opacity 0.1s ease;
 }
 
-.home_content >main>div:nth-child(1)>article>a>figure.slide-out-left{
+.slide-out-left{
   transform: translateX(-100%);
   opacity: 0;
 }
 
-.home_content >main>div:nth-child(1)>article>a>figure.slide-out-right{
+.slide-out-right{
   transform: translateX(100%);
   opacity: 0;
 }
@@ -704,6 +704,7 @@ body>footer >nav>ul>li>a {
   height: 100%;
   padding: 0;
   font-size: 0;
+  transition: transform 0.1s ease, opacity 0.1s ease;
 }
 
 .home_content > main > #home-offers > div > nav > ul > li {
@@ -871,6 +872,10 @@ body>footer >nav>ul>li>a {
 
 .crumbleInverse {
   animation: crumbleInverse 0.5s forwards ease-out;
+}
+
+.notVisible {
+  visibility: hidden;
 }
 
 @keyframes crumble {
