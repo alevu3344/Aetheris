@@ -107,9 +107,10 @@
 <div>
   <div>
     <ul>
-      <?php foreach($templateParams["giochi-acquistati"] as $mostsoldgames): ?>
+        <?php foreach($templateParams["giochi-acquistati"] as $mostsoldgames): ?>
         <li>
-        <img src="<?php echo "../media/covers/".$mostsoldgames["Id"].".jpg" ?>" alt="<?php echo $mostsoldgames["Name"]; ?>" />
+          <a href = "game.php?id=<?= $mostsoldgames["Id"]?>">
+            <img src="<?php echo "../media/covers/".$mostsoldgames["Id"].".jpg" ?>" alt="<?php echo $mostsoldgames["Name"]; ?>" />
             <section>
               <header>
                 <span><?php echo $mostsoldgames["Name"]; ?></span>
@@ -125,10 +126,11 @@
                 <span><?= number_format($mostsoldgames['Price'] * (1 - $mostsoldgames['Discount'] / 100), 2)?>€</span>
               </footer>
             </section>
+          </a>
         </li>
-      <?php endforeach; ?>
-    </ul>
-  </div>
+        <?php endforeach; ?>
+      </ul>
+    </div>
 
   <div></div>
 
@@ -136,6 +138,7 @@
     <ul>
       <?php foreach($templateParams["giochi-amati"] as $mostratedgame): ?>
       <li>
+        <a href = "game.php?id=<?= $mostratedgame["Id"]?>">
           <img src="<?php echo "../media/covers/".$mostratedgame["Id"].".jpg" ?>" alt="<?php echo $mostratedgame["Name"]; ?>" />
           <section>
             <header>
@@ -152,6 +155,7 @@
               <span><?= number_format($mostratedgame['Price'] * (1 - $mostratedgame['Discount'] / 100), 2)?>€</span>
             </footer>
           </section>
+        </a>
       </li>
       <?php endforeach; ?>
     </ul>

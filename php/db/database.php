@@ -146,10 +146,17 @@ class DatabaseHelper
     public function getGameById($id)
     {
     $query = "
-        SELECT G.*, DG.Percentage AS Discount
-        FROM GAMES G
-        LEFT JOIN DISCOUNTED_GAMES DG ON G.Id = DG.GameId
-        WHERE G.Id = ? AND (CURDATE() BETWEEN DG.StartDate AND DG.EndDate OR DG.GameId IS NULL)";
+            SELECT 
+                G.*,
+                IFNULL(DG.Percentage, 0) AS Discount
+            FROM 
+                GAMES G
+            LEFT JOIN 
+                DISCOUNTED_GAMES DG ON G.Id = DG.GameId
+                AND CURRENT_DATE BETWEEN DG.StartDate AND DG.EndDate
+            WHERE 
+                G.Id = ?
+        ";
     
     $stmt = $this->db->prepare($query);
     $stmt->bind_param("i", $id);

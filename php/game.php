@@ -4,7 +4,9 @@ require_once("bootstrap.php");
 
 $gameid = $_GET["id"];
 
+
 $templateParams["gioco"] = $dbh->getGameById($gameid);
+
 //il titolo della pagina è composto da "Aetheris - {GameName}"
 $templateParams["titolo"] = "Aetheris - " . $templateParams["gioco"]["Name"];
 
