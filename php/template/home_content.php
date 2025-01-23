@@ -33,6 +33,7 @@
 
 <h2>GIOCHI IN OFFERTA</h2>
 <div>
+  <a href = "game.php?id=<?= $templateParams["giochi-in-offerta"][0]["Id"]?>">
   <article> <!-- Gioco grande (sinistra)-->
         <figure>
           <img src="../media/covers/<?= $templateParams["giochi-in-offerta"][0]["Id"]?>.jpg" alt="Big Game">
@@ -55,8 +56,10 @@
           </footer>
         </section>
       </article>
+      </a>
 
   <div> <!-- Giochi piccoli (destra)-->
+  <a href = "game.php?id=<?= $templateParams["giochi-in-offerta"][1]["Id"]?>">
     <article>
         <figure>
           <img src="../media/covers/<?= $templateParams["giochi-in-offerta"][1]["Id"]?>.jpg" alt="Top game"/>
@@ -73,7 +76,8 @@
                         <?php endif; ?>
           </footer>
       </article>
-
+    </a>
+    <a href = "game.php?id=<?= $templateParams["giochi-in-offerta"][2]["Id"]?>">
       <article>
         <figure>
           <img src="../media/covers/<?= $templateParams["giochi-in-offerta"][2]["Id"]?>.jpg" alt="Bottom game"/>
@@ -90,7 +94,7 @@
                         <?php endif; ?>
           </footer>
       </article>
-
+    </a>
   </div>
 </div>
 
