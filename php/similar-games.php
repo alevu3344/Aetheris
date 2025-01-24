@@ -3,7 +3,7 @@
     if (!empty($_GET['id'])) {
         $similar_games = $dbh->getSimilarGames($_GET['id'],20);
     } else {
-        $result["Error"] = "Database is written poorly";
+        $result["Error"] = "Errore";
         $result["Success"] = false;
     }
 

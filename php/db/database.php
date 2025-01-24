@@ -363,7 +363,7 @@ class DatabaseHelper
     public function getSimilarGames($gameId, $lim)
     {
         $query = "
-            SELECT 
+            SELECT DISTINCT(G.Name),
                 G.*, 
                 DG.Percentage AS Discount,
                 DG.StartDate,
@@ -381,8 +381,7 @@ class DatabaseHelper
                 GC2.GameId = ?
             AND 
                 G.Id != ?
-            ORDER BY 
-                RAND()
+            ORDER BY RAND()
             LIMIT ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("iii", $gameId, $gameId, $lim);

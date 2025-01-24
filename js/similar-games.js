@@ -1,3 +1,6 @@
+const scriptUrlSimilarGames = new URL(document.currentScript.src); 
+const idGame = scriptUrlSimilarGames.searchParams.get("id"); 
+
 function generateSimilarGames(games){
     let result = "";
     games.forEach(game => {
@@ -27,7 +30,7 @@ function generateSimilarGames(games){
 }
 
 async function createSimilarGames(games) {
-  const launchOffers = generateLaunchOffers(games);
+  const launchOffers = generateSimilarGames(games);
   const listOfGames = document.querySelector(".game_content > main > div:nth-of-type(4) > ul");
   listOfGames.innerHTML = launchOffers;
 }
@@ -38,7 +41,7 @@ function animateUlSimilarGames(games,direction) {
 
     setTimeout(() => {
         curUl.classList.remove(direction ? "slide-out-left" : "slide-out-right");
-        createLaunchOffers(games);
+        createSimilarGames(games);
         curUl = document.querySelector(".game_content > main > div:nth-of-type(4) > ul");
         curUl.classList.add(direction ? "slide-out-right" : "slide-out-left");
         setTimeout(() => {
@@ -102,4 +105,4 @@ let sliceSimilarGames = 4;
 let indexSimilarGames = 0;
 let bufferSimilarGames = [];
 
-initializeSimilarGames('similar-games.php');
+initializeSimilarGames(`similar-games.php?id=${idGame}`);
