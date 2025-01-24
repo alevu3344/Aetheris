@@ -30,20 +30,22 @@
                         <dt>Sviluppatore: </dt>
                         <dd><?= $gioco["Publisher"]?></dd>
                     </div>
+                    <?php if(!empty($gioco["Discount"])): ?>
                     <dl>
                         <div>
                             <dt>Sconto: </dt>
-                            <dd>-40%</dd>
+                            <dd>-<?= $gioco["Discount"]?>%</dd>
                         </div>
                         <div>
                             <dt>Inizio: </dt>
-                            <dd>01/01/2021</dd>
+                            <dd><?= date("j/n/y", strtotime($gioco["StartDate"]))?></dd>
                         </div>
                         <div>
                             <dt>Fine: </dt>
-                            <dd>01/01/2022</dd>
+                            <dd><?= date("j/n/y", strtotime($gioco["EndDate"]))?></dd>
                         </div>
                     </dl>
+                    <?php endif; ?>
                 </dl>
             </div>
         </section>

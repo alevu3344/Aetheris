@@ -51,8 +51,9 @@ document.querySelector(".game_content > main > div:nth-of-type(2) > button:nth-o
         let formData = new FormData(form);
         let platform = formData.get("platform");
         let quantity = formData.get("quantity");
-        console.log(platform, quantity);
-        popup.remove();
+        console.log(game.Id, platform, quantity);
+
+        buyGame(game.Id, platform, quantity);
     });
     //metti l'elemento in testa al body
     document.body.insertBefore(popup, document.body.firstChild);
@@ -176,17 +177,17 @@ function createPopUpWindow(game, platforms, option) {
 
 
 async function buyGame(gameId, platform, quantity) {
+
+    const formData = new FormData();
+    formData.append("GameId", gameId);
+    formData.append("Platform", platform);
+    formData.append("Quantity", quantity);
+
     // Send a POST request to the server with the purchase details
-    let response = await fetch("buy-game-api", {
+    let response = await fetch("buy-game-api.php", {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            gameId: gameId,
-            platform: platform,
-            quantity: quantity
-        })
+        body: formData
+
     });
 
     if (response.ok) {

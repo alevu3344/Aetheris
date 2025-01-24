@@ -80,7 +80,9 @@ class DatabaseHelper
                 G.Id, 
                 G.Name, 
                 G.Price, 
-                DG.Percentage AS Discount
+                DG.Percentage AS Discount,
+                DG.StartDate,
+                DG.EndDate
             FROM 
                 GAMES G
             INNER JOIN 
@@ -100,22 +102,6 @@ class DatabaseHelper
         $stmt->execute();
         $result = $stmt->get_result();
         return $this->addSupportedPlatforms($result->fetch_all(MYSQLI_ASSOC));
-    }
-
-    public function getTopRatedGames($lim)
-    {
-        $query = "
-            SELECT 
-                G.*
-            FROM 
-                GAMES G
-            ORDER BY G.Rating DESC
-            LIMIT ?";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param("i", $lim);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     // this function returns a list of tuples (GameId, GameName, Quantity, OriginalPrice, Discount (0% if not discounted))
@@ -148,7 +134,9 @@ class DatabaseHelper
     $query = "
             SELECT 
                 G.*,
-                IFNULL(DG.Percentage, 0) AS Discount
+                IFNULL(DG.Percentage, 0) AS Discount,
+                DG.StartDate,
+                DG.EndDate
             FROM 
                 GAMES G
             LEFT JOIN 
@@ -166,6 +154,32 @@ class DatabaseHelper
     // Fetch the game data (including discount if available and valid)
     return $result->fetch_assoc();
     }
+
+    public function buyGame($gameId, $userId, $quantity, $total)
+    {
+        // Insert into ORDERS table
+        $query = "INSERT INTO ORDERS (UserId, TotalCost, OrderDate) VALUES (?, ?, NOW())";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("id", $userId, $total);
+        $stmt->execute();
+    
+        // Retrieve the generated OrderId
+        $orderId = $stmt->insert_id;
+    
+        // Insert into ORDER_ITEMS table
+        $query = "INSERT INTO ORDER_ITEMS (GameId, Quantity, FinalPrice, OrderId) VALUES (?, ?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $finalPrice = $total / $quantity; // Assuming the total is divided equally among the items
+        $stmt->bind_param("iidi", $gameId, $quantity, $finalPrice, $orderId);
+        $stmt->execute();
+    
+        // Update user balance
+        $query = "UPDATE USERS SET Balance = Balance - ? WHERE UserID = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("di", $total, $userId);
+        $stmt->execute();
+    }
+    
 
     public function getGameRequirements($id)
     {
@@ -199,7 +213,7 @@ class DatabaseHelper
     }
 
     public function getDiscountedRelevantGames($num){
-        $query = "SELECT G.*, DG.Percentage AS Discount FROM GAMES G INNER JOIN DISCOUNTED_GAMES DG ON G.Id = DG.GameId WHERE CURDATE() BETWEEN DG.StartDate AND DG.EndDate ORDER BY G.ReleaseDate DESC LIMIT ?";
+        $query = "SELECT G.*, DG.Percentage AS Discount, DG.StartDate, DG.EndDate FROM GAMES G INNER JOIN DISCOUNTED_GAMES DG ON G.Id = DG.GameId WHERE CURDATE() BETWEEN DG.StartDate AND DG.EndDate ORDER BY G.ReleaseDate DESC LIMIT ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $num);
         $stmt->execute();
@@ -256,7 +270,9 @@ class DatabaseHelper
         $query = "
             SELECT 
                 G.*, 
-                DG.Percentage AS Discount
+                DG.Percentage AS Discount,
+                DG.StartDate,
+                DG.EndDate
             FROM 
                 GAMES G
             INNER JOIN 
@@ -309,7 +325,9 @@ class DatabaseHelper
         $query = "
             SELECT 
                 G.*,
-                IFNULL(DG.Percentage, 0) AS Discount
+                IFNULL(DG.Percentage, 0) AS Discount,
+                DG.StartDate,
+                DG.EndDate
             FROM 
                 GAMES G
             LEFT JOIN 
