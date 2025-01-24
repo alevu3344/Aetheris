@@ -1,7 +1,6 @@
 function generateLaunchOffers(games){
     let result = "";
-    for(let i=0; i < games.length; i++){
-        let game=games[i];
+    games.forEach(game => {
         const discountText = game['Discount'] ? `<span>-${game["Discount"]}%</span>` : "";
         const discountedPrice = game['Discount'] ? `<span>${(game['Price'] * (1 - game["Discount"] / 100)).toFixed(2)}€</span>` : "";
         let placeholder = `
@@ -22,7 +21,7 @@ function generateLaunchOffers(games){
         </li>
         `;
         result += placeholder;
-    }
+    });
     return result;
 }
 

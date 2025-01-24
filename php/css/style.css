@@ -153,8 +153,7 @@ body>header>nav>div:first-child>div>ul>div>p {
   margin: 0px;
   justify-content: center;
   align-items: center;
-  display: flex
-;
+  display: flex;
 }
 
 body>header>nav>div:first-child>div>ul>li {

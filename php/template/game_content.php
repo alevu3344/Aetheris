@@ -115,31 +115,6 @@
 
     <img src="upload/icons/left_arrow.svg" alt="Left arrow">
     <ul>
-        <?php foreach ($templateParams["similar-games"] as $game): ?>
-            <li>
-                <a href = "game.php?id=<?= $game["Id"]?>">
-                    <article>
-                        <figure>
-
-                            <img src="../media/covers/<?= $game["Id"]?>.jpg"
-                                alt="game" />
-                            <figcaption><?= $game["Name"]?></figcaption>
-                        </figure>
-                        <footer>
-                            <!-- Use 'discount', 'price', and 'discounted_price' keys dynamically -->
-                            <?php if (!empty($game['Discount'])): ?>
-                                <span>-<?= $game['Discount'] ?>%</span>
-                            <?php endif; ?>
-                            <span><?= $game['Price'] ?>€</span>
-                            <?php if (!empty($game['Discount'])): ?>
-                                <span><?= number_format($game['Price'] * (1 - $game['Discount'] / 100), 2) ?>€</span>
-                            <?php endif; ?>
-
-                        </footer>
-                    </article>
-                </a>
-            </li>
-        <?php endforeach; ?>
     </ul>
     <img src="upload/icons/left_arrow.svg" alt="Left arrow">
 </div>
@@ -188,4 +163,5 @@
     "game" => $templateParams["gioco"],
     "platforms" => $templateParams["platforms"]
 ])) ?>"></script>
+<script src="../js/similar-games.js" defer="true"></script> 
 
