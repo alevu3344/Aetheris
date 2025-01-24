@@ -10,3 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+
+const categoriesList = document.getElementById("categories-list");
+categoriesList.style.display = "none";
