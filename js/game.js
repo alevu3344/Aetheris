@@ -5,8 +5,6 @@ const gameData = scriptUrl.searchParams.get("gameData"); // Get the game paramet
 //gameData is an associative array
 const game = JSON.parse(gameData).game;
 const platforms = JSON.parse(gameData).platforms;
-console.log(game);
-console.log(platforms);
 
 document.addEventListener("DOMContentLoaded", function () {
     //ratring is in the span under the .stars
@@ -44,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.querySelector(".game_content > main > div:nth-of-type(2) > button:nth-of-type(1)").addEventListener("click",function (event) {
     event.preventDefault();
     let gameId = document.querySelector(".game_content > main > div:nth-of-type(2)").id;
-    let popupHtml = createPopUpWindow(game, platforms);
+    let popupHtml = createPopUpWindow(game, platforms, option="acquista");
     let popup = document.createElement("div");
     popup.id = "popup";
     popup.innerHTML = popupHtml;
@@ -61,6 +59,24 @@ document.querySelector(".game_content > main > div:nth-of-type(2) > button:nth-o
         console.log(platform, quantity);
         popup.remove();
     });
+
+     // Listener per il bottone +
+     popup.querySelector("button[aria-label='Increase quantity']").addEventListener("click", function (event) {
+        let quantityInput = popup.querySelector("#quantity");
+        let currentQuantity = parseInt(quantityInput.value);
+        quantityInput.value = currentQuantity + 1;
+    });
+
+    // Listener per il bottone -
+    popup.querySelector("button[aria-label='Decrease quantity']").addEventListener("click", function (event) {
+        let quantityInput = popup.querySelector("#quantity");
+        let currentQuantity = parseInt(quantityInput.value);
+        if (currentQuantity > 1) {
+            quantityInput.value = currentQuantity - 1;
+        }
+    });
+
+    
 
     //listener per il bottone annulla
 
@@ -84,14 +100,23 @@ document.querySelector(".game_content > main > div:nth-of-type(2) > button:nth-o
 
 });
 
-function createPopUpWindow(game, platforms) {
-    // Generate platform radio inputs dynamically
-    let platformOptions = platforms.map(platformObj => `
-        <label for="${platformObj.Platform.toLowerCase()}">
-            <input type="radio" id="${platformObj.Platform.toLowerCase()}" name="platform" value="${platformObj.Platform}" required aria-label="${platformObj.Platform}">
-            <img src="upload/icons/${platformObj.Platform}.svg" alt="${platformObj.Platform}">
-        </label>
-    `).join('');
+function createPopUpWindow(game, platforms, option) {
+    // Generate platform radio inputs dynamically with 'required' attribute
+    let platformOptions = platforms.map((platformObj, index) => {
+        return `
+            <label for="${platformObj.Platform.toLowerCase()}">
+                <input type="radio" 
+                       id="${platformObj.Platform.toLowerCase()}" 
+                       name="platform" 
+                       value="${platformObj.Platform}" 
+                       required 
+                       aria-label="${platformObj.Platform}"
+                       ${index === 0 ? 'checked' : ''}/> <!-- Automatically check the first radio button -->
+                <img src="upload/icons/${platformObj.Platform}.svg" alt="${platformObj.Platform}"/>
+            </label>
+        `;
+    }).join('');
+    
 
     // Generate price details dynamically based on Discount
     let priceDetails = game.Discount
@@ -101,6 +126,7 @@ function createPopUpWindow(game, platforms) {
             <span>${(game.Price * (1 - game.Discount / 100)).toFixed(2)}€</span>
           `
         : `<span>${game.Price}€</span>`;
+    let buttonText = option === "acquista" ? "Acquista" : "Aggiungi al carrello";
 
     // Complete popup HTML
     let popupHtml = `
@@ -129,7 +155,7 @@ function createPopUpWindow(game, platforms) {
                     </button>
                 </div>
             </fieldset>
-            <button type="submit">Acquista</button>
+            <button type="submit" id="${option}">${buttonText}</button>
             <button id="annulla"> Annulla</button>
         </form>
     </section>
