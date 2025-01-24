@@ -75,8 +75,7 @@ document.querySelector(".game_content > main > div:nth-of-type(2) > button:nth-o
         let formData = new FormData(form);
         let platform = formData.get("platform");
         let quantity = formData.get("quantity");
-        console.log(platform, quantity);
-        popup.remove();
+        addToCart(game.Id, platform, quantity);
     });
     //metti l'elemento in testa al body
     document.body.insertBefore(popup, document.body.firstChild);
@@ -185,6 +184,28 @@ async function buyGame(gameId, platform, quantity) {
 
     // Send a POST request to the server with the purchase details
     let response = await fetch("buy-game-api.php", {
+        method: "POST",
+        body: formData
+
+    });
+
+    if (response.ok) {
+        let data = await response.json();
+        console.log(data);
+    } else {
+        console.error("HTTP-Error: " + response.status);
+    }
+}
+
+async function addToCart(gameId, platform, quantity) {
+
+    const formData = new FormData();
+    formData.append("GameId", gameId);
+    formData.append("Platform", platform);
+    formData.append("Quantity", quantity);
+
+    // Send a POST request to the server with the purchase details
+    let response = await fetch("add-to-cart-api.php", {
         method: "POST",
         body: formData
 

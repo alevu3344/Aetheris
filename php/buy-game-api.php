@@ -34,7 +34,7 @@ if(isset($_POST['GameId']) && isset($_POST['Quantity']) && isset($_POST['Platfor
 
         if($balance >= $total) {
             $newBalance = $balance - $total;
-            $dbh->buyGame($game_id, $user_id, $quantity, $total);
+            $dbh->buyGame($game_id, $user_id, $quantity, $total, $platform);
             $result = [
                 'success' => true,
                 'message' => 'Game bought successfully'

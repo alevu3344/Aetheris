@@ -155,7 +155,7 @@ class DatabaseHelper
     return $result->fetch_assoc();
     }
 
-    public function buyGame($gameId, $userId, $quantity, $total)
+    public function buyGame($gameId, $userId, $quantity, $total, $platform)
     {
         // Insert into ORDERS table
         $query = "INSERT INTO ORDERS (UserId, TotalCost, OrderDate) VALUES (?, ?, NOW())";
@@ -167,16 +167,55 @@ class DatabaseHelper
         $orderId = $stmt->insert_id;
     
         // Insert into ORDER_ITEMS table
-        $query = "INSERT INTO ORDER_ITEMS (GameId, Quantity, FinalPrice, OrderId) VALUES (?, ?, ?, ?)";
+        $query = "INSERT INTO ORDER_ITEMS (GameId, Quantity, FinalPrice, OrderId, Platform) VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
         $finalPrice = $total / $quantity; // Assuming the total is divided equally among the items
-        $stmt->bind_param("iidi", $gameId, $quantity, $finalPrice, $orderId);
+        $stmt->bind_param("iidis", $gameId, $quantity, $finalPrice, $orderId, $platform);
         $stmt->execute();
     
         // Update user balance
         $query = "UPDATE USERS SET Balance = Balance - ? WHERE UserID = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("di", $total, $userId);
+        $stmt->execute();
+    }
+    
+    public function addToCart($gameId, $userId, $quantity, $platform){
+
+        //check if the (game,platform) is already in the cart, if it is, update the quantity
+        $query = "SELECT * FROM SHOPPING_CARTS WHERE GameId = ? AND UserId = ? AND Platform = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("iis", $gameId, $userId, $platform);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if($result->num_rows > 0){
+            $row = $result->fetch_assoc();
+            $newQuantity = $row["Quantity"] + $quantity;
+            $query = "UPDATE SHOPPING_CARTS SET Quantity = ? WHERE GameId = ? AND UserId = ? AND Platform = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("iiis", $newQuantity, $gameId, $userId, $platform);
+            $stmt->execute();
+            return;
+        }
+        else{
+            $query = "INSERT INTO SHOPPING_CARTS (GameId, UserId, Quantity, Platform) VALUES (?, ?, ?, ?)";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("iiis", $gameId, $userId, $quantity, $platform);
+            $stmt->execute();
+        }
+    }
+
+    public function removeFromCart($gameId, $userId, $quantity, $platform){
+        $query = "DELETE FROM SHOPPING_CART WHERE GameId = ? AND UserId = ? AND Quantity = ? AND Platform = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("iiis", $gameId, $userId, $quantity, $platform);
+        $stmt->execute();
+    }
+
+    public function addReviewToGame($gameId, $userId, $rating,$title, $comment){
+        $query = "INSERT INTO REVIEWS (GameId, UserID, Rating, Title, Comment, Date) VALUES (?, ?, ?, ?, ?, NOW())";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("iiiss", $gameId, $userId, $rating, $title, $comment);
         $stmt->execute();
     }
     
