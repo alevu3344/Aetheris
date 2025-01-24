@@ -30,4 +30,3 @@
     </p>
 </section>
 
-<script src="../js/login.js" defer="true"></script>

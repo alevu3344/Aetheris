@@ -173,3 +173,26 @@ function createPopUpWindow(game, platforms, option) {
 
     return popup;
 }
+
+
+async function buyGame(gameId, platform, quantity) {
+    // Send a POST request to the server with the purchase details
+    let response = await fetch("buy-game-api", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            gameId: gameId,
+            platform: platform,
+            quantity: quantity
+        })
+    });
+
+    if (response.ok) {
+        let data = await response.json();
+        console.log(data);
+    } else {
+        console.error("HTTP-Error: " + response.status);
+    }
+}

@@ -1,4 +1,8 @@
-function putAvatar(avatar, username) {
+
+
+
+function putAvatar(avatar, username) {  
+
     let header_accedi = document.querySelector("body > header > div > div:nth-of-type(2) > a");
     let figure = `
         <img src="../media/avatars/${avatar}" alt="Avatar">
@@ -59,7 +63,10 @@ if(document.querySelector("body").className == "login-form"){
         const username = document.querySelector("#username").value;
         const password = document.querySelector("#password").value;
         console.log("submit pressed")
-        login(username, password);
+        const formData = new FormData();
+        formData.append('Username', username);
+        formData.append('Password', password);
+        login(formData);
     });
 }
 
@@ -95,6 +102,9 @@ async function logout(){
         console.log(error.message);
     }
 }
+
+
+
 
 
 async function register(name, surname, birthday, city, address, phonenumber, email, username, password) {
@@ -151,12 +161,16 @@ async function register(name, surname, birthday, city, address, phonenumber, ema
     }
 }
 
+//when the dom is loaded, check if the user is logged in, and if so call putAvatar
+document.addEventListener("DOMContentLoaded", function () {
+    //call login function with no parameters to check if the user is logged in
+    login(new FormData());
+    console.log("dom loaded and called login again");
+});
 
-async function login(username, password) {
+
+async function login(formData) {
     const url = 'login-api.php';
-    const formData = new FormData();
-    formData.append('Username', username);
-    formData.append('Password', password);
     try {
 
         const response = await fetch(url, {
@@ -181,7 +195,8 @@ async function login(username, password) {
             button.replaceWith(newButton);
 
         }
-        else{
+        else if(json["ErroreLogin"]){
+
             document.querySelector(".login-form > main > section > p").innerText = json["ErroreLogin"];
         
         }
