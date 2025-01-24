@@ -59,13 +59,7 @@ if(isset($_POST['GameId']) && isset($_POST['Quantity']) && isset($_POST['Platfor
 }
 
 
-
-
 header('Content-Type: application/json');
 echo json_encode($result);
-
-
-
-
 
 ?>
