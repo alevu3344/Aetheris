@@ -127,7 +127,7 @@ body>header>nav>div:first-child>img {
 body>header>nav>div:first-child>div>ul {
   position: absolute; /* Position the dropdown relative to the button */
   top: 100%; /* Place it right below the button */
-  left: 100%; /* Move it to the center horizontally */
+  left: 50%; /* Move it to the center horizontally */
   transform: translateX(-50%); /* Adjust it back to be centered */
   background-color: #007bff;
   border: 2px solid white;
@@ -136,9 +136,25 @@ body>header>nav>div:first-child>div>ul {
   z-index: 1000; /* Ensure it appears above other content */
   overflow-y: scroll;
   max-height: 200px;
-  width: 200%; /* Adjust width if necessary */
+  width: 100%; /* Adjust width if necessary */
   padding: 0;
+  margin: 0px;
   box-sizing: border-box;
+}
+
+body>header>nav>div:first-child>div>ul>div {
+  height: 75px;
+  width: 100%;
+}
+
+body>header>nav>div:first-child>div>ul>div>p {
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  justify-content: center;
+  align-items: center;
+  display: flex
+;
 }
 
 body>header>nav>div:first-child>div>ul>li {
@@ -181,6 +197,7 @@ body>header>nav>div:first-child>div>ul>li>a>section>header>span {
   height: 100%;
   display: flex;
   overflow: hidden;
+  text-align: start;
 }
 
 body>header>nav>div:first-child>div>ul>li>a>section>footer {
