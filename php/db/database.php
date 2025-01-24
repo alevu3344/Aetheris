@@ -288,19 +288,18 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getDiscountedGamesByCategory($category, $range = null)
+    public function getDiscountedGamesByCategory($category, $start, $end)
     {
         // Parse the range (default to no range if null)
         $limit = null;
         $offset = null;
 
-        if ($range) {
-            $parts = explode("-", $range);
-            if (count($parts) === 2) {
-                $offset = (int)$parts[0] - 1; // Convert 1-based index to 0-based
-                $limit = (int)$parts[1] - $offset; // Calculate the number of rows
-            }
+        if ($start !== null && $end !== null) {
+            $offset = $start; 
+            $limit = $end - $offset+1; 
         }
+
+        
 
         $query = "
         SELECT 
@@ -447,18 +446,15 @@ class DatabaseHelper
         return $this->addCategories($this->addSupportedPlatforms($result->fetch_all(MYSQLI_ASSOC)));
     }
 
-    public function getMostRatedGamesByCategory($category, $range = null)
+    public function getMostRatedGamesByCategory($category, $start, $end)
     {
         // Parse the range (default to no range if null)
         $limit = null;
         $offset = null;
 
-        if ($range) {
-            $parts = explode("-", $range);
-            if (count($parts) === 2) {
-                $offset = (int)$parts[0] - 1; // Convert 1-based index to 0-based
-                $limit = (int)$parts[1] - $offset; // Calculate the number of rows
-            }
+        if ($start !== null && $end !== null) {
+            $offset = $start; 
+            $limit = $end - $offset+1; 
         }
 
         $query = "
@@ -527,18 +523,15 @@ class DatabaseHelper
         return $this->addSupportedPlatforms($result->fetch_all(MYSQLI_ASSOC));
     }
 
-    public function getMostSoldGamesByCategory($category, $range = null)
+    public function getMostSoldGamesByCategory($category, $start, $end)
     {
         // Parse the range (default to no range if null)
         $limit = null;
         $offset = null;
 
-        if ($range) {
-            $parts = explode("-", $range);
-            if (count($parts) === 2) {
-                $offset = (int)$parts[0] - 1; // Convert 1-based index to 0-based
-                $limit = (int)$parts[1] - $offset; // Calculate the number of rows
-            }
+        if ($start !== null && $end !== null) {
+            $offset = $start; 
+            $limit = $end - $offset+1; 
         }
 
         $query = "
@@ -610,18 +603,15 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getNewGamesByCategory($category, $range = null)
+    public function getNewGamesByCategory($category, $start, $end)
     {
         // Parse the range (default to no range if null)
         $limit = null;
         $offset = null;
 
-        if ($range) {
-            $parts = explode("-", $range);
-            if (count($parts) === 2) {
-                $offset = (int)$parts[0] - 1; // Convert 1-based index to 0-based
-                $limit = (int)$parts[1] - $offset; // Calculate the number of rows
-            }
+        if ($start !== null && $end !== null) {
+            $offset = $start; 
+            $limit = $end - $offset+1; 
         }
 
         $query = "
