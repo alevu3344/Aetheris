@@ -41,12 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
 /*Listener per acquista ora*/
 document.querySelector(".game_content > main > div:nth-of-type(2) > button:nth-of-type(1)").addEventListener("click",function (event) {
     event.preventDefault();
-    let gameId = document.querySelector(".game_content > main > div:nth-of-type(2)").id;
-    let popupHtml = createPopUpWindow(game, platforms, option="acquista");
-    let popup = document.createElement("div");
-    popup.id = "popup";
-    popup.innerHTML = popupHtml;
-
+    let popup = createPopUpWindow(game, platforms, option="acquista");
 
     //listener per il bottone acquista
     popup.querySelector("button[type='submit']").addEventListener("click", function (event) {
@@ -59,35 +54,8 @@ document.querySelector(".game_content > main > div:nth-of-type(2) > button:nth-o
         console.log(platform, quantity);
         popup.remove();
     });
-
-     // Listener per il bottone +
-     popup.querySelector("button[aria-label='Increase quantity']").addEventListener("click", function (event) {
-        let quantityInput = popup.querySelector("#quantity");
-        let currentQuantity = parseInt(quantityInput.value);
-        quantityInput.value = currentQuantity + 1;
-    });
-
-    // Listener per il bottone -
-    popup.querySelector("button[aria-label='Decrease quantity']").addEventListener("click", function (event) {
-        let quantityInput = popup.querySelector("#quantity");
-        let currentQuantity = parseInt(quantityInput.value);
-        if (currentQuantity > 1) {
-            quantityInput.value = currentQuantity - 1;
-        }
-    });
-
-    
-
-    //listener per il bottone annulla
-
-    popup.querySelector("#annulla").addEventListener("click", function (event) {   
-        event.preventDefault();
-        popup.remove();
-    });
     //metti l'elemento in testa al body
     document.body.insertBefore(popup, document.body.firstChild);
-
-    
 
 });
 
@@ -95,13 +63,28 @@ document.querySelector(".game_content > main > div:nth-of-type(2) > button:nth-o
 /*Listener per aggiungi al carrello*/
 document.querySelector(".game_content > main > div:nth-of-type(2) > button:nth-of-type(2)").addEventListener("click",function (event) {
     event.preventDefault();
-    let gameId = document.querySelector(".game_content > main > div:nth-of-type(2)").id;
+    event.preventDefault();
+    let popup = createPopUpWindow(game, platforms, option="carrello");
+
+    //listener per il bottone acquista
+    popup.querySelector("button[type='submit']").addEventListener("click", function (event) {
+        event.preventDefault();
+        console.log("Aggiungi al carrello");
+        let form = popup.querySelector("#purchaseForm");
+        let formData = new FormData(form);
+        let platform = formData.get("platform");
+        let quantity = formData.get("quantity");
+        console.log(platform, quantity);
+        popup.remove();
+    });
+    //metti l'elemento in testa al body
+    document.body.insertBefore(popup, document.body.firstChild);
     
 
 });
 
 function createPopUpWindow(game, platforms, option) {
-    // Generate platform radio inputs dynamically with 'required' attribute
+    // Generate platform radio inputs dynamically
     let platformOptions = platforms.map((platformObj, index) => {
         return `
             <label for="${platformObj.Platform.toLowerCase()}">
@@ -116,7 +99,6 @@ function createPopUpWindow(game, platforms, option) {
             </label>
         `;
     }).join('');
-    
 
     // Generate price details dynamically based on Discount
     let priceDetails = game.Discount
@@ -160,5 +142,34 @@ function createPopUpWindow(game, platforms, option) {
         </form>
     </section>
     `;
-    return popupHtml;
+
+    // Move quantity buttons functionality here
+    let popup = document.createElement("div");
+    popup.id = "popup";
+    popup.innerHTML = popupHtml;
+
+    // Listener for the + button
+    popup.querySelector("button[aria-label='Increase quantity']").addEventListener("click", function (event) {
+        let quantityInput = popup.querySelector("#quantity");
+        let currentQuantity = parseInt(quantityInput.value);
+        quantityInput.value = currentQuantity + 1;
+    });
+
+    // Listener for the - button
+    popup.querySelector("button[aria-label='Decrease quantity']").addEventListener("click", function (event) {
+        let quantityInput = popup.querySelector("#quantity");
+        let currentQuantity = parseInt(quantityInput.value);
+        if (currentQuantity > 1) {
+            quantityInput.value = currentQuantity - 1;
+        }
+    });
+
+    //listener per il bottone annulla
+
+    popup.querySelector("#annulla").addEventListener("click", function (event) {   
+        event.preventDefault();
+        popup.remove();
+    });
+
+    return popup;
 }

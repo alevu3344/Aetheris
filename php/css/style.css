@@ -2562,9 +2562,24 @@ body>footer >nav>ul>li>a {
 }
 
 
-#popup > section > form > button:nth-of-type(1) {
+#popup > section > form > #acquista {
 
   background-color: #35c335;
+  padding: 10px 10px;
+  text-align: center;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  margin: 20px 0 20px 0;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+}
+
+#popup > section > form > #carrello {
+
+  background-color: #007bff;
   padding: 10px 10px;
   text-align: center;
   color: white;
