@@ -131,7 +131,7 @@ class DatabaseHelper
 
     public function getGameById($id)
     {
-    $query = "
+        $query = "
             SELECT 
                 G.*,
                 IFNULL(DG.Percentage, 0) AS Discount,
@@ -145,14 +145,14 @@ class DatabaseHelper
             WHERE 
                 G.Id = ?
         ";
-    
-    $stmt = $this->db->prepare($query);
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    
-    // Fetch the game data (including discount if available and valid)
-    return $result->fetch_assoc();
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        // Fetch the game data (including discount if available and valid)
+        return $result->fetch_assoc();
     }
 
     public function buyGame($gameId, $userId, $quantity, $total, $platform)
@@ -162,25 +162,26 @@ class DatabaseHelper
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("id", $userId, $total);
         $stmt->execute();
-    
+
         // Retrieve the generated OrderId
         $orderId = $stmt->insert_id;
-    
+
         // Insert into ORDER_ITEMS table
         $query = "INSERT INTO ORDER_ITEMS (GameId, Quantity, FinalPrice, OrderId, Platform) VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
         $finalPrice = $total / $quantity; // Assuming the total is divided equally among the items
         $stmt->bind_param("iidis", $gameId, $quantity, $finalPrice, $orderId, $platform);
         $stmt->execute();
-    
+
         // Update user balance
         $query = "UPDATE USERS SET Balance = Balance - ? WHERE UserID = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("di", $total, $userId);
         $stmt->execute();
     }
-    
-    public function addToCart($gameId, $userId, $quantity, $platform){
+
+    public function addToCart($gameId, $userId, $quantity, $platform)
+    {
 
         //check if the (game,platform) is already in the cart, if it is, update the quantity
         $query = "SELECT * FROM SHOPPING_CARTS WHERE GameId = ? AND UserId = ? AND Platform = ?";
@@ -188,7 +189,7 @@ class DatabaseHelper
         $stmt->bind_param("iis", $gameId, $userId, $platform);
         $stmt->execute();
         $result = $stmt->get_result();
-        if($result->num_rows > 0){
+        if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             $newQuantity = $row["Quantity"] + $quantity;
             $query = "UPDATE SHOPPING_CARTS SET Quantity = ? WHERE GameId = ? AND UserId = ? AND Platform = ?";
@@ -196,8 +197,7 @@ class DatabaseHelper
             $stmt->bind_param("iiis", $newQuantity, $gameId, $userId, $platform);
             $stmt->execute();
             return;
-        }
-        else{
+        } else {
             $query = "INSERT INTO SHOPPING_CARTS (GameId, UserId, Quantity, Platform) VALUES (?, ?, ?, ?)";
             $stmt = $this->db->prepare($query);
             $stmt->bind_param("iiis", $gameId, $userId, $quantity, $platform);
@@ -205,20 +205,22 @@ class DatabaseHelper
         }
     }
 
-    public function removeFromCart($gameId, $userId, $quantity, $platform){
+    public function removeFromCart($gameId, $userId, $quantity, $platform)
+    {
         $query = "DELETE FROM SHOPPING_CART WHERE GameId = ? AND UserId = ? AND Quantity = ? AND Platform = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("iiis", $gameId, $userId, $quantity, $platform);
         $stmt->execute();
     }
 
-    public function addReviewToGame($gameId, $userId, $rating,$title, $comment){
+    public function addReviewToGame($gameId, $userId, $rating, $title, $comment)
+    {
         $query = "INSERT INTO REVIEWS (GameId, UserID, Rating, Title, Comment, Date) VALUES (?, ?, ?, ?, ?, NOW())";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("iiiss", $gameId, $userId, $rating, $title, $comment);
         $stmt->execute();
     }
-    
+
 
     public function getGameRequirements($id)
     {
@@ -251,7 +253,8 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getDiscountedRelevantGames($num){
+    public function getDiscountedRelevantGames($num)
+    {
         $query = "SELECT G.*, DG.Percentage AS Discount, DG.StartDate, DG.EndDate FROM GAMES G INNER JOIN DISCOUNTED_GAMES DG ON G.Id = DG.GameId WHERE CURDATE() BETWEEN DG.StartDate AND DG.EndDate ORDER BY G.ReleaseDate DESC LIMIT ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $num);
@@ -285,35 +288,57 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getDiscountedGamesByCategory($lim, $category){
+    public function getDiscountedGamesByCategory($category, $start, $end)
+    {
+        // Parse the range (default to no range if null)
+        $limit = null;
+        $offset = null;
+
+        if ($start !== null && $end !== null) {
+            $offset = $start; 
+            $limit = $end - $offset+1; 
+        }
+
+        
+
         $query = "
-            SELECT 
-                G.*, 
-                DG.Percentage AS Discount,
-                DG.StartDate, 
-                DG.EndDate
-            FROM 
-                GAMES G
-            INNER JOIN 
-                DISCOUNTED_GAMES DG ON G.Id = DG.GameId
-            INNER JOIN 
-                GAME_CATEGORIES GC ON G.Id = GC.GameId
-            INNER JOIN 
-                CATEGORIES C ON GC.CategoryName = C.CategoryName
-            WHERE 
-                CURDATE() BETWEEN DG.StartDate AND DG.EndDate
-            AND 
-                C.CategoryName = ?
-            ORDER BY DG.EndDate DESC
-            LIMIT ?
-                ";
+        SELECT 
+            G.*, 
+            DG.Percentage AS Discount,
+            DG.StartDate, 
+            DG.EndDate
+        FROM 
+            GAMES G
+        INNER JOIN 
+            DISCOUNTED_GAMES DG ON G.Id = DG.GameId
+        INNER JOIN 
+            GAME_CATEGORIES GC ON G.Id = GC.GameId
+        INNER JOIN 
+            CATEGORIES C ON GC.CategoryName = C.CategoryName
+        WHERE 
+            CURDATE() BETWEEN DG.StartDate AND DG.EndDate
+        AND 
+            C.CategoryName = ?
+        ORDER BY DG.EndDate DESC";
+
+        // Add LIMIT and OFFSET if a range is specified
+        if ($limit !== null && $offset !== null) {
+            $query .= " LIMIT ? OFFSET ?";
+        }
 
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("si", $category, $lim);
+
+        if ($limit !== null && $offset !== null) {
+            // Bind parameters for category, limit, and offset
+            $stmt->bind_param("sii", $category, $limit, $offset);
+        } else {
+            // Bind only the category
+            $stmt->bind_param("s", $category);
+        }
+
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
-
     }
 
     public function getSupportedPlatforms($gameId)
@@ -421,28 +446,52 @@ class DatabaseHelper
         return $this->addCategories($this->addSupportedPlatforms($result->fetch_all(MYSQLI_ASSOC)));
     }
 
-    public function getMostRatedGamesByCategory($lim, $category)
+    public function getMostRatedGamesByCategory($category, $start, $end)
     {
+        // Parse the range (default to no range if null)
+        $limit = null;
+        $offset = null;
+
+        if ($start !== null && $end !== null) {
+            $offset = $start; 
+            $limit = $end - $offset+1; 
+        }
+
         $query = "
-            SELECT 
-                G.*,
-                IFNULL(DG.Percentage, 0) AS Discount,
-                DG.StartDate,
-                DG.EndDate
-            FROM 
-                GAMES G
-            INNER JOIN 
-                GAME_CATEGORIES GC ON G.Id = GC.GameId
-            INNER JOIN 
-                CATEGORIES C ON GC.CategoryName = C.CategoryName
-            LEFT JOIN 
-                DISCOUNTED_GAMES DG ON G.Id = DG.GameId
-                AND CURRENT_DATE BETWEEN DG.StartDate AND DG.EndDate
-            WHERE 
-                C.CategoryName = ?
-            LIMIT ?";
+        SELECT 
+            G.*,
+            IFNULL(DG.Percentage, 0) AS Discount,
+            DG.StartDate,
+            DG.EndDate
+        FROM 
+            GAMES G
+        INNER JOIN 
+            GAME_CATEGORIES GC ON G.Id = GC.GameId
+        INNER JOIN 
+            CATEGORIES C ON GC.CategoryName = C.CategoryName
+        LEFT JOIN 
+            DISCOUNTED_GAMES DG ON G.Id = DG.GameId
+            AND CURRENT_DATE BETWEEN DG.StartDate AND DG.EndDate
+        WHERE 
+            C.CategoryName = ?
+        ORDER BY 
+            G.Rating DESC"; // Add ordering by Rating
+
+        // Add LIMIT and OFFSET if a range is specified
+        if ($limit !== null && $offset !== null) {
+            $query .= " LIMIT ? OFFSET ?";
+        }
+
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("si", $category, $lim);
+
+        if ($limit !== null && $offset !== null) {
+            // Bind parameters for category, limit, and offset
+            $stmt->bind_param("sii", $category, $limit, $offset);
+        } else {
+            // Bind only the category
+            $stmt->bind_param("s", $category);
+        }
+
         $stmt->execute();
         $result = $stmt->get_result();
         return $this->addCategories($this->addSupportedPlatforms($result->fetch_all(MYSQLI_ASSOC)));
@@ -474,37 +523,60 @@ class DatabaseHelper
         return $this->addSupportedPlatforms($result->fetch_all(MYSQLI_ASSOC));
     }
 
-    public function getMostSoldGamesByCategory($lim, $category)
+    public function getMostSoldGamesByCategory($category, $start, $end)
     {
+        // Parse the range (default to no range if null)
+        $limit = null;
+        $offset = null;
+
+        if ($start !== null && $end !== null) {
+            $offset = $start; 
+            $limit = $end - $offset+1; 
+        }
+
         $query = "
-            SELECT 
-                G.Id, 
-                G.Name, 
-                G.Price, 
-                G.Rating,
-                IFNULL(DG.Percentage, 0) AS Discount
-            FROM 
-                GAMES G
-            INNER JOIN 
-                GAME_CATEGORIES GC ON G.Id = GC.GameId
-            INNER JOIN 
-                CATEGORIES C ON GC.CategoryName = C.CategoryName
-            LEFT JOIN 
-                DISCOUNTED_GAMES DG ON G.Id = DG.GameId
-                AND CURRENT_DATE BETWEEN DG.StartDate AND DG.EndDate
-            WHERE 
-                C.CategoryName = ?
-            GROUP BY 
-                G.Id
-            ORDER BY 
-                CopiesSold DESC
-            LIMIT ?";
+        SELECT 
+            G.Id, 
+            G.Name, 
+            G.Price, 
+            G.Rating,
+            IFNULL(DG.Percentage, 0) AS Discount
+        FROM 
+            GAMES G
+        INNER JOIN 
+            GAME_CATEGORIES GC ON G.Id = GC.GameId
+        INNER JOIN 
+            CATEGORIES C ON GC.CategoryName = C.CategoryName
+        LEFT JOIN 
+            DISCOUNTED_GAMES DG ON G.Id = DG.GameId
+            AND CURRENT_DATE BETWEEN DG.StartDate AND DG.EndDate
+        WHERE 
+            C.CategoryName = ?
+        GROUP BY 
+            G.Id
+        ORDER BY 
+            CopiesSold DESC";
+
+        // Add LIMIT and OFFSET if a range is specified
+        if ($limit !== null && $offset !== null) {
+            $query .= " LIMIT ? OFFSET ?";
+        }
+
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("si", $category, $lim);
+
+        if ($limit !== null && $offset !== null) {
+            // Bind parameters for category, limit, and offset
+            $stmt->bind_param("sii", $category, $limit, $offset);
+        } else {
+            // Bind only the category
+            $stmt->bind_param("s", $category);
+        }
+
         $stmt->execute();
         $result = $stmt->get_result();
         return $this->addSupportedPlatforms($result->fetch_all(MYSQLI_ASSOC));
     }
+
 
     //retrieved the games the games from the GAMES (ordered by release date) table that have a discount in the DISCOUNTED_GAMES table
     public function getLaunchOffers($lim)
@@ -531,34 +603,57 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getNewGamesByCategory($lim, $category)
+    public function getNewGamesByCategory($category, $start, $end)
     {
+        // Parse the range (default to no range if null)
+        $limit = null;
+        $offset = null;
+
+        if ($start !== null && $end !== null) {
+            $offset = $start; 
+            $limit = $end - $offset+1; 
+        }
+
         $query = "
-            SELECT 
-                G.*,
-                IFNULL(DG.Percentage, 0) AS Discount,
-                DG.StartDate,
-                DG.EndDate
-            FROM 
-                GAMES G
-            INNER JOIN 
-                GAME_CATEGORIES GC ON G.Id = GC.GameId
-            INNER JOIN 
-                CATEGORIES C ON GC.CategoryName = C.CategoryName
-            LEFT JOIN 
-                DISCOUNTED_GAMES DG ON G.Id = DG.GameId
-                AND CURRENT_DATE BETWEEN DG.StartDate AND DG.EndDate
-            WHERE 
-                C.CategoryName = ?
-            ORDER BY 
-                G.ReleaseDate DESC
-            LIMIT ?";
+        SELECT 
+            G.*,
+            IFNULL(DG.Percentage, 0) AS Discount,
+            DG.StartDate,
+            DG.EndDate
+        FROM 
+            GAMES G
+        INNER JOIN 
+            GAME_CATEGORIES GC ON G.Id = GC.GameId
+        INNER JOIN 
+            CATEGORIES C ON GC.CategoryName = C.CategoryName
+        LEFT JOIN 
+            DISCOUNTED_GAMES DG ON G.Id = DG.GameId
+            AND CURRENT_DATE BETWEEN DG.StartDate AND DG.EndDate
+        WHERE 
+            C.CategoryName = ?
+        ORDER BY 
+            G.ReleaseDate DESC";
+
+        // Add LIMIT and OFFSET if a range is specified
+        if ($limit !== null && $offset !== null) {
+            $query .= " LIMIT ? OFFSET ?";
+        }
+
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("si", $category, $lim);
+
+        if ($limit !== null && $offset !== null) {
+            // Bind parameters for category, limit, and offset
+            $stmt->bind_param("sii", $category, $limit, $offset);
+        } else {
+            // Bind only the category
+            $stmt->bind_param("s", $category);
+        }
+
         $stmt->execute();
         $result = $stmt->get_result();
         return $this->addCategories($this->addSupportedPlatforms($result->fetch_all(MYSQLI_ASSOC)));
     }
+
 
     public function getCategoriesForGame($gameId)
     {

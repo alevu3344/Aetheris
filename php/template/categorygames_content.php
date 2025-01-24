@@ -32,13 +32,6 @@
     <?php endforeach; ?>
 </ul>
 
+<script src="../js/categorygames.js?category=<?= $templateParams["category"] ?>&action=<?= $templateParams["action"] ?>"></script>
 
 
-<!-- TO BE CHANGED DO A NAV -->
-
-<!-- <div>
-    <img src="upload/icons/left_arrow.svg" alt="Left arrow"/>
-    <span class="page-number">1</span> 
-    <img src="upload/icons/left_arrow.svg" alt="Right arrow"/>
-</div> 
--->
