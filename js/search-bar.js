@@ -53,7 +53,7 @@ async function getSearchedGames(url) {
             resultsDiv.innerHTML = generateSearchedGames(data);
             
         } else {
-            resultsDiv.innerHTML = "<div>Nessun risultato trovato</div>";
+            resultsDiv.innerHTML = "<div><p>Nessun risultato trovato</p></div>";
         }
     } catch (error) {
         console.log(error.message);
