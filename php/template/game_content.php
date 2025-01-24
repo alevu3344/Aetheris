@@ -184,4 +184,8 @@
 </div>
 
 
-<script src="../js/game.js"></script>
+<script src="../js/game.js?gameData=<?= urlencode(json_encode([
+    "game" => $templateParams["gioco"],
+    "platforms" => $templateParams["platforms"]
+])) ?>"></script>
+

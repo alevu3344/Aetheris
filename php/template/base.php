@@ -3,19 +3,17 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><?php echo $templateParams["titolo"]; ?></title>
+    <title><?= $templateParams["titolo"]; ?></title>
     <link rel="icon" type="image/ico" href="/e-shop/php/upload/icons/aetheris_logo.ico">
 
 
 
     <!--if templateParams["stylesheet"] is set, link to that one, otherwise to the standard tyle.cc-->
     <link rel="stylesheet" type="text/css" href="./css/style.css">
-    <?php if (isset($templateParams["stylesheet"])): ?>
-        <link rel="stylesheet" type="text/css" href="./css/<?= $templateParams["stylesheet"] ?>">
-    <?php endif; ?>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Rampart One' rel='stylesheet'>
+    <script src="../js/login.js" defer="true"></script>
     <script src="../js/base.js" defer="true"></script>
     <script src="../js/search-bar.js" defer="true"></script>
 </head>
@@ -26,44 +24,42 @@
     <header>
         <div>
             <div>
-                <img src="upload/icons/aetheris_logo.png" alt="Logo" />
+                <a href="index.php">
+                    <img src="upload/icons/aetheris_logo.png" alt="Logo" />
+                </a>
                 <h1>Aetheris</h1>
             </div>
 
             <div>
-                <?php if (isset($_SESSION["UserID"])): ?>
-                    <figure>
-                        <img src="../media/avatars/<?= $_SESSION["Avatar"] ?>" alt="Avatar">
-                        <figcaption><?= $_SESSION["Username"] ?></figcaption>
-                    </figure>
-                    <a>
-                        <img src="upload/icons/logout.png" alt="Logout"/>  
-                    </a>
-                <?php else: ?>
-                    <a id="signin" href="login.php">Accedi</a>
-                <?php endif; ?>
+                <a id="signin" href="login.php">Accedi</a>
             </div>
         </div>
         <?php if(isset($templateParams["categorie"])): ?>
             <nav>
         <!-- SEARCH BAR -->
                 <div>
-                    <div></div> <!-- GLOW -->
+                    <div>
+                        <div></div> <!-- GLOW -->
 
-                    <div></div> <!-- BORDER -->
+                        <div></div> <!-- BORDER -->
 
-                    <div> <!-- INPUT CONTAINER -->
-                        <label for="search-bar">Search:</label>
-                        <input id="search-bar" placeholder="Search..." type="text" name="text"/> <!-- INPUT -->
+                        <div> <!-- INPUT CONTAINER -->
+                            <label for="search-bar">Search:</label>
+                            <input id="search-bar" placeholder="Search..." type="text" name="text"/> <!-- INPUT -->
+                        </div>
+                        <ul></ul>
                     </div>
+                    <img src="upload/icons/shopping-cart.svg" alt="Shopping Cart"/>
                 </div>
         <!-- SEARCH BAR -->
-                <button id="categories-toggle">Categories</button>
-                <ul id="categories-list" style="display: none; overflow-y: scroll; max-height: 200px;">
-                    <?php foreach ($templateParams["categorie"] as $categoria): ?>
-                        <li><a href="categorygames.php?category=<?= $categoria["CategoryName"] ?>"><?= $categoria["CategoryName"] ?></a></li>
-                    <?php endforeach; ?>
-                </ul>
+                <div>
+                    <button id="categories-toggle">Categories</button>
+                    <ul id="categories-list" style="display: none; overflow-y: scroll; max-height: 200px;">
+                        <?php foreach ($templateParams["categorie"] as $categoria): ?>
+                            <li><a href="categorygames.php?category=<?= $categoria["CategoryName"] ?>"><?= $categoria["CategoryName"] ?></a></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
             </nav>
         <?php endif; ?>
     </header>

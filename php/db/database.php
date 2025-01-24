@@ -64,6 +64,14 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getAvatars()
+    {
+        $query = "SELECT * FROM AVATARS";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 
     public function getGamesByCategory($category, $lim)
     {
@@ -91,25 +99,17 @@ class DatabaseHelper
         $stmt->bind_param("si", $category, $lim);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
+        return $this->addSupportedPlatforms($result->fetch_all(MYSQLI_ASSOC));
     }
 
     public function getTopRatedGames($lim)
     {
         $query = "
             SELECT 
-                G.Id, 
-                G.Name, 
-                G.Price, 
-                AVG(R.Rating) AS AvgRating
+                G.*
             FROM 
                 GAMES G
-            LEFT JOIN 
-                REVIEWS R ON G.Id = R.GameId
-            GROUP BY 
-                G.Id
-            ORDER BY 
-                AvgRating DESC
+            ORDER BY G.Rating DESC
             LIMIT ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $lim);
@@ -282,23 +282,7 @@ class DatabaseHelper
 
     public function getSearchedGames($gameName, $lim)
     {
-        $query = "
-                SELECT 
-                    G.Name
-                FROM 
-                    GAMES AS G
-                WHERE 
-                    G.Name LIKE CONCAT(?, '%')
-                UNION 
-                SELECT 
-                    G.Name
-                FROM 
-                    GAMES AS G
-                WHERE 
-                    G.Name LIKE CONCAT('%', ?, '%')
-                    AND G.Name NOT LIKE CONCAT(?, '%')
-                LIMIT ?"
-                ;
+        $query = "SELECT GamesWithCondition.* FROM ( SELECT G.* FROM GAMES AS G WHERE G.Name LIKE CONCAT(?, '%') UNION SELECT G.* FROM GAMES AS G WHERE G.Name LIKE CONCAT('%',?, '%') AND G.Name NOT LIKE CONCAT(?, '%') ) AS GamesWithCondition LEFT JOIN `DISCOUNTED_GAMES` AS DG ON GamesWithCondition.Id = DG.GameID AND CURRENT_DATE BETWEEN DG.StartDate AND DG.EndDate LIMIT ?";
 
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("sssi", $gameName, $gameName, $gameName, $lim);
@@ -318,33 +302,35 @@ class DatabaseHelper
         return $games;
     }
 
+
+    public function addCategories($games)
+    {
+        foreach ($games as &$game) {
+            $gameId = $game["Id"];
+            $game["Categories"] = $this->getCategoriesForGame($gameId);
+        }
+
+        return $games;
+    }
+
     //get the most rated games by joining the GAMES and REVIEWS tables and computing the average rating for each game, algo join with discount in order to get the discount
     public function getMostRatedGames($lim)
     {
         $query = "
             SELECT 
-                G.Id, 
-                G.Name, 
-                G.Price, 
-                AVG(R.Rating) AS AvgRating, 
+                G.*,
                 IFNULL(DG.Percentage, 0) AS Discount
             FROM 
                 GAMES G
             LEFT JOIN 
-                REVIEWS R ON G.Id = R.GameId
-            LEFT JOIN 
                 DISCOUNTED_GAMES DG ON G.Id = DG.GameId
                 AND CURRENT_DATE BETWEEN DG.StartDate AND DG.EndDate
-            GROUP BY 
-                G.Id
-            ORDER BY 
-                AvgRating DESC
             LIMIT ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $lim);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $this->addSupportedPlatforms($result->fetch_all(MYSQLI_ASSOC));
+        return $this->addCategories($this->addSupportedPlatforms($result->fetch_all(MYSQLI_ASSOC)));
     }
 
     public function getMostSoldGames($lim)
@@ -395,6 +381,22 @@ class DatabaseHelper
             LIMIT ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $lim);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getCategoriesForGame($gameId)
+    {
+        $query = "
+            SELECT 
+                GC.CategoryName
+            FROM 
+                GAME_CATEGORIES GC
+            WHERE 
+                GC.GameId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $gameId);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -508,6 +510,7 @@ class DatabaseHelper
                     $_SESSION['Email'] = $Email;
                     $_SESSION['LoginString'] = hash('sha256', $password . $user_browser);
                     $_SESSION['Avatar'] = $this->getUser($UserID)["Avatar"];
+                    $_SESSION["isAdmin"] = $this->getUser($UserID)["Role"] == "Admin";
                     // Login eseguito con successo.
                     return true;
                 } else {

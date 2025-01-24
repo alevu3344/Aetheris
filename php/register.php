@@ -5,6 +5,8 @@ $templateParams["titolo"] = "Blog TW - Register";
 
 $templateParams["nome"] = "registration-form.php";
 
+$templateParams["Avatars"] = $dbh->getAvatars();
+
 
 require("template/base.php");
 ?>

@@ -1,5 +1,10 @@
 
+const scriptUrl = new URL(document.currentScript.src); // Get the script's URL
+const gameData = scriptUrl.searchParams.get("gameData"); // Get the game parameter
 
+//gameData is an associative array
+const game = JSON.parse(gameData).game;
+const platforms = JSON.parse(gameData).platforms;
 
 document.addEventListener("DOMContentLoaded", function () {
     //ratring is in the span under the .stars
@@ -36,34 +41,21 @@ document.addEventListener("DOMContentLoaded", function () {
 /*Listener per acquista ora*/
 document.querySelector(".game_content > main > div:nth-of-type(2) > button:nth-of-type(1)").addEventListener("click",function (event) {
     event.preventDefault();
-    let gameId = document.querySelector(".game_content > main > div:nth-of-type(2)").id;
-    let popupHtml = createPopUpWindow();
-    let popup = document.createElement("div");
-    popup.id = "popup";
-    popup.innerHTML = popupHtml;
-
+    let popup = createPopUpWindow(game, platforms, option="acquista");
 
     //listener per il bottone acquista
     popup.querySelector("button[type='submit']").addEventListener("click", function (event) {
         event.preventDefault();
-        let form = popup.querySelector("form");
+        console.log("Acquista");
+        let form = popup.querySelector("#purchaseForm");
         let formData = new FormData(form);
         let platform = formData.get("platform");
         let quantity = formData.get("quantity");
         console.log(platform, quantity);
         popup.remove();
     });
-
-    //listener per il bottone annulla
-
-    popup.querySelector("button[type='button']").addEventListener("click", function (event) {   
-        event.preventDefault();
-        popup.remove();
-    });
     //metti l'elemento in testa al body
     document.body.insertBefore(popup, document.body.firstChild);
-
-    
 
 });
 
@@ -71,44 +63,67 @@ document.querySelector(".game_content > main > div:nth-of-type(2) > button:nth-o
 /*Listener per aggiungi al carrello*/
 document.querySelector(".game_content > main > div:nth-of-type(2) > button:nth-of-type(2)").addEventListener("click",function (event) {
     event.preventDefault();
-    let gameId = document.querySelector(".game_content > main > div:nth-of-type(2)").id;
+    event.preventDefault();
+    let popup = createPopUpWindow(game, platforms, option="carrello");
+
+    //listener per il bottone acquista
+    popup.querySelector("button[type='submit']").addEventListener("click", function (event) {
+        event.preventDefault();
+        console.log("Aggiungi al carrello");
+        let form = popup.querySelector("#purchaseForm");
+        let formData = new FormData(form);
+        let platform = formData.get("platform");
+        let quantity = formData.get("quantity");
+        console.log(platform, quantity);
+        popup.remove();
+    });
+    //metti l'elemento in testa al body
+    document.body.insertBefore(popup, document.body.firstChild);
     
 
 });
 
+function createPopUpWindow(game, platforms, option) {
+    // Generate platform radio inputs dynamically
+    let platformOptions = platforms.map((platformObj, index) => {
+        return `
+            <label for="${platformObj.Platform.toLowerCase()}">
+                <input type="radio" 
+                       id="${platformObj.Platform.toLowerCase()}" 
+                       name="platform" 
+                       value="${platformObj.Platform}" 
+                       required 
+                       aria-label="${platformObj.Platform}"
+                       ${index === 0 ? 'checked' : ''}/> <!-- Automatically check the first radio button -->
+                <img src="upload/icons/${platformObj.Platform}.svg" alt="${platformObj.Platform}"/>
+            </label>
+        `;
+    }).join('');
 
-function createPopUpWindow(){
+    // Generate price details dynamically based on Discount
+    let priceDetails = game.Discount
+        ? `
+            <span>-${game.Discount}%</span>
+            <span>${game.Price}€</span>
+            <span>${(game.Price * (1 - game.Discount / 100)).toFixed(2)}€</span>
+          `
+        : `<span>${game.Price}€</span>`;
+    let buttonText = option === "acquista" ? "Acquista" : "Aggiungi al carrello";
+
+    // Complete popup HTML
     let popupHtml = `
- 
     <section>
         <h2>Conferma</h2>
         <figure>
-            <img src="../media/covers/1.jpg" alt="Game">
-            <p>
-                <span>59.99€</span>
-                <span>-50%</span>
-                <span>29.99€</span>
-            </p>
-            <figcaption>Black Ops 6</figcaption>
+            <img src="../media/covers/${game.Id}.jpg" alt="Game">
+            <p>${priceDetails}</p>
+            <figcaption>${game.Name}</figcaption>
         </figure>
         <form id="purchaseForm">
             <fieldset>
                 <legend>Select a Platform and quantity</legend>
                 <div>
-                    <label for="pc">
-                        <input type="radio" id="pc" name="platform" value="PC" required aria-label="PC">
-                        <img src="upload/icons/PC.svg" alt="PC">
-                    </label>
-
-                    <label for="playstation">
-                        <input type="radio" id="playstation" name="platform" value="PlayStation" aria-label="PlayStation">
-                        <img src="upload/icons/PlayStation.svg" alt="PlayStation">
-                    </label>
-
-                    <label for="xbox">
-                        <input type="radio" id="xbox" name="platform" value="Xbox" aria-label="Xbox">
-                        <img src="upload/icons/Xbox.svg" alt="Xbox">
-                    </label>
+                    ${platformOptions}
                 </div>
 
                 <label for="quantity">Choose a quantity</label>
@@ -122,16 +137,62 @@ function createPopUpWindow(){
                     </button>
                 </div>
             </fieldset>
-            <button type="submit">Acquista</button>
-            <button> Annulla</button>
+            <button type="submit" id="${option}">${buttonText}</button>
+            <button id="annulla"> Annulla</button>
         </form>
     </section>
-  
     `;
-    return popupHtml;
+
+    // Move quantity buttons functionality here
+    let popup = document.createElement("div");
+    popup.id = "popup";
+    popup.innerHTML = popupHtml;
+
+    // Listener for the + button
+    popup.querySelector("button[aria-label='Increase quantity']").addEventListener("click", function (event) {
+        let quantityInput = popup.querySelector("#quantity");
+        let currentQuantity = parseInt(quantityInput.value);
+        quantityInput.value = currentQuantity + 1;
+    });
+
+    // Listener for the - button
+    popup.querySelector("button[aria-label='Decrease quantity']").addEventListener("click", function (event) {
+        let quantityInput = popup.querySelector("#quantity");
+        let currentQuantity = parseInt(quantityInput.value);
+        if (currentQuantity > 1) {
+            quantityInput.value = currentQuantity - 1;
+        }
+    });
+
+    //listener per il bottone annulla
+
+    popup.querySelector("#annulla").addEventListener("click", function (event) {   
+        event.preventDefault();
+        popup.remove();
+    });
+
+    return popup;
 }
 
 
+async function buyGame(gameId, platform, quantity) {
+    // Send a POST request to the server with the purchase details
+    let response = await fetch("buy-game-api", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            gameId: gameId,
+            platform: platform,
+            quantity: quantity
+        })
+    });
 
-
-
+    if (response.ok) {
+        let data = await response.json();
+        console.log(data);
+    } else {
+        console.error("HTTP-Error: " + response.status);
+    }
+}
