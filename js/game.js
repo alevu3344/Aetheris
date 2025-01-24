@@ -84,7 +84,6 @@ document.querySelector(".game_content > main > div:nth-of-type(2) > button:nth-o
 
 });
 
-
 function createPopUpWindow(game, platforms) {
     // Generate platform radio inputs dynamically
     let platformOptions = platforms.map(platformObj => `
@@ -94,17 +93,22 @@ function createPopUpWindow(game, platforms) {
         </label>
     `).join('');
 
+    // Generate price details dynamically based on Discount
+    let priceDetails = game.Discount
+        ? `
+            <span>-${game.Discount}%</span>
+            <span>${game.Price}€</span>
+            <span>${(game.Price * (1 - game.Discount / 100)).toFixed(2)}€</span>
+          `
+        : `<span>${game.Price}€</span>`;
+
     // Complete popup HTML
     let popupHtml = `
     <section>
         <h2>Conferma</h2>
         <figure>
             <img src="../media/covers/${game.Id}.jpg" alt="Game">
-            <p>
-                <span>59.99€</span>
-                <span>-50%</span>
-                <span>29.99€</span>
-            </p>
+            <p>${priceDetails}</p>
             <figcaption>${game.Name}</figcaption>
         </figure>
         <form id="purchaseForm">

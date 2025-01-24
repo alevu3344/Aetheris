@@ -2451,13 +2451,13 @@ body>footer >nav>ul>li>a {
 
 #popup > section > figure > p > span:nth-child(1){
   background-color: #007bff;
-  /*testo barrato*/
-  text-decoration: line-through;
-  color: rgb(130, 130, 130);
+  
 }
 
 #popup > section > figure > p > span:nth-child(2){
   background-color: #000;
+  text-decoration: line-through;
+  color: rgb(130, 130, 130);
 }
 
 #popup > section > figure > p > span:nth-child(3){
