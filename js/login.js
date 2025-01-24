@@ -30,45 +30,48 @@ function putAvatar(avatar, username) {
 }
 
 
+document.addEventListener("DOMContentLoaded", function () {
+    if(document.body.classList.contains("registration-form")){
+        // add a listener to the submit button in the registration form
+        document.querySelector(".registration-form > main > section > form").addEventListener("submit", function (event) {
+            event.preventDefault();
 
-if(document.querySelector("body").className == "registration-form"){
-    // add a listener to the submit button in the registration form
-    document.querySelector(".registration-form > main > section > form").addEventListener("submit", function (event) {
-        event.preventDefault();
+            const name = document.querySelector("#name").value;
+            const surname = document.querySelector("#surname").value;
+            const birthday = document.querySelector("#birthday").value;
+            const city = document.querySelector("#city").value;
+            const address = document.querySelector("#address").value;
+            const phonenumber = document.querySelector("#phonenumber").value;
+            const email = document.querySelector("#email").value;
+            const username = document.querySelector("#username").value;
+            const password = document.querySelector("#password").value;
+            const repeatPassword = document.querySelector("#repeat-password").value;
 
-        const name = document.querySelector("#name").value;
-        const surname = document.querySelector("#surname").value;
-        const birthday = document.querySelector("#birthday").value;
-        const city = document.querySelector("#city").value;
-        const address = document.querySelector("#address").value;
-        const phonenumber = document.querySelector("#phonenumber").value;
-        const email = document.querySelector("#email").value;
-        const username = document.querySelector("#username").value;
-        const password = document.querySelector("#password").value;
-        const repeatPassword = document.querySelector("#repeat-password").value;
-
-        if(password != repeatPassword){
-            document.querySelector(".login-form > main > section > p").innerText = "Passwords don't match";
-        }
-        else{
-            register(name, surname, birthday, city, address, phonenumber, email, username, password);
-        }
-    });
-}
-
-if(document.querySelector("body").className == "login-form"){
-    // Gestisco tentativo di login
-    document.querySelector(".login-form > main > section > form").addEventListener("submit", function (event) {
-        event.preventDefault();
-        const username = document.querySelector("#username").value;
-        const password = document.querySelector("#password").value;
-        console.log("submit pressed")
-        const formData = new FormData();
-        formData.append('Username', username);
-        formData.append('Password', password);
-        login(formData);
-    });
-}
+            if(password != repeatPassword){
+                document.querySelector(".login-form > main > section > p").innerText = "Passwords don't match";
+            }
+            else{
+                register(name, surname, birthday, city, address, phonenumber, email, username, password);
+            }
+        });
+    }
+});
+document.addEventListener("DOMContentLoaded", function () {
+    if(document.body.classList.contains("login-form")){
+        // Gestisco tentativo di login
+        document.querySelector(".login-form > main > section > form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            console.log(document.body.classList.contains("login-form"));
+            const username = document.querySelector("#username").value;
+            const password = document.querySelector("#password").value;
+            console.log("submit pressed")
+            const formData = new FormData();
+            formData.append('Username', username);
+            formData.append('Password', password);
+            login(formData);
+        });
+    }
+});
 
 
 async function logout(){
@@ -85,14 +88,19 @@ async function logout(){
         const json = await response.json();
 
         if(json["Success"]){
-            let header = document.querySelector("body > header > div > div:nth-of-type(2) > a:nth-of-type(1)");
-      
-            let newAccedi = document.createElement("a");
-            newAccedi.href = "login.php";
-            newAccedi.innerText = "Accedi";
-            newAccedi.id = "signin";
+            console.log("Logged out successfully");
+            let header = document.querySelector("body > header > div > div:nth-of-type(2) > figure");
+            let newA = document.createElement("a");
+            newA.href = "login.php";
+            newA.innerText = "Accedi";
+            header.replaceWith(newA);
+            //if im the login page, reload the page
+            if(document.body.classList.contains("login-form")){
+                location.reload();
+            }
+               
+                
             
-            header.replaceWith(newFigure);
         }
         else{
             console.log("Error logging out");
@@ -186,13 +194,16 @@ async function login(formData) {
     
         if(json["LoggedIn"]){
             putAvatar(json["Avatar"], json["Username"]);
-            let button = document.querySelector(".login-form > main > section > form > fieldset > button");
-            //substitute the button with an "a"
-            let newButton = document.createElement("a");
-
-            newButton.href = document.referrer || "index.php";
-            newButton.innerText = "Back to page";
-            button.replaceWith(newButton);
+            if(document.body.classList.contains("login-form") || document.body.classList.contains("registration-form")){
+                let button = document.querySelector(".login-form > main > section > form > fieldset > button");
+                //substitute the button with an "a"
+                let newButton = document.createElement("a");
+    
+                newButton.href = document.referrer || "index.php";
+                newButton.innerText = "Back to page";
+                button.replaceWith(newButton);
+            }
+            
 
         }
         else if(json["ErroreLogin"]){
