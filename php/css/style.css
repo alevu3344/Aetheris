@@ -62,7 +62,7 @@ body>header > nav {
   border: 1px solid rgba(209, 213, 219, 1);
   border-radius: 0.375rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  z-index: 1000; /* Ensure it appears above other content */
+  z-index: 2; /* Ensure it appears above other content */
   overflow-y: scroll;
   max-height: 200px;
   width: 200px; /* Adjust width if necessary */
@@ -2447,7 +2447,7 @@ body>footer >nav>ul>li>a {
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
+  z-index: 3;
 }
 
 #popup > section {
@@ -2459,6 +2459,7 @@ body>footer >nav>ul>li>a {
   background-color: #000000;
   border-radius: 10px;
   padding: 20px;
+  border: white 2px solid;
   box-sizing: border-box;
   color: white;
 }
@@ -2532,6 +2533,9 @@ body>footer >nav>ul>li>a {
   object-fit: cover;
   border-radius: 10px;
   margin-bottom: 10px;
+  border: white 1px solid;
+  box-sizing: border-box;
+
 }
 
 #popup > section > figure > figcaption {
@@ -2825,3 +2829,59 @@ input[type=number] {
 
 
 /************************** START ADMIN PANEL ****************/
+
+
+/************************** START NOTIFICATION ****************/
+
+
+body  > #notification {
+
+  width:90%;
+  margin: 10px 5% 0 5%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: 4;
+  justify-content: left;
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+body  > #notification > h2 {
+  font-family: 'Roboto';
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+  margin: 0;
+  padding: 0;
+  margin-bottom: 5px;
+}
+
+body  > #notification > p {
+  font-family: 'Roboto';
+  font-size: 16px;
+  color: rgb(0, 0, 0);
+  margin: 0;
+  padding: 0;
+  margin-bottom: 5px;
+}
+
+
+body  > #notification > button {
+  background-color: #007bff;
+  padding: 10px 10px;
+  text-align: center;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+}
+
+
+
+
+/************************** END NOTIFICATION ****************/
