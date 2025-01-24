@@ -2020,37 +2020,33 @@ body>footer >nav>ul>li>a {
   box-sizing: border-box; 
 }
 
-.categorygames_content>main > div {
-  display: flex;
-  height: 30px;
-  justify-content: space-between;
+.categorygames_content > main > div {
+  display : flex;
+  flex-direction: column;
+  margin: 0 10% 0 10%;
   align-items: center;
-  margin: 20px 40%;
-  background-color: #007bff;
+}
+
+.categorygames_content > main > div > button {
   border-radius: 10px;
+  /*black background*/
+  background-color: #007bff;
+  border: white 1px solid;
+  box-sizing: border-box;
+  color: white;
+  /*left and right padding*/
+  font-size: 100%;
+  height: 50px;
+  width: 100%;
 }
 
-.categorygames_content>main > div > span {
-  font-weight: bold;
-  font-family: 'Roboto';
-  font-size: 20px;
-  margin: 0 10px;
-}
-
-.categorygames_content>main > div > img {
-  width: 30px;
-  height: 30px;
-  transition: filter 0.5s ease-in-out;
-}
-
-.categorygames_content>main > div > img:hover {
+.categorygames_content > main > div > img {
+  width: 40px;
+  height: 40px;
   filter: invert(1);
+  rotate: 90deg;
 }
 
-
-.categorygames_content>main > div > img:nth-of-type(2) {
-  rotate: 180deg;
-}
 
 /* ------------------------ END CATEGORY GAMES--------------------------- */
 
