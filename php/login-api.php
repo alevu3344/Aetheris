@@ -18,6 +18,7 @@ if(isUserLoggedIn()){
     $result["Username"] = $_SESSION["Username"];
     $result["UserID"] = $_SESSION["UserID"];
     $result["Avatar"] = $dbh->getUser($_SESSION["UserID"])["Avatar"];
+    $result["isAdmin"] = $_SESSION["isAdmin"];
 }
 
 header('Content-Type: application/json');

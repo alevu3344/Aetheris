@@ -491,6 +491,7 @@ class DatabaseHelper
                     $_SESSION['Email'] = $Email;
                     $_SESSION['LoginString'] = hash('sha256', $password . $user_browser);
                     $_SESSION['Avatar'] = $this->getUser($UserID)["Avatar"];
+                    $_SESSION["isAdmin"] = $this->getUser($UserID)["Role"] == "Admin";
                     // Login eseguito con successo.
                     return true;
                 } else {
