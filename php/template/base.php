@@ -17,6 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Rampart One' rel='stylesheet'>
     <script src="../js/base.js" defer="true"></script>
+    <script src="../js/search-bar.js" defer="true"></script>
 </head>
 <!-- the body will have the class extracted from templateParams["nome"] without the .php-->
 
@@ -45,6 +46,18 @@
         </div>
         <?php if(isset($templateParams["categorie"])): ?>
             <nav>
+        <!-- SEARCH BAR -->
+                <div>
+                    <div></div> <!-- GLOW -->
+
+                    <div></div> <!-- BORDER -->
+
+                    <div> <!-- INPUT CONTAINER -->
+                        <label for="search-bar">Search:</label>
+                        <input id="search-bar" placeholder="Search..." type="text" name="text"/> <!-- INPUT -->
+                    </div>
+                </div>
+        <!-- SEARCH BAR -->
                 <button id="categories-toggle">Categories</button>
                 <ul id="categories-list" style="display: none; overflow-y: scroll; max-height: 200px;">
                     <?php foreach ($templateParams["categorie"] as $categoria): ?>

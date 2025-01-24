@@ -11,8 +11,6 @@
   </button>
 </div>
 
-
-
 <h2>GIOCHI IN OFFERTA</h2>
 <div>
   <a href = "game.php?id=<?= $templateParams["giochi-in-offerta"][0]["Id"]?>">
@@ -162,6 +160,6 @@
 
 </div>
 
-<script src="../js/front-page-game.js" type="text/javascript"></script> 
-<script src="../js/most-sold-loved-games.js" type="text/javascript"></script> 
-<script src="../js/launch-offers.js" type="text/javascript"></script> 
+<script src="../js/front-page-game.js" defer="true"></script> 
+<script src="../js/most-sold-loved-games.js" defer="true"></script> 
+<script src="../js/launch-offers.js" defer="true"></script> 

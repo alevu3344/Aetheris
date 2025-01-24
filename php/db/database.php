@@ -250,7 +250,7 @@ class DatabaseHelper
         return $var;
     }
 
-    //i guess
+    //i guess (your guess is wrong) how is minecraft similar to call of duty modern warfare 3 wtf
     public function getSimilarGames($gameId, $lim)
     {
         $query = "
@@ -280,6 +280,32 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getSearchedGames($gameName, $lim)
+    {
+        $query = "
+                SELECT 
+                    G.Name
+                FROM 
+                    GAMES AS G
+                WHERE 
+                    G.Name LIKE CONCAT(?, '%')
+                UNION 
+                SELECT 
+                    G.Name
+                FROM 
+                    GAMES AS G
+                WHERE 
+                    G.Name LIKE CONCAT('%', ?, '%')
+                    AND G.Name NOT LIKE CONCAT(?, '%')
+                LIMIT ?"
+                ;
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("sssi", $gameName, $gameName, $gameName, $lim);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 
     public function addSupportedPlatforms($games)
     {
