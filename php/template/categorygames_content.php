@@ -2,7 +2,7 @@
 
 <nav class="navbar">
     <ul>
-        <li><a>Tendenza</a></li><li><a>Nuove uscite</a></li><li><a>Migliori</a></li><li><a>Offerte</a></li>
+        <li><a href="categorygames.php?category=<?= $templateParams["category"]?>&action=tendenza">Tendenza</a></li><li><a href="categorygames.php?category=<?= $templateParams["category"]?>&action=nuoveuscite">Nuove uscite</a></li><li><a href="categorygames.php?category=<?= $templateParams["category"]?>&action=migliori">Migliori</a></li><li><a href="categorygames.php?category=<?= $templateParams["category"]?>&action=offerte">Offerte</a></li>
     </ul>
 </nav>
 <ul>
@@ -33,10 +33,12 @@
 </ul>
 
 
+
 <!-- TO BE CHANGED DO A NAV -->
 
-<div>
+<!-- <div>
     <img src="upload/icons/left_arrow.svg" alt="Left arrow"/>
-    <span class="page-number">1</span> <!-- Current page number -->
+    <span class="page-number">1</span> 
     <img src="upload/icons/left_arrow.svg" alt="Right arrow"/>
-</div>
+</div> 
+-->

@@ -53,7 +53,7 @@
             </section>
 
             <p class>
-                <a id="back-to-login" href="#">Already have an account? Login</a>
+                <a id="back-to-login" href="login.php">Already have an account? Login</a>
             </p>
             <?php if (isset($_SESSION["Username"])): ?>
                 <a href="index.php">Back to page</a>

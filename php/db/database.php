@@ -285,6 +285,37 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getDiscountedGamesByCategory($lim, $category){
+        $query = "
+            SELECT 
+                G.*, 
+                DG.Percentage AS Discount,
+                DG.StartDate, 
+                DG.EndDate
+            FROM 
+                GAMES G
+            INNER JOIN 
+                DISCOUNTED_GAMES DG ON G.Id = DG.GameId
+            INNER JOIN 
+                GAME_CATEGORIES GC ON G.Id = GC.GameId
+            INNER JOIN 
+                CATEGORIES C ON GC.CategoryName = C.CategoryName
+            WHERE 
+                CURDATE() BETWEEN DG.StartDate AND DG.EndDate
+            AND 
+                C.CategoryName = ?
+            ORDER BY DG.EndDate DESC
+            LIMIT ?
+                ";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("si", $category, $lim);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+
+    }
+
     public function getSupportedPlatforms($gameId)
     {
         $query = "
@@ -390,6 +421,33 @@ class DatabaseHelper
         return $this->addCategories($this->addSupportedPlatforms($result->fetch_all(MYSQLI_ASSOC)));
     }
 
+    public function getMostRatedGamesByCategory($lim, $category)
+    {
+        $query = "
+            SELECT 
+                G.*,
+                IFNULL(DG.Percentage, 0) AS Discount,
+                DG.StartDate,
+                DG.EndDate
+            FROM 
+                GAMES G
+            INNER JOIN 
+                GAME_CATEGORIES GC ON G.Id = GC.GameId
+            INNER JOIN 
+                CATEGORIES C ON GC.CategoryName = C.CategoryName
+            LEFT JOIN 
+                DISCOUNTED_GAMES DG ON G.Id = DG.GameId
+                AND CURRENT_DATE BETWEEN DG.StartDate AND DG.EndDate
+            WHERE 
+                C.CategoryName = ?
+            LIMIT ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("si", $category, $lim);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $this->addCategories($this->addSupportedPlatforms($result->fetch_all(MYSQLI_ASSOC)));
+    }
+
     public function getMostSoldGames($lim)
     {
         $query = "
@@ -397,12 +455,10 @@ class DatabaseHelper
                 G.Id, 
                 G.Name, 
                 G.Price, 
-                AVG(R.Rating) AS AvgRating, 
+                G.Rating,
                 IFNULL(DG.Percentage, 0) AS Discount
             FROM 
                 GAMES G
-            LEFT JOIN 
-                REVIEWS R ON G.Id = R.GameId
             LEFT JOIN 
                 DISCOUNTED_GAMES DG ON G.Id = DG.GameId
                 AND CURRENT_DATE BETWEEN DG.StartDate AND DG.EndDate
@@ -413,6 +469,38 @@ class DatabaseHelper
             LIMIT ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $lim);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $this->addSupportedPlatforms($result->fetch_all(MYSQLI_ASSOC));
+    }
+
+    public function getMostSoldGamesByCategory($lim, $category)
+    {
+        $query = "
+            SELECT 
+                G.Id, 
+                G.Name, 
+                G.Price, 
+                G.Rating,
+                IFNULL(DG.Percentage, 0) AS Discount
+            FROM 
+                GAMES G
+            INNER JOIN 
+                GAME_CATEGORIES GC ON G.Id = GC.GameId
+            INNER JOIN 
+                CATEGORIES C ON GC.CategoryName = C.CategoryName
+            LEFT JOIN 
+                DISCOUNTED_GAMES DG ON G.Id = DG.GameId
+                AND CURRENT_DATE BETWEEN DG.StartDate AND DG.EndDate
+            WHERE 
+                C.CategoryName = ?
+            GROUP BY 
+                G.Id
+            ORDER BY 
+                CopiesSold DESC
+            LIMIT ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("si", $category, $lim);
         $stmt->execute();
         $result = $stmt->get_result();
         return $this->addSupportedPlatforms($result->fetch_all(MYSQLI_ASSOC));
@@ -441,6 +529,35 @@ class DatabaseHelper
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getNewGamesByCategory($lim, $category)
+    {
+        $query = "
+            SELECT 
+                G.*,
+                IFNULL(DG.Percentage, 0) AS Discount,
+                DG.StartDate,
+                DG.EndDate
+            FROM 
+                GAMES G
+            INNER JOIN 
+                GAME_CATEGORIES GC ON G.Id = GC.GameId
+            INNER JOIN 
+                CATEGORIES C ON GC.CategoryName = C.CategoryName
+            LEFT JOIN 
+                DISCOUNTED_GAMES DG ON G.Id = DG.GameId
+                AND CURRENT_DATE BETWEEN DG.StartDate AND DG.EndDate
+            WHERE 
+                C.CategoryName = ?
+            ORDER BY 
+                G.ReleaseDate DESC
+            LIMIT ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("si", $category, $lim);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $this->addCategories($this->addSupportedPlatforms($result->fetch_all(MYSQLI_ASSOC)));
     }
 
     public function getCategoriesForGame($gameId)
