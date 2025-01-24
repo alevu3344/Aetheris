@@ -1323,6 +1323,7 @@ body>footer >nav>ul>li>a {
   flex-wrap: wrap;
   width : 100%;
   gap: 3px;
+  justify-content: center;
 }
 
 .registration-form>main>section>form>fieldset> #avatar-selection > div > label {
