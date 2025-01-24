@@ -23,7 +23,9 @@
     <header>
         <div>
             <div>
-                <img src="upload/icons/aetheris_logo.png" alt="Logo" />
+                <a href="index.php">
+                    <img src="upload/icons/aetheris_logo.png" alt="Logo" />
+                </a>
                 <h1>Aetheris</h1>
             </div>
 
