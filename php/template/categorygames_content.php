@@ -6,32 +6,8 @@
     </ul>
 </nav>
 <ul>
-    <?php foreach ($templateParams["giochi"] as $game): ?>
-        <li>
-            <a href="game.php?id=<?= $game['Id'] ?>">
-                <article>
-                    <figure>
 
-                        <img src= <?= "../media/covers/".$game['Id'].".jpg" ?>
-                            alt="<?= $game["Name"] ?>"/>
-                        <figcaption><?= $game["Name"] ?></figcaption>
-                    </figure>
-                    <footer>
-                        <!-- Use 'discount', 'price', and 'discounted_price' keys dynamically -->
-                        <?php if (!empty($game['Discount'])): ?>
-                            <span>-<? echo $game['Discount']?>%</span>
-                            <?php endif; ?>
-                            <span><?= $game['Price'] ?>€</span>
-                            <?php if (!empty($game['Discount'])): ?>
-                            <span><?= number_format($game['Price'] * (1 - $game['Discount'] / 100), 2)?>€</span>
-                        <?php endif; ?>
-                    </footer>
-                </article>
-            </a>
-        </li>
-    <?php endforeach; ?>
 </ul>
 
 <script src="../js/categorygames.js?category=<?= $templateParams["category"] ?>&action=<?= $templateParams["action"] ?>"></script>
-
 

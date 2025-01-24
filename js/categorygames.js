@@ -1,12 +1,14 @@
 let currentStart = 0; 
 let gamesPerPage = 10; 
 
-//get the arguments to this script url
+
 
 const scriptUrl = new URL(document.currentScript.src); 
 const category = scriptUrl.searchParams.get("category"); 
 const action = scriptUrl.searchParams.get("action");
-getMoreGames(currentStart, currentStart + gamesPerPage);
+getMoreGames(currentStart, currentStart + gamesPerPage-1);
+
+
 
 
 async function getMoreGames(start, end) {
@@ -17,6 +19,19 @@ async function getMoreGames(start, end) {
         });
         const games = await response.json();
         console.log(games);
+        addMoreGames(games);
+        currentStart = end;
+        if (games.length < gamesPerPage) {
+            document.querySelector(".categorygames_content > main > div:last-of-type").remove();
+
+        } else {
+            createLoadMoreButton();
+            document.querySelector(".categorygames_content > main > div:last-of-type button").addEventListener("click", async function () {
+                getMoreGames(currentStart, currentStart + gamesPerPage);
+            });
+        }
+        
+        
     } catch (error) {
         console.log(error.message);
     }
@@ -24,7 +39,7 @@ async function getMoreGames(start, end) {
 
 
 function addMoreGames(games) {
-    const gamesContainer = document.querySelector("ul");
+    const gamesContainer = document.querySelector("main > ul");
     for (let game of games) {
         const gameListItem = document.createElement("li");
         
@@ -50,21 +65,13 @@ function addMoreGames(games) {
 
 
 function createLoadMoreButton() {
-    
     const buttonContainer = document.createElement("div");
-
     const loadMoreButton = document.createElement("button");
     loadMoreButton.textContent = "Carica più giochi"; 
-
-   
     const arrowIcon = document.createElement("img");
     arrowIcon.src = "upload/icons/double-arrow.png";
     arrowIcon.alt = "arrow";
-
     buttonContainer.appendChild(loadMoreButton);
     buttonContainer.appendChild(arrowIcon);
-
-    buttonContainer.classList.add("load-more-button-container");
-
-    document.body.appendChild(buttonContainer);
+    document.querySelector(".categorygames_content > main").appendChild(buttonContainer);
 }
