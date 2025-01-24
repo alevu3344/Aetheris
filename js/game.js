@@ -1,5 +1,12 @@
 
+const scriptUrl = new URL(document.currentScript.src); // Get the script's URL
+const gameData = scriptUrl.searchParams.get("gameData"); // Get the game parameter
 
+//gameData is an associative array
+const game = JSON.parse(gameData).game;
+const platforms = JSON.parse(gameData).platforms;
+console.log(game);
+console.log(platforms);
 
 document.addEventListener("DOMContentLoaded", function () {
     //ratring is in the span under the .stars
@@ -37,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.querySelector(".game_content > main > div:nth-of-type(2) > button:nth-of-type(1)").addEventListener("click",function (event) {
     event.preventDefault();
     let gameId = document.querySelector(".game_content > main > div:nth-of-type(2)").id;
-    let popupHtml = createPopUpWindow();
+    let popupHtml = createPopUpWindow(game, platforms);
     let popup = document.createElement("div");
     popup.id = "popup";
     popup.innerHTML = popupHtml;
@@ -46,7 +53,8 @@ document.querySelector(".game_content > main > div:nth-of-type(2) > button:nth-o
     //listener per il bottone acquista
     popup.querySelector("button[type='submit']").addEventListener("click", function (event) {
         event.preventDefault();
-        let form = popup.querySelector("form");
+        console.log("Acquista");
+        let form = popup.querySelector("#purchaseForm");
         let formData = new FormData(form);
         let platform = formData.get("platform");
         let quantity = formData.get("quantity");
@@ -56,7 +64,7 @@ document.querySelector(".game_content > main > div:nth-of-type(2) > button:nth-o
 
     //listener per il bottone annulla
 
-    popup.querySelector("button[type='button']").addEventListener("click", function (event) {   
+    popup.querySelector("#annulla").addEventListener("click", function (event) {   
         event.preventDefault();
         popup.remove();
     });
@@ -77,38 +85,33 @@ document.querySelector(".game_content > main > div:nth-of-type(2) > button:nth-o
 });
 
 
-function createPopUpWindow(){
+function createPopUpWindow(game, platforms) {
+    // Generate platform radio inputs dynamically
+    let platformOptions = platforms.map(platformObj => `
+        <label for="${platformObj.Platform.toLowerCase()}">
+            <input type="radio" id="${platformObj.Platform.toLowerCase()}" name="platform" value="${platformObj.Platform}" required aria-label="${platformObj.Platform}">
+            <img src="upload/icons/${platformObj.Platform}.svg" alt="${platformObj.Platform}">
+        </label>
+    `).join('');
+
+    // Complete popup HTML
     let popupHtml = `
- 
     <section>
         <h2>Conferma</h2>
         <figure>
-            <img src="../media/covers/1.jpg" alt="Game">
+            <img src="../media/covers/${game.Id}.jpg" alt="Game">
             <p>
                 <span>59.99€</span>
                 <span>-50%</span>
                 <span>29.99€</span>
             </p>
-            <figcaption>Black Ops 6</figcaption>
+            <figcaption>${game.Name}</figcaption>
         </figure>
         <form id="purchaseForm">
             <fieldset>
                 <legend>Select a Platform and quantity</legend>
                 <div>
-                    <label for="pc">
-                        <input type="radio" id="pc" name="platform" value="PC" required aria-label="PC">
-                        <img src="upload/icons/PC.svg" alt="PC">
-                    </label>
-
-                    <label for="playstation">
-                        <input type="radio" id="playstation" name="platform" value="PlayStation" aria-label="PlayStation">
-                        <img src="upload/icons/PlayStation.svg" alt="PlayStation">
-                    </label>
-
-                    <label for="xbox">
-                        <input type="radio" id="xbox" name="platform" value="Xbox" aria-label="Xbox">
-                        <img src="upload/icons/Xbox.svg" alt="Xbox">
-                    </label>
+                    ${platformOptions}
                 </div>
 
                 <label for="quantity">Choose a quantity</label>
@@ -123,15 +126,9 @@ function createPopUpWindow(){
                 </div>
             </fieldset>
             <button type="submit">Acquista</button>
-            <button> Annulla</button>
+            <button id="annulla"> Annulla</button>
         </form>
     </section>
-  
     `;
     return popupHtml;
 }
-
-
-
-
-
