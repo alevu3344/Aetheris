@@ -46,12 +46,17 @@ document.addEventListener("DOMContentLoaded", function () {
             const username = document.querySelector("#username").value;
             const password = document.querySelector("#password").value;
             const repeatPassword = document.querySelector("#repeat-password").value;
+            const selectedAvatar = document.querySelector('input[name="avatar"]:checked');
+            const avatarId = selectedAvatar.value;
+            console.log("avatarId: " + avatarId);
+         
+            
 
             if(password != repeatPassword){
                 document.querySelector(".login-form > main > section > p").innerText = "Passwords don't match";
             }
             else{
-                register(name, surname, birthday, city, address, phonenumber, email, username, password);
+                register(name, surname, birthday, city, address, phonenumber, email, username, password, avatarId);
             }
         });
     }
@@ -115,7 +120,7 @@ async function logout(){
 
 
 
-async function register(name, surname, birthday, city, address, phonenumber, email, username, password) {
+async function register(name, surname, birthday, city, address, phonenumber, email, username, password, avatarId) {
     
     
     const url = 'register-api.php';
@@ -129,7 +134,9 @@ async function register(name, surname, birthday, city, address, phonenumber, ema
     formData.append('City', city);
     formData.append('Address', address);
     formData.append('PhoneNumber', phonenumber);
-    formData.append('AvatarId', 1);
+    formData.append('AvatarId', avatarId);
+
+    console.log("registering");
 
 
     
@@ -168,6 +175,7 @@ async function register(name, surname, birthday, city, address, phonenumber, ema
         console.log(error.message);
     }
 }
+
 
 //when the dom is loaded, check if the user is logged in, and if so call putAvatar
 document.addEventListener("DOMContentLoaded", function () {
