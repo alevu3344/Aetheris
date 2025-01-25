@@ -267,11 +267,12 @@ async function getMoreReviews(start, end) {
         
         currentStart = end;
         if (reviews.length < reviewsPerPage) {
-            document.querySelector(".categorygames_content > main > div:last-of-type").remove();
+            document.querySelector("main > div:last-of-type").remove();
 
         } else {
             
-            document.querySelector(".categorygames_content > main > div:last-of-type button").addEventListener("click", async function () {
+            document.querySelector("main > div:last-of-type button").addEventListener("click", async function () {
+                console.log("ciao");
                 getMoreReviews(currentStart, currentStart + reviewsPerPage);
             });
         }
