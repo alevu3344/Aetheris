@@ -52,7 +52,7 @@ function animateUlSimilarGames(games,direction) {
     }, 100);
 } 
 
-async function generateGameBuffer(url) {
+async function generateSimilarGameBuffer(url) {
     try {
         const response = await fetch(url, {method: "GET"});
         if (!response.ok) {
@@ -67,7 +67,7 @@ async function generateGameBuffer(url) {
   }
 
 async function initializeSimilarGames(url) {
-  bufferSimilarGames = await generateGameBuffer(url);
+  bufferSimilarGames = await generateSimilarGameBuffer(url);
   if (bufferSimilarGames && bufferSimilarGames.length > 0) {
     createSimilarGames(bufferSimilarGames.slice(0,4));
   } else {
