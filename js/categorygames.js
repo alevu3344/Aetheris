@@ -8,6 +8,9 @@ const category = scriptUrl.searchParams.get("category");
 const action = scriptUrl.searchParams.get("action");
 getMoreGames(currentStart, currentStart + gamesPerPage-1);
 
+document.querySelector(".categorygames_content > main > div:last-of-type button").addEventListener("click", async function () {
+    getMoreGames(currentStart, currentStart + gamesPerPage-1);
+});
 
 
 
@@ -18,18 +21,13 @@ async function getMoreGames(start, end) {
             method: "GET"
         });
         const games = await response.json();
-        console.log(games);
         addMoreGames(games);
+
         currentStart = end+1;
         if (games.length < gamesPerPage) {
             document.querySelector(".categorygames_content > main > div:last-of-type").remove();
 
-        } else {
-            document.querySelector(".categorygames_content > main > div:last-of-type button").addEventListener("click", async function () {
-                getMoreGames(currentStart, currentStart + gamesPerPage);
-            });
-        }
-        
+        } 
         
     } catch (error) {
         console.log(error.message);
