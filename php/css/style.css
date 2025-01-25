@@ -2142,7 +2142,7 @@ body>footer >nav>ul>li>a {
 
 /************************STAR RATING END***********************/
 
-
+/*
 
 .game_content > main > img {
   width: 90%;
@@ -2152,6 +2152,19 @@ body>footer >nav>ul>li>a {
   border-radius: 10px;
   border: white 1px solid;
   box-sizing: border-box;
+}
+
+*/
+
+
+
+
+.game_content > main > iframe {
+  width: 90%;
+  margin-left: 5%;
+  box-sizing: border-box;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 20px;
 }
 
 .game_content > main > section:nth-of-type(1) {

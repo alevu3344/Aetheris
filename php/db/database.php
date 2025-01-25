@@ -367,7 +367,7 @@ class DatabaseHelper
         INNER JOIN GAME_CATEGORIES gc1 ON g.Id = gc1.GameId
         INNER JOIN GAME_CATEGORIES gc2 ON gc1.CategoryName = gc2.CategoryName
         LEFT JOIN 
-            DISCOUNTED_GAMES DG ON G.Id = DG.GameId
+            DISCOUNTED_GAMES DG ON g.Id = DG.GameId
             AND CURRENT_DATE BETWEEN DG.StartDate AND DG.EndDate
         WHERE gc2.GameId = ? AND g.Id != ?
         GROUP BY g.Id
