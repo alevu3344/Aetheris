@@ -121,36 +121,8 @@
 
 <h2>Recensioni</h2>
 
-<ul>
-    <?php foreach ($templateParams["recensioni"] as $recensione): ?>
-        <li>
-            <article>
-                <header>
-                    <img src="../media/avatars/<?= $recensione["Avatar"] ?>" alt="avatar">
-                    <section>
-                        <div>
-                            <span><?= $recensione["Username"] ?></span>
-                            <div class="stars">
-                                <span><?= $recensione["Rating"] ?></span>
-                                <div class="star"></div>
-                                <div class="star"></div>
-                                <div class="star"></div>
-                                <div class="star"></div>
-                                <div class="star"></div>
-                                
-                            </div>
-                        </div>
-                    </section>
-                </header>
-                <h2><?= $recensione["Title"] ?></h2>
-                <p><?= $recensione["Comment"] ?></p>
-                <footer>
-                    <span><?= $recensione["CreatedAt"] ?></span>
-                </footer>
-            </article>
-        </li>
-        
-    <?php endforeach; ?>
+<ul id="reviewsList">
+
 </ul>
 
 <div>
