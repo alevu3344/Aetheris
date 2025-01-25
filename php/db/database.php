@@ -359,35 +359,31 @@ class DatabaseHelper
         return $var;
     }
 
-    //i guess (your guess is wrong) how is minecraft similar to call of duty modern warfare 3 wtf
     public function getSimilarGames($gameId, $lim)
     {
         $query = "
-            SELECT DISTINCT(G.Name),
-                G.*, 
-                DG.Percentage AS Discount,
-                DG.StartDate,
-                DG.EndDate
-            FROM 
-                GAMES G
-            INNER JOIN 
-                GAME_CATEGORIES GC ON G.Id = GC.GameId
-            INNER JOIN 
-                GAME_CATEGORIES GC2 ON GC.CategoryName = GC2.CategoryName
-            LEFT JOIN 
-                DISCOUNTED_GAMES DG ON G.Id = DG.GameId
-                AND CURRENT_DATE BETWEEN DG.StartDate AND DG.EndDate
-            WHERE 
-                GC2.GameId = ?
-            AND 
-                G.Id != ?
-            ORDER BY RAND()
-            LIMIT ?";
+        SELECT g.Id, g.Name, g.Price, g.Trailer, g.Rating 
+        FROM GAMES g
+        INNER JOIN GAME_CATEGORIES gc1 ON g.Id = gc1.GameId
+        INNER JOIN GAME_CATEGORIES gc2 ON gc1.CategoryName = gc2.CategoryName
+        WHERE gc2.GameId = ? AND g.Id != ?
+        GROUP BY g.Id
+        ORDER BY COUNT(gc1.CategoryName) DESC, g.Rating DESC
+        LIMIT ?
+    ";
+
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("iii", $gameId, $gameId, $lim);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
+
+        $similarGames = [];
+        while ($row = $result->fetch_assoc()) {
+            $similarGames[] = $row;
+        }
+
+        $stmt->close();
+        return $similarGames;
     }
 
     public function getSearchedGames($gameName, $lim)
@@ -680,7 +676,7 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getReviewsByGame($gameId, $start=null, $end=null)
+    public function getReviewsByGame($gameId, $start = null, $end = null)
     {
         // Parse the range (default to no range if null)
         $limit = null;
