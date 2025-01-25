@@ -1,3 +1,8 @@
+let currentStart = 0; 
+let reviewsPerPage = 3; 
+
+
+
 
 const scriptUrl = new URL(document.currentScript.src); // Get the script's URL
 const gameData = scriptUrl.searchParams.get("gameData"); // Get the game parameter
@@ -5,6 +10,7 @@ const gameData = scriptUrl.searchParams.get("gameData"); // Get the game paramet
 //gameData is an associative array
 const game = JSON.parse(gameData).game;
 const platforms = JSON.parse(gameData).platforms;
+//getMoreReviews(currentStart, currentStart + reviewsPerPage-1);
 
 document.addEventListener("DOMContentLoaded", function () {
     //ratring is in the span under the .stars
@@ -261,3 +267,62 @@ function createNotificaton(title,message, type){
 
     
 }
+
+
+/*
+async function getMoreReviews(start, end) {
+    const url = `load-more-games-api.php?start=${start}&end=${end}&id=${game.Id}`;
+    const response = await fetch(url, {
+        method: "GET"
+    });
+
+    if (response.ok) {
+        const reviews = await response.json();
+        console.log(reviews);
+   
+    } else {
+        console.error("HTTP-Error: " + response.status);
+    }
+}
+*/
+
+/*
+function appendNewReviews(reviews) {
+    
+    const reviewsList = document.querySelector("#reviewsList"); // Modifica il selettore secondo il tuo HTML
+
+    reviews.forEach(review => {
+        
+        const reviewHTML = `
+            <li>
+                <article>
+                    <header>
+                        <img src="../media/avatars/${review.Avatar}" alt="avatar">
+                        <section>
+                            <div>
+                                <span>${review.Username}</span>
+                                <div class="stars">
+                                    <span>${review.Rating}</span>
+                                    <div class="star"></div>
+                                    <div class="star"></div>
+                                    <div class="star"></div>
+                                    <div class="star"></div>
+                                    <div class="star"></div>
+                                </div>
+                            </div>
+                        </section>
+                    </header>
+                    <h2>${review.Title}</h2>
+                    <p>${review.Comment}</p>
+                    <footer>
+                        <span>${review.CreatedAt}</span>
+                    </footer>
+                </article>
+            </li>
+        `;
+
+    
+        reviewsList.insertAdjacentHTML("beforeend", reviewHTML);
+    });
+}
+*/
