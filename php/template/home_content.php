@@ -3,8 +3,7 @@
     <img src="upload/icons/left_arrow.svg" alt="Left arrow">
   </button>
 
-    <article>
-    </article>
+  <div></div>
 
   <button>
     <img src="upload/icons/right_arrow.svg" alt="Right arrow">

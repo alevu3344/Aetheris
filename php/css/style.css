@@ -525,6 +525,7 @@ body>footer >nav>ul>li>a {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 200px;
 }
 
 .home_content >main>div:nth-child(1)>button {
@@ -541,27 +542,27 @@ body>footer >nav>ul>li>a {
   width: 100%;
 }
 
-.home_content >main>div:nth-child(1)>article {
+.home_content >main>div:nth-child(1)>div {
   display: flex;
   flex-direction: column;
   text-align: left;
   width: 80%;
-  height: 200px;
-  box-sizing: border-box;
-}
-
-.home_content >main>div:nth-child(1)>article>a {
-  width: 100%;
   height: 100%;
+  box-sizing: border-box;
   overflow: hidden;
 }
 
-.home_content >main>div:nth-child(1)>article>a>figure {
-  height: 100%;
+.home_content >main>div:nth-child(1)>div>a {
   width: 100%;
+  height: 100%;
+  transition: transform 0.1s ease, opacity 0.1s ease;
+}
+
+.home_content >main>div:nth-child(1)>div>a>article {
+  width: 100%;
+  height: 100%;
   margin: 0px;
   position: relative;
-  transition: transform 0.1s ease, opacity 0.1s ease;
 }
 
 .slide-out-left{
@@ -574,18 +575,55 @@ body>footer >nav>ul>li>a {
   opacity: 0;
 }
 
-.home_content >main>div:nth-child(1)>article>a>figure>figcaption {
+.home_content >main>div:nth-child(1)>div>a>article>header {
   display: block;
   position: absolute;
-  bottom: 0;
+  bottom: 50%;
   left: 0;
   width: 50%;
-  height: 100%;
+  height: 50%;
   text-align: left;
   z-index: 1;
 }
 
-.home_content >main>div:nth-child(1)>article>a>figure>div:nth-child(1) {
+.home_content >main>div:nth-child(1)>div>a>article>header>h3 {
+  font-family: "Sedgwick Ave Display", sans-serif;
+  font-size: 24px;
+  margin: 0px;
+  color: white;
+  padding: 15% 0% 2% 15%;
+  overflow: hidden;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.home_content >main>div:nth-child(1)>div>a>article>section {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+}
+
+.home_content >main>div:nth-child(1)>div>a>article>section>img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10%;
+  z-index: -1;
+}
+
+.home_content >main>div:nth-child(1)>div>a>article>section>div:first-child {
   position: relative;
   width: 100%;
   height: 100%;
@@ -593,94 +631,113 @@ body>footer >nav>ul>li>a {
   border-radius: 10%;
   border: 1px solid white;
   box-sizing: border-box;
+  z-index: 0;
+}
+
+
+.home_content >main>div:nth-child(1)>div>a>article>section>div:nth-child(3){
+  position: absolute;
+  right: 50%;
+  bottom: 0;
+  padding: 5px 0 10px 7.5%;
+  box-sizing: border-box;
+  height: 50%;
+  width: 50%;
   z-index: 1;
 }
 
-.home_content >main>div:nth-child(1)>article>a>figure>img {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 10%;
-}
-
-.home_content >main>div:nth-child(1)>article>a>figure>figcaption>p:nth-child(1) {
-  font-family: "Sedgwick Ave Display", sans-serif;
-  font-size: 24px;
-  margin: 0px;
-  color: white;
-  padding: 15% 0% 2% 15%;
-  overflow: hidden;
-}
-
-.home_content >main>div:nth-child(1)>article>a>figure>figcaption>p:nth-child(2) {
+.home_content >main>div:nth-child(1)>div>a>article>section>div:nth-child(3)>p {
   margin: 0px;
   color: white;
   font-family: 'Roboto';
   font-size: 12px;
-  padding: 2% 0% 15% 15%;
   overflow: hidden;
+  height: 100%;
+  width: 100%;
 }
 
-.home_content >main>div:nth-child(1)>article>a>figure>div:nth-child(4) {
+.home_content >main>div:nth-child(1)>div>a>article>footer {
   display: block;
   position: absolute;
-  box-sizing: border-box;
   bottom: 0;
-  right: 0;
+  left: 50%;
   width: 50%;
-  height: 50%;
-  padding: 0 5% 0 5%;
+  height: 100%;
+  padding: 0 7.5%;
+  box-sizing: border-box;
+  text-align: left;
   z-index: 1;
-}
-
-.home_content >main>div:nth-child(1)>article>a>figure>div:nth-child(4)>div {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  width: 100%;
-  height: 20%;
-  margin-bottom: 2%;
+  justify-content: center;
 }
 
-.home_content >main>div:nth-child(1)>article>a>figure>div:nth-child(4)>div>span {
+.home_content >main>div:nth-child(1)>div>a>article>footer>div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 10%;
+}
+
+.home_content >main>div:nth-child(1)>div>a>article>footer>div:first-child>p:first-child {
+  height: 100%;
+  width: auto;
   color: white;
-  font-family: 'Roboto';
-  font-size: 20px;
-  margin-right: 2%;
-}
-
-.home_content >main>div:nth-child(1)>article>a>figure>div:nth-child(4)>div>button {
-  border: none;
-  border-radius: 10px;
-  height: 80%;
-  width: 100%;
-  font-size: 12px;
+  font-size: 14px;
+  margin: 0px;
   font-family: 'Roboto';
   padding: 0px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin-right: 5%;
 }
 
-.home_content >main>div:nth-child(1)>article>a>figure>div:nth-child(4)>button {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  height: 20%;
-  width: 100%;
-  background-color: transparent;
+.home_content >main>div:nth-child(1)>div>a>article>footer>div:first-child>p:nth-child(2) {
   border: none;
   border-radius: 10px;
-  color: white;
+  height: 100%;
+  width: auto;
+  margin: 0px;
+  color: black;
+  background-color: white;
+  font-size: 14px;
   font-family: 'Roboto';
-  font-size: 10px;
-  padding: 0px;
+  padding-left: 5px;
+  padding-right: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.home_content >main>div:nth-child(1)>article>a>figure>div:nth-child(4)>button>img {
-  height: 80%;
-  width: 20%;
+
+.home_content >main>div:nth-child(1)>div>a>article>footer>div:nth-child(2)>img{
+  width: auto;
+  height: 100%;
   filter: invert(1);
   margin-right: 2%;
 }
+
+.home_content >main>div:nth-child(1)>div>a>article>footer>div:nth-child(2)>p {
+  height: 100%;
+  width: auto;
+  margin: 0px;
+  color: white;
+  font-size: 10px;
+  font-family: 'Roboto';
+  padding: 0px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  text-align: center;
+}
+
+
+
+
+
+
 
 /* ------------------------      Front page games END    --------------------------- */
 
@@ -915,7 +972,7 @@ body>footer >nav>ul>li>a {
 }
 
 .home_content > main > #home-offers > section {
-  height: 35%;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -928,7 +985,7 @@ body>footer >nav>ul>li>a {
 .home_content > main > #home-offers > section > h2 {
   font-family: 'Rampart One';
   color: white;
-  height: 65%;
+  height: fit-content;
   font-size: 20px;
   margin: 0;
   padding: 0;
@@ -938,7 +995,7 @@ body>footer >nav>ul>li>a {
   font-family: 'Roboto';
   color: white;
   font-size: 12px;
-  height: 35%;
+  height: fit-content;
   margin: 0;
   padding: 0;
 }
@@ -1104,6 +1161,9 @@ body>footer >nav>ul>li>a {
 .home_content > main > nav > ul > li {
   width: 45%;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .home_content > main > nav > ul > li > h2{

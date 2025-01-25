@@ -245,7 +245,7 @@ class DatabaseHelper
     //based on the latest published games
     public function getRelevantGames($num)
     {
-        $query = "SELECT * FROM GAMES ORDER BY ReleaseDate DESC LIMIT ?";
+        $query = "SELECT G.*, DG.Percentage AS Discount FROM GAMES G INNER JOIN DISCOUNTED_GAMES DG ON G.Id = DG.GameId WHERE CURDATE() BETWEEN DG.StartDate AND DG.EndDate ORDER BY G.ReleaseDate DESC LIMIT ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $num);
         $stmt->execute();

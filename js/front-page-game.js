@@ -1,25 +1,29 @@
 function generateRelevantGame(game){
+    const realPrice = game['Discount'] ? `${(game['Price'] * (1 - game["Discount"] / 100)).toFixed(2)}` : `${game["Price"]}`;
     let placeholder = `
     <a href = "game.php?id=${game["Id"]}">
-      <figure>
-        <div></div>
-        <img src="../media/covers/${game["Id"]}.jpg" alt="${game["Name"]}"/>
-        <figcaption>
-          <p>${game["Name"]}</p>
-          <p>${game["Description"]}</p>
-        </figcaption>
-
-        <div>
+      <article>
+        <header>
+          <h3>${game["Name"]}</h3>
+        </header>
+        <section>
+          <div></div>
+          <img src="../media/covers/${game["Id"]}.jpg" alt="${game["Name"]}"/>
           <div>
-            <span>${game["Price"]}</span>
-            <button>Acquista</button>
+            <p>${game["Description"]}</p>
           </div>
-          <button>
+        </section>
+        <footer>
+          <div>
+            <p>${realPrice}€</p>
+            <p>Acquista</p>
+          </div>
+          <div>
             <img src="upload/icons/add-to-cart.svg" alt="Add to cart icon"/>
-            Aggiungi al carrello
-          </button>
-        </div>
-      </figure>
+            <p>Aggiungi al carrello</p>
+          </div>
+        </footer>
+      </article>
     </a>
     `;
     return placeholder;
@@ -40,22 +44,18 @@ async function generateGameBuffer(url) {
 
 async function createRelevantGame(game) {
   const relevantGame = generateRelevantGame(game);
-  const figure = document.querySelector(".home_content > main > div:first-child > article");
-  figure.innerHTML = relevantGame;
-
-  document.querySelector(".home_content >main>div:nth-child(1)>article>a>figure>div:nth-child(4)>div>button").addEventListener("click", function(e){
-    e.preventDefault();
-  });
+  const gameToShow = document.querySelector(".home_content > main > div:first-child > div");
+  gameToShow.innerHTML = relevantGame;
 }
 
 function animateFigure(game,direction) {
-    curFigure = document.querySelector(".home_content >main>div:nth-child(1)>article>a>figure");
+    curFigure = document.querySelector(".home_content > main > div:first-child > div > a");
     curFigure.classList.add(direction ? "slide-out-left" : "slide-out-right");
 
     setTimeout(() => {
         curFigure.classList.remove(direction ? "slide-out-left" : "slide-out-right");
         createRelevantGame(game);
-        curFigure = document.querySelector(".home_content >main>div:nth-child(1)>article>a>figure");
+        curFigure = document.querySelector(".home_content > main > div:first-child > div > a");
         curFigure.classList.add(direction ? "slide-out-right" : "slide-out-left");
         setTimeout(() => {
           curFigure.classList.add(direction ? "slide-out-left" : "slide-out-right");

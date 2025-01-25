@@ -12,10 +12,7 @@
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Rampart One' rel='stylesheet'>
-    <script src="../js/login.js" defer="true"></script>
-    <script src="../js/base.js" defer="true"></script>
-    <script src="../js/search-bar.js" defer="true"></script>
+    <link href='https://fonts.googleapis.com/css?family=Rampart%20One' rel="stylesheet">
 </head>
 <!-- the body will have the class extracted from templateParams["nome"] without the .php-->
 
@@ -86,10 +83,11 @@
                 <li><img src="upload/icons/twitter.png" alt="Twitter" /><a href="#">Twitter</a></li>
             </ul>
         </nav>
-
-        <a href="#">Track an order</a>
-
     </footer>
 </body>
+
+<script src="../js/login.js" defer="true"></script>
+<script src="../js/base.js" defer="true"></script>
+<script src="../js/search-bar.js" defer="true"></script>
 
 </html>
