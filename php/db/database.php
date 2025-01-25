@@ -112,10 +112,11 @@ class DatabaseHelper
                 G.Id, 
                 G.Name, 
                 SC.Quantity, 
+                SC.Platform,
                 G.Price, 
                 IFNULL(DG.Percentage, 0) AS Discount
             FROM 
-                SHOPPING_CART SC
+                SHOPPING_CARTS SC
             INNER JOIN 
                 GAMES G ON SC.GameId = G.Id
             LEFT JOIN 
@@ -126,7 +127,7 @@ class DatabaseHelper
         $stmt->bind_param("i", $userId);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
+        return $this->addSupportedPlatforms($result->fetch_all(MYSQLI_ASSOC));
     }
 
     public function getGameById($id)
@@ -205,21 +206,62 @@ class DatabaseHelper
         }
     }
 
-    public function removeFromCart($gameId, $userId, $quantity, $platform)
+    public function removeFromCart($gameId, $userId, $platform)
     {
-        $query = "DELETE FROM SHOPPING_CART WHERE GameId = ? AND UserId = ? AND Quantity = ? AND Platform = ?";
+        $query = "DELETE FROM SHOPPING_CARTS WHERE GameId = ? AND UserId = ? AND Platform = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("iiis", $gameId, $userId, $quantity, $platform);
+        $stmt->bind_param("iis", $gameId, $userId, $platform);
         $stmt->execute();
     }
 
-    public function addReviewToGame($gameId, $userId, $rating, $title, $comment)
-    {
-        $query = "INSERT INTO REVIEWS (GameId, UserID, Rating, Title, Comment, Date) VALUES (?, ?, ?, ?, ?, NOW())";
+    public function modifyGameInCart($gameId, $userId, $quantity, $platform){
+        $query = "UPDATE SHOPPING_CARTS SET Quantity = Quantity + ? WHERE GameId = ? AND UserId = ? AND Platform = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("iiiss", $gameId, $userId, $rating, $title, $comment);
+        $stmt->bind_param("iiis", $quantity, $gameId, $userId, $platform);
+        $stmt->execute();
+
+        //delete the game from the cart if the quantity is 0
+        $query = "DELETE FROM SHOPPING_CARTS WHERE Quantity = 0";
+        $stmt = $this->db->prepare($query);
         $stmt->execute();
     }
+
+    public function checkout($userId)
+    {
+        // Get the total cost of the cart
+        $query = "SELECT SUM(G.Price * SC.Quantity) AS Total FROM SHOPPING_CARTS SC JOIN GAMES G ON SC.GameId = G.Id WHERE SC.UserId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $userId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $total = $result->fetch_assoc()["Total"];
+
+        // Buy each game in the cart
+        $query = "SELECT * FROM SHOPPING_CARTS WHERE UserId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $userId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        while ($row = $result->fetch_assoc()) {
+            $this->buyGame($row["GameId"], $userId, $row["Quantity"], $total, $row["Platform"]);
+        }
+
+        // Clear the shopping cart
+        $query = "DELETE FROM SHOPPING_CARTS WHERE UserId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $userId);
+        $stmt->execute();
+    }
+
+    public function addReviewToGame($gameId, $userId, $title, $comment, $rating)
+    {
+        $query = "INSERT INTO REVIEWS (GameId, UserID, Title, Comment, Rating) VALUES (?, ?, ?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("iissi", $gameId, $userId, $title, $comment, $rating);
+        $stmt->execute();
+    }
+
+   
 
 
     public function getGameRequirements($id)

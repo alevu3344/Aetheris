@@ -1,5 +1,5 @@
 <?php
-    require_once("bootstrap.php");
+    require_once("../bootstrap.php");
     
     $query = isset($_GET['q']) ? $_GET['q'] : "";
     $result = $dbh->getSearchedGames($query,10);

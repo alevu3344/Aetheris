@@ -15,7 +15,7 @@ document.querySelector(".categorygames_content > main > div:last-of-type button"
 
 
 async function getMoreGames(start, end) {
-    const url = `load-more-games-api.php?start=${start}&end=${end}&category=${category}&action=${action}`;
+    const url = `api/load-more-games-api.php?start=${start}&end=${end}&category=${category}&action=${action}`;
     try {
         const response = await fetch(url, {
             method: "GET"

@@ -1,5 +1,5 @@
 <?php
-require_once 'bootstrap.php';
+require_once '../bootstrap.php';
 
 
 //se $_SESSION["Username"] è vuoto, restuisce errore

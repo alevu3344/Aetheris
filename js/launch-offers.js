@@ -89,4 +89,4 @@ let sliceLaunchOffers = 3;
 let indexLaunchOffers = 0;
 let bufferLaunchOffers = [];
 
-initializeLaunchOffers('launch-offers.php');
+initializeLaunchOffers('api/launch-offers.php');

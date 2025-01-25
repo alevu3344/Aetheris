@@ -46,7 +46,11 @@
                         </div>
                         <ul></ul>
                     </div>
-                    <img src="upload/icons/shopping-cart.svg" alt="Shopping Cart"/>
+                    <?php if(isset($_SESSION["Username"])): ?>
+                    <a href="cart.php">
+                        <img src="upload/icons/shopping-cart.svg" alt="Shopping Cart"/>
+                    </a>
+                    <?php endif; ?>
                 </div>
         <!-- SEARCH BAR -->
                 <div>

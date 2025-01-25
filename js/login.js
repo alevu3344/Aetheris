@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 async function logout(){
-    const url = 'logout-api.php';
+    const url = 'api/logout-api.php';
     try {
 
         const response = await fetch(url, {
@@ -123,7 +123,7 @@ async function logout(){
 async function register(name, surname, birthday, city, address, phonenumber, email, username, password, avatarId) {
     
     
-    const url = 'register-api.php';
+    const url = 'api/register-api.php';
     const formData = new FormData();
     formData.append('FirstName', name);
     formData.append('LastName', surname);
@@ -186,7 +186,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 async function login(formData) {
-    const url = 'login-api.php';
+    const url = 'api/login-api.php';
     try {
 
         const response = await fetch(url, {
