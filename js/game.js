@@ -12,6 +12,10 @@ const game = JSON.parse(gameData).game;
 const platforms = JSON.parse(gameData).platforms;
 getMoreReviews(currentStart, currentStart + reviewsPerPage-1);
 
+document.querySelector("main > div:last-of-type button").addEventListener("click", async function () {
+    getMoreReviews(currentStart, currentStart + reviewsPerPage-1);
+});
+
 document.addEventListener("DOMContentLoaded", function () {
     //ratring is in the span under the .stars
     const rating =document.querySelector("div:nth-of-type(1) > span").innerText;
@@ -266,18 +270,11 @@ async function getMoreReviews(start, end) {
         appendNewReviews(reviews);
         
         currentStart = end+1;
+
         if (reviews.length < reviewsPerPage) {
             document.querySelector("main > div:last-of-type").remove();
-
-        } else {
-            
-            document.querySelector("main > div:last-of-type button").addEventListener("click", async function () {
-                console.log("ciao");
-                getMoreReviews(currentStart, currentStart + reviewsPerPage);
-            });
         }
     
-        
     }
     catch(error){
         console.log(error.message);
