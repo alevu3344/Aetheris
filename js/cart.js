@@ -83,7 +83,7 @@ async function addToCart(gameId, platform, quantity) {
     formData.append("Action", "add");
 
     // Send a POST request to the server with the purchase details
-    let response = await fetch("cart-api.php", {
+    let response = await fetch("api/cart-api.php", {
         method: "POST",
         body: formData
 
@@ -145,7 +145,7 @@ function createNotificaton(title,message, type){
 
 //use the GET method, the server already has everything, its simpy a message to checkout
 async function checkout() {
-    const url = "cart-api.php?action=checkout";
+    const url = "api/cart-api.php?action=checkout";
     let response = await fetch(url, {
         method: "GET"
     });
@@ -169,7 +169,7 @@ async function removeFromCart(gameId, platform, quantity) {
     formData.append("Action", "remove");
 
     // Send a POST request to the server with the purchase details
-    let response = await fetch("cart-api.php", {
+    let response = await fetch("api/cart-api.php", {
         method: "POST",
         body: formData
 

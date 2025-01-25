@@ -3,7 +3,7 @@ document.getElementById("search-bar").addEventListener("input", function () {
 
     const resultsDiv = document.querySelector("body>header>nav>div:first-child>div>ul");
     if (query.length > 0) {
-        getSearchedGames(`search_bar.php?q=${encodeURIComponent(query)}`);
+        getSearchedGames(`api/search_bar.php?q=${encodeURIComponent(query)}`);
         resultsDiv.classList.add("ulShow");
         resultsDiv.classList.remove("ulHide");
     } else {

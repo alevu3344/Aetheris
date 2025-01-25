@@ -89,4 +89,4 @@ document.querySelector(".home_content > main > div:first-child > button:last-chi
 let indexFrontPage = 0;
 let bufferFrontPage = [];
 
-initializeFrontPage('front-page-game.php');
+initializeFrontPage('api/front-page-game.php');

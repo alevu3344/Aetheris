@@ -176,7 +176,7 @@ async function buyGame(gameId, platform, quantity) {
     formData.append("Quantity", quantity);
 
     // Send a POST request to the server with the purchase details
-    let response = await fetch("buy-game-api.php", {
+    let response = await fetch("api/buy-game-api.php", {
         method: "POST",
         body: formData
 
@@ -199,7 +199,7 @@ async function addToCart(gameId, platform, quantity) {
     formData.append("Action", "add");
 
     // Send a POST request to the server with the purchase details
-    let response = await fetch("cart-api.php", {
+    let response = await fetch("api/cart-api.php", {
         method: "POST",
         body: formData
 
@@ -258,7 +258,7 @@ function createNotificaton(title,message, type){
 
 
 async function getMoreReviews(start, end) {
-    const url = `load-more-reviews-api.php?start=${start}&end=${end}&id=${game.Id}`;
+    const url = `api/load-more-reviews-api.php?start=${start}&end=${end}&id=${game.Id}`;
     try{
         const response = await fetch(url, {
             method: "GET"
@@ -353,7 +353,7 @@ async function addReview(title, comment, rating) {
     formData.append("Comment", comment);
     formData.append("Rating", rating);
 
-    const url = "add-review-api.php";
+    const url = "api/add-review-api.php";
     try{
         const response = await fetch(url, {
             method: "POST",

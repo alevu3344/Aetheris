@@ -109,4 +109,4 @@ let sliceSimilarGames = 4;
 let indexSimilarGames = 0;
 let bufferSimilarGames = [];
 
-initializeSimilarGames(`similar-games.php?id=${idGame}`);
+initializeSimilarGames(`api/similar-games.php?id=${idGame}`);
