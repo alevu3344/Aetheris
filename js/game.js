@@ -1,3 +1,8 @@
+let currentStart = 0; 
+let reviewsPerPage = 3; 
+
+
+
 
 const scriptUrl = new URL(document.currentScript.src); // Get the script's URL
 const gameData = scriptUrl.searchParams.get("gameData"); // Get the game parameter
@@ -5,6 +10,7 @@ const gameData = scriptUrl.searchParams.get("gameData"); // Get the game paramet
 //gameData is an associative array
 const game = JSON.parse(gameData).game;
 const platforms = JSON.parse(gameData).platforms;
+getMoreReviews(currentStart, currentStart + reviewsPerPage-1);
 
 document.addEventListener("DOMContentLoaded", function () {
     //ratring is in the span under the .stars
@@ -20,23 +26,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-document.addEventListener("DOMContentLoaded", function () {
-
-    /*for each list item in the .game_content > main > ul*/
-    document.querySelectorAll(".game_content > main > ul:last-of-type li").forEach((li) => { 
-        //ratring is in the span under the .stars
-        const rating = li.querySelector("article > header > section > div > .stars").innerText;
-      
-
-        const stars = li.querySelectorAll("article > header > section > div > .stars .star");
-       
-
-        stars.forEach((star, index) => {
-            const fillAmount = Math.min(Math.max(rating - index, 0), 1); // Calculate how much of the star should be filled
-            star.style.setProperty("--fill-width", `${fillAmount * 100}%`); // Set the custom property for each star
-        });
-    });
-});
 
 /*Listener per acquista ora*/
 document.querySelector(".game_content > main > div:nth-of-type(2) > button:nth-of-type(1)").addEventListener("click",function (event) {
@@ -260,4 +249,92 @@ function createNotificaton(title,message, type){
     }, 5000);
 
     
+}
+
+
+
+async function getMoreReviews(start, end) {
+    const url = `load-more-reviews-api.php?start=${start}&end=${end}&id=${game.Id}`;
+    try{
+        const response = await fetch(url, {
+            method: "GET"
+        });
+
+ 
+        const reviews = await response.json();
+        console.log(reviews);
+        appendNewReviews(reviews);
+        
+        currentStart = end+1;
+        if (reviews.length < reviewsPerPage) {
+            document.querySelector("main > div:last-of-type").remove();
+
+        } else {
+            
+            document.querySelector("main > div:last-of-type button").addEventListener("click", async function () {
+                console.log("ciao");
+                getMoreReviews(currentStart, currentStart + reviewsPerPage);
+            });
+        }
+    
+        
+    }
+    catch(error){
+        console.log(error.message);
+    }
+}
+
+
+
+function appendNewReviews(reviews) {
+    
+    const reviewsList = document.querySelector("#reviewsList"); // Modifica il selettore secondo il tuo HTML
+
+    reviews.forEach(review => {
+        
+        const reviewHTML = `
+            <li>
+                <article>
+                    <header>
+                        <img src="../media/avatars/${review.Avatar}" alt="avatar">
+                        <section>
+                            <div>
+                                <span>${review.Username}</span>
+                                <div class="stars">
+                                    <span>${review.Rating}</span>
+                                    <div class="star"></div>
+                                    <div class="star"></div>
+                                    <div class="star"></div>
+                                    <div class="star"></div>
+                                    <div class="star"></div>
+                                </div>
+                            </div>
+                        </section>
+                    </header>
+                    <h2>${review.Title}</h2>
+                    <p>${review.Comment}</p>
+                    <footer>
+                        <span>${review.CreatedAt}</span>
+                    </footer>
+                </article>
+            </li>
+        `;
+
+    
+        reviewsList.insertAdjacentHTML("beforeend", reviewHTML);
+    });
+    /*for each list item in the .game_content > main > ul*/
+    document.querySelectorAll(".game_content > main > ul:last-of-type li").forEach((li) => { 
+        //ratring is in the span under the .stars
+        const rating = li.querySelector("article > header > section > div > .stars").innerText;
+      
+
+        const stars = li.querySelectorAll("article > header > section > div > .stars .star");
+       
+
+        stars.forEach((star, index) => {
+            const fillAmount = Math.min(Math.max(rating - index, 0), 1); // Calculate how much of the star should be filled
+            star.style.setProperty("--fill-width", `${fillAmount * 100}%`); // Set the custom property for each star
+        });
+    });
 }

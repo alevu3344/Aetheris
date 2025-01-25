@@ -20,12 +20,11 @@ async function getMoreGames(start, end) {
         const games = await response.json();
         console.log(games);
         addMoreGames(games);
-        currentStart = end;
+        currentStart = end+1;
         if (games.length < gamesPerPage) {
             document.querySelector(".categorygames_content > main > div:last-of-type").remove();
 
         } else {
-            createLoadMoreButton();
             document.querySelector(".categorygames_content > main > div:last-of-type button").addEventListener("click", async function () {
                 getMoreGames(currentStart, currentStart + gamesPerPage);
             });
@@ -64,14 +63,3 @@ function addMoreGames(games) {
 }
 
 
-function createLoadMoreButton() {
-    const buttonContainer = document.createElement("div");
-    const loadMoreButton = document.createElement("button");
-    loadMoreButton.textContent = "Carica più giochi"; 
-    const arrowIcon = document.createElement("img");
-    arrowIcon.src = "upload/icons/double-arrow.png";
-    arrowIcon.alt = "arrow";
-    buttonContainer.appendChild(loadMoreButton);
-    buttonContainer.appendChild(arrowIcon);
-    document.querySelector(".categorygames_content > main").appendChild(buttonContainer);
-}
