@@ -114,8 +114,9 @@
 <div>
 
     <img src="upload/icons/left_arrow.svg" alt="Left arrow">
-    <ul>
-    </ul>
+    <div>
+        <ul></ul>
+    </div>
     <img src="upload/icons/left_arrow.svg" alt="Left arrow">
 </div>
 
