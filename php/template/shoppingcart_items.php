@@ -2,9 +2,9 @@
     <?php foreach ($templateParams["elementi-carrello"] as $gioco): ?>
         <li>
             <div>
-
-                <img src="../media/covers/<?= $gioco["Id"] ?>.jpg" alt="<?= $gioco["Name"] ?>">
-
+                <a href="game.php?id=<?= $gioco["Id"] ?>">
+                    <img src="../media/covers/<?= $gioco["Id"] ?>.jpg" alt="<?= $gioco["Name"] ?>">
+                </a>
 
                 <section>
                     <header>
@@ -14,9 +14,7 @@
                         </button>
                     </header>
                     <p>
-                        <?php foreach ($gioco["Platforms"] as $platform): ?>
-                            <img src="../media/platforms/<?= $platform["Platform"] ?>.svg" alt="<?= $platform["Platform"] ?>">
-                        <?php endforeach; ?>
+                        <img src="upload/icons/<?= $gioco["Platform"] ?>.svg" alt="<?= $gioco["Platform"] ?>">
                     </p>
                     <footer>
                         <div>

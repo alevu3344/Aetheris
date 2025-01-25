@@ -1738,8 +1738,15 @@ body>footer >nav>ul>li>a {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+.shoppingcart_items main>ul>li>div>a{
+  height: 100%;
+  width: fit-content;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
 
-.shoppingcart_items main>ul>li>div>img {
+.shoppingcart_items main>ul>li>div>a>img {
   width: auto;
   height: 100%;
   border-radius: 4px;
@@ -1763,6 +1770,10 @@ body>footer >nav>ul>li>a {
 .shoppingcart_items main>ul>li>div>section>p {
   margin: 0;
   height: 33%;
+}
+
+.shoppingcart_items main>ul>li>div>section>p > img {
+  filter: invert(1);
 }
 
 .shoppingcart_items main>ul>li>div>section>footer {

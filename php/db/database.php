@@ -112,6 +112,7 @@ class DatabaseHelper
                 G.Id, 
                 G.Name, 
                 SC.Quantity, 
+                SC.Platform,
                 G.Price, 
                 IFNULL(DG.Percentage, 0) AS Discount
             FROM 
