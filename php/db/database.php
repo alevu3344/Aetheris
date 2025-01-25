@@ -295,11 +295,11 @@ class DatabaseHelper
         $offset = null;
 
         if ($start !== null && $end !== null) {
-            $offset = $start; 
-            $limit = $end - $offset+1; 
+            $offset = $start;
+            $limit = $end - $offset + 1;
         }
 
-        
+
 
         $query = "
         SELECT 
@@ -452,8 +452,8 @@ class DatabaseHelper
         $offset = null;
 
         if ($start !== null && $end !== null) {
-            $offset = $start; 
-            $limit = $end - $offset+1; 
+            $offset = $start;
+            $limit = $end - $offset + 1;
         }
 
         $query = "
@@ -529,8 +529,8 @@ class DatabaseHelper
         $offset = null;
 
         if ($start !== null && $end !== null) {
-            $offset = $start; 
-            $limit = $end - $offset+1; 
+            $offset = $start;
+            $limit = $end - $offset + 1;
         }
 
         $query = "
@@ -609,8 +609,8 @@ class DatabaseHelper
         $offset = null;
 
         if ($start !== null && $end !== null) {
-            $offset = $start; 
-            $limit = $end - $offset+1; 
+            $offset = $start;
+            $limit = $end - $offset + 1;
         }
 
         $query = "
@@ -680,25 +680,54 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    //get all the reviews for a game, ordered by date
-    public function getReviewsByGame($id)
+    public function getReviewsByGame($gameId, $start=null, $end=null)
     {
+        // Parse the range (default to no range if null)
+        $limit = null;
+        $offset = null;
 
-        $stmt = $this->db->prepare("
-        SELECT REVIEWS.*, USERS.Username, USERS.UserID, AVATARS.Avatar
-        FROM REVIEWS
+        if ($start !== null && $end !== null) {
+            $offset = $start;
+            $limit = $end - $offset + 1;
+        }
+
+        $query = "
+        SELECT 
+            REVIEWS.*, 
+            USERS.Username, 
+            USERS.UserID, 
+            AVATARS.Avatar
+        FROM 
+            REVIEWS
         JOIN 
-        USERS ON REVIEWS.UserID = USERS.UserID
+            USERS ON REVIEWS.UserID = USERS.UserID
         JOIN 
-        AVATARS ON USERS.AvatarId = AVATARS.Id
+            AVATARS ON USERS.AvatarId = AVATARS.Id
         WHERE 
-        REVIEWS.GameID = ?;
-        ");
-        $stmt->bind_param("i", $id);
+            REVIEWS.GameID = ?
+        ORDER BY 
+            REVIEWS.CreatedAt DESC";
+
+        // Add LIMIT and OFFSET if a range is specified
+        if ($limit !== null && $offset !== null) {
+            $query .= " LIMIT ? OFFSET ?";
+        }
+
+        $stmt = $this->db->prepare($query);
+
+        if ($limit !== null && $offset !== null) {
+            // Bind parameters for gameId, limit, and offset
+            $stmt->bind_param("iii", $gameId, $limit, $offset);
+        } else {
+            // Bind only the gameId
+            $stmt->bind_param("i", $gameId);
+        }
+
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
     /*
     function checkbrute($UserID)
     {
