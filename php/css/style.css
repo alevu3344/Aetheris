@@ -1257,13 +1257,14 @@ body>footer >nav>ul>li>a {
 }
 
 .home_content >main>div:nth-child(5)>div>ul>li > a >section>footer>div {
-  align-content: center;
   height: 100%;
   width: 50%;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .home_content >main>div:nth-child(5)>div>ul>li > a >section>footer>div>img {
-  width: 20%;
+  width: 25%;
   height: 100%;
   filter: invert(1);
 }
@@ -2435,7 +2436,13 @@ body>footer >nav>ul>li>a {
   rotate: 180deg;
 }
 
-.game_content > main > div:nth-of-type(4) > ul  {
+.game_content > main > div:nth-of-type(4) > div {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.game_content > main > div:nth-of-type(4) > div > ul  {
   list-style: none;
   padding: 0;
   width: 100%;
@@ -2444,7 +2451,7 @@ body>footer >nav>ul>li>a {
   transition: transform 0.1s ease, opacity 0.1s ease;
 }
 
-.game_content > main > div:nth-of-type(4) > ul > li {
+.game_content > main > div:nth-of-type(4) >  div > ul > li {
   height: 100px;
   width: 49%;
   margin: 5px 0;
@@ -2454,12 +2461,12 @@ body>footer >nav>ul>li>a {
   font-size: initial; /* Ripristina la dimensione del font per i figli */
 }
 
-.game_content > main > div:nth-of-type(4) > ul > li:nth-child(odd) {
+.game_content > main > div:nth-of-type(4) >  div > ul > li:nth-child(odd) {
   margin-right: 2%;
 }
 
 
-.game_content > main > div:nth-of-type(4) > ul > li > a {
+.game_content > main > div:nth-of-type(4) >  div > ul > li > a {
   width: 100%;
   height: 100%;
   display: flex;
@@ -2467,7 +2474,7 @@ body>footer >nav>ul>li>a {
 
 
 
-.game_content > main > div:nth-of-type(4) > ul > li > a > article {
+.game_content > main > div:nth-of-type(4) >  div > ul > li > a > article {
   width: 100%;
   height: 100%;
   border: 1px solid white;
@@ -2480,14 +2487,14 @@ body>footer >nav>ul>li>a {
 
 
 
-.game_content > main > div:nth-of-type(4) > ul > li > a >article > figure {
+.game_content > main > div:nth-of-type(4) >  div > ul > li > a >article > figure {
   width: 100%;
   height: 80%;
   margin: 0px;
   position: relative;
 }
 
-.game_content > main > div:nth-of-type(4) > ul > li > a > article > figure > figcaption {
+.game_content > main > div:nth-of-type(4) >  div > ul > li > a > article > figure > figcaption {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -2500,12 +2507,12 @@ body>footer >nav>ul>li>a {
   box-sizing: border-box;
 }
 
-.game_content > main > div:nth-of-type(4) > ul > li > a >  article > figure > img {
+.game_content > main > div:nth-of-type(4) >  div > ul > li > a >  article > figure > img {
   width: 100%;
   height: 100%;
 }
 
-.game_content > main > div:nth-of-type(4) > ul > li > a > article >footer>span:nth-child(1) {
+.game_content > main > div:nth-of-type(4) >  div > ul > li > a > article >footer>span:nth-child(1) {
   font-family: 'Roboto';
   font-size: 12px;
   background-color: #00c83f;
@@ -2513,7 +2520,7 @@ body>footer >nav>ul>li>a {
   margin-right: 2px;
 }
 
-.game_content > main > div:nth-of-type(4) > ul > li > a > article >footer>span:nth-child(2) {
+.game_content > main > div:nth-of-type(4) >  div > ul > li > a > article >footer>span:nth-child(2) {
   font-family: 'Roboto';
   font-size: 12px;
   text-decoration: line-through;
@@ -2521,7 +2528,7 @@ body>footer >nav>ul>li>a {
   color: rgb(130, 130, 130);
 }
 
-.game_content > main > div:nth-of-type(4) > ul > li > a > article >footer>span:nth-child(3) {
+.game_content > main > div:nth-of-type(4) >  div > ul > li > a > article >footer>span:nth-child(3) {
   font-family: 'Roboto';
   font-size: 12px;
   background-color: #0028a2;
@@ -2529,14 +2536,14 @@ body>footer >nav>ul>li>a {
 }
 
 /* Default rule for when there is only one <span> */
-.game_content > main > div:nth-of-type(4) > ul > li > a > article >footer>span:only-child{
+.game_content > main > div:nth-of-type(4) >  div > ul > li > a > article >footer>span:only-child{
   font-family: 'Roboto';
   font-size: 12px;
   background-color: #0028a2;
   color: white;
 }
 
-.game_content > main > div:nth-of-type(4) > ul > li > a > article >footer {
+.game_content > main > div:nth-of-type(4) >  div > ul > li > a > article >footer {
   justify-content: left;
   height: 20%;
   align-items: end;

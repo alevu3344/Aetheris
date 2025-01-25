@@ -4,8 +4,12 @@ const idGame = scriptUrlSimilarGames.searchParams.get("id");
 function generateSimilarGames(games){
     let result = "";
     games.forEach(game => {
-        const discountText = game['Discount'] ? `<span>-${game["Discount"]}%</span>` : "";
-        const discountedPrice = game['Discount'] ? `<span>${(game['Price'] * (1 - game["Discount"] / 100)).toFixed(2)}€</span>` : "";
+        const discountText = game['Discount']>0 ? `<span>-${game["Discount"]}%</span>` : "";
+        const discountedPrice = game['Discount']>0 ? `<span>${(game['Price'] * (1 - game["Discount"] / 100)).toFixed(2)}€</span>` : "";
+        console.log("Sconto: ",game['Discount']);
+        console.log("Percentuale: ",discountText);
+        console.log("Prezzo scontato:",discountedPrice);
+
         let placeholder = `
         <li>
             <a href = "game.php?id=${game["Id"]}">
@@ -31,18 +35,18 @@ function generateSimilarGames(games){
 
 async function createSimilarGames(games) {
   const launchOffers = generateSimilarGames(games);
-  const listOfGames = document.querySelector(".game_content > main > div:nth-of-type(4) > ul");
+  const listOfGames = document.querySelector(".game_content > main > div:nth-of-type(4) > div > ul");
   listOfGames.innerHTML = launchOffers;
 }
 
 function animateUlSimilarGames(games,direction) {
-    curUl = document.querySelector(".game_content > main > div:nth-of-type(4) > ul");
+    curUl = document.querySelector(".game_content > main > div:nth-of-type(4) > div > ul");
     curUl.classList.add(direction ? "slide-out-left" : "slide-out-right");
 
     setTimeout(() => {
         curUl.classList.remove(direction ? "slide-out-left" : "slide-out-right");
         createSimilarGames(games);
-        curUl = document.querySelector(".game_content > main > div:nth-of-type(4) > ul");
+        curUl = document.querySelector(".game_content > main > div:nth-of-type(4) > div > ul");
         curUl.classList.add(direction ? "slide-out-right" : "slide-out-left");
         setTimeout(() => {
           curUl.classList.add(direction ? "slide-out-left" : "slide-out-right");

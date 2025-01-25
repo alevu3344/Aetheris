@@ -362,10 +362,13 @@ class DatabaseHelper
     public function getSimilarGames($gameId, $lim)
     {
         $query = "
-        SELECT g.Id, g.Name, g.Price, g.Trailer, g.Rating 
+        SELECT g.Id, g.Name, g.Price, g.Trailer, g.Rating, DG.Percentage AS Discount
         FROM GAMES g
         INNER JOIN GAME_CATEGORIES gc1 ON g.Id = gc1.GameId
         INNER JOIN GAME_CATEGORIES gc2 ON gc1.CategoryName = gc2.CategoryName
+        LEFT JOIN 
+            DISCOUNTED_GAMES DG ON G.Id = DG.GameId
+            AND CURRENT_DATE BETWEEN DG.StartDate AND DG.EndDate
         WHERE gc2.GameId = ? AND g.Id != ?
         GROUP BY g.Id
         ORDER BY COUNT(gc1.CategoryName) DESC, g.Rating DESC
