@@ -1108,10 +1108,28 @@ body>footer >nav>ul>li>a {
 
 .home_content > main > nav > ul > li > h2{
   font-family: 'Roboto';
-  color: white;
   margin: 0px;
   font-size: 20px;
   cursor: pointer;
+  color: white;
+}
+
+.sbrilluccichio {
+  animation: sbrillucicoso 2s infinite;
+}
+
+@keyframes sbrillucicoso {
+  0% { color: #007bff}
+  10% { color: #218dff}
+  20% { color: #429dff}
+  30% { color: #6ab2ff}
+  40% { color: #8bc3ff}
+  50% { color: #c0deff}
+  60% { color: #8bc3ff}
+  70% { color: #6ab2ff}
+  80% { color: #429dff}
+  90% { color: #218dff}
+  100% { color: #007bff}
 }
 
 .home_content > main > nav > ul > li:nth-child(1) {
