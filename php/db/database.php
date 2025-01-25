@@ -219,6 +219,11 @@ class DatabaseHelper
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("iiis", $quantity, $gameId, $userId, $platform);
         $stmt->execute();
+
+        //delete the game from the cart if the quantity is 0
+        $query = "DELETE FROM SHOPPING_CARTS WHERE Quantity = 0";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
     }
 
     public function addReviewToGame($gameId, $userId, $title, $comment, $rating)
