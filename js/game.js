@@ -265,7 +265,7 @@ async function getMoreReviews(start, end) {
         console.log(reviews);
         appendNewReviews(reviews);
         
-        currentStart = end;
+        currentStart = end+1;
         if (reviews.length < reviewsPerPage) {
             document.querySelector("main > div:last-of-type").remove();
 

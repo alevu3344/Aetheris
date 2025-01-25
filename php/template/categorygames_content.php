@@ -10,7 +10,7 @@
 </ul>
 
 <div>
-    <button>Carica più recensioni</button>
+    <button>Carica più giochi</button>
     <img src="upload/icons/double-arrow.png" alt="arrow">
 </div>
 

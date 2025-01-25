@@ -20,7 +20,7 @@ async function getMoreGames(start, end) {
         const games = await response.json();
         console.log(games);
         addMoreGames(games);
-        currentStart = end;
+        currentStart = end+1;
         if (games.length < gamesPerPage) {
             document.querySelector(".categorygames_content > main > div:last-of-type").remove();
 
