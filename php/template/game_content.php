@@ -14,8 +14,17 @@
     <span><?= $templateParams["gioco"]["Rating"] ?></span>
 </div>
 
-<!-- Game cover image -->
-<img src="../media/covers/<?= $templateParams["gioco"]["Id"] ?>.jpg" alt="game">
+
+<!-- <img src="../media/covers/<?= $templateParams["gioco"]["Id"] ?>.jpg" alt="game"> -->
+ 
+
+<iframe 
+        src="<?= $templateParams['gioco']['Trailer']."?modestbranding=1"?>" 
+        title="Launch trailer of <?= $templateParams['gioco']['Name'] ?>" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+</iframe>
+
 
 <section>
     <!-- Use 'discount', 'price', and 'discounted_price' keys dynamically -->
