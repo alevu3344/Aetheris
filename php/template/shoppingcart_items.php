@@ -47,3 +47,5 @@
 
 
 <button id="checkout">Checkout</button>
+
+<script src="../js/cart.js" defer="true"></script> 

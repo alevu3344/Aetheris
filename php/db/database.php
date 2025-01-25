@@ -206,11 +206,18 @@ class DatabaseHelper
         }
     }
 
-    public function removeFromCart($gameId, $userId, $quantity, $platform)
+    public function removeFromCart($gameId, $userId, $platform)
     {
-        $query = "DELETE FROM SHOPPING_CART WHERE GameId = ? AND UserId = ? AND Quantity = ? AND Platform = ?";
+        $query = "DELETE FROM SHOPPING_CARTS WHERE GameId = ? AND UserId = ? AND Platform = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("iiis", $gameId, $userId, $quantity, $platform);
+        $stmt->bind_param("iis", $gameId, $userId, $platform);
+        $stmt->execute();
+    }
+
+    public function modifyGameInCart($gameId, $userId, $quantity, $platform){
+        $query = "UPDATE SHOPPING_CARTS SET Quantity = Quantity + ? WHERE GameId = ? AND UserId = ? AND Platform = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("iiis", $quantity, $gameId, $userId, $platform);
         $stmt->execute();
     }
 
@@ -221,6 +228,8 @@ class DatabaseHelper
         $stmt->bind_param("iissi", $gameId, $userId, $title, $comment, $rating);
         $stmt->execute();
     }
+
+   
 
 
     public function getGameRequirements($id)

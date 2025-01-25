@@ -196,9 +196,10 @@ async function addToCart(gameId, platform, quantity) {
     formData.append("GameId", gameId);
     formData.append("Platform", platform);
     formData.append("Quantity", quantity);
+    formData.append("Action", "add");
 
     // Send a POST request to the server with the purchase details
-    let response = await fetch("add-to-cart-api.php", {
+    let response = await fetch("cart-api.php", {
         method: "POST",
         body: formData
 
