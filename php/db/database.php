@@ -226,6 +226,33 @@ class DatabaseHelper
         $stmt->execute();
     }
 
+    public function checkout($userId)
+    {
+        // Get the total cost of the cart
+        $query = "SELECT SUM(G.Price * SC.Quantity) AS Total FROM SHOPPING_CARTS SC JOIN GAMES G ON SC.GameId = G.Id WHERE SC.UserId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $userId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $total = $result->fetch_assoc()["Total"];
+
+        // Buy each game in the cart
+        $query = "SELECT * FROM SHOPPING_CARTS WHERE UserId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $userId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        while ($row = $result->fetch_assoc()) {
+            $this->buyGame($row["GameId"], $userId, $row["Quantity"], $total, $row["Platform"]);
+        }
+
+        // Clear the shopping cart
+        $query = "DELETE FROM SHOPPING_CARTS WHERE UserId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $userId);
+        $stmt->execute();
+    }
+
     public function addReviewToGame($gameId, $userId, $title, $comment, $rating)
     {
         $query = "INSERT INTO REVIEWS (GameId, UserID, Title, Comment, Rating) VALUES (?, ?, ?, ?, ?)";

@@ -13,7 +13,7 @@ if(empty($_SESSION["Username"])) {
     exit;
 }
 
-if($_POST["Action"] == "add"){
+if(isset($_POST["Action"]) && $_POST["Action"] == "add") {
 
     if(isset($_POST['GameId']) && isset($_POST['Quantity']) && isset($_POST['Platform'])) {
         $game_id = $_POST['GameId'];
@@ -43,7 +43,7 @@ if($_POST["Action"] == "add"){
         ];
     }
 }
-else if($_POST["Action"] == "remove") {
+else if(isset($_POST["Action"]) && $_POST["Action"] == "modify") {
     if(isset($_POST['GameId'])) {
         $game_id = $_POST['GameId'];
         $user_id = $_SESSION["UserID"];
@@ -79,6 +79,15 @@ else {
     $result = [
         'success' => true,
         'message' => 'Invalid request'
+    ];
+}
+
+if(isset($_GET['action']) && $_GET['action'] == 'checkout') {
+    $user_id = $_SESSION["UserID"];
+    $dbh->checkout($user_id);
+    $result = [
+        'success' => true,
+        'message' => 'Checkout successful'
     ];
 }
         

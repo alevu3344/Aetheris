@@ -54,6 +54,18 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+
+//add a listener to the checkout button
+document.addEventListener("DOMContentLoaded", () => {
+    const checkoutButton = document.querySelector("main > #checkout");
+    checkoutButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        checkout();
+        createNotificaton("Success", "Checkout completed", "positive");
+    });
+});
+
+
 async function addToCart(gameId, platform, quantity) {
 
     const formData = new FormData();
@@ -121,6 +133,22 @@ function createNotificaton(title,message, type){
     }, 5000);
 
     
+}
+
+//use the GET method, the server already has everything, its simpy a message to checkout
+async function checkout() {
+    const url = "cart-api.php?action=checkout";
+    let response = await fetch(url, {
+        method: "GET"
+    });
+
+    if (response.ok) {
+        let data = await response.json();
+        createNotificaton("Success", data.message, "positive");
+    } else {
+        console.error("HTTP-Error: " + response.status);
+        createNotificaton("Error", data.message, "negative");
+    }
 }
 
 
