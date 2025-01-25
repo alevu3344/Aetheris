@@ -43,7 +43,7 @@ if(isset($_POST["Action"]) && $_POST["Action"] == "add") {
         ];
     }
 }
-else if(isset($_POST["Action"]) && $_POST["Action"] == "modify") {
+else if(isset($_POST["Action"]) && $_POST["Action"] == "remove") {
     if(isset($_POST['GameId'])) {
         $game_id = $_POST['GameId'];
         $user_id = $_SESSION["UserID"];
