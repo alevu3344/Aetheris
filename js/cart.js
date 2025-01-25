@@ -60,8 +60,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const checkoutButton = document.querySelector("main > #checkout");
     checkoutButton.addEventListener("click", (event) => {
         event.preventDefault();
-        checkout();
-        createNotificaton("Success", "Checkout completed", "positive");
+        //se non ci sono elementi nel carrello (non ci sono li), trasforma il colore del bottone in rosso, modifica il testo in carrello vuoto e non fare nulla
+        if(document.querySelectorAll("main > ul > li").length == 0){
+            checkoutButton.style.backgroundColor = "red";
+            checkoutButton.innerText = "Carello vuoto";
+            return;
+        }
+        else{
+            checkout();
+        }            
+        
     });
 });
 
