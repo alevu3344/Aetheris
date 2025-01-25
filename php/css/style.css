@@ -1776,6 +1776,7 @@ body>footer >nav>ul>li>a {
   margin: 0;
   padding: 0;
   display:flex;
+  column-gap: 4px;
 }
 
 
@@ -1788,6 +1789,7 @@ body>footer >nav>ul>li>a {
   box-sizing: border-box;
   background-color: #00c83f;
   border: 1px solid white;
+  border-radius: 5px;
 }
 
 .shoppingcart_items main>ul>li>div>section>footer > p > span:nth-child(2) {
@@ -1800,6 +1802,7 @@ body>footer >nav>ul>li>a {
   background-color: #000000;
   color: #7d7d7d;
   border: 1px solid white;
+  border-radius: 5px;
 }
 
 .shoppingcart_items main>ul>li>div>section>footer > p > span:nth-child(3) {
@@ -1810,6 +1813,7 @@ body>footer >nav>ul>li>a {
   box-sizing: border-box;
   background-color:#007bff;
   border: 1px solid white;
+  border-radius: 5px;
 }
 
 .shoppingcart_items main>ul>li>div>section>footer > p > span:only-child{
@@ -1820,6 +1824,7 @@ body>footer >nav>ul>li>a {
   box-sizing: border-box;
   background-color:#007bff;
   border: 1px solid white;
+  border-radius: 5px;
 }
 
 
