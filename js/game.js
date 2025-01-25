@@ -183,11 +183,10 @@ async function buyGame(gameId, platform, quantity) {
     });
 
     if (response.ok) {
-        let data = await response.json();
-        createNotificaton("Success", "Game purchased", "positive");
+        createNotificaton("Success", "Game bought successfully", "positive");
     } else {
         console.error("HTTP-Error: " + response.status);
-        createNotificaton("Error", data.message, "negative");
+        createNotificaton("Error", response.message, "negative");
     }
 }
 
@@ -334,4 +333,92 @@ function appendNewReviews(reviews) {
             star.style.setProperty("--fill-width", `${fillAmount * 100}%`); // Set the custom property for each star
         });
     });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const addReviewButton = document.getElementById('addReview');
+    
+
+    if (addReviewButton) {
+        addReviewButton.addEventListener('click', function() {
+            showAddReviewForm();
+        });
+    }
+});
+async function addReview(title, comment, rating) {
+    const formData = new FormData();
+    formData.append("GameId", game.Id);
+    formData.append("Title", title);
+    formData.append("Comment", comment);
+    formData.append("Rating", rating);
+
+    const url = "add-review-api.php";
+    try{
+        const response = await fetch(url, {
+            method: "POST",
+            body: formData
+        });
+
+        let data = await response.json();
+
+
+
+        if (response.ok) {
+           
+            createNotificaton("Success", data.message, "positive");
+        } else {
+            console.error("HTTP-Error: " + response.status);
+            createNotificaton("Error", data.message, "negative");
+        }
+    
+    }
+    catch(error){
+        console.log(error.message);
+    }
+}
+
+function showAddReviewForm() {
+
+    let div = document.createElement("div");
+    div.id = "addReviewForm";
+    let form = `
+        <form>
+        <legend>Write a review</legend>
+        <fieldset>
+            <div>
+                <label for="rating">
+                    Rating
+                    <input type="number" id="rating" name="rating" min="1" max="5" required>
+                </label>
+                <label for="title">
+                    Title
+                    <input type="text" id="title" name="title" required>
+                </label>
+            </div>
+
+            <label for="comment">Comment</label>
+            <textarea id="comment" name="comment" required></textarea>
+        </fieldset>
+        
+        <button type="submit">Submit</button>
+        <button>Annulla</button>
+        
+    </form>
+    `;
+
+    div.innerHTML = form;
+    div.querySelector("form").addEventListener("submit", function(event){
+        event.preventDefault();
+        let title = div.querySelector("#title").value;
+        let comment = div.querySelector("#comment").value;
+        let rating = div.querySelector("#rating").value;
+        addReview(title, comment, rating);
+    });
+
+    div.querySelector("button:last-of-type").addEventListener("click", function(event){
+        event.preventDefault();
+        div.remove();
+    });
+
+    document.body.insertBefore(div, document.body.firstChild);
 }

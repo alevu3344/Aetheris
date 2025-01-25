@@ -131,6 +131,10 @@
 
 <h2>Recensioni</h2>
 
+<? if(isset($_SESSION["Username"])): ?>
+    <button id="addReview">Scrivi una recensione</button>
+<? endif; ?>
+
 <ul id="reviewsList">
 
 </ul>

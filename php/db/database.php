@@ -213,11 +213,11 @@ class DatabaseHelper
         $stmt->execute();
     }
 
-    public function addReviewToGame($gameId, $userId, $rating, $title, $comment)
+    public function addReviewToGame($gameId, $userId, $title, $comment, $rating)
     {
-        $query = "INSERT INTO REVIEWS (GameId, UserID, Rating, Title, Comment, Date) VALUES (?, ?, ?, ?, ?, NOW())";
+        $query = "INSERT INTO REVIEWS (GameId, UserID, Title, Comment, Rating) VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("iiiss", $gameId, $userId, $rating, $title, $comment);
+        $stmt->bind_param("iissi", $gameId, $userId, $title, $comment, $rating);
         $stmt->execute();
     }
 
