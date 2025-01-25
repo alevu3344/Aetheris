@@ -115,7 +115,7 @@ class DatabaseHelper
                 G.Price, 
                 IFNULL(DG.Percentage, 0) AS Discount
             FROM 
-                SHOPPING_CART SC
+                SHOPPING_CARTS SC
             INNER JOIN 
                 GAMES G ON SC.GameId = G.Id
             LEFT JOIN 
@@ -126,7 +126,7 @@ class DatabaseHelper
         $stmt->bind_param("i", $userId);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
+        return $this->addSupportedPlatforms($result->fetch_all(MYSQLI_ASSOC));
     }
 
     public function getGameById($id)
