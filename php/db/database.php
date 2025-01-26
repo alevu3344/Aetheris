@@ -17,9 +17,9 @@ class DatabaseHelper
         $query = "
         SELECT * 
         FROM 
-            ORDERS 
+            ORDERS O, ORDER_ITEMS OI, GAMES G
         WHERE 
-            UserID = ?
+            O.UserId = ? AND O.Id = OI.OrderId AND OI.GameId = G.Id
         ";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $UserID);
@@ -228,31 +228,67 @@ class DatabaseHelper
 
     public function checkout($userId)
     {
-        // Get the total cost of the cart
-        $query = "SELECT SUM(G.Price * SC.Quantity) AS Total FROM SHOPPING_CARTS SC JOIN GAMES G ON SC.GameId = G.Id WHERE SC.UserId = ?";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param("i", $userId);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $total = $result->fetch_assoc()["Total"];
-
-        // Buy each game in the cart
-        $query = "SELECT * FROM SHOPPING_CARTS WHERE UserId = ?";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param("i", $userId);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        while ($row = $result->fetch_assoc()) {
-            $this->buyGame($row["GameId"], $userId, $row["Quantity"], $total, $row["Platform"]);
+        $this->db->begin_transaction(); // Start a transaction
+        try {
+            // Step 1: Calculate the total cost of the shopping cart
+            $query = "SELECT SUM(G.Price * SC.Quantity) AS Total 
+                      FROM SHOPPING_CARTS SC 
+                      JOIN GAMES G ON SC.GameId = G.Id 
+                      WHERE SC.UserId = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("i", $userId);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $total = $result->fetch_assoc()["Total"];
+    
+            if (!$total) {
+                throw new Exception("Cart is empty or an error occurred.");
+            }
+    
+            // Step 2: Create a new row in the ORDERS table
+            $query = "INSERT INTO ORDERS (UserId, OrderDate, TotalCost, Status) 
+                      VALUES (?, NOW(), ?, 'Pending')";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("id", $userId, $total);
+            $stmt->execute();
+            $orderId = $this->db->insert_id; // Get the generated OrderId
+    
+            // Step 3: Retrieve items from the shopping cart and insert into ORDER_ITEMS
+            $query = "SELECT SC.GameId, SC.Quantity, G.Price, SC.Platform
+                      FROM SHOPPING_CARTS SC 
+                      JOIN GAMES G ON SC.GameId = G.Id 
+                      WHERE SC.UserId = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("i", $userId);
+            $stmt->execute();
+            $result = $stmt->get_result();
+    
+            while ($row = $result->fetch_assoc()) {
+                $gameId = $row["GameId"];
+                $quantity = $row["Quantity"];
+                $price = $row["Price"];
+                $platform = $row["Platform"];
+    
+                $query = "INSERT INTO ORDER_ITEMS (OrderId, GameId, Platform, Quantity, FinalPrice) 
+                          VALUES (?, ?, ?, ?, ?)";
+                $stmt = $this->db->prepare($query);
+                $stmt->bind_param("iisii", $orderId, $gameId, $platform, $quantity, $price);
+                $stmt->execute();
+            }
+    
+            // Step 4: Clear the shopping cart
+            $query = "DELETE FROM SHOPPING_CARTS WHERE UserId = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("i", $userId);
+            $stmt->execute();
+    
+            $this->db->commit(); // Commit the transaction
+        } catch (Exception $e) {
+            $this->db->rollback(); // Rollback if an error occurs
+            throw $e; // Re-throw the exception for error handling
         }
-
-        // Clear the shopping cart
-        $query = "DELETE FROM SHOPPING_CARTS WHERE UserId = ?";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param("i", $userId);
-        $stmt->execute();
     }
-
+    
     public function addReviewToGame($gameId, $userId, $title, $comment, $rating)
     {
         $query = "INSERT INTO REVIEWS (GameId, UserID, Title, Comment, Rating) VALUES (?, ?, ?, ?, ?)";
