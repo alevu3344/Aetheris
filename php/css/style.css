@@ -566,7 +566,7 @@ body>footer >nav>ul>li>a {
 
 .home_content > main > section:nth-child(1) > h2{
   font-family: 'Roboto';
-  margin: 5%;
+  margin: 20px 0;
   font-size: 20px;
   color: white;
 }
@@ -837,7 +837,7 @@ body>footer >nav>ul>li>a {
 
 .home_content > main > section:nth-child(2) > h2 {
   font-family: 'Roboto';
-  margin: 5%;
+  margin: 20px 0;
   color: white;
   font-size: 20px;
 }
@@ -2270,9 +2270,10 @@ body>footer >nav>ul>li>a {
   position: relative;
 }
 
-.categorygames_content>main>ul>li>a>article>header>img {
+.categorygames_content>main>ul>li>a>article>header>div>img {
   width: 100%;
   height: auto;
+  aspect-ratio: 16/9;
 }
 
 .categorygames_content>main>ul>li>a>article>footer {
@@ -3581,6 +3582,11 @@ input[type=number] {
 } 
 
 
+@media screen and (min-width:768px){ 
+  .admin-content > main > ul {
+    max-width: 1000px;
+  }
+}
 
 
 
