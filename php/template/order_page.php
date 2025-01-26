@@ -28,6 +28,7 @@
                                         <div>
                                             <h4><?= $item["Name"] ?></h4>
                                             <img src="upload/icons/<?= $item["Platform"] ?>.svg" alt="<?= $item["Platform"] ?>">
+                                            <span>Quantity: <?= $item["Quantity"] ?>x</span>
                                         </div>
                                         <p>
                                             <?php if (!empty($item['Discount']['Percentage'])): ?>
