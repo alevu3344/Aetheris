@@ -44,18 +44,18 @@ async function generateGameBuffer(url) {
 
 async function createRelevantGame(game) {
   const relevantGame = generateRelevantGame(game);
-  const gameToShow = document.querySelector(".home_content > main > div:first-child > div");
+  const gameToShow = document.querySelector(".home_content > main > section:nth-child(1) > div > div");
   gameToShow.innerHTML = relevantGame;
 }
 
 function animateFigure(game,direction) {
-    curFigure = document.querySelector(".home_content > main > div:first-child > div > a");
+    curFigure = document.querySelector(".home_content > main > section:nth-child(1) > div > div > a");
     curFigure.classList.add(direction ? "slide-out-left" : "slide-out-right");
 
     setTimeout(() => {
         curFigure.classList.remove(direction ? "slide-out-left" : "slide-out-right");
         createRelevantGame(game);
-        curFigure = document.querySelector(".home_content > main > div:first-child > div > a");
+        curFigure = document.querySelector(".home_content > main > section:nth-child(1) > div > div > a");
         curFigure.classList.add(direction ? "slide-out-right" : "slide-out-left");
         setTimeout(() => {
           curFigure.classList.add(direction ? "slide-out-left" : "slide-out-right");
@@ -74,13 +74,13 @@ async function initializeFrontPage(url) {
   }
 }
 
-  document.querySelector(".home_content > main > div:first-child > button:first-child").addEventListener("click", function(e){
+  document.querySelector(".home_content > main > section:nth-child(1) > div > button:first-child").addEventListener("click", function(e){
     indexFrontPage = (indexFrontPage - 1 + bufferFrontPage.length) % bufferFrontPage.length;
     e.preventDefault();
     animateFigure(bufferFrontPage[indexFrontPage],0);
 });
 
-document.querySelector(".home_content > main > div:first-child > button:last-child").addEventListener("click", function(e){
+document.querySelector(".home_content > main > section:nth-child(1) > div > button:last-child").addEventListener("click", function(e){
     indexFrontPage = (indexFrontPage+1) % bufferFrontPage.length;
     e.preventDefault();
     animateFigure(bufferFrontPage[indexFrontPage],1);

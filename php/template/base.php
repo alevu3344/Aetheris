@@ -42,7 +42,7 @@
 
                         <div> <!-- INPUT CONTAINER -->
                             <label for="search-bar">Search:</label>
-                            <input id="search-bar" placeholder="Search..." type="text" name="text"/> <!-- INPUT -->
+                            <input id="search-bar" placeholder="Cerca gioco..." type="text" name="text"/> <!-- INPUT -->
                         </div>
                         <ul></ul>
                     </div>
@@ -90,8 +90,8 @@
     </footer>
 </body>
 
-<script src="../js/login.js" defer="true"></script>
-<script src="../js/base.js" defer="true"></script>
-<script src="../js/search-bar.js" defer="true"></script>
+<script src="../js/login.js"></script>
+<script src="../js/base.js"></script>
+<script src="../js/search-bar.js"></script>
 
 </html>

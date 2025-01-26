@@ -14,10 +14,12 @@ function generateSimilarGames(games){
         <li>
             <a href = "game.php?id=${game["Id"]}">
                 <article>
-                    <figure>
-                        <img src="../media/covers/${game["Id"]}.jpg" alt="${game["Name"]}"/>
-                        <figcaption>${game["Name"]}</figcaption>
-                    </figure>
+                    <header>
+                        <h3>${game["Name"]}</h3>
+                        <div>
+                            <img src="../media/covers/${game["Id"]}.jpg" alt="${game["Name"]}"/>
+                        </div>
+                    </header>
                     <footer>
                         ${discountText}
                         <span>${game["Price"]}€</span>

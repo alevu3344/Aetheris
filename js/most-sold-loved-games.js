@@ -1,5 +1,5 @@
-const piuAcquistati = document.querySelector(".home_content > main > nav > ul > li:first-child > h2");
-const piuAmati = document.querySelector(".home_content > main > nav > ul > li:last-child > h2");
+const piuAcquistati = document.querySelector(".home_content > main > section:nth-child(3) > nav > ul > li:first-child > h2");
+const piuAmati = document.querySelector(".home_content > main > section:nth-child(3) > nav > ul > li:last-child > h2");
 
 piuAcquistati.addEventListener('click', function() {
     setTimeout(() => {
@@ -26,8 +26,8 @@ piuAmati.addEventListener('click', function() {
     }, 500);
 });
 
-const soldGames = document.querySelector(".home_content >main>div:nth-child(5)> div:first-child");
-const lovedGames = document.querySelector(".home_content >main>div:nth-child(5)> div:last-child");
+const soldGames = document.querySelector(".home_content > main > section:nth-child(3) > div > div:first-child");
+const lovedGames = document.querySelector(".home_content > main > section:nth-child(3) > div > div:last-child");
 
 lovedGames.classList.add("notVisible");
 piuAcquistati.classList.add("sbrilluccichio");

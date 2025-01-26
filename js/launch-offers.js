@@ -7,10 +7,12 @@ function generateLaunchOffers(games){
         <li>
             <a href = "game.php?id=${game["Id"]}">
                 <article>
-                    <figure>
-                        <img src="../media/covers/${game["Id"]}.jpg" alt="${game["Name"]}"/>
-                        <figcaption>${game["Name"]}</figcaption>
-                    </figure>
+                    <header>
+                        <h3>${game["Name"]}</h3>
+                        <div>
+                            <img src="../media/covers/${game["Id"]}.jpg" alt="${game["Name"]}"/>
+                        </div>
+                    </header>
                     <footer>
                         ${discountText}
                         <span>${game["Price"]}€</span>
@@ -27,19 +29,19 @@ function generateLaunchOffers(games){
 
 async function createLaunchOffers(games) {
   const launchOffers = generateLaunchOffers(games);
-  const listOfGames = document.querySelector(".home_content > main > #home-offers > div > nav > ul");
+  const listOfGames = document.querySelector(".home_content > main > section:nth-child(4) > div > nav > ul");
   listOfGames.innerHTML = launchOffers;
 
 }
 
 function animateUl(games,direction) {
-    curUl = document.querySelector(".home_content > main > #home-offers > div > nav > ul");
+    curUl = document.querySelector(".home_content > main > section:nth-child(4) > div > nav > ul");
     curUl.classList.add(direction ? "slide-out-left" : "slide-out-right");
 
     setTimeout(() => {
         curUl.classList.remove(direction ? "slide-out-left" : "slide-out-right");
         createLaunchOffers(games);
-        curUl = document.querySelector(".home_content > main > #home-offers > div > nav > ul");
+        curUl = document.querySelector(".home_content > main > section:nth-child(4) > div > nav > ul");
         curUl.classList.add(direction ? "slide-out-right" : "slide-out-left");
         setTimeout(() => {
           curUl.classList.add(direction ? "slide-out-left" : "slide-out-right");
@@ -59,7 +61,7 @@ async function initializeLaunchOffers(url) {
 }
 
 
-document.querySelector(".home_content > main > #home-offers > div > img:nth-of-type(1)").addEventListener("click", function(e){
+document.querySelector(".home_content > main > section:nth-child(4) > div > img:nth-of-type(1)").addEventListener("click", function(e){
     e.preventDefault();
     let currentLaunchOffers = [];
     indexLaunchOffers = (indexLaunchOffers - sliceLaunchOffers + bufferLaunchOffers.length) % bufferLaunchOffers.length;
@@ -72,7 +74,7 @@ document.querySelector(".home_content > main > #home-offers > div > img:nth-of-t
     animateUl(currentLaunchOffers,0);
 });
 
-document.querySelector(".home_content > main > #home-offers > div > img:nth-of-type(2)").addEventListener("click", function(e){
+document.querySelector(".home_content > main > section:nth-child(4) > div > img:nth-of-type(2)").addEventListener("click", function(e){
     e.preventDefault();
     let currentLaunchOffers = [];
     indexLaunchOffers = (indexLaunchOffers + sliceLaunchOffers) % bufferLaunchOffers.length;
