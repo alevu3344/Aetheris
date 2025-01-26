@@ -21,7 +21,7 @@
     <header>
         <div>
             <div>
-                <a href="index.php">
+                <a href=<?= $_SESSION["isAdmin"] ? "admin-panel.php" : "index.php" ?>>
                     <img src="upload/icons/aetheris_logo.png" alt="Logo" />
                 </a>
                 <h1>Aetheris</h1>

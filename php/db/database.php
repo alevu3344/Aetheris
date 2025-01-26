@@ -76,7 +76,7 @@ class DatabaseHelper
         return array_values($orders); // Convert associative array to indexed array
     }
 
-    public function getPendingOrders(){
+    public function getAvailableOrders(){
         $query = "
         SELECT 
             O.*,
@@ -96,7 +96,7 @@ class DatabaseHelper
         JOIN 
             USERS U ON O.UserId = U.UserID
         WHERE 
-            O.Status = 'Pending'
+            O.Status != 'Canceled'
         ORDER BY 
             O.OrderDate DESC, O.Id
         ";
@@ -135,6 +135,14 @@ class DatabaseHelper
         }
 
         return array_values($orders); // Convert associative array to indexed array
+    }
+
+    public function modifyOrderStatus($OrderId, $Status)
+    {
+        $query = "UPDATE ORDERS SET Status = ? WHERE Id = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("si", $Status, $OrderId);
+        return $stmt->execute();
     }
 
 

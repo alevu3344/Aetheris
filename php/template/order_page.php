@@ -3,9 +3,17 @@
         <li>
             <article>
                 <header>
-                    <h2>Order #<?= $order["OrderId"] ?></h2>
+                    <h2 id="<?= $order["OrderId"] ?>">Order #<?= $order["OrderId"] ?></h2>
                     <p><?= $order["OrderDate"] ?></p>
-                    <p><?= $order["Status"] ?></p>
+                    <p class="status" id="<?= $order["Status"] ?>"><?= $order["Status"] ?></p>
+                    <div class="dropdown">
+                        <button class="dropbtn">Change status</button>
+                        <div id="myDropdown" class="dropdown-content">
+                            <?php foreach ($order["availableStatuses"] as $status): ?>
+                                <button id="<?= $status ?>"><?= $status ?></button>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
                 </header>
                 <section>
                     <h3>Games</h3>
@@ -41,3 +49,6 @@
         </li>
     <?php endforeach; ?>
 </ul>
+
+
+<script src="../js/orders.js?"></script>
