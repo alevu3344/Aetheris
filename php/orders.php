@@ -6,7 +6,13 @@ $templateParams["titolo"] = "Aetheris - Orders";
 $templateParams["nome"] = "order_page.php";
 
 if(!empty($_SESSION["Username"])) {
+
+    if($_SESSION["isAdmin"]) {
+        $templateParams["orders"] = $dbh->getPendingOrders();
+    }
+    else{
     $templateParams["orders"] = $dbh->getOrdersForUser($_SESSION["UserID"]);
+    }
     require("template/base.php");
 }
 else {
