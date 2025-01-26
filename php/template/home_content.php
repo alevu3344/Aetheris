@@ -99,9 +99,7 @@
           <a href = "game.php?id=<?= $mostsoldgames["Id"]?>">
             <img src="<?= "../media/covers/".$mostsoldgames["Id"].".jpg" ?>" alt="<?= $mostsoldgames["Name"]; ?>" />
             <section>
-              <header>
-                <h3><?= $mostsoldgames["Name"]; ?></h3>
-              </header>
+              <header><h3><?=$mostsoldgames["Name"];?></h3></header>
               <footer>
                 <div>
                   <?php foreach($mostsoldgames["Platforms"] as $platform): ?>
@@ -126,9 +124,7 @@
           <a href = "game.php?id=<?= $mostratedgame["Id"]?>">
             <img src="<?= "../media/covers/".$mostratedgame["Id"].".jpg" ?>" alt="<?= $mostratedgame["Name"]; ?>" />
             <section>
-              <header>
-                <h3><?= $mostratedgame["Name"]; ?></h3>
-              </header>
+              <header><h3><?=$mostratedgame["Name"];?></h3></header>
               <footer>
                 <div>
                   <?php foreach($mostratedgame["Platforms"] as $platform): ?>

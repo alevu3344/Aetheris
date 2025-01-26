@@ -115,10 +115,10 @@
 <div>
     <h2>Immagini</h2>
     <div>
-        <img src="../media/screenshots/<?= $templateParams["gioco"]["Id"] ?>_frame_1.jpg" alt="game">
-        <img src="../media/screenshots/<?= $templateParams["gioco"]["Id"] ?>_frame_2.jpg" alt="game">
-        <img src="../media/screenshots/<?= $templateParams["gioco"]["Id"] ?>_frame_3.jpg" alt="game">
-        <img src="../media/screenshots/<?= $templateParams["gioco"]["Id"] ?>_frame_4.jpg" alt="game">
+        <img src="../media/screenshots/<?= $templateParams["gioco"]["Id"] ?>_frame_1.jpg" alt="game"/>
+        <img src="../media/screenshots/<?= $templateParams["gioco"]["Id"] ?>_frame_2.jpg" alt="game"/>
+        <img src="../media/screenshots/<?= $templateParams["gioco"]["Id"] ?>_frame_3.jpg" alt="game"/>
+        <img src="../media/screenshots/<?= $templateParams["gioco"]["Id"] ?>_frame_4.jpg" alt="game"/>
     </div>
 </div>
 
