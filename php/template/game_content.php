@@ -50,10 +50,12 @@
             <dt>Sviluppatore</dt>
             <dd><?= $templateParams["gioco"]["Publisher"] ?></dd>
         </div>
+        <hr></hr>
         <div>
             <dt>Data di uscita</dt>
             <dd><?= date("j/n/y", strtotime($templateParams["gioco"]["ReleaseDate"])) ?></dd>
         </div>
+        <hr></hr>
         <div>
             <dt>Piattaforma</dt>
             <dd>
@@ -62,6 +64,7 @@
                 <?php endforeach; ?>
             </dd>
         </div>
+        <hr></hr>
         <div>
             <dt>Generi</dt>
             <dd>
@@ -70,6 +73,7 @@
                 <?php endforeach; ?>
             </dd>
         </div>
+        <hr></hr>
     </dl>
 </section>
 
@@ -117,7 +121,6 @@
         <img src="../media/screenshots/<?= $templateParams["gioco"]["Id"] ?>_frame_4.jpg" alt="game">
     </div>
 </div>
-
 
 <h2>Giochi simili</h2>
 <div>

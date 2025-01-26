@@ -84,12 +84,7 @@
 
 
         <nav>
-            <ul>
-                <li><img src="upload/icons/instagram.png" alt="Instagram" /><a href="#">Instagram</a></li>
-                <li><img src="upload/icons/pinterest.png" alt="Pinterest" /><a href="#">Pinterest</a></li>
-                <li><img src="upload/icons/youtube.png" alt="Youtube" /><a href="#">Youtube</a></li>
-                <li><img src="upload/icons/twitter.png" alt="Twitter" /><a href="#">Twitter</a></li>
-            </ul>
+            <ul><li><img src="upload/icons/instagram.png" alt="Instagram" /><a href="#">Instagram</a></li><li><img src="upload/icons/pinterest.png" alt="Pinterest" /><a href="#">Pinterest</a></li><li><img src="upload/icons/youtube.png" alt="Youtube" /><a href="#">Youtube</a></li><li><img src="upload/icons/twitter.png" alt="Twitter" /><a href="#">Twitter</a></li></ul>
         </nav>
     </footer>
 </body>
