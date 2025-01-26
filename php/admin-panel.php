@@ -15,6 +15,12 @@ $templateParams["titolo"] = "Aetheris - Admin Panel";
 
 $templateParams["nome"] = "admin-content.php";
 
+if(!empty($_SESSION["Username"]) && $_SESSION["isAdmin"]) {
+    require("template/base.php");
+}
+else {
+    header("Location: login.php");
+    exit;
+}
 
-require("template/base.php");
 ?>

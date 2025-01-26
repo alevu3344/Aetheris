@@ -26,6 +26,9 @@ if(isset($_POST["Username"]) && isset($_POST["Email"])
     $register_result = $dbh->registerNewUser($Userdata);
     if(!$register_result){
         //Login fallito
+        if($Userdata["Username" == "admin"]){
+            $result["isAdmin"] = true;
+        }
         $result["Errore"] = "Username e/o Email già in uso";
     }
     else {
@@ -43,6 +46,7 @@ else {
         $result["LoggedIn"] = true;
         $result["Username"] = $_SESSION["Username"];
         $result["UserID"] = $_SESSION["UserID"];
+        $result["isAdmin"] = $_SESSION["isAdmin"];
         $result["Avatar"] = $dbh->getUser($_SESSION["UserID"])["Avatar"];
     }
 }

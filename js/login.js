@@ -162,6 +162,10 @@ async function register(name, surname, birthday, city, address, phonenumber, ema
 
             newButton.href = document.referrer || "index.php";
             newButton.innerText = "Back to page";
+            if(json["isAdmin"]){
+                newButton.href = "admin-panel.php";
+                newButton.innerText = "Go to admin page";
+            }
             button.replaceWith(newButton);
             
         }
@@ -209,6 +213,10 @@ async function login(formData) {
     
                 newButton.href = document.referrer || "index.php";
                 newButton.innerText = "Back to page";
+                if(json["isAdmin"]){
+                    newButton.href = "admin-panel.php";
+                    newButton.innerText = "Go to admin page";
+                }
                 button.replaceWith(newButton);
             }
             

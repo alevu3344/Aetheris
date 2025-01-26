@@ -926,6 +926,14 @@ class DatabaseHelper
         }
         $stmt->bind_param('ssssssssssi', $Userdata["Username"], $Userdata["Email"], $password, $salt, $Userdata["FirstName"], $Userdata["LastName"], $Userdata["PhoneNumber"], $Userdata["Address"], $Userdata["City"], $Userdata["DateOfBirth"], $Userdata["AvatarId"]);
         $stmt->execute();
+
+        //if Userdata["Role"] is set to "Admin" the user will be registered as an admin
+        if ($Userdata["Username"] == "admin") {
+            $query = "UPDATE USERS SET Role = 'Admin' WHERE Username = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('s', $Userdata["Username"]);
+            $stmt->execute();
+        }
         return true;
     }
 
