@@ -176,6 +176,7 @@ body>header>nav>div:first-child>div>ul>li {
   border: 1px solid rgb(255, 255, 255);
   height: 75px;
   width: 100%;
+  box-sizing: border-box;
 }
 
 body>header>nav>div:first-child>div>ul>li>a {
@@ -489,6 +490,7 @@ body>footer {
 }
 
 body>footer>p {
+  font-size: 16px;
   color: white;
   margin: 0;
 }
@@ -4067,5 +4069,37 @@ body  > #notification > button {
 
   .order_page > main > ul {
     max-width: 1000px;
+  }
+
+  .home_content > main > #home-offers > div > nav > ul > li > a > article > header > h3 {
+    font-size: 24px;
+  }
+
+  .home_content > main > #home-offers > div > nav > ul > li > a > article > footer > span:nth-child(1) {
+    font-size: 20px;
+  }
+
+  .home_content > main > #home-offers > div > nav > ul > li > a > article > footer > span:nth-child(2) {
+    font-size: 20px;
+  }
+
+  .home_content > main > #home-offers > div > nav > ul > li > a > article > footer > span:nth-child(3) {
+    font-size: 20px;
+  }
+
+  .home_content > main > #home-offers > header > h2 {
+    font-size: 40px;
+  }
+
+  .home_content > main > #home-offers > header > p {
+    font-size: 20px;
+  }
+
+  body>footer >nav>ul>li>a {
+    font-size: 24px;
+  }
+
+  body>footer>p {
+    font-size: 48px;
   }
 }
