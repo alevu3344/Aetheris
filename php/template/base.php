@@ -57,7 +57,11 @@
                     <button id="categories-toggle">Categories</button>
                     <ul id="categories-list">
                         <?php foreach ($templateParams["categorie"] as $categoria): ?>
+                            <?php if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]): ?>
+                                <li><a href="admin-panel.php?category=<?= $categoria["CategoryName"] ?>"><?= $categoria["CategoryName"] ?></a></li>
+                            <?php else: ?>
                             <li><a href="categorygames.php?category=<?= $categoria["CategoryName"] ?>"><?= $categoria["CategoryName"] ?></a></li>
+                            <?php endif; ?>
                         <?php endforeach; ?>
                     </ul>
                 </div>
@@ -90,8 +94,8 @@
     </footer>
 </body>
 
-<script src="../js/login.js"></script>
-<script src="../js/base.js"></script>
-<script src="../js/search-bar.js"></script>
+<script src="../js/login.js" defer="true"></script>
+<script src="../js/base.js?admin=<?= isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] ? 'true' : 'false' ?>" defer="true"></script>
+<script src="../js/search-bar.js?admin=<?= isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] ? 'true' : 'false' ?>" defer></script>
 
 </html>

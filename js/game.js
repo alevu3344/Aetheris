@@ -57,7 +57,6 @@ document.querySelector(".game_content > main > div:nth-of-type(2) > button:nth-o
 /*Listener per aggiungi al carrello*/
 document.querySelector(".game_content > main > div:nth-of-type(2) > button:nth-of-type(2)").addEventListener("click",function (event) {
     event.preventDefault();
-    event.preventDefault();
     let popup = createPopUpWindow(game, platforms, option="carrello");
 
     //listener per il bottone acquista

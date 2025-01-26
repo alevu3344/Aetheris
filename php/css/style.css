@@ -2018,7 +2018,23 @@ body>footer >nav>ul>li>a {
 }
 
 
-.shoppingcart_items>main>button {
+.shoppingcart_items>main>a{
+  background-color: rgba(59, 130, 246, 1);
+  text-decoration: none;
+  padding: 10px 10px;
+  text-align: center;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  margin: 20px 5% 20px 5%;
+  width: 90%;
+  display: block;
+  box-sizing: border-box;
+}
+
+
+.shoppingcart_items>main>button{
   background-color: rgba(59, 130, 246, 1);
 
   padding: 10px 10px;
@@ -2027,8 +2043,8 @@ body>footer >nav>ul>li>a {
   border: none;
   border-radius: 10px;
   font-weight: 600;
-  margin: 20px 40% 20px 40%;
-  width: 20%;
+  margin: 20px 5% 20px 5%;
+  width: 90%;
   display: block;
 }
 
@@ -3488,3 +3504,221 @@ body  > #notification > button {
 
 
 /************************** END NOTIFICATION ****************/
+
+
+
+/************************ START USER ORDERS ***********************/
+
+.order_page p {
+  font-family: 'Roboto';
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.order_page h2 {
+  font-family: 'Roboto';
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.order_page h3 {
+  font-family: 'Roboto';
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.order_page h4 {
+  font-family: 'Roboto';
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.order_page span {
+  font-family: 'Roboto';
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.order_page a {
+  font-family: 'Roboto';
+  color: white;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
+.order_page > main > ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  width: 90%;
+  margin:10px 5% 10px 5%;
+}
+
+.order_page > main > ul > li {
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.order_page > main > ul > li > article {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 5px;
+  border: #fff 1px solid;
+  background-color: rgb(0, 0, 0);
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.order_page > main > ul > li > article > header {
+  display: flex;
+  width: 100%;
+  justify-content:space-between;
+  align-items: center;
+}
+
+.order_page > main > ul > li > article > section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 5px;
+  border: #fff 1px solid;
+  background-color: rgb(35, 35, 35);
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.order_page > main > ul > li > article > section > ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.order_page > main > ul > li > article > section > ul > li {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 5px;
+  border: #fff 1px solid;
+  background-color: rgb(0, 0, 0);
+  border-radius: 10px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.order_page > main > ul > li > article > section > ul > li >a {
+  width: 100%;
+  display: flex
+}
+
+.order_page > main > ul > li > article > section > ul > li >a > img {
+  width: 50%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.order_page > main > ul > li > article > section > ul > li >a > div {
+  width: 50%;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+}
+
+.order_page > main > ul > li > article > section > ul > li >a > div > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  row-gap: 5px;
+  width: 100%;
+  padding-left: 5px;
+  box-sizing: border-box;
+}
+
+.order_page > main > ul > li > article > section > ul > li >a > div > div > img {
+  width: 20px;
+  height: 20px;
+  filter: invert(1);
+}
+
+
+.order_page > main > ul > li > article > section > ul > li >a > div > p {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  column-gap: 5px;
+}
+
+.order_page > main > ul > li > article > section > ul > li >a > div > p > span:nth-child(1) {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  padding: 3px;
+  box-sizing: border-box;
+  background-color: #00c83f;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+.order_page > main > ul > li > article > section > ul > li >a > div > p > span:nth-child(2) {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  padding: 3px;
+  text-decoration: line-through;
+  box-sizing: border-box;
+  background-color: #000000;
+  color: #7d7d7d;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+.order_page > main > ul > li > article > section > ul > li >a > div > p > span:nth-child(3) {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  padding: 3px;
+  box-sizing: border-box;
+  background-color:#007bff;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+.order_page > main > ul > li > article > section > ul > li >a > div > p > span:only-child {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  padding: 3px;
+  box-sizing: border-box;
+  background-color:#007bff;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/************************ END USER ORDERS ***********************/
+

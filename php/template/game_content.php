@@ -149,4 +149,6 @@
     "game" => $templateParams["gioco"],
     "platforms" => $templateParams["platforms"]
 ])) ?>"></script>
-<script src="../js/similar-games.js?id=<?=$templateParams["gioco"]["Id"]?>" defer="true"></script> 
+
+
+<script src="../js/similar-games.js?id=<?=$templateParams["gioco"]["Id"]?>"></script> 

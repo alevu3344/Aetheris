@@ -1,3 +1,8 @@
+const scriptUrl = new URL(document.currentScript.src); 
+
+const isAdmin = scriptUrl.searchParams.get("admin");
+
+
 document.addEventListener("DOMContentLoaded", function () {
     const categoriesToggle = document.getElementById("categories-toggle");
 
