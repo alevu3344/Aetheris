@@ -6,6 +6,7 @@
                     <h2 id="<?= $order["OrderId"] ?>">Order #<?= $order["OrderId"] ?></h2>
                     <p><?= $order["OrderDate"] ?></p>
                     <p class="status" id="<?= $order["Status"] ?>"><?= $order["Status"] ?></p>
+                    <?php if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]) : ?>
                     <div class="dropdown">
                         <button class="dropbtn">Change status</button>
                         <div id="myDropdown" class="dropdown-content">
@@ -14,6 +15,7 @@
                             <?php endforeach; ?>
                         </div>
                     </div>
+                    <?php endif; ?>
                 </header>
                 <section>
                     <h3>Games</h3>

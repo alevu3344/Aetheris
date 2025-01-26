@@ -2126,7 +2126,8 @@ body>footer >nav>ul>li>a {
   border: none;
   border-radius: 10px;
   font-weight: 600;
-  margin: 20px 5% 20px 5%;
+  margin-top: 20px;
+  margin-bottom: 20px;
   width: 90%;
   display: block;
   box-sizing: border-box;
@@ -2142,9 +2143,25 @@ body>footer >nav>ul>li>a {
   border: none;
   border-radius: 10px;
   font-weight: 600;
-  margin: 20px 5% 20px 5%;
+  margin-top: 20px;
+  margin-bottom: 20px;
   width: 90%;
   display: block;
+}
+
+
+@media screen and (min-width:768px){ 
+  .shoppingcart_items>main>button {
+    max-width: 1000px;
+  }
+
+  .shoppingcart_items>main>a {
+    max-width: 1000px;
+  }
+
+  .shoppingcart_items>main>ul {
+    max-width: 1000px;
+  }
 }
 
 
@@ -3703,8 +3720,17 @@ body  > #notification > button {
   margin: 0;
   align-items: center;
   width: 90%;
-  margin:10px 5% 10px 5%;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
+
+@media screen and (min-width:768px){ 
+  .order_page > main > ul {
+    max-width: 1000px;
+  }
+}
+
+
 
 .order_page > main > ul > li {
   width: 100%;
