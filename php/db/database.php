@@ -121,9 +121,7 @@ class DatabaseHelper
     {
         $query = "
             SELECT 
-                G.Id, 
-                G.Name, 
-                G.Price, 
+                G.*,
                 DG.Percentage AS Discount,
                 DG.StartDate,
                 DG.EndDate
@@ -145,7 +143,7 @@ class DatabaseHelper
         $stmt->bind_param("si", $category, $lim);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $this->addSupportedPlatforms($result->fetch_all(MYSQLI_ASSOC));
+        return $this->addCategories($this->addSupportedPlatforms($result->fetch_all(MYSQLI_ASSOC)));
     }
 
     // this function returns a list of tuples (GameId, GameName, Quantity, OriginalPrice, Discount (0% if not discounted))

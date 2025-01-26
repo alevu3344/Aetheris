@@ -1,3 +1,7 @@
+const scriptUrlSearch = new URL(document.currentScript.src); 
+
+const isAdminSearch = scriptUrlSearch.searchParams.get("admin");
+
 document.getElementById("search-bar").addEventListener("input", function () {
     const query = this.value.trim();
 
@@ -20,7 +24,7 @@ function generateSearchedGames(games){
         const discountedPrice = game['Discount'] ? `<span>${(game['Price'] * (1 - game["Discount"] / 100)).toFixed(2)}€</span>` : `<span>${game['Price']}€</span>`;
         let placeholder = `
             <li>
-                <a href = "game.php?id=${game["Id"]}">
+                <a href = "game.php?id=${game["Id"]}&admin=${isAdminSearch}">
                 <img src="../media/covers/${game["Id"]}.jpg" alt="${game["Name"]}"/>
                 <section>
                     <header>
