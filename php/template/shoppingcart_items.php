@@ -1,3 +1,5 @@
+<a href="orders.php">Controlla ordini</a>
+
 <ul>
     <?php foreach ($templateParams["elementi-carrello"] as $gioco): ?>
         <li>

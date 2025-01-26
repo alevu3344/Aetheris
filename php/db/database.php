@@ -12,57 +12,101 @@ class DatabaseHelper
         }
     }
 
+
+
     public function getOrdersForUser($UserID)
     {
         $query = "
-        SELECT * 
+        SELECT 
+            O.Id AS OrderId,
+            O.OrderDate,
+            O.TotalCost,
+            O.Status,
+            OI.GameId,
+            G.Name AS GameName,
+            G.Price,
+            OI.Quantity,
+            OI.FinalPrice,
+            OI.Platform
         FROM 
-            ORDERS O, ORDER_ITEMS OI, GAMES G
+            ORDERS O
+        JOIN 
+            ORDER_ITEMS OI ON O.Id = OI.OrderId
+        JOIN 
+            GAMES G ON OI.GameId = G.Id
         WHERE 
-            O.UserId = ? AND O.Id = OI.OrderId AND OI.GameId = G.Id
+            O.UserId = ?
+        ORDER BY 
+            O.OrderDate DESC, O.Id
         ";
+
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $UserID);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
+        $rows = $result->fetch_all(MYSQLI_ASSOC);
+
+        $orders = [];
+
+        foreach ($rows as $row) {
+            $orderId = $row['OrderId'];
+            if (!isset($orders[$orderId])) {
+                $orders[$orderId] = [
+                    'OrderId' => $orderId,
+                    'OrderDate' => $row['OrderDate'],
+                    'TotalCost' => $row['TotalCost'],
+                    'Status' => $row['Status'],
+                    'OrderItems' => []
+                ];
+            }
+
+            $orders[$orderId]['OrderItems'][] = [
+                'GameId' => $row['GameId'],
+                'Name' => $row['GameName'], // Add GameName here
+                'Quantity' => $row['Quantity'],
+                'FinalPrice' => $row['FinalPrice'],
+                'InitialPrice' => $row['Price'],
+                'Platform' => $row['Platform'],
+                'Discount' => [
+                    'Percentage' => ($row["Price"] - $row["FinalPrice"]) / $row["Price"] * 100,
+                ]
+            ];
+        }
+
+        return array_values($orders); // Convert associative array to indexed array
     }
 
-    public function getOrderDetails($OrderID)
+
+
+    public function addGamesToOrders($orders)
     {
-        // Define the SQL query with the necessary joins
+
+        foreach ($orders as &$order) {
+            $orderId = $order["OrderId"];
+            $order["Games"] = $this->addSupportedPlatforms($this->getGamesForOrder($orderId));
+        }
+
+        return $orders;
+    }
+
+    public function getGamesForOrder($orderId)
+    {
         $query = "
-            SELECT 
-            O.*,
-            U.UserID AS UserID, 
-            G.Name AS GameName,
-            G.Id AS GameID,
-            OI.*
-            FROM 
-                ORDERS O
-            INNER JOIN 
-                USERS U ON O.UserId = U.UserID -- Correct join column
-            INNER JOIN 
-                ORDER_ITEMS OI ON O.Id = OI.OrderId
-            INNER JOIN 
-                GAMES G ON OI.GameId = G.Id
-            WHERE O.Id = ?;
-        ";
-
-        // Prepare the statement
+        SELECT 
+            G.*
+        FROM 
+            ORDER_ITEMS OI
+        JOIN 
+            GAMES G ON OI.GameId = G.Id
+        WHERE 
+            OI.OrderId = ?";
         $stmt = $this->db->prepare($query);
-
-        // Bind the OrderID parameter
-        $stmt->bind_param('i', $OrderID);
-
-        // Execute the query
+        $stmt->bind_param("i", $orderId);
         $stmt->execute();
-
         $result = $stmt->get_result();
-
-        // Fetch all results
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
 
     public function getAvatars()
     {
@@ -214,7 +258,8 @@ class DatabaseHelper
         $stmt->execute();
     }
 
-    public function modifyGameInCart($gameId, $userId, $quantity, $platform){
+    public function modifyGameInCart($gameId, $userId, $quantity, $platform)
+    {
         $query = "UPDATE SHOPPING_CARTS SET Quantity = Quantity + ? WHERE GameId = ? AND UserId = ? AND Platform = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("iiis", $quantity, $gameId, $userId, $platform);
@@ -230,65 +275,94 @@ class DatabaseHelper
     {
         $this->db->begin_transaction(); // Start a transaction
         try {
-            // Step 1: Calculate the total cost of the shopping cart
-            $query = "SELECT SUM(G.Price * SC.Quantity) AS Total 
-                      FROM SHOPPING_CARTS SC 
-                      JOIN GAMES G ON SC.GameId = G.Id 
-                      WHERE SC.UserId = ?";
+            // Step 1: Calculate the total cost of the shopping cart, applying discounts if applicable
+            $query = "
+        SELECT 
+            SUM(
+                (CASE 
+                    WHEN DG.Percentage IS NOT NULL AND CURRENT_DATE BETWEEN DG.StartDate AND DG.EndDate 
+                    THEN G.Price * (1 - DG.Percentage / 100) 
+                    ELSE G.Price 
+                END) * SC.Quantity
+            ) AS Total
+        FROM 
+            SHOPPING_CARTS SC
+        JOIN 
+            GAMES G ON SC.GameId = G.Id
+        LEFT JOIN 
+            DISCOUNTED_GAMES DG ON SC.GameId = DG.GameId
+        WHERE 
+            SC.UserId = ?";
             $stmt = $this->db->prepare($query);
             $stmt->bind_param("i", $userId);
             $stmt->execute();
             $result = $stmt->get_result();
             $total = $result->fetch_assoc()["Total"];
-    
+
             if (!$total) {
                 throw new Exception("Cart is empty or an error occurred.");
             }
-    
+
             // Step 2: Create a new row in the ORDERS table
             $query = "INSERT INTO ORDERS (UserId, OrderDate, TotalCost, Status) 
-                      VALUES (?, NOW(), ?, 'Pending')";
+                  VALUES (?, NOW(), ?, 'Pending')";
             $stmt = $this->db->prepare($query);
             $stmt->bind_param("id", $userId, $total);
             $stmt->execute();
             $orderId = $this->db->insert_id; // Get the generated OrderId
-    
-            // Step 3: Retrieve items from the shopping cart and insert into ORDER_ITEMS
-            $query = "SELECT SC.GameId, SC.Quantity, G.Price, SC.Platform
-                      FROM SHOPPING_CARTS SC 
-                      JOIN GAMES G ON SC.GameId = G.Id 
-                      WHERE SC.UserId = ?";
+
+            // Step 3: Retrieve items from the shopping cart and insert into ORDER_ITEMS, applying discounts
+            $query = "
+        SELECT 
+            SC.GameId,
+            SC.Quantity,
+            G.Price,
+            SC.Platform,
+            (CASE 
+                WHEN DG.Percentage IS NOT NULL AND CURRENT_DATE BETWEEN DG.StartDate AND DG.EndDate 
+                THEN G.Price * (1 - DG.Percentage / 100) 
+                ELSE G.Price 
+            END) AS FinalPrice
+        FROM 
+            SHOPPING_CARTS SC
+        JOIN 
+            GAMES G ON SC.GameId = G.Id
+        LEFT JOIN 
+            DISCOUNTED_GAMES DG ON SC.GameId = DG.GameId
+        WHERE 
+            SC.UserId = ?";
             $stmt = $this->db->prepare($query);
             $stmt->bind_param("i", $userId);
             $stmt->execute();
             $result = $stmt->get_result();
-    
+
             while ($row = $result->fetch_assoc()) {
                 $gameId = $row["GameId"];
                 $quantity = $row["Quantity"];
-                $price = $row["Price"];
+                $price = $row["FinalPrice"];
                 $platform = $row["Platform"];
-    
+
                 $query = "INSERT INTO ORDER_ITEMS (OrderId, GameId, Platform, Quantity, FinalPrice) 
-                          VALUES (?, ?, ?, ?, ?)";
+                      VALUES (?, ?, ?, ?, ?)";
                 $stmt = $this->db->prepare($query);
-                $stmt->bind_param("iisii", $orderId, $gameId, $platform, $quantity, $price);
+                $stmt->bind_param("iisdi", $orderId, $gameId, $platform, $quantity, $price);
                 $stmt->execute();
             }
-    
+
             // Step 4: Clear the shopping cart
             $query = "DELETE FROM SHOPPING_CARTS WHERE UserId = ?";
             $stmt = $this->db->prepare($query);
             $stmt->bind_param("i", $userId);
             $stmt->execute();
-    
+
             $this->db->commit(); // Commit the transaction
         } catch (Exception $e) {
             $this->db->rollback(); // Rollback if an error occurs
             throw $e; // Re-throw the exception for error handling
         }
     }
-    
+
+
     public function addReviewToGame($gameId, $userId, $title, $comment, $rating)
     {
         $query = "INSERT INTO REVIEWS (GameId, UserID, Title, Comment, Rating) VALUES (?, ?, ?, ?, ?)";
@@ -297,7 +371,7 @@ class DatabaseHelper
         $stmt->execute();
     }
 
-   
+
 
 
     public function getGameRequirements($id)
