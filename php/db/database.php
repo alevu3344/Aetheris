@@ -541,7 +541,7 @@ class DatabaseHelper
 
     public function getSearchedGames($gameName, $lim)
     {
-        $query = "SELECT GamesWithCondition.* FROM ( SELECT G.* FROM GAMES AS G WHERE G.Name LIKE CONCAT(?, '%') UNION SELECT G.* FROM GAMES AS G WHERE G.Name LIKE CONCAT('%',?, '%') AND G.Name NOT LIKE CONCAT(?, '%') ) AS GamesWithCondition LEFT JOIN `DISCOUNTED_GAMES` AS DG ON GamesWithCondition.Id = DG.GameID AND CURRENT_DATE BETWEEN DG.StartDate AND DG.EndDate LIMIT ?";
+        $query = "SELECT GamesWithCondition.*, DG.Percentage AS Discount FROM ( SELECT G.* FROM GAMES AS G WHERE G.Name LIKE CONCAT(?, '%') UNION SELECT G.* FROM GAMES AS G WHERE G.Name LIKE CONCAT('%',?, '%') AND G.Name NOT LIKE CONCAT(?, '%') ) AS GamesWithCondition LEFT JOIN `DISCOUNTED_GAMES` AS DG ON GamesWithCondition.Id = DG.GameID AND CURRENT_DATE BETWEEN DG.StartDate AND DG.EndDate LIMIT ?";
 
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("sssi", $gameName, $gameName, $gameName, $lim);

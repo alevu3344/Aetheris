@@ -2,25 +2,28 @@ const scriptUrlSearch = new URL(document.currentScript.src);
 
 const isAdminSearch = scriptUrlSearch.searchParams.get("admin");
 
-document.getElementById("search-bar").addEventListener("input", function () {
-    const query = this.value.trim();
-
-    const resultsDiv = document.querySelector("body>header>nav>div:first-child>div>ul");
-    if (query.length > 0) {
-        getSearchedGames(`api/search_bar.php?q=${encodeURIComponent(query)}`);
-        resultsDiv.classList.add("ulShow");
-        resultsDiv.classList.remove("ulHide");
-    } else {
-        resultsDiv.innerHTML = "";
-        resultsDiv.classList.remove("ulShow");
-        resultsDiv.classList.add("ulHide");
-    }
-});
-
+if(document.getElementById("search-bar")!=null){
+    document.getElementById("search-bar").addEventListener("input", function () {
+        const query = this.value.trim();
+    
+        const resultsDiv = document.querySelector("body>header>nav>div:first-child>div>ul");
+        if (query.length > 0) {
+            getSearchedGames(`api/search_bar.php?q=${encodeURIComponent(query)}`);
+            resultsDiv.classList.add("ulShow");
+            resultsDiv.classList.remove("ulHide");
+        } else {
+            resultsDiv.innerHTML = "";
+            resultsDiv.classList.remove("ulShow");
+            resultsDiv.classList.add("ulHide");
+        }
+    });
+}
 
 function generateSearchedGames(games){
     let result = "";
     games.forEach(game => {
+        console.log("Game:", game["Name"]);
+        console.log("Discount:", game["Discount"]);
         const discountedPrice = game['Discount'] ? `<span>${(game['Price'] * (1 - game["Discount"] / 100)).toFixed(2)}€</span>` : `<span>${game['Price']}€</span>`;
         let placeholder = `
             <li>
@@ -64,6 +67,7 @@ async function getSearchedGames(url) {
     }
 }
 
-
 const ul = document.querySelector("body>header>nav>div:first-child>div>ul");
-ul.classList.add("ulHide");
+if(ul!=null) {
+    ul.classList.add("ulHide"); 
+}

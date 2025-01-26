@@ -1,8 +1,3 @@
-const scriptUrl = new URL(document.currentScript.src); 
-
-const isAdmin = scriptUrl.searchParams.get("admin");
-
-
 document.addEventListener("DOMContentLoaded", function () {
     const categoriesToggle = document.getElementById("categories-toggle");
 
@@ -16,6 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-
 const categoriesList = document.getElementById("categories-list");
-categoriesList.style.display = "none";
+if(categoriesList!=null) {
+    categoriesList.style.display = "none";
+}
+

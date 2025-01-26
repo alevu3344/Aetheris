@@ -2,14 +2,12 @@ let currentStart = 0;
 let reviewsPerPage = 3; 
 
 
-
-
-const scriptUrl = new URL(document.currentScript.src); // Get the script's URL
-const gameData = scriptUrl.searchParams.get("gameData"); // Get the game parameter
+const scriptUrlGames = new URL(document.currentScript.src); // Get the script's URL
+const gameDataGames = scriptUrlGames.searchParams.get("gameData"); // Get the game parameter
 
 //gameData is an associative array
-const game = JSON.parse(gameData).game;
-const platforms = JSON.parse(gameData).platforms;
+const game = JSON.parse(gameDataGames).game;
+const platforms = JSON.parse(gameDataGames).platforms;
 getMoreReviews(currentStart, currentStart + reviewsPerPage-1);
 
 document.querySelector("main > div:last-of-type button").addEventListener("click", async function () {
