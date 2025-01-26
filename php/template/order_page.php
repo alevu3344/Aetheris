@@ -3,9 +3,19 @@
         <li>
             <article>
                 <header>
-                    <h2>Order #<?= $order["OrderId"] ?></h2>
+                    <h2 id="<?= $order["OrderId"] ?>">Order #<?= $order["OrderId"] ?></h2>
                     <p><?= $order["OrderDate"] ?></p>
-                    <p><?= $order["Status"] ?></p>
+                    <p class="status" id="<?= $order["Status"] ?>"><?= $order["Status"] ?></p>
+                    <?php if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]) : ?>
+                    <div class="dropdown">
+                        <button class="dropbtn">Change status</button>
+                        <div id="myDropdown" class="dropdown-content">
+                            <?php foreach ($order["availableStatuses"] as $status): ?>
+                                <button id="<?= $status ?>"><?= $status ?></button>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                    <?php endif; ?>
                 </header>
                 <section>
                     <h3>Games</h3>
@@ -18,6 +28,7 @@
                                         <div>
                                             <h4><?= $item["Name"] ?></h4>
                                             <img src="upload/icons/<?= $item["Platform"] ?>.svg" alt="<?= $item["Platform"] ?>">
+                                            <span>Quantity: <?= $item["Quantity"] ?>x</span>
                                         </div>
                                         <p>
                                             <?php if (!empty($item['Discount']['Percentage'])): ?>
@@ -41,3 +52,6 @@
         </li>
     <?php endforeach; ?>
 </ul>
+
+
+<script src="../js/orders.js?"></script>

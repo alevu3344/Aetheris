@@ -76,6 +76,76 @@ class DatabaseHelper
         return array_values($orders); // Convert associative array to indexed array
     }
 
+    public function getAvailableOrders(){
+        $query = "
+        SELECT 
+            O.*,
+            OI.GameId,
+            G.Name AS GameName,
+            G.Price,
+            OI.Quantity,
+            OI.FinalPrice,
+            OI.Platform,
+            U.Username
+        FROM 
+            ORDERS O
+        JOIN 
+            ORDER_ITEMS OI ON O.Id = OI.OrderId
+        JOIN 
+            GAMES G ON OI.GameId = G.Id
+        JOIN 
+            USERS U ON O.UserId = U.UserID
+        WHERE 
+            O.Status != 'Canceled'
+        ORDER BY 
+            O.OrderDate DESC, O.Id
+        ";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $rows = $result->fetch_all(MYSQLI_ASSOC);
+
+        $orders = [];
+
+        foreach ($rows as $row) {
+            $orderId = $row['Id'];
+            if (!isset($orders[$orderId])) {
+                $orders[$orderId] = [
+                    'OrderId' => $orderId,
+                    'OrderDate' => $row['OrderDate'],
+                    'TotalCost' => $row['TotalCost'],
+                    'Status' => $row['Status'],
+                    'OrderItems' => [],
+                    'Username' => $row['Username']
+                ];
+            }
+
+            $orders[$orderId]['OrderItems'][] = [
+                'GameId' => $row['GameId'],
+                'Name' => $row['GameName'], // Add GameName here
+                'Quantity' => $row['Quantity'],
+                'FinalPrice' => $row['FinalPrice'],
+                'InitialPrice' => $row['Price'],
+                'Platform' => $row['Platform'],
+                'Discount' => [
+                    'Percentage' => ($row["Price"] - $row["FinalPrice"]) / $row["Price"] * 100,
+                ]
+            ];
+        }
+
+        return array_values($orders); // Convert associative array to indexed array
+    }
+
+    public function modifyOrderStatus($OrderId, $Status)
+    {
+        $query = "UPDATE ORDERS SET Status = ? WHERE Id = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("si", $Status, $OrderId);
+        return $stmt->execute();
+    }
+
+
 
 
     public function addGamesToOrders($orders)

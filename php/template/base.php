@@ -21,7 +21,8 @@
     <header>
         <div>
             <div>
-                <a href="index.php">
+            <a href=<?= (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]) ? "admin-panel.php" : "index.php" ?>>
+
                     <img src="upload/icons/aetheris_logo.png" alt="Logo" />
                 </a>
                 <h1>Aetheris</h1>
@@ -47,9 +48,15 @@
                         <ul></ul>
                     </div>
                     <?php if(isset($_SESSION["Username"])): ?>
-                    <a href="cart.php">
-                        <img src="upload/icons/shopping-cart.svg" alt="Shopping Cart"/>
-                    </a>
+                        <?php if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]): ?>
+                            <a href="orders.php">
+                                <img src="upload/icons/orders.png" alt="Pending Orders"/>
+                            </a>
+                        <?php else: ?>
+                        <a href="cart.php">
+                            <img src="upload/icons/shopping-cart.svg" alt="Shopping Cart"/>
+                        </a>
+                        <?php endif; ?>
                     <?php endif; ?>
                 </div>
         <!-- SEARCH BAR -->
