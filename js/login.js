@@ -1,7 +1,7 @@
 
 
 
-function putAvatar(avatar, username) {  
+function putAvatar(avatar, username) {
 
     let header_accedi = document.querySelector("body > header > div > div:nth-of-type(2) > a");
     let figure = `
@@ -31,7 +31,7 @@ function putAvatar(avatar, username) {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    if(document.body.classList.contains("registration-form")){
+    if (document.body.classList.contains("registration-form")) {
         // add a listener to the submit button in the registration form
         document.querySelector(".registration-form > main > section > form").addEventListener("submit", function (event) {
             event.preventDefault();
@@ -49,20 +49,20 @@ document.addEventListener("DOMContentLoaded", function () {
             const selectedAvatar = document.querySelector('input[name="avatar"]:checked');
             const avatarId = selectedAvatar.value;
             console.log("avatarId: " + avatarId);
-         
-            
 
-            if(password != repeatPassword){
+
+
+            if (password != repeatPassword) {
                 document.querySelector(".login-form > main > section > p").innerText = "Passwords don't match";
             }
-            else{
+            else {
                 register(name, surname, birthday, city, address, phonenumber, email, username, password, avatarId);
             }
         });
     }
 });
 document.addEventListener("DOMContentLoaded", function () {
-    if(document.body.classList.contains("login-form")){
+    if (document.body.classList.contains("login-form")) {
         // Gestisco tentativo di login
         document.querySelector(".login-form > main > section > form").addEventListener("submit", function (event) {
             event.preventDefault();
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-async function logout(){
+async function logout() {
     const url = 'api/logout-api.php';
     try {
 
@@ -92,7 +92,7 @@ async function logout(){
         }
         const json = await response.json();
 
-        if(json["Success"]){
+        if (json["Success"]) {
             console.log("Logged out successfully");
             let header = document.querySelector("body > header > div > div:nth-of-type(2) > figure");
             let newA = document.createElement("a");
@@ -100,14 +100,14 @@ async function logout(){
             newA.innerText = "Accedi";
             header.replaceWith(newA);
             //if im the login page, reload the page
-            if(document.body.classList.contains("login-form")){
+            if (document.body.classList.contains("login-form")) {
                 location.reload();
             }
-               
-                
-            
+
+
+
         }
-        else{
+        else {
             console.log("Error logging out");
         }
 
@@ -121,8 +121,8 @@ async function logout(){
 
 
 async function register(name, surname, birthday, city, address, phonenumber, email, username, password, avatarId) {
-    
-    
+
+
     const url = 'api/register-api.php';
     const formData = new FormData();
     formData.append('FirstName', name);
@@ -139,11 +139,11 @@ async function register(name, surname, birthday, city, address, phonenumber, ema
     console.log("registering");
 
 
-    
+
     try {
 
         const response = await fetch(url, {
-            method: "POST",                   
+            method: "POST",
             body: formData
         });
 
@@ -153,25 +153,32 @@ async function register(name, surname, birthday, city, address, phonenumber, ema
         const json = await response.json();
 
 
-        if(json["Success"]){
+        if (json["Success"]) {
             document.querySelector(".registration-form > main > section > p").innerText = "Registration successful";
             putAvatar(json["Avatar"], json["Username"]);
             //modify the register button in order for it to become green to display Back to page
             let button = document.querySelector(".registration-form > main > section > form > fieldset > button");
             let newButton = document.createElement("a");
 
-            newButton.href = document.referrer || "index.php";
-            newButton.innerText = "Back to page";
-            if(json["isAdmin"]){
-                newButton.href = "admin-panel.php";
-                newButton.innerText = "Go to admin page";
+
+            if (json["isAdmin"]) {
+                window.location.href = "admin-panel.php";
             }
-            button.replaceWith(newButton);
-            
+            else {
+                //redirects to previous page or index
+                if (document.referrer == "") {
+                    window.location.href = "index.php";
+                }
+                else {
+                    window.location.href = document.referrer;
+                }
+            }
+
+
         }
-        else{
+        else {
             document.querySelector(".registration-form > main > section > p").innerText = json["Errore"];
-    
+
         }
 
 
@@ -194,7 +201,7 @@ async function login(formData) {
     try {
 
         const response = await fetch(url, {
-            method: "POST",                   
+            method: "POST",
             body: formData
         });
 
@@ -203,29 +210,32 @@ async function login(formData) {
         }
         const json = await response.json();
 
-    
-        if(json["LoggedIn"]){
+
+        if (json["LoggedIn"]) {
             putAvatar(json["Avatar"], json["Username"]);
-            if(document.body.classList.contains("login-form") || document.body.classList.contains("registration-form")){
-                let button = document.querySelector(".login-form > main > section > form > fieldset > button");
-                //substitute the button with an "a"
-                let newButton = document.createElement("a");
-    
-                newButton.href = document.referrer || "index.php";
-                newButton.innerText = "Back to page";
-                if(json["isAdmin"]){
-                    newButton.href = "admin-panel.php";
-                    newButton.innerText = "Go to admin page";
+            if (document.body.classList.contains("login-form") || document.body.classList.contains("registration-form")) {
+
+                if (json["isAdmin"]) {
+                    //redirect to admin panel
+                    window.location.href = "admin-panel.php";
+                } else {
+                    //redirects to previous page or index
+                    if (document.referrer == "") {
+                        window.location.href = "index.php";
+                    }
+                    else {
+                        window.location.href = document.referrer;
+                    }
                 }
-                button.replaceWith(newButton);
+
             }
-            
+
 
         }
-        else if(json["ErroreLogin"]){
+        else if (json["ErroreLogin"]) {
 
             document.querySelector(".login-form > main > section > p").innerText = json["ErroreLogin"];
-        
+
         }
 
 
