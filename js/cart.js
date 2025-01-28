@@ -198,7 +198,7 @@ async function removeFromCart(gameId, platform, quantity) {
                 createNotificaton("Success", "Quantity of game decreased", "positive");
                 break;
             default:
-                createNotificaton("Success", "Unknown Action", "positive");
+                createNotificaton("Success", "Unknown Action", "negative");
                 break;
         }
     

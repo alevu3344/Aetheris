@@ -189,14 +189,29 @@ async function addToCart(gameId, platform, quantity) {
 
   });
 
-  if (response.ok) {
-      let data = await response.json();
+  let data = await response.json();
+
+  if (data["success"]) {
+
       createNotificaton("Success", "Game added to cart", "positive");
   } else {
-      console.error("HTTP-Error: " + response.status);
-      createNotificaton("Error", data.message, "negative");
+      switch (data["message"]) {
+          case "not_logged":
+              createNotificaton("Error", "Log in to add games to your cart", "negative");
+              break;
+          case "invalid_request":
+              createNotificaton("Error", "Invalid Request", "negative");
+              break;
+          default:
+              createNotificaton("Error", "Unknown error", "negative");
+              break;
+
+      }
   }
 }
+
+
+
 
 
 async function buyGame(gameId, platform, quantity) {
