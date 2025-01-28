@@ -82,11 +82,7 @@ else{
 
     if(isset($_GET['action']) && $_GET['action'] == 'checkout') {
         $user_id = $_SESSION["UserID"];
-        $dbh->checkout($user_id);
-        $result = [
-            'success' => true,
-            'message' => 'checkout_successful'
-        ];
+        $result = $dbh->checkout($user_id);
     }
 }
    

@@ -76,7 +76,8 @@ class DatabaseHelper
         return array_values($orders); // Convert associative array to indexed array
     }
 
-    public function getAvailableOrders(){
+    public function getAvailableOrders()
+    {
         $query = "
         SELECT 
             O.*,
@@ -341,10 +342,10 @@ class DatabaseHelper
 
     public function checkout($userId)
     {
-        $this->db->begin_transaction(); // Start a transaction
-        try {
-            // Step 1: Calculate the total cost of the shopping cart, applying discounts if applicable
-            $query = "
+     
+
+        // Step 1: Calculate the total cost of the shopping cart, applying discounts if applicable
+        $query = "
         SELECT 
             SUM(
                 (CASE 
@@ -361,26 +362,49 @@ class DatabaseHelper
             DISCOUNTED_GAMES DG ON SC.GameId = DG.GameId
         WHERE 
             SC.UserId = ?";
-            $stmt = $this->db->prepare($query);
-            $stmt->bind_param("i", $userId);
-            $stmt->execute();
-            $result = $stmt->get_result();
-            $total = $result->fetch_assoc()["Total"];
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $userId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $total = $result->fetch_assoc()["Total"];
 
-            if (!$total) {
-                throw new Exception("Cart is empty or an error occurred.");
-            }
+        if (!$total) {
+            throw new Exception("Cart is empty or an error occurred.");
+        }
 
-            // Step 2: Create a new row in the ORDERS table
-            $query = "INSERT INTO ORDERS (UserId, OrderDate, TotalCost, Status) 
+        //check is the user has enough balance
+        $query = "SELECT Balance FROM USERS WHERE UserID = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $userId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $balance = $result->fetch_assoc()["Balance"];
+
+        if ($balance < $total) {
+            $json = [
+                'success' => false,
+                'message' => 'no_funds'
+            ];
+            return $json;
+        }
+
+        //update user balance
+        $query = "UPDATE USERS SET Balance = Balance - ? WHERE UserID = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("di", $total, $userId);
+        $stmt->execute();
+        
+
+        // Step 2: Create a new row in the ORDERS table
+        $query = "INSERT INTO ORDERS (UserId, OrderDate, TotalCost, Status) 
                   VALUES (?, NOW(), ?, 'Pending')";
-            $stmt = $this->db->prepare($query);
-            $stmt->bind_param("id", $userId, $total);
-            $stmt->execute();
-            $orderId = $this->db->insert_id; // Get the generated OrderId
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("id", $userId, $total);
+        $stmt->execute();
+        $orderId = $this->db->insert_id; // Get the generated OrderId
 
-            // Step 3: Retrieve items from the shopping cart and insert into ORDER_ITEMS, applying discounts
-            $query = "
+        // Step 3: Retrieve items from the shopping cart and insert into ORDER_ITEMS, applying discounts
+        $query = "
         SELECT 
             SC.GameId,
             SC.Quantity,
@@ -399,35 +423,46 @@ class DatabaseHelper
             DISCOUNTED_GAMES DG ON SC.GameId = DG.GameId
         WHERE 
             SC.UserId = ?";
-            $stmt = $this->db->prepare($query);
-            $stmt->bind_param("i", $userId);
-            $stmt->execute();
-            $result = $stmt->get_result();
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $userId);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-            while ($row = $result->fetch_assoc()) {
-                $gameId = $row["GameId"];
-                $quantity = $row["Quantity"];
-                $price = $row["FinalPrice"];
-                $platform = $row["Platform"];
-
-                $query = "INSERT INTO ORDER_ITEMS (OrderId, GameId, Platform, Quantity, FinalPrice) 
-                      VALUES (?, ?, ?, ?, ?)";
-                $stmt = $this->db->prepare($query);
-                $stmt->bind_param("iisdi", $orderId, $gameId, $platform, $quantity, $price);
-                $stmt->execute();
-            }
-
-            // Step 4: Clear the shopping cart
-            $query = "DELETE FROM SHOPPING_CARTS WHERE UserId = ?";
-            $stmt = $this->db->prepare($query);
-            $stmt->bind_param("i", $userId);
-            $stmt->execute();
-
-            $this->db->commit(); // Commit the transaction
-        } catch (Exception $e) {
-            $this->db->rollback(); // Rollback if an error occurs
-            throw $e; // Re-throw the exception for error handling
+        //if the cart is empty, return an error
+        if ($result->num_rows == 0) {
+            $json = [
+                'success' => false,
+                'message' => 'empty_cart'
+            ];
+            return $json;
         }
+
+        while ($row = $result->fetch_assoc()) {
+            $gameId = $row["GameId"];
+            $quantity = $row["Quantity"];
+            $price = $row["FinalPrice"];
+            $platform = $row["Platform"];
+
+            $query = "INSERT INTO ORDER_ITEMS (OrderId, GameId, Platform, Quantity, FinalPrice) 
+                      VALUES (?, ?, ?, ?, ?)";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("iisdi", $orderId, $gameId, $platform, $quantity, $price);
+            $stmt->execute();
+        }
+
+        // Step 4: Clear the shopping cart
+        $query = "DELETE FROM SHOPPING_CARTS WHERE UserId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $userId);
+        $stmt->execute();
+
+        $json = [
+            'success' => true,
+            'message' => 'checkout_success'
+        ];
+
+        return $json;
+
     }
 
 

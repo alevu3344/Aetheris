@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
         //se non ci sono elementi nel carrello (non ci sono li), trasforma il colore del bottone in rosso, modifica il testo in carrello vuoto e non fare nulla
         if (document.querySelectorAll("main > ul > li").length == 0) {
             checkoutButton.style.backgroundColor = "red";
-            checkoutButton.innerText = "Carello vuoto";
+            checkoutButton.innerText = "Carrello vuoto";
             return;
         }
         else {
@@ -162,12 +162,27 @@ async function checkout() {
         method: "GET"
     });
 
-    if (response.ok) {
-        let data = await response.json();
-        createNotificaton("Success", data.message, "positive");
+    let data = await response.json();
+
+    if (data["success"]) {
+
+        createNotificaton("Success", "Checkout was succesful", "positive");
     } else {
-        console.error("HTTP-Error: " + response.status);
-        createNotificaton("Error", data.message, "negative");
+
+        switch (data["message"]) {
+            case "not_logged":
+                createNotificaton("Error", "Log in to checkout", "negative");
+                break;
+            case "empty_cart":
+                createNotificaton("Error", "Cart is empty", "negative");
+                break;
+            case "no_funds":
+                createNotificaton("Error", "Not enough funds", "negative");
+                break;
+            default:
+                createNotificaton("Error", "Unknown error", "negative");
+                break;
+        }
     }
 }
 
