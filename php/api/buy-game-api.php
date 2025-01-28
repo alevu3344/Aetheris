@@ -6,7 +6,7 @@ require_once '../bootstrap.php';
 if(empty($_SESSION["Username"])) {
     $result = [
         'success' => false,
-        'message' => 'Login to buy a game'
+        'message' => 'not_logged'
     ];
     header('Content-Type: application/json');
     echo json_encode($result);
@@ -37,24 +37,24 @@ if(isset($_POST['GameId']) && isset($_POST['Quantity']) && isset($_POST['Platfor
             $dbh->buyGame($game_id, $user_id, $quantity, $total, $platform);
             $result = [
                 'success' => true,
-                'message' => 'Game bought successfully'
+                'message' => 'bought'
             ];
         } else {
             $result = [
                 'success' => false,
-                'message' => 'Insufficient balance'
+                'message' => 'nofunds'
             ];
         }
     } else {
         $result = [
             'success' => false,
-            'message' => 'Game or user not found'
+            'message' => 'internal_error'
         ];
     }
 } else {
     $result = [
         'success' => true,
-        'message' => 'Invalid request'
+        'message' => 'invalid_request'
     ];
 }
 

@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Select all trash buttons
     const trashButtons = document.querySelectorAll('ul > li > div > section > header button');
-   
+
 
     // Add event listener to each button
     trashButtons.forEach((trashButton, index) => {
@@ -36,18 +36,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
         });
 
-         //increase button
-         closestLi.querySelector("div > section > footer > div > button:nth-child(3)").addEventListener("click", (event) => {
+        //increase button
+        closestLi.querySelector("div > section > footer > div > button:nth-child(3)").addEventListener("click", (event) => {
             event.preventDefault();
 
-            console.log(`Game with ID ${gameId} and platform ${platform} increased.`);
+
             addToCart(gameId, platform, 1);
             //update the span text
             let quantityText = closestLi.querySelector("div > section > footer > div > span");
             let quantity = parseInt(quantityText.innerText);
             quantity++;
             quantityText.innerText = quantity;
-            
+
 
         });
     });
@@ -61,15 +61,15 @@ document.addEventListener("DOMContentLoaded", () => {
     checkoutButton.addEventListener("click", (event) => {
         event.preventDefault();
         //se non ci sono elementi nel carrello (non ci sono li), trasforma il colore del bottone in rosso, modifica il testo in carrello vuoto e non fare nulla
-        if(document.querySelectorAll("main > ul > li").length == 0){
+        if (document.querySelectorAll("main > ul > li").length == 0) {
             checkoutButton.style.backgroundColor = "red";
             checkoutButton.innerText = "Carello vuoto";
             return;
         }
-        else{
+        else {
             checkout();
-        }            
-        
+        }
+
     });
 });
 
@@ -89,12 +89,24 @@ async function addToCart(gameId, platform, quantity) {
 
     });
 
-    if (response.ok) {
-        let data = await response.json();
+    let data = await response.json();
+
+    if (data["success"]) {
+
         createNotificaton("Success", "Game added to cart", "positive");
     } else {
-        console.error("HTTP-Error: " + response.status);
-        createNotificaton("Error", data.message, "negative");
+        switch (data["message"]) {
+            case "not_logged":
+                createNotificaton("Error", "Log in to add games to your cart", "negative");
+                break;
+            case "invalid_request":
+                createNotificaton("Error", "Invalid Request", "negative");
+                break;
+            default:
+                createNotificaton("Error", "Unknown error", "negative");
+                break;
+
+        }
     }
 }
 
@@ -103,7 +115,7 @@ async function addToCart(gameId, platform, quantity) {
 
 
 
-function createNotificaton(title,message, type){
+function createNotificaton(title, message, type) {
     let notification = document.createElement("div");
     notification.id = "notification";
     notification.classList.add(type);
@@ -113,20 +125,20 @@ function createNotificaton(title,message, type){
     <button>OK</button>
     `
 
-    if(type == "positive"){
+    if (type == "positive") {
         //set the background color to green
         notification.style.backgroundColor = "green";
         //set the button color to darker green
         notification.querySelector("button").style.backgroundColor = "darkgreen";
     }
-    else{
+    else {
         //set the background color to red
         notification.style.backgroundColor = "red";
         //set the button color to darker red
         notification.querySelector("button").style.backgroundColor = "darkred";
     }
 
-   
+
 
     document.body.insertBefore(notification, document.body.firstChild);
 
@@ -135,12 +147,12 @@ function createNotificaton(title,message, type){
         notification.remove();
     });
 
-    
+
     setTimeout(() => {
         notification.remove();
     }, 5000);
 
-    
+
 }
 
 //use the GET method, the server already has everything, its simpy a message to checkout
@@ -175,9 +187,21 @@ async function removeFromCart(gameId, platform, quantity) {
 
     });
 
-    if (response.ok) {
-        let data = await response.json();
-        createNotificaton("Success", data.message, "positive");
+    let data = await response.json();
+
+    if (data["success"]) {
+        switch(data["message"]) {
+            case "game_removed":
+                createNotificaton("Success", "Game removed from cart", "positive");
+                break;
+            case "quantity_decreased":
+                createNotificaton("Success", "Quantity of game decreased", "positive");
+                break;
+            default:
+                createNotificaton("Success", "Unknown Action", "positive");
+                break;
+        }
+    
     } else {
         console.error("HTTP-Error: " + response.status);
         createNotificaton("Error", data.message, "negative");
