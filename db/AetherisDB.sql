@@ -36,6 +36,24 @@ CREATE TABLE AVATARS (
   Id int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+CREATE TABLE NOTIFICATIONS(
+  Id int(11) NOT NULL AUTO_INCREMENT,
+  UserID int(11) NOT NULL,
+  Type enum('ProductListChange', 'GameInCartOutOfStock', 'OrderChange') NOT NULL,
+  Message varchar(255) NOT NULL,
+  SentAt TIMESTAMP NOT NULL,
+  Status enum('Read', 'Unread') DEFAULT 'Unread',
+  PRIMARY KEY (Id),
+  FOREIGN KEY (UserID) REFERENCES USERS(UserID)
+);
+
+CREATE TABLE GAME_STOCKS(
+  GameID int(11) NOT NULL,
+  Stock int(11) NOT NULL,
+  Platform enum('PC', 'PlayStation', 'Xbox') NOT NULL,
+  PRIMARY KEY (GameID, Platform),
+  FOREIGN KEY (GameID) REFERENCES GAMES(Id)
+);
 --
 -- Dumping data for table AVATARS
 --
