@@ -211,9 +211,6 @@ async function addToCart(gameId, platform, quantity) {
 }
 
 
-
-
-
 async function buyGame(gameId, platform, quantity) {
 
   const formData = new FormData();
@@ -228,14 +225,30 @@ async function buyGame(gameId, platform, quantity) {
 
   });
 
-  if (response.ok) {
+  let data = await response.json();
+
+  if (data["success"]) {
       createNotificaton("Success", "Game bought successfully", "positive");
   } else {
-      console.error("HTTP-Error: " + response.status);
-      createNotificaton("Error", response.message, "negative");
+      switch (data["message"]) {
+          case "not_logged":
+              createNotificaton("Error", "Log in to buy games", "negative");
+              break;
+          case "no_funds":
+              createNotificaton("Error", "Not enough funds", "negative");
+              break;
+          case "internal_error":
+              createNotificaton("Error", "Internal error", "negative");
+              break;
+          case "invalid_request":
+              createNotificaton("Error", "Invalid Request", "negative");
+              break;
+          default:
+              createNotificaton("Error", "Unknown error", "negative");
+              break;
+      }
   }
 }
-
 
 function createPopUpWindow(game, platforms, option) {
   // Generate platform radio inputs dynamically
