@@ -59,13 +59,7 @@ if (empty($_SESSION["Username"])) {
                 $uploadDirCover = "../../media/covers/";
                 $uploadDirScreenshots = "../../media/screenshots/";
 
-                if (!is_dir($uploadDirCover)) {
-                    die(json_encode(['success' => false, 'message' => $uploadDirCover]));
-                }
-                if (!is_dir($uploadDirScreenshots)) {
-                    die(json_encode(['success' => false, 'message' => $uploadDirScreenshots]));
-                }
-
+            
 
                 $newFileNameCover = $gameId . '.' . $fileExtension;
                 $uploadFilePathCover = $uploadDirCover . $newFileNameCover;
