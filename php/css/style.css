@@ -2426,10 +2426,11 @@ body>footer >nav>ul>li>a {
   background-color: #000;
   border: white 1px solid;
   box-sizing: border-box;
-  color: white;
+  color: gray;
   /*left and right padding*/
   height: 100%;
   padding: 0 5% 0 5%;
+  text-decoration: line-through;
 }
 .game_content > main > section:nth-of-type(1) > span:nth-child(3) {
   border-radius: 10px;
