@@ -1,5 +1,5 @@
 <section>
-    <form id="add-game-form">
+    <form id="add-game-form" method="POST" enctype="multipart/form-data">
         <fieldset>
             <legend>Game details</legend>
             <!-- Game Name -->
@@ -105,3 +105,5 @@
         </fieldset>
     </form>
 </section>
+
+<script src="../js/newgame.js"></script>

@@ -12,6 +12,64 @@ class DatabaseHelper
         }
     }
 
+    public function deleteGame($gameId)
+    {
+        //delete all its reviews from REVIEWS
+        //if te game is avaiable for PC (in SUPPORTED_PLATFORMS) delete its row from PC_GAME_REQUIREMENTS
+        
+        //delete all its rows from SUPPORTED_PLATFORMS
+        //delete all its rows from GAME_CATEGORIES
+        //delete all its rows from DISCOUNTED_GAMES
+        //delete its row from GAMES
+
+        $query = "DELETE FROM REVIEWS WHERE GameId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $gameId);
+        if(!$stmt->execute()){
+            return false;
+        }
+
+        $query = "DELETE FROM PC_GAME_REQUIREMENTS WHERE GameId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $gameId);
+        if(!$stmt->execute()){
+            return false;
+        }
+
+        $query = "DELETE FROM SUPPORTED_PLATFORMS WHERE GameId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $gameId);
+        if(!$stmt->execute()){
+            return false;
+        }
+
+
+        $query = "DELETE FROM GAME_CATEGORIES WHERE GameId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $gameId);
+        if(!$stmt->execute()){
+            return false;
+        }
+        
+
+        $query = "DELETE FROM DISCOUNTED_GAMES WHERE GameId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $gameId);
+        $stmt->execute();
+        if(!$stmt->execute()){
+            return false;
+        }
+
+        $query = "DELETE FROM GAMES WHERE Id = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $gameId);
+        if(!$stmt->execute()){
+            return false;
+        }
+
+        return true;
+    }
+
 
 
     public function getOrdersForUser($UserID)
@@ -214,7 +272,17 @@ class DatabaseHelper
         $stmt->bind_param("si", $category, $lim);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $this->addCategories($this->addSupportedPlatforms($result->fetch_all(MYSQLI_ASSOC)));
+        return $this->addMinimumRequirements($this->addCategories($this->addSupportedPlatforms($result->fetch_all(MYSQLI_ASSOC))));
+    }
+
+    public function addMinimumRequirements($games)
+    {
+        foreach ($games as &$game) {
+            $gameId = $game["Id"];
+            $game["Requirements"] = $this->getGameRequirements($gameId);
+        }
+
+        return $games;
     }
 
     // this function returns a list of tuples (GameId, GameName, Quantity, OriginalPrice, Discount (0% if not discounted))
@@ -269,10 +337,10 @@ class DatabaseHelper
         return $result->fetch_assoc();
     }
 
-    public function addGame($name, $description, $price, $publisher, $releaseDate, $trailer)
+    public function addGame($name, $description, $price, $publisher, $releaseDate, $trailer, $categories, $platforms)
     {
-        $query = "INSERT INTO GAMES (Name, Description, Price, Publisher, ReleaseDate, Video) 
-                  VALUES (?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO GAMES (Name, Description, Price, Publisher, ReleaseDate, Trailer, Rating, CopiesSold) 
+                  VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
 
         if ($stmt === false) {
@@ -280,13 +348,33 @@ class DatabaseHelper
             return false;
         }
 
+        $rating = 5;
+        $copiesSold = 0;
+
         // Bind parameters to the query
-        $stmt->bind_param('ssdsss', $name, $description, $price, $publisher, $releaseDate, $trailer);
+        $stmt->bind_param('ssdsssii', $name, $description, $price, $publisher, $releaseDate, $trailer, $rating, $copiesSold);
 
         // Execute the query and check for errors
         if ($stmt->execute()) {
-            // Return the ID of the newly added game
-            return $stmt->insert_id;
+            $gameId = $stmt->insert_id;
+
+            foreach ($categories as $category) {
+                $query = "INSERT INTO GAME_CATEGORIES (GameId, CategoryName) VALUES (?, ?)";
+                $stmt = $this->db->prepare($query);
+                $stmt->bind_param("is", $gameId, $category);
+                $stmt->execute();
+            }
+
+            foreach ($platforms as $platform => $quantity) {
+                if ($quantity > 0) {
+                    $query = "INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform, Stock) VALUES (?, ?, ?)";
+                    $stmt = $this->db->prepare($query);
+                    $stmt->bind_param("isi", $gameId, $platform, $quantity);
+                    $stmt->execute();
+                }
+            }
+
+            return $gameId;
         } else {
             // Log the error and return false
             error_log("Error executing query: " . $stmt->error);
@@ -968,7 +1056,7 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    
+
 
 
     public function getCategories()

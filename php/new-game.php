@@ -7,7 +7,7 @@ $templateParams["nome"] = "game_form.php";
 
 $templateParams["categorie"] = $dbh->getCategories();
 
-$templateParams["piattaforme"] = ["PC", "Xbox", "PlayStation","Nintendo Switch"];
+$templateParams["piattaforme"] = ["PC", "Xbox", "PlayStation","Nintendo_Switch"];
 
 require("template/base.php");
 ?>
