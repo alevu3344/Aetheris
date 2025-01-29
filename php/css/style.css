@@ -4039,6 +4039,35 @@ body  > #notification > button {
   border-color: rgba(59, 130, 246, 1);
 }
 
+.game_form > main > section > form > fieldset > fieldset > .platforms {
+  display: flex;
+  width: 100%;
+  column-gap: 2%;
+  row-gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.game_form > main > section > form > fieldset > fieldset > .platforms > label {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+  align-items: center;
+}
+
+.game_form > main > section > form > fieldset > fieldset > .platforms > label > input {
+  margin: 0;
+}
+
+.game_form > main > section > form > fieldset > fieldset > .platforms > label :hover{
+  border-color: rgba(59, 130, 246, 1);
+
+}
+
+.game_form > main > section > form > fieldset > fieldset > .platforms > label > img {
+  height: 30px;
+  width: 30px;
+}
+
 /* Style when checkbox is checked */
 .game_form > main > section > form > fieldset > fieldset > .categories > input:checked + label {
   background-color: #007bff; /* Blue color when selected */

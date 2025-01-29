@@ -35,6 +35,21 @@
                 </div>
             </fieldset>
 
+            <fieldset>
+                <legend>Select the quantities for each platform</legend>
+                <div class="platforms">
+                    <?php foreach ($templateParams["piattaforme"] as $platform) : ?>
+                        <label for="<?= $platform ?>" class="platform-button">
+                            <!-- Display SVG of the platform -->
+                            <img src="upload/icons/<?= $platform ?>.svg" alt="<?= $platform ?>" class="platform-svg" />
+                            <!-- Input field for quantity -->
+                            <input type="number" id="<?= $platform ?>" name="<?= $platform ?>" min="0" required />
+                        </label>
+                    <?php endforeach; ?>
+                </div>
+            </fieldset>
+
+
 
             <!-- Game Price -->
             <div>
