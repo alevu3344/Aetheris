@@ -4156,25 +4156,46 @@ body  > #notification > button {
   margin-bottom: 1rem;
 }
 
-.game_form > main > section > form > fieldset > fieldset > .platforms > label {
+.platform-button {
   display: flex;
-  flex-direction: row;
-  column-gap: 10px;
+  flex-direction: column;
   align-items: center;
+  padding: 10px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s, border 0.2s;
 }
 
-.game_form > main > section > form > fieldset > fieldset > .platforms > label > input {
-  margin: 0;
+.platform-button input[type="checkbox"] {
+  display: none;
 }
 
-.game_form > main > section > form > fieldset > fieldset > .platforms > label :hover{
-  border-color: rgba(59, 130, 246, 1);
-
+.platform-button img {
+  width: 50px;
+  height: 50px;
+  transition: transform 0.2s;
 }
 
-.game_form > main > section > form > fieldset > fieldset > .platforms > label > img {
-  height: 30px;
-  width: 30px;
+.platform-button input[type="number"] {
+  margin-top: 5px;
+  width: 60px;
+  text-align: center;
+}
+
+/* Checked state */
+.platform-button input[type="checkbox"]:checked + img {
+  transform: scale(1.1);
+}
+
+.platform-button input[type="checkbox"]:checked ~ input[type="number"] {
+  background-color: #e0f7fa;
+  border-color: #007bff;
+  outline: none;
+}
+
+.platform-button input[type="checkbox"]:checked ~ img {
+  filter: hue-rotate(180deg);
 }
 
 /* Style when checkbox is checked */

@@ -1,16 +1,55 @@
-document.getElementById("add-game-form").addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent the form from submitting normally
+document.querySelectorAll(".platform-button").forEach(label => {
+    const checkbox = label.querySelector(".platform-checkbox");
+    const quantityInput = label.querySelector("input[type='number']");
 
+    label.addEventListener("click", (event) => {
+        if (event.target !== quantityInput) {
+            checkbox.checked = !checkbox.checked;
+            quantityInput.disabled = !checkbox.checked;
+
+            if (!checkbox.checked) {
+                quantityInput.value = ""; // Clear value if unchecked
+                quantityInput.removeAttribute("required"); // Remove required if unchecked
+            } else {
+                quantityInput.setAttribute("required", "required"); // Add required if checked
+            }
+        }
+    });
+
+    checkbox.addEventListener("change", () => {
+        quantityInput.disabled = !checkbox.checked;
+        if (!checkbox.checked) {
+            quantityInput.value = "";
+            quantityInput.removeAttribute("required");
+        } else {
+            quantityInput.setAttribute("required", "required");
+        }
+    });
+});
+
+document.getElementById("add-game-form").addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent normal submission
+
+    let isValid = true;
+    document.querySelectorAll(".platform-checkbox").forEach(checkbox => {
+        const quantityInput = checkbox.closest("label").querySelector("input[type='number']");
+        
+        if (checkbox.checked) {
+            if (!quantityInput.value || quantityInput.value <= 0) {
+                isValid = false;
+                quantityInput.setCustomValidity("Enter a valid quantity!");
+                quantityInput.reportValidity(); // Show validation message
+            } else {
+                quantityInput.setCustomValidity(""); // Reset validation
+            }
+        }
+    });
+
+    if (!isValid) return; // Stop form submission if validation fails
 
     var formData = new FormData(this);
-
     console.log(formData);
-
     addGame(formData);
-
-
-
-
 });
 
 async function addGame(formData) {

@@ -39,11 +39,10 @@
                 <legend>Select the quantities for each platform</legend>
                 <div class="platforms">
                     <?php foreach ($templateParams["piattaforme"] as $platform) : ?>
-                        <label for="<?= $platform ?>" class="platform-button">
-                            <!-- Display SVG of the platform -->
+                        <label for="platform-<?= $platform ?>" class="platform-button">
+                            <input type="checkbox" id="platform-<?= $platform ?>" name="platforms[]" value="<?= $platform ?>" class="platform-checkbox" />
                             <img src="upload/icons/<?= $platform ?>.svg" alt="<?= $platform ?>" class="platform-svg" />
-                            <!-- Input field for quantity -->
-                            <input type="number" id="<?= $platform ?>" name="<?= $platform ?>" min="0" required />
+                            <input type="number" id="quantity-<?= $platform ?>" name="quantity[<?= $platform ?>]" min="0" disabled />
                         </label>
                     <?php endforeach; ?>
                 </div>

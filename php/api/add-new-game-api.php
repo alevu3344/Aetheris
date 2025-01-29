@@ -10,7 +10,7 @@ if (empty($_SESSION["Username"])) {
     $result = ['success' => false, 'message' => 'not_admin'];
 } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Validate required POST parameters
-    $requiredFields = ['GameName', 'GameDescription', 'GamePrice', 'GamePublisher', 'GameReleaseDate', 'GameTrailer'];
+    $requiredFields = ['GameName', 'GameDescription', 'GamePrice', 'GamePublisher', 'GameReleaseDate', 'GameTrailer', 'categories', 'platforms'];
     foreach ($requiredFields as $field) {
         if (empty($_POST[$field])) {
             $result = ['success' => false, 'message' => 'missing_' . strtolower($field)];
@@ -28,14 +28,17 @@ if (empty($_SESSION["Username"])) {
     $releaseDate = $_POST["GameReleaseDate"];
     $trailer = $_POST["GameTrailer"];
     $categories = $_POST["categories"];
+    $platforms = [];
 
-    $quantity_pc = $_POST["PC"];
-    $quantity_playstation = $_POST["PlayStation"];
-    $quantity_xbox = $_POST["Xbox"];
-    $quantity_switch = $_POST["Nintendo_Switch"];
+    foreach ($_POST["platforms"] as $platform) {
+        if (!empty($_POST["quantity"][$platform])) {
+            $platforms[$platform] = (int) $_POST["quantity"][$platform];
+        }
+    }
 
-    //create an array with the platform and the quantity
-    $platforms = array("PC" => $quantity_pc, "PlayStation" => $quantity_playstation, "Xbox" => $quantity_xbox, "Nintendo_Switch" => $quantity_switch);
+    
+
+    
 
     // Handle file upload
     // Handle file upload
