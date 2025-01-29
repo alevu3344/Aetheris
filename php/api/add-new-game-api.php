@@ -56,8 +56,8 @@ if (empty($_SESSION["Username"])) {
             $gameId = $dbh->addGame($name, $description, $price, $publisher, $releaseDate, $trailer, $categories, $platforms);
             if ($gameId) {
                 // Generate upload paths
-                $uploadDirCover = GAME_COVERS;
-                $uploadDirScreenshots = GAME_IMAGES;
+                $uploadDirCover = "../../media/covers/";
+                $uploadDirScreenshots = "../../media/screenshots/";
 
                 if (!is_dir($uploadDirCover)) {
                     die(json_encode(['success' => false, 'message' => $uploadDirCover]));
