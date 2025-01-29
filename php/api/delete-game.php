@@ -26,10 +26,10 @@ if (empty($_SESSION["Username"])) {
         $result = ['success' => true];
         //delete its cover image and its 4 screenshots
         $cover = "../../media/covers/" . $gameId . ".jpg";
-        $screenshots = ["../../media/screenshots/" . $gameId . "frame" . "_1.jpg", 
-                        "../../media/screenshots/" . $gameId . "frame" . "_2.jpg",
-                        "../../media/screenshots/" . $gameId . "frame" . "_3.jpg", 
-                        "../../media/screenshots/" . $gameId . "frame" . "_4.jpg"];
+        $screenshots = ["../../media/screenshots/" . $gameId . "_frame" . "_1.jpg", 
+                        "../../media/screenshots/" . $gameId . "_frame" . "_2.jpg",
+                        "../../media/screenshots/" . $gameId . "_frame" . "_3.jpg", 
+                        "../../media/screenshots/" . $gameId . "_frame" . "_4.jpg"];
         // Delete cover image if it exists
         if (file_exists($cover)) {
             unlink($cover);
