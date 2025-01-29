@@ -52,6 +52,9 @@
                             <a href="orders.php">
                                 <img src="upload/icons/orders.png" alt="Pending Orders"/>
                             </a>
+                            <a href="new-game.php">
+                                <img src="upload/icons/add-to-cart.svg" alt="Add a new game"/>
+                            </a>
                         <?php else: ?>
                         <a href="cart.php">
                             <img src="upload/icons/shopping-cart.svg" alt="Shopping Cart"/>

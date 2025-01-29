@@ -269,6 +269,33 @@ class DatabaseHelper
         return $result->fetch_assoc();
     }
 
+    public function addGame($name, $description, $price, $publisher, $releaseDate, $trailer)
+    {
+        $query = "INSERT INTO GAMES (Name, Description, Price, Publisher, ReleaseDate, Video) 
+                  VALUES (?, ?, ?, ?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+
+        if ($stmt === false) {
+            error_log("Error preparing query: " . $this->db->error);
+            return false;
+        }
+
+        // Bind parameters to the query
+        $stmt->bind_param('ssdsss', $name, $description, $price, $publisher, $releaseDate, $trailer);
+
+        // Execute the query and check for errors
+        if ($stmt->execute()) {
+            // Return the ID of the newly added game
+            return $stmt->insert_id;
+        } else {
+            // Log the error and return false
+            error_log("Error executing query: " . $stmt->error);
+            return false;
+        }
+    }
+
+
+
     public function buyGame($gameId, $userId, $quantity, $total, $platform)
     {
         // Insert into ORDERS table
@@ -342,7 +369,7 @@ class DatabaseHelper
 
     public function checkout($userId)
     {
-     
+
 
         // Step 1: Calculate the total cost of the shopping cart, applying discounts if applicable
         $query = "
@@ -393,7 +420,7 @@ class DatabaseHelper
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("di", $total, $userId);
         $stmt->execute();
-        
+
 
         // Step 2: Create a new row in the ORDERS table
         $query = "INSERT INTO ORDERS (UserId, OrderDate, TotalCost, Status) 
@@ -462,7 +489,6 @@ class DatabaseHelper
         ];
 
         return $json;
-
     }
 
 
@@ -923,6 +949,8 @@ class DatabaseHelper
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    
 
 
     public function getCategories()
