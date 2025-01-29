@@ -1,5 +1,5 @@
 <section>
-    <form action="addGame.php" method="POST" enctype="multipart/form-data">
+    <form id="add-game-form">
         <fieldset>
             <legend>Game details</legend>
             <!-- Game Name -->
@@ -100,8 +100,8 @@
 
 
             <!-- Submit Button -->
-            <button type="submit">Add Game</button>
-            <button>Cancel</button>
+            <button id="submit" type="submit">Add Game</button>
+            <button type="button">Cancel</button>
         </fieldset>
     </form>
 </section>

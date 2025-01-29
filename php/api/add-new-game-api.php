@@ -2,6 +2,14 @@
 
 require_once '../bootstrap.php';
 
+if(isset($_POST["categories"])){
+    $categories = $_POST["categories"];
+    header('Content-Type: application/json');
+    echo json_encode($categories);
+    exit;
+    
+}
+
 // Ensure the user is logged in and has admin privileges
 if (empty($_SESSION["Username"])) {
     $result = ['success' => false, 'message' => 'not_logged'];
