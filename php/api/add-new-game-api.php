@@ -56,15 +56,16 @@ if (empty($_SESSION["Username"])) {
             $gameId = $dbh->addGame($name, $description, $price, $publisher, $releaseDate, $trailer, $categories, $platforms);
             if ($gameId) {
                 // Generate upload paths
-                $uploadDirCover = GAME_COVERS . 'covers/';
+                $uploadDirCover = GAME_COVERS;
                 $uploadDirScreenshots = GAME_IMAGES;
 
                 if (!is_dir($uploadDirCover)) {
-                    mkdir($uploadDirCover, 0777, true);
+                    die(json_encode(['success' => false, 'message' => $uploadDirCover]));
                 }
                 if (!is_dir($uploadDirScreenshots)) {
-                    mkdir($uploadDirScreenshots, 0777, true);
+                    die(json_encode(['success' => false, 'message' => $uploadDirScreenshots]));
                 }
+
 
                 $newFileNameCover = $gameId . '.' . $fileExtension;
                 $uploadFilePathCover = $uploadDirCover . $newFileNameCover;
