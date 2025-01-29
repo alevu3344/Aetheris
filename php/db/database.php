@@ -214,7 +214,17 @@ class DatabaseHelper
         $stmt->bind_param("si", $category, $lim);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $this->addCategories($this->addSupportedPlatforms($result->fetch_all(MYSQLI_ASSOC)));
+        return $this->addMinimumRequirements($this->addCategories($this->addSupportedPlatforms($result->fetch_all(MYSQLI_ASSOC))));
+    }
+
+    public function addMinimumRequirements($games)
+    {
+        foreach ($games as &$game) {
+            $gameId = $game["Id"];
+            $game["Requirements"] = $this->getGameRequirements($gameId);
+        }
+
+        return $games;
     }
 
     // this function returns a list of tuples (GameId, GameName, Quantity, OriginalPrice, Discount (0% if not discounted))

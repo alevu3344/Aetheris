@@ -3412,6 +3412,18 @@ input[type=number] {
   flex-direction: column;
 }
 
+.admin-content > main > ul > li > section > div > p {
+  color: white;
+  font-family: 'Roboto';
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: white 2px solid;
+  box-sizing: border-box;
+}
+
 .admin-content > main > ul > li > section > div > dl {
   display: flex;
   flex-direction: column;
