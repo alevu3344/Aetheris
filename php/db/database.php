@@ -256,7 +256,7 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getGamesByCategory($category, $lim)
+    public function getGamesByCategory($category, $lim=null)
     {
         $query = "
             SELECT 
@@ -275,11 +275,20 @@ class DatabaseHelper
                 AND CURRENT_DATE BETWEEN DG.StartDate AND DG.EndDate
             WHERE 
                 C.CategoryName = ?
-            ORDER BY G.Price DESC
-            LIMIT ?
+            ORDER BY G.ReleaseDate DESC
                 ";
+            
+        if ($lim !== null) {
+            $query .= " LIMIT ?";
+        }
+
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("si", $category, $lim);
+        if($lim !== null){
+            $stmt->bind_param("si", $category, $lim);
+        }
+        else{
+            $stmt->bind_param("s", $category);
+        }
         $stmt->execute();
         $result = $stmt->get_result();
         return $this->addMinimumRequirements($this->addCategories($this->addSupportedPlatforms($result->fetch_all(MYSQLI_ASSOC))));

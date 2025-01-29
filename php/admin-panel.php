@@ -6,7 +6,7 @@ $category = $_GET["category"] ?? $_GET["category"] ?? "Horror";
 
 $templateParams["categorie"] = $dbh->getCategories();
 
-$templateParams["giochi"] = $dbh->getGamesByCategory($category, 10);
+$templateParams["giochi"] = $dbh->getGamesByCategory($category);
 
 
 $templateParams["titolo"] = "Aetheris - Admin Panel";
