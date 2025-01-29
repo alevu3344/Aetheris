@@ -703,6 +703,24 @@ class DatabaseHelper
         return $games;
     }
 
+    public function getNotifications($id)
+    {
+        $query = "
+            SELECT *
+            FROM 
+                NOTIFICATIONS N
+            WHERE 
+                N.UserId = ?
+            ORDER BY 
+                N.SentAt DESC
+                ";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     //get the most rated games by joining the GAMES and REVIEWS tables and computing the average rating for each game, algo join with discount in order to get the discount
     public function getMostRatedGames($lim)
     {
