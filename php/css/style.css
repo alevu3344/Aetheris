@@ -2603,6 +2603,12 @@ body>footer >nav>ul>li>a {
   width: 100%;
 }
 
+.game_content > main > section:nth-of-type(2) > dl > .platform-quantity > dd  > dl  > div > dt > img {
+  width: 30px;
+  height: 30px;
+  filter: invert(1);
+}
+
 .game_content > main > section:nth-of-type(2) > dl > .platform-quantity > dd  > dl  > div > dd {
   font-family: 'Roboto';
   font-size: 16px;

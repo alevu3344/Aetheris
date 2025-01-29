@@ -32,6 +32,18 @@ else {
 
             if ($balance >= $total) {
                 $newBalance = $balance - $total;
+
+                //get the quantity of the game in the selected platform
+                $stock = $dbh->getPlatformQuantity($game_id, $platform);
+                if ($stock < $quantity) {
+                    $result = [
+                        'success' => false,
+                        'message' => 'no_stock'
+                    ];
+                    header('Content-Type: application/json');
+                    echo json_encode($result);
+                    exit;
+                }
                 $dbh->buyGame($game_id, $user_id, $quantity, $total, $platform);
                 $result = [
                     'success' => true,

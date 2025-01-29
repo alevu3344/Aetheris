@@ -243,13 +243,15 @@ async function buyGame(gameId, platform, quantity) {
           case "invalid_request":
               createNotificaton("Error", "Invalid Request", "negative");
               break;
+          case "no_stock":
+              createNotificaton("Error", "The game is out of stock for the selected quantity", "negative");
+              break;
           default:
               createNotificaton("Error", "Unknown error", "negative");
               break;
       }
   }
 }
-
 function createPopUpWindow(game, platforms, option) {
   // Generate platform radio inputs dynamically
   let platformOptions = platforms.map((platformObj, index) => {

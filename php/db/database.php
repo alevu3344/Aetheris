@@ -417,6 +417,12 @@ class DatabaseHelper
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("di", $total, $userId);
         $stmt->execute();
+
+        // Update stock
+        $query = "UPDATE SUPPORTED_PLATFORMS SET Stock = Stock - ? WHERE GameId = ? AND Platform = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("iis", $quantity, $gameId, $platform);
+        $stmt->execute();
     }
 
     public function addToCart($gameId, $userId, $quantity, $platform)

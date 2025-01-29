@@ -71,7 +71,9 @@
                 <dl>
                     <?php foreach ($templateParams["platforms"] as $platform): ?>
                         <div>
-                            <dt><?= $platform["Platform"] ?></dt>
+                            <dt>
+                                <img src="upload/icons/<?= $platform["Platform"] ?>.svg" alt="game">
+                            </dt>
                             <dd class = <?= $platform["Stock"]>0 ? "available" : "expired" ?>><?= $platform["Stock"] ?></dd>
                         </div>
                     <?php endforeach; ?>
