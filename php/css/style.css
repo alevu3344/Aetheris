@@ -3412,6 +3412,34 @@ input[type=number] {
   flex-direction: column;
 }
 
+.admin-content > main > ul > li > section > .actions{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-content > main > ul > li > section > div > a{
+  text-decoration: none;
+  padding: 5px;
+  box-sizing: border-box;
+  border: 1px solid white;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+}
+
+.admin-content > main > ul > li > section > div > button{
+  padding: 5px;
+  box-sizing: border-box;
+  border: 1px solid white;
+  background-color: darkred;
+  color: white;
+  font-size: 16px;
+}
+
 .admin-content > main > ul > li > section > div > p {
   color: white;
   font-family: 'Roboto';

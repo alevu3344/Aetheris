@@ -89,6 +89,10 @@
                     </dl>
                     <?php endif; ?>
                 </div>
+            <div class = "actions">
+                <a href = "new-game.php?game=<?= $gioco["Id"] ?>">Modifica</a>
+                <button class="delete" data-id="<?= $gioco["Id"] ?>">Elimina</button>
+            </div>
             </section>
         </li>
     <?php endforeach; ?>
