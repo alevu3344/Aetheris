@@ -3445,11 +3445,12 @@ input[type=number] {
   font-family: 'Roboto';
   width: 100%;
   text-align: center;
-  font-size: 16px;
   margin-top: 10px;
   padding-top: 10px;
+  padding-bottom: 10px;
   border-top: white 2px solid;
   box-sizing: border-box;
+  background-color: gray;
 }
 
 .admin-content > main > ul > li > section > div > dl {

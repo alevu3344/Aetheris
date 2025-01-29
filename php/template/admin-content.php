@@ -1,6 +1,6 @@
 <ul>
     <?php foreach ($templateParams["giochi"] as $gioco): ?>
-        <li>
+        <li class="game" id="<?= $gioco["Id"] ?>">
             <section>
                 <img src="../media/covers/<?= $gioco["Id"] ?>.jpg" />
                 <div>
@@ -97,3 +97,5 @@
         </li>
     <?php endforeach; ?>
 </ul>
+
+<script src="../js/admin-panel.js"></script>

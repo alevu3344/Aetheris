@@ -12,6 +12,64 @@ class DatabaseHelper
         }
     }
 
+    public function deleteGame($gameId)
+    {
+        //delete all its reviews from REVIEWS
+        //if te game is avaiable for PC (in SUPPORTED_PLATFORMS) delete its row from PC_GAME_REQUIREMENTS
+        
+        //delete all its rows from SUPPORTED_PLATFORMS
+        //delete all its rows from GAME_CATEGORIES
+        //delete all its rows from DISCOUNTED_GAMES
+        //delete its row from GAMES
+
+        $query = "DELETE FROM REVIEWS WHERE GameId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $gameId);
+        if(!$stmt->execute()){
+            return false;
+        }
+
+        $query = "DELETE FROM PC_GAME_REQUIREMENTS WHERE GameId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $gameId);
+        if(!$stmt->execute()){
+            return false;
+        }
+
+        $query = "DELETE FROM SUPPORTED_PLATFORMS WHERE GameId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $gameId);
+        if(!$stmt->execute()){
+            return false;
+        }
+
+
+        $query = "DELETE FROM GAME_CATEGORIES WHERE GameId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $gameId);
+        if(!$stmt->execute()){
+            return false;
+        }
+        
+
+        $query = "DELETE FROM DISCOUNTED_GAMES WHERE GameId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $gameId);
+        $stmt->execute();
+        if(!$stmt->execute()){
+            return false;
+        }
+
+        $query = "DELETE FROM GAMES WHERE Id = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $gameId);
+        if(!$stmt->execute()){
+            return false;
+        }
+
+        return true;
+    }
+
 
 
     public function getOrdersForUser($UserID)
