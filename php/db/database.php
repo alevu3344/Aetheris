@@ -204,6 +204,16 @@ class DatabaseHelper
         return $stmt->execute();
     }
 
+    public function getPlatformQuantity($gameId, $platform)
+    {
+        $query = "SELECT Stock FROM SUPPORTED_PLATFORMS WHERE GameId = ? AND Platform = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("is", $gameId, $platform);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc()["Stock"];
+    }
+
 
 
 
@@ -714,7 +724,8 @@ class DatabaseHelper
     {
         $query = "
             SELECT 
-                SP.Platform
+                SP.Platform,
+                SP.Stock
             FROM 
                 SUPPORTED_PLATFORMS SP
             WHERE 

@@ -31,12 +31,6 @@ async function deleteGame(game) {
 
 
 
-
-
-
-
-
-
 function createNotificaton(title, message, type) {
     let notification = document.createElement("div");
     notification.id = "notification";

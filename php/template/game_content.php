@@ -65,7 +65,21 @@
             </dd>
         </div>
         <hr></hr>
-        <div>
+        <div class= "platform-quantity">
+            <dt>Quantità per piattaforma</dt>
+            <dd>
+                <dl>
+                    <?php foreach ($templateParams["platforms"] as $platform): ?>
+                        <div>
+                            <dt><?= $platform["Platform"] ?></dt>
+                            <dd class = <?= $platform["Stock"]>0 ? "available" : "expired" ?>><?= $platform["Stock"] ?></dd>
+                        </div>
+                    <?php endforeach; ?>
+                </dl>
+            </dd>
+        </div>
+        <hr></hr>
+        <div class="generi">
             <dt>Generi</dt>
             <dd>
                 <?php foreach ($templateParams["game-categories"] as $category): ?>

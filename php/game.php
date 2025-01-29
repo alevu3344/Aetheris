@@ -16,6 +16,8 @@ $templateParams["recensioni"] = $dbh->getReviewsByGame($gameid);
 
 $templateParams["platforms"] = $dbh->getSupportedPlatforms($gameid);
 
+
+
 $templateParams["requirements"] = $dbh->getGameRequirements($gameid);
 
 $templateParams["game-categories"] = $dbh->getGameCategories($gameid);
