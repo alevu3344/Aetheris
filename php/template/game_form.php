@@ -178,4 +178,8 @@
     </form>
 </section>
 
-<script src="../js/newgame.js"></script>
+<?php if (isset($templateParams["scripts"])) : ?>
+    <?php foreach ($templateParams["scripts"] as $script) : ?>
+        <script src="<?= $script ?>"></script>
+    <?php endforeach; ?>
+<?php endif; ?>

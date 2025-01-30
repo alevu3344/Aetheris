@@ -15,5 +15,7 @@ $templateParams["publishers"] = $dbh->getPublishers();
 
 $templateParams["piattaforme"] = ["PC", "Xbox", "PlayStation","Nintendo_Switch"];
 
+$templateParams["scripts"] = ["../js/modify-game.js"];
+
 require("template/base.php");
 ?>
