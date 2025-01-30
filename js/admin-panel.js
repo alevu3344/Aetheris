@@ -75,6 +75,7 @@ document.querySelectorAll(".edit").forEach(button => {
     button.addEventListener("click", function () {
         let dtContainer = this.parentElement; // Contiene <button> e <dt>
         let dd = dtContainer.parentElement.querySelector("dd"); // Trova il <dd> associato
+        let dt = dtContainer.querySelector("dt"); // Trova il <dt> per l'etichetta
 
         if (!dd) return;
 
@@ -96,8 +97,17 @@ document.querySelectorAll(".edit").forEach(button => {
             input.type = "text";
             input.value = currentValue;
             input.classList.add("edit-input");
+            input.id = `edit-field-${Math.random().toString(36).substr(2, 9)}`; // ID univoco per l'accessibilità
 
+            // 🔹 Crea un'etichetta accessibile ma nascosta
+            let label = document.createElement("label");
+            label.setAttribute("for", input.id);
+            label.innerText = dt ? dt.innerText : "Edit field:";
+            label.classList.add("visually-hidden"); // Nasconde il label visivamente
+
+            // 🔹 Sostituisce il contenuto di <dd> con l'input e il label
             dd.innerHTML = "";
+            dd.appendChild(label);
             dd.appendChild(input);
             input.focus();
 
@@ -119,7 +129,6 @@ document.querySelectorAll(".edit").forEach(button => {
         }
     });
 });
-
 
 function updateField(fieldContainer, newValue) {
     let gameId = fieldContainer.closest("li.game").id;

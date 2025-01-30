@@ -3564,6 +3564,21 @@ input[type=number] {
   border: white 1px solid;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+
+
 .admin-content > main > ul > li > section > div > dl div > dt {
   font-family: 'Roboto';
   font-weight: bold;
