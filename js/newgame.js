@@ -53,19 +53,19 @@ document.getElementById("add-game-form").addEventListener("submit", function (ev
 });
 
 
-const pcRequirements = document.getElementById("pc-requirements");
+
 
 document.querySelector("#checkbox-PC").addEventListener("change", function () {
     console.log("checkbox-PC changed");
 
     if (this.checked) {
-        pcRequirements.classList.remove("hidden");
-        pcRequirements.classList.add("visible");
         console.log("checked");
+        addGameRequirements();
+        let pcRequirements = document.querySelector("#pc-requirements");
     } else {
         console.log("unchecked");
-        pcRequirements.classList.remove("visible");
-        pcRequirements.classList.add("hidden");
+        let pcRequirements = document.querySelector("#pc-requirements");
+        document.querySelector("#pc-requirements").remove();
 
         // Reset input values inside the fieldset
         pcRequirements.querySelectorAll("input").forEach(input => {
@@ -74,6 +74,44 @@ document.querySelector("#checkbox-PC").addEventListener("change", function () {
     }
 
 });
+
+function addGameRequirements() {
+
+    let fieldset = `
+    <fieldset id="pc-requirements">
+                <legend>Minimum System Requirements</legend>
+
+                <label for="min-os"> Operating System:
+                    <input type="text" id="min-os" name="pc_requirements[os]"/>
+                </label>
+
+                <label for="min-ram">RAM (GB):
+                    <input type="number" id="min-ram" name="pc_requirements[ram]" min="1"/>
+                </label>
+
+                <label for="min-gpu">GPU:
+                    <input type="text" id="min-gpu" name="pc_requirements[gpu]"/>
+                </label>
+
+                <label for="min-cpu">CPU:
+                    <input type="text" id="min-cpu" name="pc_requirements[cpu]"/>
+                </label>
+
+                <label for="min-ssd">SSD (GB):
+                    <input type="number" id="min-ssd" name="pc_requirements[ssd]" min="1"/>
+                </label>
+            </fieldset>
+    `;
+
+     // Find the element where you want to insert the new fieldset
+     let platformsFieldset = document.querySelector("#platforms-fieldset");
+
+     // Insert the fieldset after the platform section (it will move all content below it)
+     platformsFieldset.insertAdjacentHTML("afterend", fieldset);
+
+
+}
+
 
 
 async function addGame(formData) {
