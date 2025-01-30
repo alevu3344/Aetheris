@@ -31,6 +31,10 @@ document.getElementById("add-game-form").addEventListener("submit", function (ev
     event.preventDefault(); // Prevent normal submission
 
     let isValid = true;
+    const gameNameInput = document.getElementById("gameName");
+
+    // Clear previous validation messages
+    gameNameInput.setCustomValidity("");
 
     // Validate platforms and quantities
     document.querySelectorAll(".platform-checkbox").forEach(checkbox => {
@@ -48,20 +52,18 @@ document.getElementById("add-game-form").addEventListener("submit", function (ev
     });
 
     if (isValid) {
-        const gameName = document.getElementById("gameName").value;
+        const gameName = gameNameInput.value;
 
         // Check game name uniqueness
         checkGameNameUnique(gameName).then(isUnique => {
             if (!isUnique) {
                 isValid = false;
-                const gameNameInput = document.getElementById("gameName");
                 gameNameInput.setCustomValidity("This game name already exists.");
                 gameNameInput.reportValidity();
             }
 
-         
             if (isValid) {
-                var formData = new FormData(this);
+                var formData = new FormData(event.target);
                 console.log(formData);
                 addGame(formData); 
             }
@@ -69,6 +71,11 @@ document.getElementById("add-game-form").addEventListener("submit", function (ev
             console.error('Error checking game name uniqueness:', err);
         });
     }
+});
+
+// Reset game name validity when typing
+document.getElementById("gameName").addEventListener("input", function () {
+    this.setCustomValidity("");
 });
 
 
