@@ -1475,6 +1475,10 @@ CREATE TABLE PC_GAME_REQUIREMENTS (
 --
 
 INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, CPU, RAM, GPU, SSD) VALUES
+(73, "Windows 10", "Intel Core i7-4770K / AMD Ryzen 5 1600", 12, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 480", 150),
+(97, "Windows 10", "Intel Core i7-4770K / AMD Ryzen 5 1600", 12, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 480", 150),
+(166, "Windows 10", "Intel Core i7-4770K / AMD Ryzen 5 1600", 12, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 480", 150),
+(197, "Windows 10", "Intel Core i7-4770K / AMD Ryzen 5 1600", 12, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 480", 150),
 (2, "Windows 10", "Intel Core i7-4770K / AMD Ryzen 5 1600", 12, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 480", 150),
 (3, "Windows 10", "Intel Core i7-4770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 50),
 (4, "Windows 10", "Intel Core i7-3770 / AMD Ryzen 5 1600", 8, "NVIDIA GeForce GTX 1060 / AMD Radeon RX 580", 50),
