@@ -70,3 +70,77 @@ function createNotificaton(title, message, type) {
 
 
 }
+
+document.querySelectorAll(".edit").forEach(button => {
+    button.addEventListener("click", function () {
+        let dtContainer = this.parentElement; // Contiene <button> e <dt>
+        let dd = dtContainer.parentElement.querySelector("dd"); // Trova il <dd> associato
+
+        if (!dd) return;
+
+        let isEditing = this.innerText === "Save"; // Controlla se siamo già in modalità modifica
+
+        if (isEditing) {
+            // 🔹 Salva il valore e torna a "Edit"
+            let input = dd.querySelector("input");
+            if (input) {
+                let newValue = input.value.trim();
+                dd.innerText = newValue || input.defaultValue; // Se vuoto, ripristina vecchio valore
+            }
+            this.innerText = "Edit";
+            this.style.backgroundColor = ""; // Torna al colore originale
+        } else {
+            // 🔹 Entra in modalità modifica
+            let currentValue = dd.innerText.trim();
+            let input = document.createElement("input");
+            input.type = "text";
+            input.value = currentValue;
+            input.classList.add("edit-input");
+
+            dd.innerHTML = "";
+            dd.appendChild(input);
+            input.focus();
+
+            this.innerText = "Save";
+            this.style.backgroundColor = "green";
+
+            // 🔹 Salva anche con ENTER o quando l'input perde il focus
+            function saveEdit() {
+                let newValue = input.value.trim();
+                dd.innerText = newValue || currentValue;
+                button.innerText = "Edit";
+                button.style.backgroundColor = "";
+            }
+
+            input.addEventListener("blur", saveEdit);
+            input.addEventListener("keypress", function (event) {
+                if (event.key === "Enter") saveEdit();
+            });
+        }
+    });
+});
+
+
+function updateField(fieldContainer, newValue) {
+    let gameId = fieldContainer.closest("li.game").id;
+    let fieldName = fieldContainer.querySelector("dt").innerText.replace(":", "").trim();
+
+    fetch("../api/update_game.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            gameId: gameId,
+            field: fieldName,
+            value: newValue
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (!data.success) {
+            alert("Errore nell'aggiornamento");
+        }
+    })
+    .catch(error => console.error("Errore:", error));
+}

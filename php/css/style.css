@@ -3541,6 +3541,29 @@ input[type=number] {
   width: 100%;
 }
 
+.admin-content > main > ul > li > section > div > dl > div > div,
+.admin-content > main > ul > li > section > div > dl > dl > div > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  column-gap: 10px;
+}
+
+.admin-content .edit {
+  background-color: #007bff;
+  padding: 5px;
+  text-align: center;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  border: white 1px solid;
+}
+
 .admin-content > main > ul > li > section > div > dl div > dt {
   font-family: 'Roboto';
   font-weight: bold;

@@ -8,6 +8,8 @@ $templateParams["categorie"] = $dbh->getCategories();
 
 $templateParams["giochi"] = $dbh->getGamesByCategory($category);
 
+$templateParams["publishers"] = $dbh->getPublishers();
+
 
 $templateParams["titolo"] = "Aetheris - Admin Panel";
 

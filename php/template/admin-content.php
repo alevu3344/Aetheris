@@ -6,7 +6,10 @@
                 <div>
                     <dl>
                         <div>
-                            <dt>Titolo: </dt>
+                            <div>
+                                <button class="edit">Edit</button>
+                                <dt>Titolo: </dt>
+                            </div>
                             <dd><?= $gioco["Name"] ?></dd>
                         </div>
                         <div id="categories">
@@ -27,26 +30,43 @@
                             </dd>
                         </div>
                         <div>
-                            <dt>Sviluppatore: </dt>
+                            <div>
+                                <button class="edit">Edit</button>
+                                <dt>Sviluppatore: </dt>
+                            </div>
                             <dd><?= $gioco["Publisher"] ?></dd>
+                        </div>
+
+                        <div>
+                            <div>
+                                <button class="edit">Edit</button>
+                                <dt>Prezzo: </dt>
+                            </div>
+                            <dd><?= $gioco["Price"] ?>€</dd>
                         </div>
 
                         <?php if (!empty($gioco["Discount"])): ?>
                             <dl>
+
                                 <div>
-                                    <dt>Prezzo: </dt>
-                                    <dd><?= $gioco["Price"] ?>€</dd>
-                                </div>
-                                <div>
-                                    <dt>Sconto: </dt>
+                                    <div>
+                                        <button class="edit">Edit</button>
+                                        <dt>Sconto: </dt>
+                                    </div>
                                     <dd>-<?= $gioco["Discount"] ?>%</dd>
                                 </div>
                                 <div>
-                                    <dt>Inizio: </dt>
+                                    <div>
+                                        <button class="edit">Edit</button>
+                                        <dt>Inizio: </dt>
+                                    </div>
                                     <dd><?= date("j/n/y", strtotime($gioco["StartDate"])) ?></dd>
                                 </div>
                                 <div>
-                                    <dt>Fine: </dt>
+                                    <div>
+                                        <button class="edit">Edit</button>
+                                        <dt>Fine: </dt>
+                                    </div>
                                     <dd><?= date("j/n/y", strtotime($gioco["EndDate"])) ?></dd>
                                 </div>
                             </dl>
@@ -62,37 +82,52 @@
                         }
                     }
                     ?>
-                    <?php if($hasPCPlatform): ?>
-                      
-                    <p>Requisiti minimi</p>
-                    <dl>
-                        <div>
-                            <dt>OS: </dt>
-                            <dd><?= $gioco["Requirements"]["OS"] ?></dd>
-                        </div>
-                        <div>
-                            <dt>RAM: </dt>
-                            <dd><?= $gioco["Requirements"]["RAM"] ?> GB</dd>
-                        </div>
-                        <div>
-                            <dt>GPU: </dt>
-                            <dd><?= $gioco["Requirements"]["GPU"] ?></dd>
-                        </div>
-                        <div>
-                            <dt>CPU: </dt>
-                            <dd><?= $gioco["Requirements"]["CPU"] ?></dd>
-                        </div>
-                        <div>
-                            <dt>Storage: </dt>
-                            <dd><?= $gioco["Requirements"]["SSD"] ?> GB</dd>
-                        </div>
-                    </dl>
+                    <?php if ($hasPCPlatform): ?>
+
+                        <p>Requisiti minimi</p>
+                        <dl>
+                            <div>
+                                <div>
+                                    <button class="edit">Edit</button>
+                                    <dt>OS: </dt>
+                                </div>
+                                <dd><?= $gioco["Requirements"]["OS"] ?></dd>
+                            </div>
+                            <div>
+                                <div>
+                                    <button class="edit">Edit</button>
+                                    <dt>RAM: </dt>
+                                </div>
+                                <dd><?= $gioco["Requirements"]["RAM"] ?> GB</dd>
+                            </div>
+                            <div>
+                                <div>
+                                    <button class="edit">Edit</button>
+                                    <dt>GPU: </dt>
+                                </div>
+                                <dd><?= $gioco["Requirements"]["GPU"] ?></dd>
+                            </div>
+                            <div>
+                                <div>
+                                    <button class="edit">Edit</button>
+                                    <dt>CPU: </dt>
+                                </div>
+                                <dd><?= $gioco["Requirements"]["CPU"] ?></dd>
+                            </div>
+                            <div>
+                                <div>
+                                    <button class="edit">Edit</button>
+                                    <dt>Storage: </dt>
+                                </div>
+                                <dd><?= $gioco["Requirements"]["SSD"] ?> GB</dd>
+                            </div>
+                        </dl>
                     <?php endif; ?>
                 </div>
-            <div class = "actions">
-                <a href = "game_mod.php?game=<?= $gioco["Id"] ?>">Modifica</a>
-                <button class="delete" data-id="<?= $gioco["Id"] ?>">Elimina</button>
-            </div>
+                <div class="actions">
+                    <a href="game_mod.php?game=<?= $gioco["Id"] ?>">Modifica</a>
+                    <button class="delete" data-id="<?= $gioco["Id"] ?>">Elimina</button>
+                </div>
             </section>
         </li>
     <?php endforeach; ?>
