@@ -361,10 +361,14 @@ class DatabaseHelper
 
         $platforms = $this->getSupportedPlatforms($id);
         $categories = $this->getGameCategories($id);
+        $requirements = $this->getGameRequirements($id);
 
         $game = $result->fetch_assoc();
         $game["Platforms"] = $platforms;
         $game["Categories"] = $categories;
+        if($requirements !== null){
+            $game["Requirements"] = $requirements;
+        }
 
         // Fetch the game data (including discount if available and valid)
         return $game;

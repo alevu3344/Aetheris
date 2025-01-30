@@ -1,7 +1,7 @@
 <?php
 require_once("bootstrap.php");
 
-$gameId = $_GET["id"] ?? 4;
+$gameId = $_GET["game"];
 
 $templateParams["gioco"] = $dbh->getGameById($gameId);
 
