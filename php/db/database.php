@@ -359,8 +359,15 @@ class DatabaseHelper
         $stmt->execute();
         $result = $stmt->get_result();
 
+        $platforms = $this->getSupportedPlatforms($id);
+        $categories = $this->getGameCategories($id);
+
+        $game = $result->fetch_assoc();
+        $game["Platforms"] = $platforms;
+        $game["Categories"] = $categories;
+
         // Fetch the game data (including discount if available and valid)
-        return $result->fetch_assoc();
+        return $game;
     }
 
     public function addGame($name, $description, $price, $publisher, $releaseDate, $trailer, $categories, $platforms, $pcRequirements)

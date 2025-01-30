@@ -47,7 +47,6 @@ document.getElementById("add-game-form").addEventListener("submit", function (ev
         }
     });
 
-    // If platform and quantity validation passed, check game name uniqueness (async)
     if (isValid) {
         const gameName = document.getElementById("gameName").value;
 
@@ -60,11 +59,11 @@ document.getElementById("add-game-form").addEventListener("submit", function (ev
                 gameNameInput.reportValidity();
             }
 
-            // Proceed with form submission if everything is valid
+         
             if (isValid) {
                 var formData = new FormData(this);
                 console.log(formData);
-                addGame(formData); // Call your addGame function here
+                addGame(formData); 
             }
         }).catch(err => {
             console.error('Error checking game name uniqueness:', err);
@@ -187,7 +186,7 @@ async function checkGameNameUnique(gameName) {
     });
 
     const data = await response.json();
-    return data.isUnique; // Assuming the backend returns { isUnique: true/false }
+    return data.isUnique; 
 }
 
 

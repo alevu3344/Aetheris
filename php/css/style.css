@@ -4236,6 +4236,33 @@ body  > #notification > button {
   margin-top: 1rem;
 }
 
+.game_form > main > section > form > fieldset > img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.game_form > main > section > form > fieldset > .screenshots {
+  display: flex;
+  column-gap: 2%;
+  width: 100%;
+}
+
+.game_form > main > section > form > fieldset > .screenshots > img {
+  width: 23.5%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+
+
+
+
+
+/************************* BEGIN USER NOTIFICATIONS ***********************/
+
 
 .user-notifications > main > h2 {
   font-size: 20px;

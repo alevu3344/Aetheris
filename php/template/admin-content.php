@@ -90,7 +90,7 @@
                     <?php endif; ?>
                 </div>
             <div class = "actions">
-                <a href = "new-game.php?game=<?= $gioco["Id"] ?>">Modifica</a>
+                <a href = "game_mod.php?game=<?= $gioco["Id"] ?>">Modifica</a>
                 <button class="delete" data-id="<?= $gioco["Id"] ?>">Elimina</button>
             </div>
             </section>
