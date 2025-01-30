@@ -416,6 +416,16 @@ class DatabaseHelper
         }
     }
 
+    public function isGameNameUnique($gameName)
+    {
+        $query = "SELECT * FROM GAMES WHERE Name = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $gameName);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->num_rows == 0;
+    }
+
 
 
     public function buyGame($gameId, $userId, $quantity, $total, $platform)

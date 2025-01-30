@@ -31,6 +31,8 @@ document.getElementById("add-game-form").addEventListener("submit", function (ev
     event.preventDefault(); // Prevent normal submission
 
     let isValid = true;
+
+    // Validate platforms and quantities
     document.querySelectorAll(".platform-checkbox").forEach(checkbox => {
         const quantityInput = checkbox.closest("label").querySelector("input[type='number']");
 
@@ -45,13 +47,30 @@ document.getElementById("add-game-form").addEventListener("submit", function (ev
         }
     });
 
-    if (!isValid) return; // Stop form submission if validation fails
+    // If platform and quantity validation passed, check game name uniqueness (async)
+    if (isValid) {
+        const gameName = document.getElementById("gameName").value;
 
-    var formData = new FormData(this);
-    console.log(formData);
-    addGame(formData);
+        // Check game name uniqueness
+        checkGameNameUnique(gameName).then(isUnique => {
+            if (!isUnique) {
+                isValid = false;
+                const gameNameInput = document.getElementById("gameName");
+                gameNameInput.setCustomValidity("This game name already exists.");
+                gameNameInput.reportValidity();
+            }
+
+            // Proceed with form submission if everything is valid
+            if (isValid) {
+                var formData = new FormData(this);
+                console.log(formData);
+                addGame(formData); // Call your addGame function here
+            }
+        }).catch(err => {
+            console.error('Error checking game name uniqueness:', err);
+        });
+    }
 });
-
 
 
 
@@ -61,7 +80,7 @@ document.querySelector("#checkbox-PC").addEventListener("change", function () {
     if (this.checked) {
         console.log("checked");
         addGameRequirements();
-        let pcRequirements = document.querySelector("#pc-requirements");
+        
     } else {
         console.log("unchecked");
         let pcRequirements = document.querySelector("#pc-requirements");
@@ -154,6 +173,21 @@ async function addGame(formData) {
                 createNotificaton("Error", data["message"], "negative");
         }
     }
+}
+
+
+// Async function to check if the game name is unique
+async function checkGameNameUnique(gameName) {
+    const response = await fetch('api/check-game-name-api.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ gameName: gameName })
+    });
+
+    const data = await response.json();
+    return data.isUnique; // Assuming the backend returns { isUnique: true/false }
 }
 
 
