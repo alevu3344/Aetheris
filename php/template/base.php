@@ -2,7 +2,7 @@
 <html lang="it">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
     <title><?= $templateParams["titolo"]; ?></title>
     <link rel="icon" type="image/ico" href="/e-shop/php/upload/icons/aetheris_logo.ico">
 

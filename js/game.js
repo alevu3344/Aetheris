@@ -8,13 +8,22 @@ const gameDataGames = scriptUrlGames.searchParams.get("gameData"); // Get the ga
 //gameData is an associative array
 const game = JSON.parse(gameDataGames).game;
 const platforms = JSON.parse(gameDataGames).platforms;
+addRatingToGame();
 getMoreReviews(currentStart, currentStart + reviewsPerPage - 1);
+
+
+const addReviewButton = document.getElementById('addReview');
+if (addReviewButton) {
+    addReviewButton.addEventListener('click', function () {
+        showAddReviewForm();
+    });
+}
 
 document.querySelector("main > div:last-of-type button").addEventListener("click", async function () {
     getMoreReviews(currentStart, currentStart + reviewsPerPage - 1);
 });
 
-document.addEventListener("DOMContentLoaded", function () {
+function addRatingToGame() {
     //ratring is in the span under the .stars
     const rating = document.querySelector("div:nth-of-type(1) > span").innerText;
     const stars = document.querySelectorAll("div:nth-of-type(1) > .stars .star");
@@ -25,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Set the custom property for each star, fill it with white, from left to right
         star.style.setProperty("--fill-width", `${fillAmount * 100}%`);
     });
-});
+}
 
 
 
@@ -198,7 +207,7 @@ async function buyGame(gameId, platform, quantity) {
                 createNotificaton("Error", "Invalid Request", "negative");
                 break;
             case "no_stock":
-                createNotificaton("Error", "The game is out of stock for the selected quantity", "negative");
+                createNotificaton("Error", "The game is out of stock for the selected platform and quantity", "negative");
                 break;
             default:
                 createNotificaton("Error", "Unknown error", "negative");
@@ -366,16 +375,12 @@ function appendNewReviews(reviews) {
     });
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    const addReviewButton = document.getElementById('addReview');
 
 
-    if (addReviewButton) {
-        addReviewButton.addEventListener('click', function () {
-            showAddReviewForm();
-        });
-    }
-});
+
+
+    
+
 async function addReview(title, comment, rating) {
     const formData = new FormData();
     formData.append("GameId", game.Id);
