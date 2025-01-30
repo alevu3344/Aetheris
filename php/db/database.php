@@ -214,6 +214,13 @@ class DatabaseHelper
         return $result->fetch_assoc()["Stock"];
     }
 
+    public function getPublishers(){
+        $query = "SELECT * FROM PUBLISHERS";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 
 
 

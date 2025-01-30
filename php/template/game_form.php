@@ -16,9 +16,16 @@
 
             <!-- Game Publisher -->
 
+            <!-- Game Publisher -->
             <label for="gamePublisher">Game Publisher:
-                <input type="text" id="gamePublisher" name="GamePublisher" required>
+                <select id="gamePublisher" name="GamePublisher" required>
+                    <option value="" disabled selected>Select a publisher</option>
+                    <?php foreach ($templateParams["publishers"] as $publisher) : ?>
+                        <option value="<?= $publisher["PublisherName"]; ?>"><?= $publisher["PublisherName"]; ?></option>
+                    <?php endforeach; ?>
+                </select>
             </label>
+
 
 
 
@@ -49,7 +56,7 @@
             </fieldset>
 
             <!-- PC Requirements Fieldset (Initially Hidden) -->
-            
+
 
 
 
