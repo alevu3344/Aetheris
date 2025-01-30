@@ -39,7 +39,7 @@ function addRatingToGame() {
 
 
 /*Listener per acquista ora*/
-document.querySelector(".game_content > main > div:nth-of-type(2) > button:nth-of-type(1)").addEventListener("click", function (event) {
+document.querySelector("#buy").addEventListener("click", function (event) {
     event.preventDefault();
     let popup = createPopUpWindow(game, platforms, option = "acquista");
 
@@ -62,7 +62,7 @@ document.querySelector(".game_content > main > div:nth-of-type(2) > button:nth-o
 
 
 /*Listener per aggiungi al carrello*/
-document.querySelector(".game_content > main > div:nth-of-type(2) > button:nth-of-type(2)").addEventListener("click", function (event) {
+document.querySelector("#cart").addEventListener("click", function (event) {
     event.preventDefault();
     let popup = createPopUpWindow(game, platforms, option = "carrello");
 

@@ -14,8 +14,6 @@
     <span><?= $templateParams["gioco"]["Rating"] ?></span>
 </div>
 
-
-<!-- <img src="../media/covers/<?= $templateParams["gioco"]["Id"] ?>.jpg" alt="game"> -->
  
 
 <iframe 
@@ -38,8 +36,8 @@
 </section>
 
 <div id="<?=$templateParams["gioco"]["Id"]?>">
-    <button>Acquista ora</button>
-    <button>Aggiungi al carrello</button>
+    <button id="buy">Acquista ora</button>
+    <button id="cart">Aggiungi al carrello</button>
 </div>
 
 
