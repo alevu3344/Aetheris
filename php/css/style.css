@@ -559,6 +559,7 @@ body>footer >nav>ul>li>a {
 .home_content > main > section:nth-child(1) > h2{
   font-family: 'Roboto';
   margin: 20px 0;
+  user-select: none;
   font-size: 20px;
   color: white;
 }
@@ -719,7 +720,7 @@ body>footer >nav>ul>li>a {
 .home_content > main > section:nth-child(1) > div > div > a > article > footer > div {
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: fit-content;
   height: 10%;
 }
 
@@ -797,6 +798,7 @@ body>footer >nav>ul>li>a {
 .home_content > main > section:nth-child(2) > h2 {
   font-family: 'Roboto';
   margin: 20px 0;
+  user-select: none;
   color: white;
   font-size: 20px;
 }
@@ -1050,6 +1052,7 @@ body>footer >nav>ul>li>a {
 .home_content > main > #home-offers > header > h2 {
   font-family: 'Rampart One';
   color: white;
+  user-select: none;
   height: fit-content;
   font-size: 24px;
   margin: 0;
@@ -1059,6 +1062,7 @@ body>footer >nav>ul>li>a {
 .home_content > main > #home-offers > header > p {
   font-family: 'Roboto';
   color: white;
+  user-select: none;
   font-size: 12px;
   height: fit-content;
   margin: 0;
@@ -1247,6 +1251,7 @@ body>footer >nav>ul>li>a {
 .home_content > main > section:nth-child(3) > nav > ul > li > h2{
   font-family: 'Roboto';
   margin: 0px;
+  user-select: none;
   font-size: 20px;
   cursor: pointer;
   color: white;

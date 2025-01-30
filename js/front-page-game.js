@@ -64,10 +64,10 @@ async function createRelevantGame(game) {
         buyGame(game.Id, platform, quantity);
     });
     //metti l'elemento in testa al body
-    document.body.insertBefore(popup, document.body.firstChild);;
+    document.body.insertBefore(popup, document.body.firstChild);
   });
 
-  gameToShow.querySelector("a > article > footer > div:nth-child(2) > img").addEventListener("click", function(e){
+  gameToShow.querySelector("a > article > footer > div:nth-child(2)").addEventListener("click", function(e){
     e.preventDefault();
     let popup = createPopUpWindow(game, game.Platforms, option="carrello");
 

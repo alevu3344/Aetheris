@@ -854,6 +854,15 @@ class DatabaseHelper
         return $games;
     }
 
+    public function addNewNotification($userId, $type, $message, $status) 
+    {
+        $query = "INSERT INTO NOTIFICATIONS (UserId, Type, Message, Status) VALUES (?, ?, ?, ?);"; 
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('isss', $userId, $type, $message, $status);
+        $stmt->execute();
+        return true;
+    }
+
     public function getNotifications($id)
     {
         $query = "
