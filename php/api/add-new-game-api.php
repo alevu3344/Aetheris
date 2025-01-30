@@ -36,9 +36,20 @@ if (empty($_SESSION["Username"])) {
         }
     }
 
-    
+    // Check if PC is selected and fetch minimum requirements
+    $pcRequirements = null;
+    if (array_key_exists("PC", $platforms)) {
+        $pcRequirements = [
+            "ram" => !empty($_POST["pc_requirements"]["ram"]) ? (int) $_POST["pc_requirements"]["ram"] : null,
+            "gpu" => !empty($_POST["pc_requirements"]["gpu"]) ? trim($_POST["pc_requirements"]["gpu"]) : null,
+            "ssd" => !empty($_POST["pc_requirements"]["ssd"]) ? (int) $_POST["pc_requirements"]["ssd"] : null,
+            "os" => !empty($_POST["pc_requirements"]["os"]) ? trim($_POST["pc_requirements"]["os"]) : null,
+            "cpu" => !empty($_POST["pc_requirements"]["cpu"]) ? trim($_POST["pc_requirements"]["cpu"]) : null,
+        ];
+    }
 
-    
+
+
 
     // Handle file upload
     // Handle file upload
@@ -56,13 +67,13 @@ if (empty($_SESSION["Username"])) {
             $result = ['success' => false, 'message' => 'invalid_image_extension'];
         } else {
             // Add game to the database
-            $gameId = $dbh->addGame($name, $description, $price, $publisher, $releaseDate, $trailer, $categories, $platforms);
+            $gameId = $dbh->addGame($name, $description, $price, $publisher, $releaseDate, $trailer, $categories, $platforms, $pcRequirements);
             if ($gameId) {
                 // Generate upload paths
                 $uploadDirCover = "../../media/covers/";
                 $uploadDirScreenshots = "../../media/screenshots/";
 
-            
+
 
                 $newFileNameCover = $gameId . '.' . $fileExtension;
                 $uploadFilePathCover = $uploadDirCover . $newFileNameCover;

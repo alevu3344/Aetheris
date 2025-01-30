@@ -33,7 +33,7 @@ document.getElementById("add-game-form").addEventListener("submit", function (ev
     let isValid = true;
     document.querySelectorAll(".platform-checkbox").forEach(checkbox => {
         const quantityInput = checkbox.closest("label").querySelector("input[type='number']");
-        
+
         if (checkbox.checked) {
             if (!quantityInput.value || quantityInput.value <= 0) {
                 isValid = false;
@@ -51,6 +51,30 @@ document.getElementById("add-game-form").addEventListener("submit", function (ev
     console.log(formData);
     addGame(formData);
 });
+
+
+const pcRequirements = document.getElementById("pc-requirements");
+
+document.querySelector("#checkbox-PC").addEventListener("change", function () {
+    console.log("checkbox-PC changed");
+
+    if (this.checked) {
+        pcRequirements.classList.remove("hidden");
+        pcRequirements.classList.add("visible");
+        console.log("checked");
+    } else {
+        console.log("unchecked");
+        pcRequirements.classList.remove("visible");
+        pcRequirements.classList.add("hidden");
+
+        // Reset input values inside the fieldset
+        pcRequirements.querySelectorAll("input").forEach(input => {
+            input.value = "";
+        });
+    }
+
+});
+
 
 async function addGame(formData) {
 
@@ -85,9 +109,9 @@ async function addGame(formData) {
             case "invalid_request":
                 createNotificaton("Error", "Invalid request", "negative");
                 break;
-                case "invalid_image_extension":
-                    createNotificaton("Error", "Invalid image extension", "negative");
-                    break;
+            case "invalid_image_extension":
+                createNotificaton("Error", "Invalid image extension", "negative");
+                break;
             default:
                 createNotificaton("Error", data["message"], "negative");
         }

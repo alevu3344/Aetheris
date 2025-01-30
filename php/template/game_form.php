@@ -39,13 +39,38 @@
                 <legend>Select the quantities for each platform</legend>
                 <div class="platforms">
                     <?php foreach ($templateParams["piattaforme"] as $platform) : ?>
-                        <label for="platform-<?= $platform ?>" class="platform-button">
-                            <input type="checkbox" id="platform-<?= $platform ?>" name="platforms[]" value="<?= $platform ?>" class="platform-checkbox" />
+                        <label for="checkbox-<?= $platform ?>" class="platform-button">
+                            <input type="checkbox" id="checkbox-<?= $platform ?>" class="platform-checkbox" name="platforms[]" value="<?= $platform ?>" />
                             <img src="upload/icons/<?= $platform ?>.svg" alt="<?= $platform ?>" class="platform-svg" />
                             <input type="number" id="quantity-<?= $platform ?>" name="quantity[<?= $platform ?>]" min="0" disabled />
                         </label>
                     <?php endforeach; ?>
                 </div>
+            </fieldset>
+
+            <!-- PC Requirements Fieldset (Initially Hidden) -->
+            <fieldset id="pc-requirements" class="hidden">
+                <legend>Minimum System Requirements</legend>
+
+                <label for="min-os"> Operating System:
+                    <input type="text" id="min-os" name="pc_requirements[os]"/>
+                </label>
+
+                <label for="min-ram">RAM (GB):
+                    <input type="number" id="min-ram" name="pc_requirements[ram]" min="1"/>
+                </label>
+
+                <label for="min-gpu">GPU:
+                    <input type="text" id="min-gpu" name="pc_requirements[gpu]"/>
+                </label>
+
+                <label for="min-cpu">CPU:
+                    <input type="text" id="min-cpu" name="pc_requirements[cpu]"/>
+                </label>
+
+                <label for="min-ssd">SSD (GB):
+                    <input type="number" id="min-ssd" name="pc_requirements[ssd]" min="1"/>
+                </label>
             </fieldset>
 
 

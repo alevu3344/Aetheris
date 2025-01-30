@@ -356,7 +356,7 @@ class DatabaseHelper
         return $result->fetch_assoc();
     }
 
-    public function addGame($name, $description, $price, $publisher, $releaseDate, $trailer, $categories, $platforms)
+    public function addGame($name, $description, $price, $publisher, $releaseDate, $trailer, $categories, $platforms, $pcRequirements)
     {
         $query = "INSERT INTO GAMES (Name, Description, Price, Publisher, ReleaseDate, Trailer, Rating, CopiesSold) 
                   VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
@@ -391,6 +391,14 @@ class DatabaseHelper
                     $stmt->bind_param("isi", $gameId, $platform, $quantity);
                     $stmt->execute();
                 }
+            }
+
+            //if $pcRequirements is not null, insert the requirements in PC_GAME_REQUIREMENTS
+            if($pcRequirements !== null){
+                $query = "INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, RAM, CPU, GPU, SSD) VALUES (?, ?, ?, ?, ?, ?)";
+                $stmt = $this->db->prepare($query);
+                $stmt->bind_param("isissi", $gameId, $pcRequirements["os"], $pcRequirements["ram"], $pcRequirements["cpu"], $pcRequirements["gpu"], $pcRequirements["ssd"]);
+                $stmt->execute();
             }
 
             return $gameId;
