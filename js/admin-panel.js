@@ -107,12 +107,23 @@ document.addEventListener("click", function (event) {
             const newValue = input.value.trim();
             const gameId = button.closest(".game").id;
             const fieldName = dd.id;
-            modifyField(gameId, fieldName, newValue);
 
-            dd.textContent = newValue;
-            button.innerText = "Edit";
-            button.style.backgroundColor = "";
-            event.preventDefault(); 
+            // Check input validity before saving
+            if (input.checkValidity()) {
+                modifyField(gameId, fieldName, newValue);
+
+                dd.textContent = newValue;
+                button.innerText = "Edit";
+                button.style.backgroundColor = "";
+                event.preventDefault();
+            } else {
+                // If the input is not valid, show feedback
+                input.setCustomValidity("Please enter a valid value.");
+                input.reportValidity();
+                //reset the input validity
+                input.setCustomValidity("");
+                return;
+            }
 
         } else {
             const currentValue = dd.textContent.trim();
@@ -154,11 +165,11 @@ document.addEventListener("click", function (event) {
                 dd = form.querySelector("dd");
                 button = form.querySelector("button");
 
-              
+
 
 
                 const input = document.createElement("input");
-                input.type = "text";
+
                 input.id = dd.id;
                 input.value = currentValue;
                 input.classList.add("edit-input");
@@ -167,8 +178,119 @@ document.addEventListener("click", function (event) {
                 label.for = input.id;
                 label.classList.add("visually-hidden");
 
-                
+                //switch the input id to set the validation
+                switch (input.id) {
+                    case "GameName":
+                        input.type = "text";
+                        label.textContent = "Game Name";
+                        input.required = true;
+                        break;
+                    case "Price":
+                        input.type = "number";
+                        //has to be > 0
+                        input.min = 0.01;
+                        input.step = 0.01;
+                        label.textContent = "Price";
+                        input.required = true;
+                        break;
+                    case "ReleaseDate":
+                        input.type = "date";
+                        label.textContent = "Release Date";
+                        input.required = true;
+                        break;
+                    case "StartDate":
+                        input.type = "date";
+                        label.textContent = "Start Date for Sale";
+                        input.required = true;
+                        break;
+                    case "EndDate":
+                        input.type = "date";
+                        label.textContent = "End Date for Sale";
+                        input.required = true;
+                        break;
+                    case "PC":
+                        input.type = "number";
+                        //has to be > 0 and integer
+                        input.min = 1;
+                        input.step = 1;
+                        label.textContent = "PC Quantity";
+                        input.required = true;
 
+                        break;
+                    case "Xbox":
+                        input.type = "number";
+                        //has to be > 0 and integer
+                        input.min = 1;
+                        input.step = 1;
+                        label.textContent = "Xbox Quantity";
+                        input.required = true;
+
+                        break;
+                    case "PlayStation":
+                        input.type = "number";
+                        //has to be > 0 and integer
+                        input.min = 1;
+                        input.step = 1;
+                        label.textContent = "PlayStation Quantity";
+                        input.required = true;
+
+                        break;
+
+                    case "Nintendo_Switch":
+                        input.type = "number";
+                        //has to be > 0 and integer
+                        input.min = 1;
+                        input.step = 1;
+                        label.textContent = "Nintendo Switch Quantity";
+                        input.required = true;
+
+                        break;
+                    case "Discount":
+                        input.type = "number";
+                        //has to be > 0 and integer
+                        input.min = 0;
+                        input.max = 100;
+                        input.step = 1;
+                        label.textContent = "Discount";
+                        input.required = true;
+                        break;
+                    case "OS":
+                        input.type = "text";
+                        label.textContent = "OS";
+                        input.required = true;
+                        break;
+                    case "CPU":
+                        input.type = "text";
+                        label.textContent = "CPU";
+                        input.required = true;
+                        break;
+                    case "GPU":
+                        input.type = "text";
+                        label.textContent = "GPU";
+                        input.required = true;
+                        break;
+                    case "RAM":
+                        input.type = "number";
+                        //has to be > 0 and integer
+                        input.min = 1;
+                        input.step = 1;
+                        label.textContent = "RAM";
+                        input.required = true;
+                        break;
+                    case "SSD":
+                        input.type = "number";
+                        //has to be > 0 and integer
+                        input.min = 1;
+                        input.step = 1;
+                        label.textContent = "SSD";
+                        input.required = true;
+                        break;
+                    default:
+                        input.type = "text";
+                        label.textContent = "Default";
+                        input.required = true;
+                        break;
+                }
 
                 dd.textContent = "";
                 dd.appendChild(label);
@@ -186,18 +308,6 @@ document.addEventListener("click", function (event) {
                     }, 200);
                 });
 
-                input.addEventListener("keypress", (event) => {
-                    if (event.key === "Enter") {
-                        const newValue = input.value.trim();
-                        const gameId = button.closest(".game").id;
-                        const fieldName = dd.id;
-                        modifyField(gameId, fieldName, newValue);
-
-                        dd.textContent = newValue;
-                        button.innerText = "Edit";
-                        button.style.backgroundColor = "";
-                    }
-                });
             }
 
             // Set the button text and background color before making changes
