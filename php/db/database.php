@@ -72,6 +72,15 @@ class DatabaseHelper
     }
 
 
+    public function modifyGame($gameId, $field, $value)
+    {
+        $query = "UPDATE GAMES SET $field = ? WHERE Id = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("si", $value, $gameId);
+        return $stmt->execute();
+    }
+
+
 
     public function getOrdersForUser($UserID)
     {
