@@ -99,10 +99,8 @@ async function logout() {
             newA.href = "login.php";
             newA.innerText = "Accedi";
             header.replaceWith(newA);
-            //if im the login page, reload the page
-            if (document.body.classList.contains("login-form")) {
-                location.reload();
-            }
+            //redirects to index
+            window.location.href = "index.php";
 
 
 
