@@ -141,6 +141,12 @@ $publisherJson = json_encode($publisherList);
 // Make sure to encode the JSON string for use in the URL
 $publisherJsonEscaped = urlencode($publisherJson);
 
+$categorieList = $templateParams["categorie"];
+$categorieJson = json_encode($categorieList);
+
+// Make sure to encode the JSON string for use in the URL
+$categorieJsonEscaped = urlencode($categorieJson);
+
 ?>
 
-<script src="../js/admin-panel.js?publishers=<?= $publisherJsonEscaped ?>"></script>
+<script src="../js/admin-panel.js?publishers=<?= $publisherJsonEscaped ?>&categories=<?= $categorieJsonEscaped ?>"></script>

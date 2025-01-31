@@ -1,5 +1,6 @@
 const scriptUrlAdmin = new URL(document.currentScript.src); // Get the script's URL
 const publishers = scriptUrlAdmin.searchParams.get("publishers"); // Get the game parameter
+const categories = scriptUrlAdmin.searchParams.get("categories"); // Get the game parameter
 
 let publishersList = [];
 try {
@@ -165,7 +166,13 @@ document.querySelectorAll(".edit").forEach(button => {
                     button.style.backgroundColor = "";
                 }
 
-                input.addEventListener("blur", saveEdit);
+                function revertEdit() {
+                    dd.innerText = currentValue;
+                    button.innerText = "Edit";
+                    button.style.backgroundColor = "";
+                }
+
+                input.addEventListener("blur", revertEdit);
                 input.addEventListener("keypress", function (event) {
                     if (event.key === "Enter") saveEdit();
                 });
