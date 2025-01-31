@@ -3652,6 +3652,16 @@ input[type=number] {
   box-sizing: border-box;
 } 
 
+.admin-content > main > ul > li span{
+  font-family: 'Roboto';
+  font-size: 20px;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+
+
 
 
 

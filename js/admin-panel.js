@@ -182,26 +182,3 @@ document.querySelectorAll(".edit").forEach(button => {
 });
 
 
-function updateField(fieldContainer, newValue) {
-    let gameId = fieldContainer.closest("li.game").id;
-    let fieldName = fieldContainer.querySelector("dt").innerText.replace(":", "").trim();
-
-    fetch("../api/update_game.php", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            gameId: gameId,
-            field: fieldName,
-            value: newValue
-        })
-    })
-        .then(response => response.json())
-        .then(data => {
-            if (!data.success) {
-                alert("Errore nell'aggiornamento");
-            }
-        })
-        .catch(error => console.error("Errore:", error));
-}

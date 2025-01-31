@@ -29,6 +29,16 @@
                                 <?php endforeach; ?>
                             </dd>
                         </div>
+
+                        <?php foreach ($gioco["Platforms"] as $platform): ?>
+                            <div>
+                                <div>
+                                    <button class="edit">Edit</button>
+                                    <dt><?= $platform["Platform"] ?>: </dt>
+                                </div>
+                                <dd class=<?= $platform["Stock"] > 0 ? "available" : "expired" ?>><?= $platform["Stock"] ?></dd>
+                            </div>
+                        <?php endforeach; ?>
                         <div>
                             <div>
                                 <button class="edit">Edit</button>
@@ -42,7 +52,10 @@
                                 <button class="edit">Edit</button>
                                 <dt>Prezzo: </dt>
                             </div>
-                            <dd><?= $gioco["Price"] ?>€</dd>
+                            <div>
+                                <dd><?= $gioco["Price"] ?></dd>
+                                <span>€</span>
+                            </div>
                         </div>
 
                         <?php if (!empty($gioco["Discount"])): ?>
@@ -53,7 +66,10 @@
                                         <button class="edit">Edit</button>
                                         <dt>Sconto: </dt>
                                     </div>
-                                    <dd>-<?= $gioco["Discount"] ?>%</dd>
+                                    <div>
+                                        <dd>-<?= $gioco["Discount"] ?></dd>
+                                        <span>%</span>
+                                    </div>
                                 </div>
                                 <div>
                                     <div>
@@ -98,7 +114,10 @@
                                     <button class="edit">Edit</button>
                                     <dt>RAM: </dt>
                                 </div>
-                                <dd><?= $gioco["Requirements"]["RAM"] ?> GB</dd>
+                                <div>
+                                    <dd><?= $gioco["Requirements"]["RAM"] ?></dd>
+                                    <span>GB</span>
+                                </div>
                             </div>
                             <div>
                                 <div>
@@ -119,14 +138,19 @@
                                     <button class="edit">Edit</button>
                                     <dt>Storage: </dt>
                                 </div>
-                                <dd><?= $gioco["Requirements"]["SSD"] ?> GB</dd>
+                                <div>
+                                    <dd><?= $gioco["Requirements"]["SSD"] ?></dd>
+                                    <span>GB</span>
+                                </div>
                             </div>
                         </dl>
                     <?php endif; ?>
                 </div>
                 <div class="actions">
                     <a href="game_mod.php?game=<?= $gioco["Id"] ?>">Modifica</a>
+                    <button data-id="<?= $gioco["Id"] ?>">Modifica stock</button>
                     <button class="delete" data-id="<?= $gioco["Id"] ?>">Elimina</button>
+
                 </div>
             </section>
         </li>
