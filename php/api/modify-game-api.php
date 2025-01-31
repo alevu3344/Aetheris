@@ -3,6 +3,7 @@
 require_once("../bootstrap.php");
 
 
+
 // Ensure the user is logged in and has admin privileges
 if (empty($_SESSION["Username"])) {
     $result = ['success' => false, 'message' => 'not_logged'];
@@ -21,9 +22,15 @@ if (empty($_SESSION["Username"])) {
         }
     }
 
+
+
     $gameId = $_POST["GameId"];
     $field = $_POST["Field"];
     $value = $_POST["Value"];
+
+    
+
+
 
     //debug
     $result = ['success' => true, 'message' => 'gameId: ' . $gameId . ' field: ' . $field . ' value: ' . $value];

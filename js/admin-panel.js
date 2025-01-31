@@ -85,43 +85,42 @@ function createNotificaton(title, message, type) {
 
 
 
-document.querySelectorAll(".edit").forEach(button => {
-    button.addEventListener("click", function() {
-        const dtContainer = this.parentElement;
-        const dd = dtContainer.parentElement.querySelector("dd");
-        const dt = dtContainer.querySelector("dt");
+
+
+document.addEventListener("click", function(event) {
+    if (event.target.classList.contains("edit")) {
+        const button = event.target;
+        console.log(button);
+        const dtContainer = button.parentElement;
+        let dd = dtContainer.parentElement.querySelector("dd");
+        let dt = dtContainer.querySelector("dt");
+
+        const containerDiv = dd.closest(".possible-form");
+        let divInner = containerDiv.innerHTML;
         
         if (!dd) return;
-        
-        // If we're currently editing (button says "Save")
-        if (this.innerText === "Save") {
+
+        if (button.innerText === "Save") {
             const input = dd.querySelector("input, select");
             if (!input) return;
-            
-            // Save the new value
+
             const newValue = input.value.trim();
-            
-            // Update the field in the database
             const gameId = button.closest(".game").id;
-            const fieldName = dt.innerText.trim().replace(":", "");
+            const fieldName = dd.id;
             modifyField(gameId, fieldName, newValue);
-            
-            // Update the display
+
             dd.textContent = newValue;
-            this.innerText = "Edit";
-            this.style.backgroundColor = "";
-            
+            button.innerText = "Edit";
+            button.style.backgroundColor = "";
+
+            containerDiv.innerHTML = divInner;
         } else {
-            // Starting to edit (button currently says "Edit")
             const currentValue = dd.textContent.trim();
-            
-            // Check if this is the Sviluppatore field
+
             if (dt && dt.innerText.trim() === "Sviluppatore:") {
-                // Create select element
                 const select = document.createElement("select");
                 select.classList.add("edit-select");
-                
-                // Add options
+
                 publishersList.forEach(publisher => {
                     const option = document.createElement("option");
                     option.value = publisher.PublisherName;
@@ -129,72 +128,72 @@ document.querySelectorAll(".edit").forEach(button => {
                     option.selected = (publisher.PublisherName === currentValue);
                     select.appendChild(option);
                 });
-                
-                // Replace content with select
+
                 dd.textContent = "";
                 dd.appendChild(select);
                 select.focus();
-                
-                // Add blur handler for reverting
+
                 select.addEventListener("blur", () => {
-                    // Short timeout to allow click events to process first
                     setTimeout(() => {
-                        if (button.innerText === "Save") {  // Only revert if we haven't saved
+                        if (button.innerText === "Save") {
                             dd.textContent = currentValue;
                             button.innerText = "Edit";
                             button.style.backgroundColor = "";
+                            containerDiv.innerHTML = divInner;
                         }
                     }, 200);
                 });
-                
+
             } else {
-                // Create input for other fields
+                const form = document.createElement("form");
+
+                form.innerHTML = divInner;
+                containerDiv.innerHTML = "";
+                containerDiv.appendChild(form);
+                dd = form.querySelector("dd");
+
                 const input = document.createElement("input");
                 input.type = "text";
                 input.value = currentValue;
-                
                 input.classList.add("edit-input");
-                
-                // Replace content with input
+
                 dd.textContent = "";
                 dd.appendChild(input);
                 input.focus();
-                
-                // Add blur handler for reverting
+
                 input.addEventListener("blur", () => {
-                    // Short timeout to allow click events to process first
                     setTimeout(() => {
-                        if (button.innerText === "Save") {  // Only revert if we haven't saved
+                        if (button.innerText === "Save") {
                             dd.textContent = currentValue;
                             button.innerText = "Edit";
                             button.style.backgroundColor = "";
+                            containerDiv.innerHTML = divInner;
                         }
                     }, 200);
                 });
-                
-                // Add enter key handler
+
                 input.addEventListener("keypress", (event) => {
                     if (event.key === "Enter") {
                         const newValue = input.value.trim();
                         const gameId = button.closest(".game").id;
-                        const fieldName = dt.innerText.trim().replace(":", "");
+                        const fieldName = dd.id;
                         modifyField(gameId, fieldName, newValue);
-                        
+
                         dd.textContent = newValue;
                         button.innerText = "Edit";
                         button.style.backgroundColor = "";
                     }
                 });
             }
-            
-            // Update button state
-            this.innerText = "Save";
-            this.style.backgroundColor = "green";
+
+            button.innerText = "Save";
+            button.style.backgroundColor = "green";
         }
-    });
+    }
 });
 
-async function modifyField(gameId, fieldName, newValue) {
+
+async function modifyField(gameId,fieldName, newValue) {
     let formData = new FormData();
     formData.append("GameId", gameId);
     formData.append("Field", fieldName);

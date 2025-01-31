@@ -3541,8 +3541,17 @@ input[type=number] {
   width: 100%;
 }
 
+.admin-content > main > ul > li > section > div > dl div > form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
 .admin-content > main > ul > li > section > div > dl > div > div,
-.admin-content > main > ul > li > section > div > dl > dl > div > div {
+.admin-content > main > ul > li > section > div > dl > dl > div > div,
+.admin-content > main > ul > li > section > div > dl div > form > div
+ {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -3589,7 +3598,9 @@ input[type=number] {
   padding: 0;
 }
 
-.admin-content > main > ul > li > section > div > dl div > dd {
+.admin-content > main > ul > li > section > div > dl div > dd,
+.admin-content > main > ul > li > section > div > dl div > form dd
+ {
   font-family: 'Roboto';
   font-size: 20px;
   color: white;
@@ -3659,7 +3670,6 @@ input[type=number] {
   margin: 0;
   padding: 0;
 }
-
 
 
 
