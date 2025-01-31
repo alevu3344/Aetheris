@@ -582,6 +582,40 @@ class DatabaseHelper
     public function checkout($userId)
     {
 
+        // Check for stock availability for every (game, platform) in the cart
+        $query = "
+            SELECT 
+            SC.GameId, 
+            SC.Quantity, 
+            SC.Platform, 
+            SP.Stock,
+            G.Name
+            FROM 
+            SHOPPING_CARTS SC
+            JOIN 
+            SUPPORTED_PLATFORMS SP ON SC.GameId = SP.GameId AND SC.Platform = SP.Platform
+            JOIN 
+            GAMES G ON SC.GameId = G.Id
+            WHERE 
+            SC.UserId = ?    
+        ";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $userId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        while ($row = $result->fetch_assoc()) {
+            if ($row["Quantity"] > $row["Stock"]) {
+                return [
+                    'success' => false,
+                    'message' => 'out_of_stock',
+                    'game_name' => $row["Name"],
+                    'platform' => $row["Platform"],
+                    'available_stock' => $row["Stock"],
+                    'requested_quantity' => $row["Quantity"]
+                ];
+            }
+        }
 
         // Step 1: Calculate the total cost of the shopping cart, applying discounts if applicable
         $query = "

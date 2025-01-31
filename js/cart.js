@@ -179,6 +179,9 @@ async function checkout() {
             case "no_funds":
                 createNotificaton("Error", "Not enough funds", "negative");
                 break;
+            case "out_of_stock":
+                createNotificaton("Error", `${data["game_name"]} for ${data["platform"]} has only ${data["available_stock"]} in stock, you requested ${data["requested_quantity"]}`, "negative");
+                break;
             default:
                 createNotificaton("Error", "Unknown error", "negative");
                 break;
