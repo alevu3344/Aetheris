@@ -1,3 +1,15 @@
+const scriptUrlAdmin = new URL(document.currentScript.src); // Get the script's URL
+const publishers = scriptUrlAdmin.searchParams.get("publishers"); // Get the game parameter
+
+let publishersList = [];
+try {
+    publishersList = JSON.parse(decodeURIComponent(publishers)); // Parse the JSON
+} catch (error) {
+    console.error("Error parsing publishers:", error);
+}
+
+console.log("Publishers:", publishers);
+
 document.querySelectorAll(".game").forEach((game) => {
     game.querySelector(".actions > .delete").addEventListener("click", () => {
         if (confirm("Are you sure you want to delete this game?")) {
@@ -73,62 +85,95 @@ function createNotificaton(title, message, type) {
 
 document.querySelectorAll(".edit").forEach(button => {
     button.addEventListener("click", function () {
-        let dtContainer = this.parentElement; // Contiene <button> e <dt>
-        let dd = dtContainer.parentElement.querySelector("dd"); // Trova il <dd> associato
-        let dt = dtContainer.querySelector("dt"); // Trova il <dt> per l'etichetta
+        let dtContainer = this.parentElement; // Contains <button> and <dt>
+        let dd = dtContainer.parentElement.querySelector("dd"); // Find the associated <dd>
+        let dt = dtContainer.querySelector("dt"); // Find the <dt> for the label
 
         if (!dd) return;
 
-        let isEditing = this.innerText === "Save"; // Controlla se siamo già in modalità modifica
+        let isEditing = this.innerText === "Save"; // Check if we are already in edit mode
 
         if (isEditing) {
-            // 🔹 Salva il valore e torna a "Edit"
-            let input = dd.querySelector("input");
+            // 🔹 Save the value and revert to "Edit"
+            let input = dd.querySelector("input, select");
             if (input) {
                 let newValue = input.value.trim();
-                dd.innerText = newValue || input.defaultValue; // Se vuoto, ripristina vecchio valore
+                dd.innerText = newValue || input.defaultValue; // If empty, restore the old value
             }
             this.innerText = "Edit";
-            this.style.backgroundColor = ""; // Torna al colore originale
+            this.style.backgroundColor = ""; // Revert to the original color
         } else {
-            // 🔹 Entra in modalità modifica
             let currentValue = dd.innerText.trim();
-            let input = document.createElement("input");
-            input.type = "text";
-            input.value = currentValue;
-            input.classList.add("edit-input");
-            input.id = `edit-field-${Math.random().toString(36).substr(2, 9)}`; // ID univoco per l'accessibilità
 
-            // 🔹 Crea un'etichetta accessibile ma nascosta
-            let label = document.createElement("label");
-            label.setAttribute("for", input.id);
-            label.innerText = dt ? dt.innerText : "Edit field:";
-            label.classList.add("visually-hidden"); // Nasconde il label visivamente
+            // If the field is "Sviluppatore", use a <select>
+            if (dt && dt.innerText.trim() === "Sviluppatore:") {
+                let select = document.createElement("select");
 
-            // 🔹 Sostituisce il contenuto di <dd> con l'input e il label
-            dd.innerHTML = "";
-            dd.appendChild(label);
-            dd.appendChild(input);
-            input.focus();
 
-            this.innerText = "Save";
-            this.style.backgroundColor = "green";
 
-            // 🔹 Salva anche con ENTER o quando l'input perde il focus
-            function saveEdit() {
-                let newValue = input.value.trim();
-                dd.innerText = newValue || currentValue;
-                button.innerText = "Edit";
-                button.style.backgroundColor = "";
+                // 🔹 Generate the options for the select element
+                publishersList.forEach(publisher => {
+                    let option = document.createElement("option");
+                    option.value = publisher.PublisherName; // Use PublisherName as the option value
+                    option.textContent = publisher.PublisherName; // Set the display text
+                    if (publisher.PublisherName === currentValue) {
+                        option.selected = true; // Pre-select the option if it matches the current value
+                    }
+                    select.appendChild(option);
+                });
+
+                select.classList.add("edit-select");
+
+                // Clear the <dd> and append the select dropdown
+                dd.innerHTML = "";
+                dd.appendChild(select);
+                select.focus();
+
+                this.innerText = "Save";
+                this.style.backgroundColor = "green";
+
+                // Save the selected value when the select loses focus or changes
+                function saveEdit() {
+                    let newValue = select.value.trim();
+                    dd.innerText = newValue || currentValue; // Save the new value or revert to old if empty
+                    button.innerText = "Edit";
+                    button.style.backgroundColor = "";
+                }
+
+                select.addEventListener("blur", saveEdit);
+                select.addEventListener("change", saveEdit);
+            } else {
+                // 🔹 For other fields, use an <input>
+                let input = document.createElement("input");
+                input.type = "text";
+                input.value = currentValue;
+                input.classList.add("edit-input");
+
+                // Clear the <dd> and append the input field
+                dd.innerHTML = "";
+                dd.appendChild(input);
+                input.focus();
+
+                this.innerText = "Save";
+                this.style.backgroundColor = "green";
+
+                // Save the edited value when the input loses focus or the Enter key is pressed
+                function saveEdit() {
+                    let newValue = input.value.trim();
+                    dd.innerText = newValue || currentValue; // Save the new value or revert to old if empty
+                    button.innerText = "Edit";
+                    button.style.backgroundColor = "";
+                }
+
+                input.addEventListener("blur", saveEdit);
+                input.addEventListener("keypress", function (event) {
+                    if (event.key === "Enter") saveEdit();
+                });
             }
-
-            input.addEventListener("blur", saveEdit);
-            input.addEventListener("keypress", function (event) {
-                if (event.key === "Enter") saveEdit();
-            });
         }
     });
 });
+
 
 function updateField(fieldContainer, newValue) {
     let gameId = fieldContainer.closest("li.game").id;
@@ -145,11 +190,11 @@ function updateField(fieldContainer, newValue) {
             value: newValue
         })
     })
-    .then(response => response.json())
-    .then(data => {
-        if (!data.success) {
-            alert("Errore nell'aggiornamento");
-        }
-    })
-    .catch(error => console.error("Errore:", error));
+        .then(response => response.json())
+        .then(data => {
+            if (!data.success) {
+                alert("Errore nell'aggiornamento");
+            }
+        })
+        .catch(error => console.error("Errore:", error));
 }

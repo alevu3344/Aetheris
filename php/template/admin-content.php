@@ -133,4 +133,14 @@
     <?php endforeach; ?>
 </ul>
 
-<script src="../js/admin-panel.js"></script>
+<?php
+
+$publisherList = $templateParams["publishers"];
+$publisherJson = json_encode($publisherList);
+
+// Make sure to encode the JSON string for use in the URL
+$publisherJsonEscaped = urlencode($publisherJson);
+
+?>
+
+<script src="../js/admin-panel.js?publishers=<?= $publisherJsonEscaped ?>"></script>
