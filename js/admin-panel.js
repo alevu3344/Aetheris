@@ -185,6 +185,13 @@ document.addEventListener("click", function (event) {
                         label.textContent = "Game Name";
                         input.required = true;
                         break;
+                    case "Trailer":
+                        input.type = "text";
+                        label.textContent = "Trailer";
+                        input.required = true;
+                        //needs to be a valid url
+                        input.pattern = "https?://.+";
+                        break;
                     case "Price":
                         input.type = "number";
                         //has to be > 0

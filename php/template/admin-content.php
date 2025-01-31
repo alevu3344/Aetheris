@@ -50,6 +50,14 @@
                         <div class="possible-form">
                             <div>
                                 <button class="edit">Edit</button>
+                                <dt>TrailerURL: </dt>
+                            </div>
+                            <dd id="Trailer"><?= $gioco["Trailer"] ?></dd>
+                        </div>
+
+                        <div class="possible-form">
+                            <div>
+                                <button class="edit">Edit</button>
                                 <dt>Prezzo: </dt>
                             </div>
                             <div>
