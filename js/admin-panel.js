@@ -112,7 +112,7 @@ document.addEventListener("click", function (event) {
             dd.textContent = newValue;
             button.innerText = "Edit";
             button.style.backgroundColor = "";
-            event.preventDefault(); // Add this line here
+            event.preventDefault(); 
 
         } else {
             const currentValue = dd.textContent.trim();
@@ -154,12 +154,24 @@ document.addEventListener("click", function (event) {
                 dd = form.querySelector("dd");
                 button = form.querySelector("button");
 
+              
+
+
                 const input = document.createElement("input");
                 input.type = "text";
+                input.id = dd.id;
                 input.value = currentValue;
                 input.classList.add("edit-input");
 
+                const label = document.createElement("label");
+                label.for = input.id;
+                label.classList.add("visually-hidden");
+
+                
+
+
                 dd.textContent = "";
+                dd.appendChild(label);
                 dd.appendChild(input);
                 input.focus();
 
@@ -191,6 +203,7 @@ document.addEventListener("click", function (event) {
             // Set the button text and background color before making changes
             button.innerText = "Save";
             button.style.backgroundColor = "green";
+            button.type = "submit";
         }
     }
 });
