@@ -17,7 +17,7 @@ class DatabaseHelper
     {
         //delete all its reviews from REVIEWS
         //if te game is avaiable for PC (in SUPPORTED_PLATFORMS) delete its row from PC_GAME_REQUIREMENTS
-        
+
         //delete all its rows from SUPPORTED_PLATFORMS
         //delete all its rows from GAME_CATEGORIES
         //delete all its rows from DISCOUNTED_GAMES
@@ -26,21 +26,21 @@ class DatabaseHelper
         $query = "DELETE FROM REVIEWS WHERE GameId = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $gameId);
-        if(!$stmt->execute()){
+        if (!$stmt->execute()) {
             return false;
         }
 
         $query = "DELETE FROM PC_GAME_REQUIREMENTS WHERE GameId = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $gameId);
-        if(!$stmt->execute()){
+        if (!$stmt->execute()) {
             return false;
         }
 
         $query = "DELETE FROM SUPPORTED_PLATFORMS WHERE GameId = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $gameId);
-        if(!$stmt->execute()){
+        if (!$stmt->execute()) {
             return false;
         }
 
@@ -48,23 +48,23 @@ class DatabaseHelper
         $query = "DELETE FROM GAME_CATEGORIES WHERE GameId = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $gameId);
-        if(!$stmt->execute()){
+        if (!$stmt->execute()) {
             return false;
         }
-        
+
 
         $query = "DELETE FROM DISCOUNTED_GAMES WHERE GameId = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $gameId);
         $stmt->execute();
-        if(!$stmt->execute()){
+        if (!$stmt->execute()) {
             return false;
         }
 
         $query = "DELETE FROM GAMES WHERE Id = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $gameId);
-        if(!$stmt->execute()){
+        if (!$stmt->execute()) {
             return false;
         }
 
@@ -74,12 +74,65 @@ class DatabaseHelper
 
     public function modifyGame($gameId, $field, $value)
     {
-        $query = "UPDATE GAMES SET $field = ? WHERE Id = ?";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param("si", $value, $gameId);
-        return $stmt->execute();
-    }
+        $query = null;
+        $stmt = null;
 
+        // Handle general game fields
+        switch ($field) {
+            case "Price":
+            case "Publisher":
+            case "ReleaseDate":
+            case "Trailer":
+            case "Rating":
+            case "CopiesSold":
+            case "Name":
+                $query = "UPDATE GAMES SET $field = ? WHERE Id = ?";
+                $stmt = $this->db->prepare($query);
+                $stmt->bind_param("si", $value, $gameId);
+                break;
+
+                // Handle platforms like PC, PlayStation, Xbox, Nintendo Switch
+            case "PC":
+            case "PlayStation":
+            case "Xbox":
+            case "Nintendo_Switch":
+                $query = "UPDATE SUPPORTED_PLATFORMS SET Stock = ? WHERE GameId = ? AND Platform = ?";
+                $stmt = $this->db->prepare($query);
+                $stmt->bind_param("iis", $value, $gameId, $field);
+                break;
+
+                // Handle discount fields
+            case "Discount":
+            case "StartDate":
+            case "EndDate":
+                $field = $field === "Discount" ? "Percentage" : $field;  // Change Discount to Percentage
+                $query = "UPDATE DISCOUNTED_GAMES SET $field = ? WHERE GameId = ?";
+                $stmt = $this->db->prepare($query);
+                $stmt->bind_param("si", $value, $gameId);
+                break;
+
+                // Handle game requirements (OS, RAM, CPU, GPU, SSD)
+            case "OS":
+            case "RAM":
+            case "CPU":
+            case "GPU":
+            case "SSD":
+                $query = "UPDATE PC_GAME_REQUIREMENTS SET $field = ? WHERE GameId = ?";
+                $stmt = $this->db->prepare($query);
+                $stmt->bind_param("si", $value, $gameId);
+                break;
+
+            default:
+                return ['success' => false, 'message' => 'invalid_field'];
+        }
+
+        // Execute the prepared statement
+        if ($stmt && $stmt->execute()) {
+            return ['success' => true, 'message' => 'field_modified'];
+        } else {
+            return ['success' => false, 'message' => 'field_not_modified'];
+        }
+    }
 
 
     public function getOrdersForUser($UserID)
@@ -224,7 +277,8 @@ class DatabaseHelper
         return $result->fetch_assoc()["Stock"];
     }
 
-    public function getPublishers(){
+    public function getPublishers()
+    {
         $query = "SELECT * FROM PUBLISHERS";
         $stmt = $this->db->prepare($query);
         $stmt->execute();
@@ -273,7 +327,7 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getGamesByCategory($category, $lim=null)
+    public function getGamesByCategory($category, $lim = null)
     {
         $query = "
             SELECT 
@@ -294,16 +348,15 @@ class DatabaseHelper
                 C.CategoryName = ?
             ORDER BY G.ReleaseDate DESC
                 ";
-            
+
         if ($lim !== null) {
             $query .= " LIMIT ?";
         }
 
         $stmt = $this->db->prepare($query);
-        if($lim !== null){
+        if ($lim !== null) {
             $stmt->bind_param("si", $category, $lim);
-        }
-        else{
+        } else {
             $stmt->bind_param("s", $category);
         }
         $stmt->execute();
@@ -376,7 +429,7 @@ class DatabaseHelper
         $game = $result->fetch_assoc();
         $game["Platforms"] = $platforms;
         $game["Categories"] = $categories;
-        if($requirements !== null){
+        if ($requirements !== null) {
             $game["Requirements"] = $requirements;
         }
 
@@ -422,7 +475,7 @@ class DatabaseHelper
             }
 
             //if $pcRequirements is not null, insert the requirements in PC_GAME_REQUIREMENTS
-            if($pcRequirements !== null){
+            if ($pcRequirements !== null) {
                 $query = "INSERT INTO PC_GAME_REQUIREMENTS (GameId, OS, RAM, CPU, GPU, SSD) VALUES (?, ?, ?, ?, ?, ?)";
                 $stmt = $this->db->prepare($query);
                 $stmt->bind_param("isissi", $gameId, $pcRequirements["os"], $pcRequirements["ram"], $pcRequirements["cpu"], $pcRequirements["gpu"], $pcRequirements["ssd"]);
@@ -863,9 +916,9 @@ class DatabaseHelper
         return $games;
     }
 
-    public function addNewNotification($userId, $type, $message, $status) 
+    public function addNewNotification($userId, $type, $message, $status)
     {
-        $query = "INSERT INTO NOTIFICATIONS (UserId, Type, Message, Status) VALUES (?, ?, ?, ?);"; 
+        $query = "INSERT INTO NOTIFICATIONS (UserId, Type, Message, Status) VALUES (?, ?, ?, ?);";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('isss', $userId, $type, $message, $status);
         $stmt->execute();

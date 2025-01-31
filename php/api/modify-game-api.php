@@ -28,14 +28,7 @@ if (empty($_SESSION["Username"])) {
     $field = $_POST["Field"];
     $value = $_POST["Value"];
 
-    
-
-
-
-    //debug
-    $result = ['success' => true, 'message' => 'gameId: ' . $gameId . ' field: ' . $field . ' value: ' . $value];
-
-    //$success = $dbh->modifyGame($gameId, $field, $value);
+    $result = $dbh->modifyGame($gameId, $field, $value);
 }
 header("Content-type: application/json");
 echo json_encode($result);
