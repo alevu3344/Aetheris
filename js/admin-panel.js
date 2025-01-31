@@ -87,23 +87,23 @@ function createNotificaton(title, message, type) {
 
 
 
-document.addEventListener("click", function(event) {
+document.addEventListener("click", function (event) {
     if (event.target.classList.contains("edit")) {
-        const button = event.target;
-        console.log(button);
+        let button = event.target;
+        console.log(button.innerText);
+
         const dtContainer = button.parentElement;
         let dd = dtContainer.parentElement.querySelector("dd");
         let dt = dtContainer.querySelector("dt");
 
         const containerDiv = dd.closest(".possible-form");
         let divInner = containerDiv.innerHTML;
-        
+
         if (!dd) return;
 
         if (button.innerText === "Save") {
+            console.log("Save");
             const input = dd.querySelector("input, select");
-            if (!input) return;
-
             const newValue = input.value.trim();
             const gameId = button.closest(".game").id;
             const fieldName = dd.id;
@@ -112,8 +112,8 @@ document.addEventListener("click", function(event) {
             dd.textContent = newValue;
             button.innerText = "Edit";
             button.style.backgroundColor = "";
+            event.preventDefault(); // Add this line here
 
-            containerDiv.innerHTML = divInner;
         } else {
             const currentValue = dd.textContent.trim();
 
@@ -145,12 +145,14 @@ document.addEventListener("click", function(event) {
                 });
 
             } else {
+                console.log("Edit");
                 const form = document.createElement("form");
-
                 form.innerHTML = divInner;
+
                 containerDiv.innerHTML = "";
                 containerDiv.appendChild(form);
                 dd = form.querySelector("dd");
+                button = form.querySelector("button");
 
                 const input = document.createElement("input");
                 input.type = "text";
@@ -186,14 +188,14 @@ document.addEventListener("click", function(event) {
                 });
             }
 
+            // Set the button text and background color before making changes
             button.innerText = "Save";
             button.style.backgroundColor = "green";
         }
     }
 });
 
-
-async function modifyField(gameId,fieldName, newValue) {
+async function modifyField(gameId, fieldName, newValue) {
     let formData = new FormData();
     formData.append("GameId", gameId);
     formData.append("Field", fieldName);
