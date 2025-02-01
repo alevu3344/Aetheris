@@ -3559,7 +3559,9 @@ input[type=number] {
   column-gap: 10px;
 }
 
-.admin-content .edit {
+.admin-content .edit,
+.admin-content .edit-platforms, 
+.admin-content .edit-categories {
   background-color: #007bff;
   padding: 5px;
   text-align: center;
@@ -3669,6 +3671,11 @@ input[type=number] {
   color: white;
   margin: 0;
   padding: 0;
+}
+
+.admin-content .possible-form .img {
+  height:30px;
+  width:30px;
 }
 
 

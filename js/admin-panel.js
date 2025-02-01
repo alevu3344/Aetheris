@@ -87,8 +87,9 @@ function createNotificaton(title, message, type) {
 
 
 
+
 document.addEventListener("click", function (event) {
-    if (event.target.classList.contains("edit")) {
+    if (event.target.classList.contains("edit") || event.target.classList.contains("edit-platforms")) {
         let button = event.target;
         console.log(button.innerText);
 
@@ -128,6 +129,7 @@ document.addEventListener("click", function (event) {
         } else {
             const currentValue = dd.textContent.trim();
 
+            //SVILUPPATORE
             if (dt && dt.innerText.trim() === "Sviluppatore:") {
                 const select = document.createElement("select");
                 select.classList.add("edit-select");
@@ -155,7 +157,40 @@ document.addEventListener("click", function (event) {
                     }, 200);
                 });
 
-            } else {
+            } 
+
+            //PIATTAFORME
+            else if(button.classList.contains("edit-platforms")) {
+                const select = document.createElement("select");
+                select.classList.add("edit-select");
+                const platforms = ["PC", "Xbox", "PlayStation", "Nintendo Switch"];
+                platforms.forEach(platform => {
+                    const option = document.createElement("option");
+                    option.value = platform;
+                    option.textContent = platform;
+                    option.selected = (currentValue.includes(platform));
+                    select.appendChild(option);
+                });
+
+                dd.textContent = "";
+                dd.appendChild(select);
+                select.focus();
+
+                select.addEventListener("blur", () => {
+                    setTimeout(() => {
+                        if (button.innerText === "Save") {
+                            dd.textContent = currentValue;
+                            button.innerText = "Edit";
+                            button.style.backgroundColor = "";
+                            containerDiv.innerHTML = divInner;
+                        }
+                    }, 200);
+                });
+
+            }
+            
+            //ALTRO
+            else {
                 console.log("Edit");
                 const form = document.createElement("form");
                 form.innerHTML = divInner;

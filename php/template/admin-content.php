@@ -12,8 +12,11 @@
                             </div>
                             <dd id="Name"><?= $gioco["Name"] ?></dd>
                         </div>
-                        <div id="categories">
-                            <dt>Generi: </dt>
+                        <div class="possible-form" id="categories">
+                            <div>
+                                <button class="edit-categories">Edit</button>
+                                <dt>Generi: </dt>
+                            </div>
                             <dd>
                                 <?php foreach ($gioco["Categories"] as $categoria): ?>
                                     <span><?= $categoria["CategoryName"] ?></span>
@@ -21,8 +24,11 @@
 
                             </dd>
                         </div>
-                        <div>
-                            <dt>Piattaforme: </dt>
+                        <div class="possible-form" id="platforms">
+                            <div>
+                                <button class="edit-platforms">Edit</button>
+                                <dt>Piattaforme: </dt>
+                            </div>
                             <dd>
                                 <?php foreach ($gioco["Platforms"] as $platform): ?>
                                     <img src="upload/icons/<?= $platform["Platform"] ?>.svg" />
@@ -67,34 +73,34 @@
                         </div>
 
                         <?php if (!empty($gioco["Discount"])): ?>
-                            <dl>
 
-                                <div class="possible-form">
-                                    <div>
-                                        <button class="edit">Edit</button>
-                                        <dt>Sconto: </dt>
-                                    </div>
-                                    <div>
-                                        <span>-</span>
-                                        <dd id="Discount"><?= $gioco["Discount"] ?></dd>
-                                        <span>%</span>
-                                    </div>
+
+                            <div class="possible-form">
+                                <div>
+                                    <button class="edit">Edit</button>
+                                    <dt>Sconto: </dt>
                                 </div>
-                                <div class="possible-form">
-                                    <div>
-                                        <button class="edit">Edit</button>
-                                        <dt>Inizio: </dt>
-                                    </div>
-                                    <dd id="StartDate"><?= date("j/n/y", strtotime($gioco["StartDate"])) ?></dd>
+                                <div>
+                                    <span>-</span>
+                                    <dd id="Discount"><?= $gioco["Discount"] ?></dd>
+                                    <span>%</span>
                                 </div>
-                                <div class="possible-form">
-                                    <div>
-                                        <button class="edit">Edit</button>
-                                        <dt>Fine: </dt>
-                                    </div>
-                                    <dd id="EndDate"><?= date("j/n/y", strtotime($gioco["EndDate"])) ?></dd>
+                            </div>
+                            <div class="possible-form">
+                                <div>
+                                    <button class="edit">Edit</button>
+                                    <dt>Inizio: </dt>
                                 </div>
-                            </dl>
+                                <dd id="StartDate"><?= date("j/n/y", strtotime($gioco["StartDate"])) ?></dd>
+                            </div>
+                            <div class="possible-form">
+                                <div>
+                                    <button class="edit">Edit</button>
+                                    <dt>Fine: </dt>
+                                </div>
+                                <dd id="EndDate"><?= date("j/n/y", strtotime($gioco["EndDate"])) ?></dd>
+                            </div>
+
                         <?php endif; ?>
                     </dl>
 
