@@ -23,6 +23,8 @@ class DatabaseHelper
         //delete all its rows from DISCOUNTED_GAMES
         //delete its row from GAMES
 
+
+        //TODO:NOTIFICATION
         $query = "DELETE FROM REVIEWS WHERE GameId = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $gameId);
@@ -76,6 +78,8 @@ class DatabaseHelper
     {
         $query = null;
         $stmt = null;
+
+        //TODO:NOTIFICATION
 
         // Handle general game fields
         switch ($field) {
@@ -261,6 +265,7 @@ class DatabaseHelper
 
     public function modifyOrderStatus($OrderId, $Status)
     {
+        //TODO:NOTIFICATION
         $query = "UPDATE ORDERS SET Status = ? WHERE Id = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("si", $Status, $OrderId);
@@ -439,6 +444,7 @@ class DatabaseHelper
 
     public function addGame($name, $description, $price, $publisher, $releaseDate, $trailer, $categories, $platforms, $pcRequirements)
     {
+        //TODO:NOTIFICATION
         $query = "INSERT INTO GAMES (Name, Description, Price, Publisher, ReleaseDate, Trailer, Rating, CopiesSold) 
                   VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
@@ -505,6 +511,8 @@ class DatabaseHelper
     public function buyGame($gameId, $userId, $quantity, $total, $platform)
     {
         // Insert into ORDERS table
+
+        //TODO:NOTIFICATION
         $query = "INSERT INTO ORDERS (UserId, TotalCost, OrderDate) VALUES (?, ?, NOW())";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("id", $userId, $total);
@@ -564,6 +572,7 @@ class DatabaseHelper
         $query = null;
         $stmt = null;
 
+        //TODO:NOTIFICATION
 
 
         if ($action === "add") {
@@ -647,6 +656,8 @@ class DatabaseHelper
     {
 
         // Check for stock availability for every (game, platform) in the cart
+
+        //TODO:NOTIFICATION
         $query = "
             SELECT 
             SC.GameId, 
@@ -1381,6 +1392,7 @@ class DatabaseHelper
 
     public function registerNewUser($Userdata)
     {
+        //TODO:NOTIFICATION to admin
         $query = "INSERT INTO USERS (Username, Email, PasswordHash, Salt, FirstName, LastName, PhoneNumber, Address, City, DateOfBirth, AvatarId) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         $stmt = $this->db->prepare($query);
         $salt = hash('sha256', uniqid(mt_rand(), true));
