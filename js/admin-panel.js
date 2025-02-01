@@ -83,6 +83,54 @@ function createNotificaton(title, message, type) {
 
 }
 
+async function addCategory(category, gameId) {
+    let formData = new FormData();
+    formData.append("Category", category);
+    formData.append("GameId", gameId);
+    formData.append("Action", "add");
+
+    const url = "api/modify-categories-api.php";
+    // Send a POST request to the server with the purchase details
+    let response = await fetch(url, {
+        method: "POST",
+        body: formData
+
+    });
+
+    let data = await response.json();
+
+    if (data["success"]) {
+        createNotificaton("Success", `${data["category"]} added to game ${data["gameName"]}`, "positive");
+    } else {
+        createNotificaton("Error", `Failed to add ${data["category"]} to game ${data["gameName"]}`, "negative");
+    }
+}
+
+
+async function removeCategory(category, gameId) {
+    let formData = new FormData();
+    formData.append("Category", category);
+    formData.append("GameId", gameId);
+    formData.append("Action", "remove");
+
+    const url = "api/modify-categories-api.php";
+    // Send a POST request to the server with the purchase details
+    let response = await fetch(url, {
+        method: "POST",
+        body: formData
+
+    });
+
+    let data = await response.json();
+
+    if (data["success"]) {
+        createNotificaton("Success", `${data["category"]} removed from game ${data["gameName"]}`, "positive");
+    } else {
+        createNotificaton("Error", `Failed to remove ${data["category"]} from game ${data["gameName"]}`, "negative");
+    }
+}
+
+
 async function addPlatform(platform, gameId) {
     let formData = new FormData();
     formData.append("Platform", platform);
@@ -129,6 +177,214 @@ async function removePlatform(platform, gameId) {
         createNotificaton("Error", `Failed to remove ${data["platform"]} from game ${data["gameName"]}`, "negative");
     }
 }
+
+
+document.addEventListener("click", function (event) {
+    if (event.target.classList.contains("edit-categories")) {
+        let button = event.target;
+        const dtContainer = button.parentElement;
+        let dd = dtContainer.parentElement.querySelector("dd");
+        const gameId = button.closest(".game").id;
+
+        if (!dd) {
+            return;
+        }
+
+        const containerDiv = dd.closest(".possible-form");
+
+
+        // Poiché searchParams.get() restituisce una stringa, la parsiamo in un array di oggetti
+        const categoryObjects = JSON.parse(categories);
+
+        // Mappiamo l'array per ottenere solo i nomi delle categorie
+        const availableCategories = categoryObjects.map(category => category.CategoryName);
+
+        // Funzione per aggiornare (o creare) il select in base alle categorie mancanti
+        function updateOrCreateSelect() {
+            // Calcola le categorie già presenti
+            const present = Array.from(dd.querySelectorAll("span")).map(span => span.textContent);
+            // Determina le categorie che possono essere aggiunte (disponibili)
+            const missing = availableCategories.filter(p => present.indexOf(p) === -1);
+
+            let select = containerDiv.querySelector("select.add-category-select");
+            if (missing.length === 0) {
+                // Se non ci sono piattaforme mancanti, rimuovo il select se esiste
+                if (select) {
+                    select.remove();
+                }
+                return;
+            }
+            // Se il select non esiste e il numero di span è inferiore alla lunghezza di categories, lo creo
+            if (!select && dd.querySelectorAll("span").length < availableCategories.length) {
+                const dt = dtContainer.querySelector("dt");
+                select = document.createElement("select");
+                select.classList.add("add-category-select");
+                select.style.backgroundColor = "blue";
+                select.style.marginLeft = "10px"; // per separarlo un po' dal dt
+
+                // Opzione di default
+                const defaultOption = document.createElement("option");
+                defaultOption.value = "";
+                defaultOption.text = "Aggiungi categoria...";
+                defaultOption.disabled = true;
+                defaultOption.selected = true;
+                select.appendChild(defaultOption);
+                dt.insertAdjacentElement("afterend", select);
+
+                // Aggiungo il listener al select
+                select.addEventListener("change", (e) => {
+                    const selectedCategory = e.target.value;
+                    if (selectedCategory) {
+                        // Crea un nuovo span per la categoria
+                        addCategory(selectedCategory, button.closest(".game").id)
+                        const newSpan = document.createElement("span");
+                        newSpan.textContent = selectedCategory;
+                        dd.appendChild(newSpan);
+
+                        // Elimina l'opzione selezionata
+                        const optionToRemove = Array.from(e.target.options).find(opt => opt.value === selectedCategory);
+                        if (optionToRemove) {
+                            optionToRemove.remove();
+                        }
+                        // Se dopo l'aggiunta raggiungiamo la lunghzza di categories, rimuovo il select
+                        if (dd.querySelectorAll("img.platform-icon").length === availableCategories.length) {
+                            e.target.remove();
+                        }
+
+                        // Aggiungo il delete button per il nuovo span
+                        const deleteIcon = document.createElement("img");
+                        const deleteButton = document.createElement("button");
+
+                        deleteIcon.src = "upload/icons/delete.png";
+                        deleteIcon.classList.add("delete-icon");
+                        deleteButton.classList.add("delete-button");
+                        deleteButton.appendChild(deleteIcon);
+                        newSpan.insertAdjacentElement("beforebegin", deleteButton);
+
+                        // Listener per il delete button del nuovo span
+                        deleteButton.addEventListener("click", (e) => {
+                            if (confirm(`Are you sure you want to delete the ${selectedCategory} category?`)) {
+                                removeCategory(selectedCategory, gameId)
+                                    .then(() => {
+                                        newSpan.remove();
+                                        deleteButton.remove();
+                                        // Reinserisco l'opzione nel select
+                                        reinsertOption(selectedCategory);
+                                    })
+                                    .catch(error => console.error("Errore:", error));
+                            }
+                        });
+                        // Resetta il select
+                        e.target.selectedIndex = 0;
+                    }
+                });
+            } else if (select) {
+                // Se esiste già il select, ricostruisco le opzioni basandomi su quelle mancanti
+                // Rimuovo tutte le opzioni tranne quella di default
+                Array.from(select.options).forEach((opt, index) => {
+                    if (index !== 0) {
+                        opt.remove();
+                    }
+                });
+            }
+
+            // Aggiungo le opzioni mancanti al select (se esiste)
+            select = containerDiv.querySelector("select.add-category-select");
+            if (select) {
+                missing.forEach(category => {
+                    // Evito duplicati
+                    if (!Array.from(select.options).some(opt => opt.value === category)) {
+                        const option = document.createElement("option");
+                        option.value = category;
+                        option.text = category;
+                        select.appendChild(option);
+                    }
+                });
+            }
+        }
+
+        // Funzione per reinserire un'opzione nel select (creandolo se necessario)
+        function reinsertOption(category) {
+            let select = containerDiv.querySelector("select.add-category-select");
+            // Se non esiste e il numero di span è minore della lunghezza di categories, crealo
+            if (!select && dd.querySelectorAll("span").length < availableCategories.length) {
+                updateOrCreateSelect();
+                select = containerDiv.querySelector("select.add-category-select");
+            }
+            if (select) {
+                // Evito duplicati
+                if (!Array.from(select.options).some(opt => opt.value === category)) {
+                    const option = document.createElement("option");
+                    option.value = category;
+                    option.text = category;
+                    select.appendChild(option);
+                }
+            }
+        }
+
+        // Modalità "Save": aggiorno dd con le icone rimanenti e rimuovo il select se presente
+        if (button.innerText === "Save") {
+            const spans = dd.querySelectorAll("span");
+            const newValue = Array.from(spans).map(span => span.textContent);
+
+            dd.innerHTML = newValue.map(categoryName => {
+                return `<span>${categoryName}</span>`;
+            }).join("");
+
+            let newButton = containerDiv.querySelector(".edit-categories");
+            newButton.innerText = "Edit";
+            newButton.style.backgroundColor = "";
+
+            const extraSelect = containerDiv.querySelector("select.add-category-select");
+            if (extraSelect) {
+                extraSelect.remove();
+            }
+        }
+        else {
+            // Modalità "Edit": cambio il bottone in Save
+            button.innerText = "Save";
+            button.style.backgroundColor = "green";
+
+
+            // Se il numero di piattaforme è inferiore a 4, aggiorno/creo il select
+            if (dd.querySelectorAll("span").length < availableCategories.length) {
+                updateOrCreateSelect();
+            }
+
+            // Aggiungo (o aggiorno) i delete buttons per ogni icona esistente
+            dd.querySelectorAll("span").forEach(span => {
+                // Evito duplicati
+                if (span.previousElementSibling && span.previousElementSibling.classList.contains("delete-button")) {
+                    return;
+                }
+                const deleteIcon = document.createElement("img");
+                const deleteButton = document.createElement("button");
+
+                deleteIcon.src = "upload/icons/delete.png";
+                deleteIcon.classList.add("delete-icon");
+                deleteButton.classList.add("delete-button");
+                deleteButton.appendChild(deleteIcon);
+                span.insertAdjacentElement("beforebegin", deleteButton);
+
+                let categoryName = span.textContent;
+
+                deleteButton.addEventListener("click", (e) => {
+                    if (confirm(`Are you sure you want to delete the ${categoryName} category?`)) {
+                        removeCategory(categoryName, gameId)
+                            .then(() => {
+                                span.remove();
+                                deleteButton.remove();
+                                // Reinserisco l'opzione della piattaforma eliminata nel select
+                                reinsertOption(categoryName);
+                            })
+                            .catch(error => console.error("Errore:", error));
+                    }
+                });
+            });
+        }
+    }
+});
+
 
 
 document.addEventListener("click", function (event) {
@@ -291,7 +547,7 @@ document.addEventListener("click", function (event) {
             // Modalità "Edit": cambio il bottone in Save
             button.innerText = "Save";
             button.style.backgroundColor = "green";
-            
+
 
             // Se il numero di piattaforme è inferiore a 4, aggiorno/creo il select
             if (dd.querySelectorAll("img.platform-icon").length < 4) {
@@ -365,7 +621,7 @@ document.addEventListener("click", function (event) {
                 modifyField(gameId, fieldName, newValue);
 
                 dd.textContent = newValue;
-                if(dd.classList.contains("expired") || dd.classList.contains("available")){ 
+                if (dd.classList.contains("expired") || dd.classList.contains("available")) {
                     dd.classList = "";
                     dd.classList.add(newValue > 0 ? "available" : "expired");
                 }

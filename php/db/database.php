@@ -533,6 +533,32 @@ class DatabaseHelper
         $stmt->execute();
     }
 
+
+    public function modifyCategoriesOfGame($category, $gameId, $action)
+    {
+        $query = null;
+        $stmt = null;
+
+
+
+        if ($action === "add") {
+            $query = "INSERT INTO GAME_CATEGORIES (GameId, CategoryName) VALUES (?, ?)";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("is", $gameId, $category);
+        } else if ($action === "remove") {
+            $query = "DELETE FROM GAME_CATEGORIES WHERE GameId = ? AND CategoryName = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("is", $gameId, $category);
+        }
+
+        if ($stmt->execute()) {
+            return ['success' => true, 'message' => 'category_modified', "gameName" => $this->getGameById($gameId)["Name"], "category" => $category];
+        } else {
+            return ['success' => false, 'message' => 'category_not_modified', "gameName" => $this->getGameById($gameId)["Name"], "category" => $category];
+        }
+    }
+
+
     public function modifyPlatformsOfGame($platform, $gameId, $action)
     {
         $query = null;

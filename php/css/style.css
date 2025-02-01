@@ -3668,7 +3668,8 @@ input[type=number] {
   display: flex;
   flex-wrap: wrap;
   row-gap: 5px;
-  justify-content: space-between;
+  justify-content: right;
+  column-gap: 5px;
   align-items: center;
 }
 
