@@ -365,6 +365,10 @@ document.addEventListener("click", function (event) {
                 modifyField(gameId, fieldName, newValue);
 
                 dd.textContent = newValue;
+                if(dd.classList.contains("expired") || dd.classList.contains("available")){ 
+                    dd.classList = "";
+                    dd.classList.add(newValue > 0 ? "available" : "expired");
+                }
                 button.innerText = "Edit";
                 button.style.backgroundColor = "";
                 event.preventDefault();
@@ -474,7 +478,7 @@ document.addEventListener("click", function (event) {
                     case "PC":
                         input.type = "number";
                         //has to be > 0 and integer
-                        input.min = 1;
+                        input.min = 0;
                         input.step = 1;
                         label.textContent = "PC Quantity";
                         input.required = true;
@@ -483,7 +487,7 @@ document.addEventListener("click", function (event) {
                     case "Xbox":
                         input.type = "number";
                         //has to be > 0 and integer
-                        input.min = 1;
+                        input.min = 0;
                         input.step = 1;
                         label.textContent = "Xbox Quantity";
                         input.required = true;
@@ -492,7 +496,7 @@ document.addEventListener("click", function (event) {
                     case "PlayStation":
                         input.type = "number";
                         //has to be > 0 and integer
-                        input.min = 1;
+                        input.min = 0;
                         input.step = 1;
                         label.textContent = "PlayStation Quantity";
                         input.required = true;
@@ -502,7 +506,7 @@ document.addEventListener("click", function (event) {
                     case "Nintendo_Switch":
                         input.type = "number";
                         //has to be > 0 and integer
-                        input.min = 1;
+                        input.min = 0;
                         input.step = 1;
                         label.textContent = "Nintendo Switch Quantity";
                         input.required = true;

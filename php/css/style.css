@@ -3611,6 +3611,22 @@ input[type=number] {
   display: flex;
 }
 
+.admin-content > main > ul > li .available {
+  background-color: #00b33c;
+  border: 1px solid white;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 2px;
+}
+
+.admin-content > main > ul > li .expired {
+  background-color: darkred;
+  border: 1px solid white;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 2px;
+}
+
 .admin-content > main > ul > li > section > div > dl div > dd > .delete-button {
   /*wrapper button, no style just contain the image*/
   display: flex;
