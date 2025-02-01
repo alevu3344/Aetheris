@@ -109,41 +109,40 @@ async function removePlatform(platform, gameId) {
 
 document.addEventListener("click", function (event) {
     if (event.target.classList.contains("edit-platforms")) {
-
         let button = event.target;
-        console.log(button.innerText);
-
         const dtContainer = button.parentElement;
         let dd = dtContainer.parentElement.querySelector("dd");
-        let dt = dtContainer.querySelector("dt");
-
-        const containerDiv = dd.closest(".possible-form");
-        let divInner = containerDiv.innerHTML;
 
         if (!dd) {
             return;
         }
 
+        const containerDiv = dd.closest(".possible-form");
+
         if (button.innerText === "Save") {
-            //get all <img> elements (children of dd) with the class "platform-icon"
+            // Otteniamo l'array dei nomi delle piattaforme attuali (quelle che sono rimaste dopo eventuali cancellazioni)
             const icons = dd.querySelectorAll("img.platform-icon");
             const newValue = Array.from(icons).map(icon => icon.src.split("/").pop().split(".")[0]);
-            console.log(newValue);
 
-            button.innerText = "Edit";
-            button.style.backgroundColor = "";
-            containerDiv.innerHTML = divInner;
+            // Costruiamo il nuovo contenuto per dd usando l'array newValue
+            // In questo modo non ripristiniamo tutto il vecchio contenuto ma aggiorniamo solo le piattaforme
+            dd.innerHTML = newValue.map(platformName => {
+                return `<img class="platform-icon" src="upload/icons/${platformName}.svg" />`;
+            }).join("");
 
+            // Rimettiamo il pulsante in stato "Edit"
+            let newButton = containerDiv.querySelector(".edit-platforms");
+            newButton.innerText = "Edit";
+            newButton.style.backgroundColor = "";
         }
         else {
+            // Impostiamo lo stato "modifica" (Edit -> Save)
+            button.innerText = "Save";
+            button.style.backgroundColor = "green";
 
-            let currentPlatforms = [];
             const gameId = button.closest(".game").id;
 
-            console.log(dd);
-
             dd.querySelectorAll(".platform-icon").forEach(icon => {
-
                 const deleteIcon = document.createElement("img");
                 const deleteButton = document.createElement("button");
 
@@ -151,12 +150,14 @@ document.addEventListener("click", function (event) {
                 deleteIcon.classList.add("delete-icon");
                 deleteButton.classList.add("delete-button");
                 deleteButton.appendChild(deleteIcon);
-                icon.insertAdjacentElement("beforebegin", deleteButton);
-                let platformName = icon.src.split("/").pop().split(".")[0];
-                currentPlatforms.push(platformName);
 
+                // Inserisce il bottone di delete a sinistra dell'icona della piattaforma
+                icon.insertAdjacentElement("beforebegin", deleteButton);
+
+                let platformName = icon.src.split("/").pop().split(".")[0];
+
+                // Aggiunge l'event listener per il delete button
                 deleteButton.addEventListener("click", (e) => {
-                    //first create an alert to confirm the deletion
                     if (confirm(`Are you sure you want to delete the ${platformName} platform?`)) {
                         removePlatform(platformName, gameId)
                             .then(() => {
@@ -165,18 +166,10 @@ document.addEventListener("click", function (event) {
                             })
                             .catch(error => console.error("Errore:", error));
                     }
-
                 });
-
             });
-
-
-
-
         }
-
     }
-
 });
 
 
