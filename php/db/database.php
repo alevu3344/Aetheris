@@ -548,16 +548,22 @@ class DatabaseHelper
             $query = "DELETE FROM SUPPORTED_PLATFORMS WHERE GameId = ? AND Platform = ?";
             $stmt = $this->db->prepare($query);
             $stmt->bind_param("is", $gameId, $platform);
-
-            
         }
 
         if ($stmt->execute()) {
             //if the platform is PC, delete the game requirements
             if ($platform === "PC") {
-                $query = "DELETE FROM PC_GAME_REQUIREMENTS WHERE GameId = ?";
-                $stmt = $this->db->prepare($query);
-                $stmt->bind_param("i", $gameId);
+                if ($action === "remove") {
+                    $query = "DELETE FROM PC_GAME_REQUIREMENTS WHERE GameId = ?";
+                    $stmt = $this->db->prepare($query);
+                    $stmt->bind_param("i", $gameId);
+                    $stmt->execute();
+                } else {
+                    $query = "INSERT INTO PC_GAME_REQUIREMENTS (GameId) VALUES (?)";
+                    $stmt = $this->db->prepare($query);
+                    $stmt->bind_param("i", $gameId);
+                    $stmt->execute();
+                }
             }
             return ['success' => true, 'message' => 'platform_modified', "gameName" => $this->getGameById($gameId)["Name"], "platform" => $platform];
         } else {

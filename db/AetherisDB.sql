@@ -1462,11 +1462,11 @@ INSERT INTO ORDER_ITEMS (OrderId, GameId, Quantity, FinalPrice, Platform) VALUES
 
 CREATE TABLE PC_GAME_REQUIREMENTS (
   GameId int(11) NOT NULL,
-  OS varchar(50) NOT NULL,
-  CPU varchar(50) NOT NULL,
-  RAM int(5) NOT NULL,
-  GPU varchar(50) NOT NULL,
-  SSD int(5) NOT NULL
+  OS varchar(50) NOT NULL DEFAULT "Windows 10",
+  CPU varchar(50) NOT NULL DEFAULT "Intel Core i5-2500K / AMD Ryzen 5 1600",
+  RAM int(5) NOT NULL DEFAULT 8,
+  GPU varchar(50) NOT NULL DEFAULT "NVIDIA GeForce GTX 970 / AMD Radeon RX 580",
+  SSD int(5) NOT NULL DEFAULT 50
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --

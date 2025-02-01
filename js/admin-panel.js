@@ -83,6 +83,30 @@ function createNotificaton(title, message, type) {
 
 }
 
+async function addPlatform(platform, gameId) {
+    let formData = new FormData();
+    formData.append("Platform", platform);
+    formData.append("GameId", gameId);
+    formData.append("Action", "add");
+
+    const url = "api/modify-platforms-api.php";
+    // Send a POST request to the server with the purchase details
+    let response = await fetch(url, {
+        method: "POST",
+        body: formData
+
+    });
+
+    let data = await response.json();
+
+    if (data["success"]) {
+        createNotificaton("Success", `${data["platform"]} added to game ${data["gameName"]}`, "positive");
+    } else {
+        createNotificaton("Error", `Failed to add ${data["platform"]} to game ${data["gameName"]}`, "negative");
+    }
+}
+
+
 async function removePlatform(platform, gameId) {
     let formData = new FormData();
     formData.append("Platform", platform);
@@ -112,37 +136,174 @@ document.addEventListener("click", function (event) {
         let button = event.target;
         const dtContainer = button.parentElement;
         let dd = dtContainer.parentElement.querySelector("dd");
+        const gameId = button.closest(".game").id;
 
         if (!dd) {
             return;
         }
 
         const containerDiv = dd.closest(".possible-form");
+        const availablePlatforms = ["PC", "Xbox", "PlayStation", "Nintendo_Switch"];
 
+        // Funzione per aggiornare (o creare) il select in base alle piattaforme mancanti
+        function updateOrCreateSelect() {
+            // Calcola le piattaforme già presenti
+            const present = Array.from(dd.querySelectorAll("img.platform-icon")).map(icon => icon.src.split("/").pop().split(".")[0]);
+            // Determina le piattaforme che possono essere aggiunte (disponibili)
+            const missing = availablePlatforms.filter(p => present.indexOf(p) === -1);
+
+            let select = containerDiv.querySelector("select.add-platform-select");
+            if (missing.length === 0) {
+                // Se non ci sono piattaforme mancanti, rimuovo il select se esiste
+                if (select) {
+                    select.remove();
+                }
+                return;
+            }
+            // Se il select non esiste e il numero di icone è inferiore a 4, lo creo
+            if (!select && dd.querySelectorAll("img.platform-icon").length < 4) {
+                const dt = dtContainer.querySelector("dt");
+                select = document.createElement("select");
+                select.classList.add("add-platform-select");
+                select.style.backgroundColor = "green";
+                select.style.marginLeft = "10px"; // per separarlo un po' dal dt
+
+                // Opzione di default
+                const defaultOption = document.createElement("option");
+                defaultOption.value = "";
+                defaultOption.text = "Aggiungi piattaforma...";
+                defaultOption.disabled = true;
+                defaultOption.selected = true;
+                select.appendChild(defaultOption);
+                dt.insertAdjacentElement("afterend", select);
+
+                // Aggiungo il listener al select
+                select.addEventListener("change", (e) => {
+                    const selectedPlatform = e.target.value;
+                    if (selectedPlatform) {
+                        // Crea una nuova icona per la piattaforma
+                        addPlatform(selectedPlatform, button.closest(".game").id)
+                        const newIcon = document.createElement("img");
+                        newIcon.classList.add("platform-icon");
+                        newIcon.src = `upload/icons/${selectedPlatform}.svg`;
+                        dd.appendChild(newIcon);
+
+                        // Elimina l'opzione selezionata
+                        const optionToRemove = Array.from(e.target.options).find(opt => opt.value === selectedPlatform);
+                        if (optionToRemove) {
+                            optionToRemove.remove();
+                        }
+                        // Se dopo l'aggiunta raggiungiamo 4 icone, rimuovo il select
+                        if (dd.querySelectorAll("img.platform-icon").length === 4) {
+                            e.target.remove();
+                        }
+
+                        // Aggiungo il delete button per la nuova icona
+                        const deleteIcon = document.createElement("img");
+                        const deleteButton = document.createElement("button");
+
+                        deleteIcon.src = "upload/icons/delete.png";
+                        deleteIcon.classList.add("delete-icon");
+                        deleteButton.classList.add("delete-button");
+                        deleteButton.appendChild(deleteIcon);
+                        newIcon.insertAdjacentElement("beforebegin", deleteButton);
+
+                        // Listener per il delete button della nuova icona
+                        deleteButton.addEventListener("click", (e) => {
+                            if (confirm(`Are you sure you want to delete the ${selectedPlatform} platform?`)) {
+                                removePlatform(selectedPlatform, gameId)
+                                    .then(() => {
+                                        newIcon.remove();
+                                        deleteButton.remove();
+                                        // Reinserisco l'opzione nel select
+                                        reinsertOption(selectedPlatform);
+                                    })
+                                    .catch(error => console.error("Errore:", error));
+                            }
+                        });
+                        // Resetta il select
+                        e.target.selectedIndex = 0;
+                    }
+                });
+            } else if (select) {
+                // Se esiste già il select, ricostruisco le opzioni basandomi su quelle mancanti
+                // Rimuovo tutte le opzioni tranne quella di default
+                Array.from(select.options).forEach((opt, index) => {
+                    if (index !== 0) {
+                        opt.remove();
+                    }
+                });
+            }
+
+            // Aggiungo le opzioni mancanti al select (se esiste)
+            select = containerDiv.querySelector("select.add-platform-select");
+            if (select) {
+                missing.forEach(platform => {
+                    // Evito duplicati
+                    if (!Array.from(select.options).some(opt => opt.value === platform)) {
+                        const option = document.createElement("option");
+                        option.value = platform;
+                        option.text = platform;
+                        select.appendChild(option);
+                    }
+                });
+            }
+        }
+
+        // Funzione per reinserire un'opzione nel select (creandolo se necessario)
+        function reinsertOption(platform) {
+            let select = containerDiv.querySelector("select.add-platform-select");
+            // Se non esiste e il numero di icone è minore di 4, crealo
+            if (!select && dd.querySelectorAll("img.platform-icon").length < 4) {
+                updateOrCreateSelect();
+                select = containerDiv.querySelector("select.add-platform-select");
+            }
+            if (select) {
+                // Evito duplicati
+                if (!Array.from(select.options).some(opt => opt.value === platform)) {
+                    const option = document.createElement("option");
+                    option.value = platform;
+                    option.text = platform;
+                    select.appendChild(option);
+                }
+            }
+        }
+
+        // Modalità "Save": aggiorno dd con le icone rimanenti e rimuovo il select se presente
         if (button.innerText === "Save") {
-            // Otteniamo l'array dei nomi delle piattaforme attuali (quelle che sono rimaste dopo eventuali cancellazioni)
             const icons = dd.querySelectorAll("img.platform-icon");
             const newValue = Array.from(icons).map(icon => icon.src.split("/").pop().split(".")[0]);
 
-            // Costruiamo il nuovo contenuto per dd usando l'array newValue
-            // In questo modo non ripristiniamo tutto il vecchio contenuto ma aggiorniamo solo le piattaforme
             dd.innerHTML = newValue.map(platformName => {
                 return `<img class="platform-icon" src="upload/icons/${platformName}.svg" />`;
             }).join("");
 
-            // Rimettiamo il pulsante in stato "Edit"
             let newButton = containerDiv.querySelector(".edit-platforms");
             newButton.innerText = "Edit";
             newButton.style.backgroundColor = "";
+
+            const extraSelect = containerDiv.querySelector("select.add-platform-select");
+            if (extraSelect) {
+                extraSelect.remove();
+            }
         }
         else {
-            // Impostiamo lo stato "modifica" (Edit -> Save)
+            // Modalità "Edit": cambio il bottone in Save
             button.innerText = "Save";
             button.style.backgroundColor = "green";
+            
 
-            const gameId = button.closest(".game").id;
+            // Se il numero di piattaforme è inferiore a 4, aggiorno/creo il select
+            if (dd.querySelectorAll("img.platform-icon").length < 4) {
+                updateOrCreateSelect();
+            }
 
-            dd.querySelectorAll(".platform-icon").forEach(icon => {
+            // Aggiungo (o aggiorno) i delete buttons per ogni icona esistente
+            dd.querySelectorAll("img.platform-icon").forEach(icon => {
+                // Evito duplicati
+                if (icon.previousElementSibling && icon.previousElementSibling.classList.contains("delete-button")) {
+                    return;
+                }
                 const deleteIcon = document.createElement("img");
                 const deleteButton = document.createElement("button");
 
@@ -150,19 +311,18 @@ document.addEventListener("click", function (event) {
                 deleteIcon.classList.add("delete-icon");
                 deleteButton.classList.add("delete-button");
                 deleteButton.appendChild(deleteIcon);
-
-                // Inserisce il bottone di delete a sinistra dell'icona della piattaforma
                 icon.insertAdjacentElement("beforebegin", deleteButton);
 
                 let platformName = icon.src.split("/").pop().split(".")[0];
 
-                // Aggiunge l'event listener per il delete button
                 deleteButton.addEventListener("click", (e) => {
                     if (confirm(`Are you sure you want to delete the ${platformName} platform?`)) {
                         removePlatform(platformName, gameId)
                             .then(() => {
                                 icon.remove();
                                 deleteButton.remove();
+                                // Reinserisco l'opzione della piattaforma eliminata nel select
+                                reinsertOption(platformName);
                             })
                             .catch(error => console.error("Errore:", error));
                     }
@@ -171,6 +331,9 @@ document.addEventListener("click", function (event) {
         }
     }
 });
+
+
+
 
 
 
