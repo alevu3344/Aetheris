@@ -83,13 +83,107 @@ function createNotificaton(title, message, type) {
 
 }
 
+async function removePlatform(platform, gameId) {
+    let formData = new FormData();
+    formData.append("Platform", platform);
+    formData.append("GameId", gameId);
+    formData.append("Action", "remove");
+
+    const url = "api/modify-platforms-api.php";
+    // Send a POST request to the server with the purchase details
+    let response = await fetch(url, {
+        method: "POST",
+        body: formData
+
+    });
+
+    let data = await response.json();
+
+    if (data["success"]) {
+        createNotificaton("Success", `${data["platform"]} removed from game ${data["gameName"]}`, "positive");
+    } else {
+        createNotificaton("Error", `Failed to remove ${data["platform"]} from game ${data["gameName"]}`, "negative");
+    }
+}
+
+
+document.addEventListener("click", function (event) {
+    if (event.target.classList.contains("edit-platforms")) {
+
+        let button = event.target;
+        console.log(button.innerText);
+
+        const dtContainer = button.parentElement;
+        let dd = dtContainer.parentElement.querySelector("dd");
+        let dt = dtContainer.querySelector("dt");
+
+        const containerDiv = dd.closest(".possible-form");
+        let divInner = containerDiv.innerHTML;
+
+        if (!dd) {
+            return;
+        }
+
+        if (button.innerText === "Save") {
+            //get all <img> elements (children of dd) with the class "platform-icon"
+            const icons = dd.querySelectorAll("img.platform-icon");
+            const newValue = Array.from(icons).map(icon => icon.src.split("/").pop().split(".")[0]);
+            console.log(newValue);
+
+            button.innerText = "Edit";
+            button.style.backgroundColor = "";
+            containerDiv.innerHTML = divInner;
+
+        }
+        else {
+
+            let currentPlatforms = [];
+            const gameId = button.closest(".game").id;
+
+            console.log(dd);
+
+            dd.querySelectorAll(".platform-icon").forEach(icon => {
+
+                const deleteIcon = document.createElement("img");
+                const deleteButton = document.createElement("button");
+
+                deleteIcon.src = "upload/icons/delete.png";
+                deleteIcon.classList.add("delete-icon");
+                deleteButton.classList.add("delete-button");
+                deleteButton.appendChild(deleteIcon);
+                icon.insertAdjacentElement("beforebegin", deleteButton);
+                currentPlatforms.push(icon.src.split("/").pop().split(".")[0]);
+
+                deleteButton.addEventListener("click", (e) => {
+                    //first create an alert to confirm the deletion
+                    if (confirm("Are you sure you want to delete this platform?")) {
+                        removePlatform(icon.src.split("/").pop().split(".")[0], gameId)
+                            .then(() => {
+                                icon.remove();
+                                deleteButton.remove();
+                            })
+                            .catch(error => console.error("Errore:", error));
+                    }
+
+                });
+
+            });
+
+
+
+
+        }
+
+    }
+
+});
 
 
 
 
 
 document.addEventListener("click", function (event) {
-    if (event.target.classList.contains("edit") || event.target.classList.contains("edit-platforms")) {
+    if (event.target.classList.contains("edit")) {
         let button = event.target;
         console.log(button.innerText);
 
@@ -157,38 +251,8 @@ document.addEventListener("click", function (event) {
                     }, 200);
                 });
 
-            } 
-
-            //PIATTAFORME
-            else if(button.classList.contains("edit-platforms")) {
-                const select = document.createElement("select");
-                select.classList.add("edit-select");
-                const platforms = ["PC", "Xbox", "PlayStation", "Nintendo Switch"];
-                platforms.forEach(platform => {
-                    const option = document.createElement("option");
-                    option.value = platform;
-                    option.textContent = platform;
-                    option.selected = (currentValue.includes(platform));
-                    select.appendChild(option);
-                });
-
-                dd.textContent = "";
-                dd.appendChild(select);
-                select.focus();
-
-                select.addEventListener("blur", () => {
-                    setTimeout(() => {
-                        if (button.innerText === "Save") {
-                            dd.textContent = currentValue;
-                            button.innerText = "Edit";
-                            button.style.backgroundColor = "";
-                            containerDiv.innerHTML = divInner;
-                        }
-                    }, 200);
-                });
-
             }
-            
+
             //ALTRO
             else {
                 console.log("Edit");

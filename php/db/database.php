@@ -533,6 +533,38 @@ class DatabaseHelper
         $stmt->execute();
     }
 
+    public function modifyPlatformsOfGame($platform, $gameId, $action)
+    {
+        $query = null;
+        $stmt = null;
+
+
+
+        if ($action === "add") {
+            $query = "INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform, Stock) VALUES (?, ?, 0)";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("is", $gameId, $platform);
+        } else if ($action === "remove") {
+            $query = "DELETE FROM SUPPORTED_PLATFORMS WHERE GameId = ? AND Platform = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("is", $gameId, $platform);
+
+            
+        }
+
+        if ($stmt->execute()) {
+            //if the platform is PC, delete the game requirements
+            if ($platform === "PC") {
+                $query = "DELETE FROM PC_GAME_REQUIREMENTS WHERE GameId = ?";
+                $stmt = $this->db->prepare($query);
+                $stmt->bind_param("i", $gameId);
+            }
+            return ['success' => true, 'message' => 'platform_modified', "gameName" => $this->getGameById($gameId)["Name"], "platform" => $platform];
+        } else {
+            return ['success' => false, 'message' => 'platform_not_modified', "gameName" => $this->getGameById($gameId)["Name"], "platform" => $platform];
+        }
+    }
+
     public function addToCart($gameId, $userId, $quantity, $platform)
     {
 

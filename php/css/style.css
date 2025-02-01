@@ -3611,11 +3611,36 @@ input[type=number] {
   display: flex;
 }
 
-.admin-content > main > ul > li > section > div > dl div > dd > img {
+.admin-content > main > ul > li > section > div > dl div > dd > .delete-button {
+  /*wrapper button, no style just contain the image*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:fit-content;
+  height: fit-content;
+  padding: 0;
+  margin: 0;
+  margin-left: 10px;
+  border: none;
+  background-color: transparent;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.admin-content > main > ul > li > section > div > dl div > dd > .delete-button > .delete-icon{ 
+  width: 30px;
+  height: 30px;
+}
+
+
+
+.admin-content > main > ul > li > section > div > dl div > dd > .platform-icon{
   width: 30px;
   height: 30px;
   filter: invert(1);
 }
+
+
 
 .admin-content > main > ul > li > section > div > dl > #categories {
   align-items:flex-start;

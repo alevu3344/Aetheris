@@ -31,7 +31,7 @@
                             </div>
                             <dd>
                                 <?php foreach ($gioco["Platforms"] as $platform): ?>
-                                    <img src="upload/icons/<?= $platform["Platform"] ?>.svg" />
+                                    <img class="platform-icon" src="upload/icons/<?= $platform["Platform"] ?>.svg" />
                                 <?php endforeach; ?>
                             </dd>
                         </div>
