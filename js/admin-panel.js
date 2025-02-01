@@ -152,12 +152,13 @@ document.addEventListener("click", function (event) {
                 deleteButton.classList.add("delete-button");
                 deleteButton.appendChild(deleteIcon);
                 icon.insertAdjacentElement("beforebegin", deleteButton);
-                currentPlatforms.push(icon.src.split("/").pop().split(".")[0]);
+                let platformName = icon.src.split("/").pop().split(".")[0];
+                currentPlatforms.push(platformName);
 
                 deleteButton.addEventListener("click", (e) => {
                     //first create an alert to confirm the deletion
-                    if (confirm("Are you sure you want to delete this platform?")) {
-                        removePlatform(icon.src.split("/").pop().split(".")[0], gameId)
+                    if (confirm(`Are you sure you want to delete the ${platformName} platform?`)) {
+                        removePlatform(platformName, gameId)
                             .then(() => {
                                 icon.remove();
                                 deleteButton.remove();
