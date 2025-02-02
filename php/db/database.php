@@ -13,6 +13,62 @@ class DatabaseHelper
         }
     }
 
+    //this is used when:
+    //(1) GAME is deleted, 
+    //(2) Game stock for platform is changed to exceed the quantity in the shopping cart
+    public function notifyUsersWithGameInCart($type, $message, $gameId, $platform=null, $newQuantity=null)
+    {
+
+
+        $query = "SELECT UserId FROM SHOPPING_CARTS WHERE GameId = ?";
+        if ($platform !== null) {
+            $query .= " AND Platform = ?";
+        }
+        if ($newQuantity !== null) {
+            $query .= " AND Quantity > ?";
+        }
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $gameId);
+        if ($platform !== null) {
+            $stmt->bind_param("s", $platform);
+        }
+        if ($newQuantity !== null) {
+            $stmt->bind_param("i", $newQuantity);
+        }
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $rows = $result->fetch_all(MYSQLI_ASSOC);
+
+
+        foreach ($rows as $row) {
+            $this->notifyUser($type, $message, $row["UserId"]);
+        }
+    }
+
+
+
+    public function notifyAllUsers($type, $message)
+    {
+        $query = "SELECT UserID FROM USERS";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $rows = $result->fetch_all(MYSQLI_ASSOC);
+
+        foreach ($rows as $row) {
+            $this->notifyUser($type, $message, $row["UserID"]);
+        }
+    }
+
+    public function notifyUser($type, $message, $userId)
+    {
+        $query = "INSERT INTO NOTIFICATIONS (Type, Message, UserId) VALUES (?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ssi", $type, $message, $userId);
+        $stmt->execute();
+    }
+
     public function deleteGame($gameId)
     {
         //delete all its reviews from REVIEWS
@@ -22,6 +78,8 @@ class DatabaseHelper
         //delete all its rows from GAME_CATEGORIES
         //delete all its rows from DISCOUNTED_GAMES
         //delete its row from GAMES
+
+        $game = $this->getGameById($gameId);
 
 
         //TODO:NOTIFICATION
@@ -59,6 +117,16 @@ class DatabaseHelper
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $gameId);
         $stmt->execute();
+        if (!$stmt->execute()) {
+            return false;
+        }
+
+        //delete the game from all shopping carts, and notify the users that had it in the shopping cart
+        $message = "The game " . $game["Name"] . " has been deleted";
+        $this->notifyUsersWithGameInCart("game_deleted",$message , $gameId, null, null);
+        $query = "DELETE FROM SHOPPING_CARTS WHERE GameId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $gameId);
         if (!$stmt->execute()) {
             return false;
         }
@@ -101,8 +169,11 @@ class DatabaseHelper
             case "Xbox":
             case "Nintendo_Switch":
                 $query = "UPDATE SUPPORTED_PLATFORMS SET Stock = ? WHERE GameId = ? AND Platform = ?";
+
                 $stmt = $this->db->prepare($query);
                 $stmt->bind_param("iis", $value, $gameId, $field);
+                //notify the users that had the (gameId, platform) in the shopping cart with a quantity greater than the new stock
+                $this->notifyUsersWithGameInCart("stock_changed", "The stock of the game " . $this->getGameById($gameId)["Name"] . " for the platform " . $field . " has been changed, edit your cart accordingly", $gameId, $field, $value);
                 break;
 
                 // Handle discount fields
@@ -113,6 +184,8 @@ class DatabaseHelper
                 $query = "UPDATE DISCOUNTED_GAMES SET $field = ? WHERE GameId = ?";
                 $stmt = $this->db->prepare($query);
                 $stmt->bind_param("si", $value, $gameId);
+
+                $this->notifyUsersWithGameInCart("discount_changed", "The discount of the game " . $this->getGameById($gameId)["Name"] . " has been changed", $gameId);
                 break;
 
                 // Handle game requirements (OS, RAM, CPU, GPU, SSD)
@@ -487,6 +560,9 @@ class DatabaseHelper
                 $stmt->bind_param("isissi", $gameId, $pcRequirements["os"], $pcRequirements["ram"], $pcRequirements["cpu"], $pcRequirements["gpu"], $pcRequirements["ssd"]);
                 $stmt->execute();
             }
+
+            //notify all users that a new game has been added
+            $this->notifyAllUsers("new_game", $this->getGameById($gameId)["Name"] . " has been added to the store!");
 
             return $gameId;
         } else {

@@ -1404,7 +1404,7 @@ INSERT INTO GAME_CATEGORIES (GameId, CategoryName) VALUES
 CREATE TABLE NOTIFICATIONS (
   Id int(11) NOT NULL,
   UserID int(11) NOT NULL,
-  Type enum("ProductListChange","GameInCartOutOfStock","OrderChange") NOT NULL,
+  Type  varchar(255) NOT NULL,
   Message varchar(255) NOT NULL,
   SentAt timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   Status enum("Read","Unread") DEFAULT "Unread"
