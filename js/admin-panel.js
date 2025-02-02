@@ -386,7 +386,7 @@ document.addEventListener("click", function (event) {
 });
 
 
-document.addEventListener("click", function (event) { 
+document.addEventListener("click", function (event) {
     if (event.target.classList.contains("add")) {
         let button = event.target;
         const gameId = button.closest(".game").id;
@@ -613,6 +613,7 @@ document.addEventListener("click", function (event) {
 
 document.addEventListener("click", function (event) {
     if (event.target.classList.contains("edit")) {
+        event.preventDefault();
         let button = event.target;
         console.log(button.innerText);
 
@@ -634,6 +635,16 @@ document.addEventListener("click", function (event) {
 
             // Check input validity before saving
             if (input.checkValidity()) {
+                // Special validation for StartDate and EndDate
+                if ((input.id === "StartDate" && new Date(input.value) > new Date(convertDateFormat(document.querySelector("#EndDate").textContent.trim()))) ||
+                    (input.id === "EndDate" && new Date(input.value) < new Date(convertDateFormat(document.querySelector("#StartDate").textContent.trim())))) {
+                    console.log("End date must be later than start date.");
+                    input.setCustomValidity("End date must be later than start date.");
+                    input.reportValidity();
+                    input.setCustomValidity(""); // Reset custom validity after reporting
+                    return;
+                }
+
                 modifyField(gameId, fieldName, newValue);
 
                 dd.textContent = newValue;
@@ -643,7 +654,7 @@ document.addEventListener("click", function (event) {
                 }
                 button.innerText = "Edit";
                 button.style.backgroundColor = "";
-                event.preventDefault();
+                
             } else {
                 // If the input is not valid, show feedback
                 input.setCustomValidity("Please enter a valid value.");
@@ -741,11 +752,14 @@ document.addEventListener("click", function (event) {
                         input.type = "date";
                         label.textContent = "Start Date for Sale";
                         input.required = true;
+
+
                         break;
                     case "EndDate":
                         input.type = "date";
                         label.textContent = "End Date for Sale";
                         input.required = true;
+
                         break;
                     case "PC":
                         input.type = "number";
@@ -881,8 +895,8 @@ async function modifyField(gameId, fieldName, newValue) {
 
 
 document.querySelector(".add").addEventListener("click", function () {
-    
-    
+
+
 });
 
 
@@ -995,7 +1009,7 @@ async function addDiscount(gameId, discount, startDate, endDate) {
     if (data["success"]) {
         createNotificaton("Success", "Discount added successfully!", "positive");
     } else {
-        switch(data["message"]){
+        switch (data["message"]) {
             case "not_logged":
                 createNotificaton("Error", "You must be logged in to add a discount", "negative");
                 break;
@@ -1006,4 +1020,15 @@ async function addDiscount(gameId, discount, startDate, endDate) {
                 createNotificaton("Error", "An unknown error occurred while adding the discount", "negative");
         }
     }
+}
+
+function convertDateFormat(dateStr) {
+    // Supponiamo che il formato della data sia "DD/MM/YY"
+    const parts = dateStr.split('/');
+    // Converte in formato "YYYY-MM-DD" (aggiunge 20 per l'anno)
+    const year = '20' + parts[2];
+    const month = parts[1].padStart(2, '0'); // Aggiunge 0 per mesi a una cifra
+    const day = parts[0].padStart(2, '0'); // Aggiunge 0 per giorni a una cifra
+
+    return `${year}-${month}-${day}`;
 }
