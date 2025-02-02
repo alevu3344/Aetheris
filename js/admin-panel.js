@@ -644,6 +644,34 @@ document.addEventListener("click", function (event) {
                     input.setCustomValidity(""); // Reset custom validity after reporting
                     return;
                 }
+                // Special validation for game name
+                else if (input.id === "Name") {
+                    // Check if game name is unique using fetch and then
+                    checkGameNameUnique(input.value).then(isUnique => {
+                        if (!isUnique) {
+                            console.log("Game name must be unique.");
+                            input.setCustomValidity("Game name must be unique.");
+                            input.reportValidity();
+                            input.setCustomValidity(""); // Reset custom validity after reporting
+                            return;
+                        }
+
+                        // If game name is unique, proceed with saving
+                        modifyField(gameId, fieldName, newValue);
+
+                        dd.textContent = newValue;
+                        if (dd.classList.contains("expired") || dd.classList.contains("available")) {
+                            dd.classList = "";
+                            dd.classList.add(newValue > 0 ? "available" : "expired");
+                        }
+                        button.innerText = "Edit";
+                        button.style.backgroundColor = "";
+                        event.preventDefault();
+                    }).catch(error => {
+                        console.error("Error checking game name uniqueness:", error);
+                    });
+                    return; // Prevent further execution until the name check completes
+                }
 
                 modifyField(gameId, fieldName, newValue);
 
@@ -654,7 +682,7 @@ document.addEventListener("click", function (event) {
                 }
                 button.innerText = "Edit";
                 button.style.backgroundColor = "";
-                
+
             } else {
                 // If the input is not valid, show feedback
                 input.setCustomValidity("Please enter a valid value.");
@@ -1031,4 +1059,18 @@ function convertDateFormat(dateStr) {
     const day = parts[0].padStart(2, '0'); // Aggiunge 0 per giorni a una cifra
 
     return `${year}-${month}-${day}`;
+}
+
+// Async function to check if the game name is unique
+async function checkGameNameUnique(gameName) {
+    const response = await fetch('api/check-game-name-api.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ gameName: gameName })
+    });
+
+    const data = await response.json();
+    return data.isUnique;
 }
