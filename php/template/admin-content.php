@@ -37,7 +37,7 @@
                         </div>
 
                         <?php foreach ($gioco["Platforms"] as $platform): ?>
-                            <div class="possible-form">
+                            <div class="possible-form" id="<?= $platform?>">
                                 <div>
                                     <button class="edit">Edit</button>
                                     <dt><?= $platform["Platform"] ?>(stock):</dt>

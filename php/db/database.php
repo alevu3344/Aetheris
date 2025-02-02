@@ -16,35 +16,52 @@ class DatabaseHelper
     //this is used when:
     //(1) GAME is deleted, 
     //(2) Game stock for platform is changed to exceed the quantity in the shopping cart
-    public function notifyUsersWithGameInCart($type, $message, $gameId, $platform=null, $newQuantity=null)
+    public function notifyUsersWithGameInCart($type, $message, $gameId, $platform = null, $newQuantity = null)
     {
-
-
+        // Start building the query with the basic conditions
         $query = "SELECT UserId FROM SHOPPING_CARTS WHERE GameId = ?";
+
+        // Add conditions for platform and newQuantity if provided
         if ($platform !== null) {
             $query .= " AND Platform = ?";
         }
         if ($newQuantity !== null) {
             $query .= " AND Quantity > ?";
         }
+
+        // Prepare the statement
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("i", $gameId);
+
+        // Prepare the types string
+        $types = "i";  // gameId is an integer
+
+        // Prepare the parameters array
+        $params = [$gameId];
+
+        // Bind additional parameters based on platform and newQuantity
         if ($platform !== null) {
-            $stmt->bind_param("s", $platform);
+            $types .= "s";  // platform is a string
+            $params[] = $platform;
         }
         if ($newQuantity !== null) {
-            $stmt->bind_param("i", $newQuantity);
+            $types .= "i";  // newQuantity is an integer
+            $params[] = $newQuantity;
         }
 
+        // Bind all parameters dynamically
+        $stmt->bind_param($types, ...$params);
+
+        // Execute the statement and fetch results
         $stmt->execute();
         $result = $stmt->get_result();
         $rows = $result->fetch_all(MYSQLI_ASSOC);
 
-
+        // Notify users
         foreach ($rows as $row) {
             $this->notifyUser($type, $message, $row["UserId"]);
         }
     }
+
 
 
 
@@ -123,7 +140,7 @@ class DatabaseHelper
 
         //delete the game from all shopping carts, and notify the users that had it in the shopping cart
         $message = "The game " . $game["Name"] . " has been deleted";
-        $this->notifyUsersWithGameInCart("game_deleted",$message , $gameId, null, null);
+        $this->notifyUsersWithGameInCart("game_deleted", $message, $gameId, null, null);
         $query = "DELETE FROM SHOPPING_CARTS WHERE GameId = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $gameId);
