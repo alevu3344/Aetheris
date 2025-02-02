@@ -4,6 +4,8 @@ require_once("bootstrap.php");
 
 $category = $_GET["category"] ?? $_GET["category"] ?? "Horror";
 
+
+
 $templateParams["categorie"] = $dbh->getCategories();
 
 $templateParams["giochi"] = $dbh->getGamesByCategory($category);
@@ -11,7 +13,14 @@ $templateParams["giochi"] = $dbh->getGamesByCategory($category);
 $templateParams["publishers"] = $dbh->getPublishers();
 
 
+
+
 $templateParams["titolo"] = "Aetheris - Admin Panel";
+
+if(isset($_GET["game_id"])) {
+    $game_id = $_GET["game_id"];
+    $templateParams["giochi"] = $dbh->getGameById($game_id);
+}
 
 $templateParams["nome"] = "admin-content.php";
 

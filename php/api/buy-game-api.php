@@ -20,7 +20,7 @@ else {
 
 
 
-        $game = $dbh->getGameById($game_id);
+        $game = $dbh->getGameById($game_id)[0];
         $user = $dbh->getUser($user_id);
         $balance = $user['Balance'];
 

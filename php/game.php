@@ -5,7 +5,7 @@ require_once("bootstrap.php");
 $gameid = $_GET["id"];
 
 
-$templateParams["gioco"] = $dbh->getGameById($gameid);
+$templateParams["gioco"] = $dbh->getGameById($gameid)[0];
 
 //il titolo della pagina è composto da "Aetheris - {GameName}"
 $templateParams["titolo"] = "Aetheris - " . $templateParams["gioco"]["Name"];
@@ -23,6 +23,12 @@ $templateParams["requirements"] = $dbh->getGameRequirements($gameid);
 $templateParams["game-categories"] = $dbh->getGameCategories($gameid);
 
 $templateParams["similar-games"] = $dbh->getSimilarGames($gameid, 4);
+
+if(isset($_GET["admin"]) && $_GET["admin"] == "true" && isset($_GET["id"])) {
+    //redirect to admin panel
+    header("Location: admin-panel.php?game_id=" . $_GET["id"]);
+    exit;
+}
 
 
 

@@ -72,7 +72,7 @@ class DatabaseHelper
         $stmt->bind_param("iiss", $gameId, $discount, $startDate, $endDate);
         $stmt->execute();
 
-        $this->notifyAllUsers("discount_added", "A new discount has been added to" . $this->getGameById($gameId)["Name"] . ". Check it out!");
+        $this->notifyAllUsers("discount_added", "A new discount has been added to" . $this->getGameById($gameId)[0]["Name"] . ". Check it out!");
 
         
     }
@@ -111,7 +111,7 @@ class DatabaseHelper
         //delete all its rows from DISCOUNTED_GAMES
         //delete its row from GAMES
 
-        $game = $this->getGameById($gameId);
+        $game = $this->getGameById($gameId)[0];
 
 
         //TODO:NOTIFICATION
@@ -205,7 +205,7 @@ class DatabaseHelper
                 $stmt = $this->db->prepare($query);
                 $stmt->bind_param("iis", $value, $gameId, $field);
                 //notify the users that had the (gameId, platform) in the shopping cart with a quantity greater than the new stock
-                $this->notifyUsersWithGameInCart("stock_changed", "The stock of the game " . $this->getGameById($gameId)["Name"] . " for the platform " . $field . " has been changed, edit your cart accordingly", $gameId, $field, $value);
+                $this->notifyUsersWithGameInCart("stock_changed", "The stock of the game " . $this->getGameById($gameId)[0]["Name"] . " for the platform " . $field . " has been changed, edit your cart accordingly", $gameId, $field, $value);
                 break;
 
                 // Handle discount fields
@@ -217,7 +217,7 @@ class DatabaseHelper
                 $stmt = $this->db->prepare($query);
                 $stmt->bind_param("si", $value, $gameId);
 
-                $this->notifyUsersWithGameInCart("discount_changed", "The discount of the game " . $this->getGameById($gameId)["Name"] . " has been changed", $gameId);
+                $this->notifyUsersWithGameInCart("discount_changed", "The discount of the game " . $this->getGameById($gameId)[0]["Name"] . " has been changed", $gameId);
                 break;
 
                 // Handle game requirements (OS, RAM, CPU, GPU, SSD)
@@ -532,19 +532,8 @@ class DatabaseHelper
         $stmt->execute();
         $result = $stmt->get_result();
 
-        $platforms = $this->getSupportedPlatforms($id);
-        $categories = $this->getGameCategories($id);
-        $requirements = $this->getGameRequirements($id);
 
-        $game = $result->fetch_assoc();
-        $game["Platforms"] = $platforms;
-        $game["Categories"] = $categories;
-        if ($requirements !== null) {
-            $game["Requirements"] = $requirements;
-        }
-
-        // Fetch the game data (including discount if available and valid)
-        return $game;
+        return $this->addMinimumRequirements($this->addCategories($this->addSupportedPlatforms($result->fetch_all(MYSQLI_ASSOC))));
     }
 
     public function addGame($name, $description, $price, $publisher, $releaseDate, $trailer, $categories, $platforms, $pcRequirements)
@@ -594,7 +583,7 @@ class DatabaseHelper
             }
 
             //notify all users that a new game has been added
-            $this->notifyAllUsers("new_game", $this->getGameById($gameId)["Name"] . " has been added to the store!");
+            $this->notifyAllUsers("new_game", $this->getGameById($gameId)[0]["Name"] . " has been added to the store!");
 
             return $gameId;
         } else {
@@ -668,9 +657,9 @@ class DatabaseHelper
         }
 
         if ($stmt->execute()) {
-            return ['success' => true, 'message' => 'category_modified', "gameName" => $this->getGameById($gameId)["Name"], "category" => $category];
+            return ['success' => true, 'message' => 'category_modified', "gameName" => $this->getGameById($gameId)[0]["Name"], "category" => $category];
         } else {
-            return ['success' => false, 'message' => 'category_not_modified', "gameName" => $this->getGameById($gameId)["Name"], "category" => $category];
+            return ['success' => false, 'message' => 'category_not_modified', "gameName" => $this->getGameById($gameId)[0]["Name"], "category" => $category];
         }
     }
 
@@ -708,9 +697,9 @@ class DatabaseHelper
                     $stmt->execute();
                 }
             }
-            return ['success' => true, 'message' => 'platform_modified', "gameName" => $this->getGameById($gameId)["Name"], "platform" => $platform];
+            return ['success' => true, 'message' => 'platform_modified', "gameName" => $this->getGameById($gameId)[0]["Name"], "platform" => $platform];
         } else {
-            return ['success' => false, 'message' => 'platform_not_modified', "gameName" => $this->getGameById($gameId)["Name"], "platform" => $platform];
+            return ['success' => false, 'message' => 'platform_not_modified', "gameName" => $this->getGameById($gameId)[0]["Name"], "platform" => $platform];
         }
     }
 
