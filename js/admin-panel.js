@@ -386,6 +386,14 @@ document.addEventListener("click", function (event) {
 });
 
 
+document.addEventListener("click", function (event) { 
+    if (event.target.classList.contains("add")) {
+        let button = event.target;
+        const gameId = button.closest(".game").id;
+        createDiscountPopup(gameId, button.closest(".game").querySelector("#Name").textContent);
+    }
+});
+
 
 document.addEventListener("click", function (event) {
     if (event.target.classList.contains("edit-platforms")) {
@@ -865,8 +873,135 @@ async function modifyField(gameId, fieldName, newValue) {
     let data = await response.json();
 
     if (data["success"]) {
-        createNotificaton("Success", data["message"], "positive");
+        createNotificaton("Success", `${fieldName} successfully modified to ${newValue}`, "positive");
     } else {
         createNotificaton("Error", data["message"], "negative");
+    }
+}
+
+
+document.querySelector(".add").addEventListener("click", function () {
+    
+    
+});
+
+
+
+function createDiscountPopup(gameId, gameName) {
+    // Remove any existing popup before creating a new one
+    let existingPopup = document.getElementById("discount-popup");
+    if (existingPopup) {
+        existingPopup.remove();
+    }
+
+    let bigDiv = document.createElement("div");
+    bigDiv.classList.add("popup");
+    bigDiv.id = "discount-popup";
+
+    let html = `
+    <div class="popup-content">
+        <h2>Aggiungi sconto</h2>
+        <h3>${gameName}</h3>
+        <form id="discount-form">
+            <div>
+                <label for="discount">Sconto (-%):</label>
+                <input type="number" id="discount" name="discount" min="1" max="100" required>
+            </div>
+            <div>
+                <label for="start-date">Inizio:</label>
+                <input type="date" id="start-date" name="start-date" required>
+            </div>
+            <div>
+                <label for="end-date">Fine:</label>
+                <input type="date" id="end-date" name="end-date" required>
+            </div>
+        </form>
+        <button id="add-discount" disabled>Aggiungi</button>
+        <button id="cancel-discount">Annulla</button>
+    </div>
+    `;
+
+    bigDiv.innerHTML = html;
+    document.body.insertBefore(bigDiv, document.body.firstChild);
+
+    const startDateInput = bigDiv.querySelector("#start-date");
+    const endDateInput = bigDiv.querySelector("#end-date");
+    const addDiscountBtn = bigDiv.querySelector("#add-discount");
+
+    // Set default start date to today
+    let today = new Date().toISOString().split("T")[0];
+    startDateInput.value = today;
+    startDateInput.min = today;
+    endDateInput.min = today;
+
+    function validateDates() {
+        let startDate = new Date(startDateInput.value);
+        let endDate = new Date(endDateInput.value);
+
+        if (startDate >= endDate) {
+            endDateInput.setCustomValidity("La data di fine deve essere successiva alla data di inizio.");
+        } else {
+            endDateInput.setCustomValidity("");
+        }
+
+        addDiscountBtn.disabled = startDate >= endDate;
+    }
+
+    startDateInput.addEventListener("change", () => {
+        endDateInput.min = startDateInput.value;
+        validateDates();
+    });
+
+
+
+    endDateInput.addEventListener("change", validateDates);
+
+    bigDiv.querySelector("#cancel-discount").addEventListener("click", function () {
+        bigDiv.remove();
+    });
+
+    //listener for the add discount button
+    bigDiv.querySelector("#add-discount").addEventListener("click", function () {
+        let discount = bigDiv.querySelector("#discount").value;
+        let startDate = bigDiv.querySelector("#start-date").value;
+        let endDate = bigDiv.querySelector("#end-date").value;
+
+        addDiscount(gameId, discount, startDate, endDate)
+            .then(() => {
+                bigDiv.remove();
+            })
+            .catch(error => console.error("Error:", error));
+    });
+}
+
+
+async function addDiscount(gameId, discount, startDate, endDate) {
+    let formData = new FormData();
+    formData.append("GameId", gameId);
+    formData.append("Discount", discount);
+    formData.append("StartDate", startDate);
+    formData.append("EndDate", endDate);
+
+    const url = "api/add-discount-api.php";
+    let response = await fetch(url, {
+        method: "POST",
+        body: formData
+    });
+
+    let data = await response.json();
+
+    if (data["success"]) {
+        createNotificaton("Success", "Discount added successfully!", "positive");
+    } else {
+        switch(data["message"]){
+            case "not_logged":
+                createNotificaton("Error", "You must be logged in to add a discount", "negative");
+                break;
+            case "missing_params":
+                createNotificaton("Error", "Missing parameters", "negative");
+                break;
+            default:
+                createNotificaton("Error", "An unknown error occurred while adding the discount", "negative");
+        }
     }
 }

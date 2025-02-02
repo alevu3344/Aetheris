@@ -3503,6 +3503,15 @@ input[type=number] {
   font-size: 16px;
 }
 
+.admin-content .add {
+  padding: 5px;
+  box-sizing: border-box;
+  border: 1px solid white;
+  background-color: green;
+  color: white;
+  font-size: 16px;
+}
+
 .admin-content > main > ul > li > section > div > button{
   padding: 5px;
   box-sizing: border-box;
@@ -4434,6 +4443,134 @@ body  > #notification > button {
 }
 
 
+/****************************** DISCOUNT POPUP***************************/
+
+
+#discount-popup {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: black;
+  font-family: "Roboto", sans-serif;
+}
+
+#discount-popup > .popup-content {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  row-gap: 10px;
+  padding: 30px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#discount-popup > .popup-content > h2, 
+#discount-popup > .popup-content > h3 {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  color: #333;
+}
+
+#discount-popup > .popup-content > #discount-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 15px;
+}
+
+/* Style for form rows */
+#discount-popup > .popup-content > #discount-form > div {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 10px;
+}
+
+/* Style for labels */
+#discount-popup > .popup-content > #discount-form label {
+  font-weight: 500;
+  font-size: 16px;
+  color: #444;
+  min-width: 80px;
+}
+
+/* Style for inputs */
+#discount-popup > .popup-content > #discount-form input {
+  flex-grow: 1;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+/* Focus effect */
+#discount-popup > .popup-content > #discount-form input:focus {
+  outline: none;
+  border: 1px solid #007bff;
+  box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Style for buttons */
+#discount-popup > .popup-content > button {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: background-color 0.3s, transform 0.2s;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+#discount-popup > .popup-content > button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Cancel button styling */
+#cancel-discount {
+  background-color: #dc3545 !important;
+}
+
+#cancel-discount:hover {
+  background-color: #c82333 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/************************* END DISCOUNT POPUP ***********************/
 
 
 

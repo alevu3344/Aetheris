@@ -62,6 +62,13 @@ class DatabaseHelper
         }
     }
 
+    public function addDiscountToGame($gameId, $discount, $startDate, $endDate){
+        $query = "INSERT INTO DISCOUNTED_GAMES (GameId, Percentage, StartDate, EndDate) VALUES (?, ?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("iiss", $gameId, $discount, $startDate, $endDate);
+        return $stmt->execute();
+    }
+
 
 
 

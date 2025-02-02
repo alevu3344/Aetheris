@@ -100,6 +100,9 @@
                                 </div>
                                 <dd id="EndDate"><?= date("j/n/y", strtotime($gioco["EndDate"])) ?></dd>
                             </div>
+                        <?php else: ?>
+
+                            <button class="add">Aggiungi sconto</button>
 
                         <?php endif; ?>
                     </dl>
@@ -163,7 +166,6 @@
                 </div>
                 <div class="actions">
                     <a href="game_mod.php?game=<?= $gioco["Id"] ?>">Modifica</a>
-                    <button data-id="<?= $gioco["Id"] ?>">Modifica stock</button>
                     <button class="delete" data-id="<?= $gioco["Id"] ?>">Elimina</button>
 
                 </div>
