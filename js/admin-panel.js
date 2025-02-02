@@ -969,6 +969,8 @@ function createDiscountPopup(gameId, gameName) {
         addDiscount(gameId, discount, startDate, endDate)
             .then(() => {
                 bigDiv.remove();
+                //reload the page to show the new discount
+                location.reload();
             })
             .catch(error => console.error("Error:", error));
     });
