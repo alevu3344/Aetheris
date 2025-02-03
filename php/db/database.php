@@ -77,6 +77,15 @@ class DatabaseHelper
         
     }
 
+    public function removeDiscountFromGame($gameId)
+    {
+        $query = "DELETE FROM DISCOUNTED_GAMES WHERE GameId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $gameId);
+        return $stmt->execute();
+    }
+
+
 
 
 

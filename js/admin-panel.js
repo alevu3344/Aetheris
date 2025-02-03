@@ -922,7 +922,21 @@ async function modifyField(gameId, fieldName, newValue) {
 }
 
 
-document.querySelector(".add").addEventListener("click", function () {
+document.addEventListener("click", function (event) {
+    if(event.target.classList.contains("remove-discount")){
+        let button = event.target;
+        const gameId = button.closest(".game").id;
+        if(confirm("Are you sure you want to remove the discount?")){
+            removeDiscount(gameId).then(
+                () => {
+                    location.reload();
+                }
+            )
+            .catch(error => console.error("Error:", error));
+            
+
+        }
+    }
 
 
 });
@@ -1018,6 +1032,35 @@ function createDiscountPopup(gameId, gameName) {
     });
 }
 
+async function removeDiscount(gameId){
+    let formData = new FormData();
+    formData.append("GameId", gameId);
+    formData.append("Action", "remove");
+
+    const url = "api/add-discount-api.php";
+    let response = await fetch(url, {
+        method: "POST",
+        body: formData
+    });
+
+    let data = await response.json();
+
+    if (data["success"]) {
+        createNotificaton("Success", "Discount removed successfully!", "positive");
+    } else {
+        switch (data["message"]) {
+            case "not_logged":
+                createNotificaton("Error", "You must be logged in to add a discount", "negative");
+                break;
+            case "missing_params":
+                createNotificaton("Error", "Missing parameters", "negative");
+                break;
+            default:
+                createNotificaton("Error", "An unknown error occurred while removing the discount", "negative");
+        }
+    }
+}
+
 
 async function addDiscount(gameId, discount, startDate, endDate) {
     let formData = new FormData();
@@ -1025,6 +1068,7 @@ async function addDiscount(gameId, discount, startDate, endDate) {
     formData.append("Discount", discount);
     formData.append("StartDate", startDate);
     formData.append("EndDate", endDate);
+    formData.append("Action", "add")
 
     const url = "api/add-discount-api.php";
     let response = await fetch(url, {

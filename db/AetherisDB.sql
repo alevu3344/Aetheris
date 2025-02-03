@@ -5804,7 +5804,7 @@ ALTER TABLE CATEGORIES
 -- Indexes for table DISCOUNTED_GAMES
 --
 ALTER TABLE DISCOUNTED_GAMES
-  ADD PRIMARY KEY (GameId,StartDate);
+  ADD PRIMARY KEY (GameId);
 
 --
 -- Indexes for table GAMES
