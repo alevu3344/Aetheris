@@ -923,22 +923,18 @@ async function modifyField(gameId, fieldName, newValue) {
 
 
 document.addEventListener("click", function (event) {
-    if(event.target.classList.contains("remove-discount")){
+    if (event.target.classList.contains("remove-discount")) {
         let button = event.target;
         const gameId = button.closest(".game").id;
-        if(confirm("Are you sure you want to remove the discount?")){
+        if (confirm("Are you sure you want to remove the discount?")) {
             removeDiscount(gameId).then(
                 () => {
                     location.reload();
                 }
             )
-            .catch(error => console.error("Error:", error));
-            
-
+                .catch(error => console.error("Error:", error));
         }
     }
-
-
 });
 
 
@@ -1032,7 +1028,7 @@ function createDiscountPopup(gameId, gameName) {
     });
 }
 
-async function removeDiscount(gameId){
+async function removeDiscount(gameId) {
     let formData = new FormData();
     formData.append("GameId", gameId);
     formData.append("Action", "remove");

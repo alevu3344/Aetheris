@@ -24,7 +24,7 @@ if(isset($_GET['start']) && isset($_GET['end']) && isset($_GET['category']) && i
             $games = $dbh->getDiscountedGamesByCategory($category, $startRange, $endRange);
             break;
         default:
-            $games = $dbh->getGamesByCategory($category, $startRange, $endRange);
+            $games = null;
             break;
     }
     

@@ -62,9 +62,13 @@ class DatabaseHelper
         }
     }
 
-    public function addDiscountToGame($gameId, $discount, $startDate, $endDate){
+    public function addDiscountToGame($gameId, $discount, $startDate, $endDate)
+    {
 
         //TODO:NOTIFICATION
+
+        //first remove previous discounts
+        $this->removeDiscountFromGame($gameId);
 
 
         $query = "INSERT INTO DISCOUNTED_GAMES (GameId, Percentage, StartDate, EndDate) VALUES (?, ?, ?, ?)";
@@ -73,8 +77,6 @@ class DatabaseHelper
         $stmt->execute();
 
         $this->notifyAllUsers("discount_added", "A new discount has been added to" . $this->getGameById($gameId)[0]["Name"] . ". Check it out!");
-
-        
     }
 
     public function removeDiscountFromGame($gameId)
@@ -446,27 +448,33 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getGamesByCategory($category, $lim = null)
+    public function getGamesByCategory($category, $lim = null, $admin = false)
     {
         $query = "
-            SELECT 
-                G.*,
-                DG.Percentage AS Discount,
-                DG.StartDate,
-                DG.EndDate
-            FROM 
-                GAMES G
-            INNER JOIN 
-                GAME_CATEGORIES GC ON G.Id = GC.GameId
-            INNER JOIN 
-                CATEGORIES C ON GC.CategoryName = C.CategoryName
-            LEFT JOIN 
-                DISCOUNTED_GAMES DG ON G.Id = DG.GameId
-                AND CURRENT_DATE BETWEEN DG.StartDate AND DG.EndDate
-            WHERE 
-                C.CategoryName = ?
-            ORDER BY G.ReleaseDate DESC
-                ";
+        SELECT 
+            G.*,
+            DG.Percentage AS Discount,
+            DG.StartDate,
+            DG.EndDate
+        FROM 
+            GAMES G
+        INNER JOIN 
+            GAME_CATEGORIES GC ON G.Id = GC.GameId
+        INNER JOIN 
+            CATEGORIES C ON GC.CategoryName = C.CategoryName
+        LEFT JOIN 
+            DISCOUNTED_GAMES DG ON G.Id = DG.GameId
+    ";
+
+        
+        // Modify the join condition based on $admin
+        if ($admin) {
+            $query .= " AND DG.StartDate >= CURRENT_DATE";
+        } else {
+            $query .= " AND CURRENT_DATE BETWEEN DG.StartDate AND DG.EndDate";
+        }
+
+        $query .= " WHERE C.CategoryName = ? ORDER BY G.ReleaseDate DESC";
 
         if ($lim !== null) {
             $query .= " LIMIT ?";
@@ -480,8 +488,10 @@ class DatabaseHelper
         }
         $stmt->execute();
         $result = $stmt->get_result();
+
         return $this->addMinimumRequirements($this->addCategories($this->addSupportedPlatforms($result->fetch_all(MYSQLI_ASSOC))));
     }
+
 
     public function addMinimumRequirements($games)
     {
@@ -519,31 +529,37 @@ class DatabaseHelper
         return $this->addSupportedPlatforms($result->fetch_all(MYSQLI_ASSOC));
     }
 
-    public function getGameById($id)
+    public function getGameById($id, $admin = false)
     {
         $query = "
-            SELECT 
-                G.*,
-                IFNULL(DG.Percentage, 0) AS Discount,
-                DG.StartDate,
-                DG.EndDate
-            FROM 
-                GAMES G
-            LEFT JOIN 
-                DISCOUNTED_GAMES DG ON G.Id = DG.GameId
-                AND CURRENT_DATE BETWEEN DG.StartDate AND DG.EndDate
-            WHERE 
-                G.Id = ?
-        ";
+        SELECT 
+            G.*,
+            IFNULL(DG.Percentage, 0) AS Discount,
+            DG.StartDate,
+            DG.EndDate
+        FROM 
+            GAMES G
+        LEFT JOIN 
+            DISCOUNTED_GAMES DG ON G.Id = DG.GameId
+    ";
+
+        // Modify the join condition based on $admin
+        if ($admin) {
+            $query .= " AND DG.StartDate >= CURRENT_DATE";
+        } else {
+            $query .= " AND CURRENT_DATE BETWEEN DG.StartDate AND DG.EndDate";
+        }
+
+        $query .= " WHERE G.Id = ?";
 
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $id);
         $stmt->execute();
         $result = $stmt->get_result();
 
-
         return $this->addMinimumRequirements($this->addCategories($this->addSupportedPlatforms($result->fetch_all(MYSQLI_ASSOC))));
     }
+
 
     public function addGame($name, $description, $price, $publisher, $releaseDate, $trailer, $categories, $platforms, $pcRequirements)
     {
