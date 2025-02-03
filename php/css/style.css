@@ -46,7 +46,7 @@ body>header > nav {
 }
 
 body>header>nav>div:last-child {
-  width: 50%;
+  width: 40%;
   height: 50px;
   display: flex;
   align-items: center;

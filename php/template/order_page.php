@@ -23,7 +23,7 @@
                         <?php foreach ($order["OrderItems"] as $item): ?>
                             <li>
                                 <a href="game.php?id=<?= $item["GameId"] ?>">
-                                    <img src="../media/covers/<?= $item["GameId"] ?>.jpg" alt="game">
+                                    <img src="../media/covers/<?= $item["GameId"] ?>.jpg" alt="game" onerror="this.onerror=null; this.src='../media/noimage.jpg';"/>
                                     <div>
                                         <div>
                                             <h4><?= $item["Name"] ?></h4>

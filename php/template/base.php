@@ -59,10 +59,11 @@
                         <a href="cart.php">
                             <img src="upload/icons/shopping-cart.svg" alt="Shopping Cart"/>
                         </a>
+                        
+                        <?php endif; ?>
                         <a href="notifications.php">
                             <img src="upload/icons/notification_icon.svg" alt="Notifications"/>
                         </a>
-                        <?php endif; ?>
                     <?php endif; ?>
                 </div>
         <!-- SEARCH BAR -->

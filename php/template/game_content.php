@@ -14,13 +14,13 @@
     <span><?= $templateParams["gioco"]["Rating"] ?></span>
 </div>
 
- 
 
-<iframe 
-        src="<?= $templateParams['gioco']['Trailer']."?modestbranding=1"?>" 
-        title="Launch trailer of <?= $templateParams['gioco']['Name'] ?>" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
+
+<iframe
+    src="<?= $templateParams['gioco']['Trailer'] . "?modestbranding=1" ?>"
+    title="Launch trailer of <?= $templateParams['gioco']['Name'] ?>"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
 </iframe>
 
 
@@ -35,7 +35,7 @@
     <?php endif; ?>
 </section>
 
-<div id="<?=$templateParams["gioco"]["Id"]?>">
+<div id="<?= $templateParams["gioco"]["Id"] ?>">
     <button id="buy">Acquista ora</button>
     <button id="cart">Aggiungi al carrello</button>
 </div>
@@ -48,12 +48,14 @@
             <dt>Sviluppatore</dt>
             <dd><?= $templateParams["gioco"]["Publisher"] ?></dd>
         </div>
-        <hr></hr>
+        <hr>
+        </hr>
         <div>
             <dt>Data di uscita</dt>
             <dd><?= date("j/n/y", strtotime($templateParams["gioco"]["ReleaseDate"])) ?></dd>
         </div>
-        <hr></hr>
+        <hr>
+        </hr>
         <div>
             <dt>Piattaforma</dt>
             <dd>
@@ -62,8 +64,9 @@
                 <?php endforeach; ?>
             </dd>
         </div>
-        <hr></hr>
-        <div class= "platform-quantity">
+        <hr>
+        </hr>
+        <div class="platform-quantity">
             <dt>Quantità per piattaforma</dt>
             <dd>
                 <dl>
@@ -72,13 +75,14 @@
                             <dt>
                                 <img src="upload/icons/<?= $platform["Platform"] ?>.svg" alt="game">
                             </dt>
-                            <dd class = <?= $platform["Stock"]>0 ? "available" : "expired" ?>><?= $platform["Stock"] ?></dd>
+                            <dd class=<?= $platform["Stock"] > 0 ? "available" : "expired" ?>><?= $platform["Stock"] ?></dd>
                         </div>
                     <?php endforeach; ?>
                 </dl>
             </dd>
         </div>
-        <hr></hr>
+        <hr>
+        </hr>
         <div class="generi">
             <dt>Generi</dt>
             <dd>
@@ -87,7 +91,8 @@
                 <?php endforeach; ?>
             </dd>
         </div>
-        <hr></hr>
+        <hr>
+        </hr>
     </dl>
 </section>
 
@@ -103,23 +108,23 @@
             <dl>
                 <div>
                     <dt>Sistema operativo: </dt>
-                    <dd><?= $templateParams["requirements"]["OS"]?></dd>
+                    <dd><?= $templateParams["requirements"]["OS"] ?></dd>
                 </div>
                 <div>
                     <dt>CPU: </dt>
-                    <dd><?= $templateParams["requirements"]["CPU"]?></dd>
+                    <dd><?= $templateParams["requirements"]["CPU"] ?></dd>
                 </div>
                 <div>
                     <dt>Memoria: </dt>
-                    <dd><?= $templateParams["requirements"]["SSD"]?> GB</dd>
+                    <dd><?= $templateParams["requirements"]["SSD"] ?> GB</dd>
                 </div>
                 <div>
                     <dt>GPU: </dt>
-                    <dd><?= $templateParams["requirements"]["GPU"]?></dd>
+                    <dd><?= $templateParams["requirements"]["GPU"] ?></dd>
                 </div>
                 <div>
                     <dt>RAM: </dt>
-                    <dd><?= $templateParams["requirements"]["RAM"]?> GB</dd>
+                    <dd><?= $templateParams["requirements"]["RAM"] ?> GB</dd>
                 </div>
             </dl>
         </section>
@@ -129,10 +134,21 @@
 <div>
     <h2>Immagini</h2>
     <div>
-        <img src="../media/screenshots/<?= $templateParams["gioco"]["Id"] ?>_frame_1.jpg" alt="game"/>
-        <img src="../media/screenshots/<?= $templateParams["gioco"]["Id"] ?>_frame_2.jpg" alt="game"/>
-        <img src="../media/screenshots/<?= $templateParams["gioco"]["Id"] ?>_frame_3.jpg" alt="game"/>
-        <img src="../media/screenshots/<?= $templateParams["gioco"]["Id"] ?>_frame_4.jpg" alt="game"/>
+        <img src="../media/screenshots/<?= $templateParams["gioco"]["Id"] ?>_frame_1.jpg"
+            alt="game"
+            onerror="this.onerror=null; this.src='../media/noimage.jpg';" />
+
+        <img src="../media/screenshots/<?= $templateParams["gioco"]["Id"] ?>_frame_2.jpg"
+            alt="game"
+            onerror="this.onerror=null; this.src='../media/noimage.jpg';" />
+
+        <img src="../media/screenshots/<?= $templateParams["gioco"]["Id"] ?>_frame_3.jpg"
+            alt="game"
+            onerror="this.onerror=null; this.src='../media/noimage.jpg';" />
+
+        <img src="../media/screenshots/<?= $templateParams["gioco"]["Id"] ?>_frame_4.jpg"
+            alt="game"
+            onerror="this.onerror=null; this.src='../media/noimage.jpg';" />
     </div>
 </div>
 
@@ -148,7 +164,7 @@
 
 <h2>Recensioni</h2>
 
-<? if(isset($_SESSION["Username"])): ?>
+<? if (isset($_SESSION["Username"])): ?>
     <button id="addReview">Scrivi una recensione</button>
 <? endif; ?>
 
@@ -163,9 +179,9 @@
 
 
 <script src="../js/game.js?gameData=<?= urlencode(json_encode([
-    "game" => $templateParams["gioco"],
-    "platforms" => $templateParams["platforms"]
-])) ?>"></script>
+                                        "game" => $templateParams["gioco"],
+                                        "platforms" => $templateParams["platforms"]
+                                    ])) ?>"></script>
 
 
-<script src="../js/similar-games.js?id=<?=$templateParams["gioco"]["Id"]?>"></script> 
+<script src="../js/similar-games.js?id=<?= $templateParams["gioco"]["Id"] ?>"></script>

@@ -28,7 +28,7 @@ function generateSearchedGames(games){
         let placeholder = `
             <li>
                 <a href = "game.php?id=${game["Id"]}&admin=${isAdminSearch}">
-                <img src="../media/covers/${game["Id"]}.jpg" alt="${game["Name"]}"/>
+                <img src="../media/covers/${game["Id"]}.jpg" alt="${game["Name"]}" onerror="this.onerror=null; this.src='../media/noimage.jpg';"/>
                 <section>
                     <header>
                     <span>${game["Name"]}</span>

@@ -2,7 +2,7 @@
     <?php foreach ($templateParams["giochi"] as $gioco): ?>
         <li class="game" id="<?= $gioco["Id"] ?>">
             <section>
-                <img src="../media/covers/<?= $gioco["Id"] ?>.jpg" />
+                <img src="../media/covers/<?= $gioco["Id"] ?>.jpg" onerror="this.onerror=null; this.src='../media/noimage.jpg';"/>
                 <div>
                     <dl>
                         <div class="possible-form">

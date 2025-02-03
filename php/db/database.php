@@ -100,8 +100,19 @@ class DatabaseHelper
         $rows = $result->fetch_all(MYSQLI_ASSOC);
 
         foreach ($rows as $row) {
-            $this->notifyUser($type, $message, $row["UserID"]);
+            if(!$this->isAdmin($row["UserID"])){
+                $this->notifyUser($type, $message, $row["UserID"]);
+            }
         }
+    }
+
+    public function isAdmin($userID){
+        $query = "SELECT * FROM USERS WHERE UserID = ? AND Role = 'Admin'";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $userID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->num_rows > 0;
     }
 
     public function notifyUser($type, $message, $userId)

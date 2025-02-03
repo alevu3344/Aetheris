@@ -17,7 +17,7 @@ function generateSimilarGames(games){
                     <header>
                         <h3>${game["Name"]}</h3>
                         <div>
-                            <img src="../media/covers/${game["Id"]}.jpg" alt="${game["Name"]}"/>
+                            <img src="../media/covers/${game["Id"]}.jpg" alt="${game["Name"]}" onerror="this.onerror=null; this.src='../media/noimage.jpg';"/>
                         </div>
                     </header>
                     <footer>

@@ -21,7 +21,7 @@
         <header>
           <h3><?=$templateParams["giochi-in-offerta"][0]["Name"]?></h3>
           <div>
-            <img src="../media/covers/<?= $templateParams["giochi-in-offerta"][0]["Id"]?>.jpg" alt="<?=$templateParams["giochi-in-offerta"][0]["Name"]?>"/>
+            <img src="../media/covers/<?= $templateParams["giochi-in-offerta"][0]["Id"]?>.jpg" alt="<?=$templateParams["giochi-in-offerta"][0]["Name"]?>" onerror="this.onerror=null; this.src='../media/noimage.jpg';"/>
           </div>
         </header>
         <section>
@@ -47,7 +47,7 @@
           <header>
             <h3><?= $templateParams["giochi-in-offerta"][1]["Name"]?></h3>
             <div>
-              <img src="../media/covers/<?= $templateParams["giochi-in-offerta"][1]["Id"]?>.jpg" alt="<?=$templateParams["giochi-in-offerta"][1]["Name"]?>"/>
+              <img src="../media/covers/<?= $templateParams["giochi-in-offerta"][1]["Id"]?>.jpg" alt="<?=$templateParams["giochi-in-offerta"][1]["Name"]?>" onerror="this.onerror=null; this.src='../media/noimage.jpg';"/>
             </div>
           </header>
           <footer>
@@ -66,7 +66,7 @@
           <header>
             <h3><?= $templateParams["giochi-in-offerta"][2]["Name"]?></h3>
             <div>
-              <img src="../media/covers/<?= $templateParams["giochi-in-offerta"][2]["Id"]?>.jpg" alt="<?=$templateParams["giochi-in-offerta"][2]["Name"]?>"/>
+              <img src="../media/covers/<?= $templateParams["giochi-in-offerta"][2]["Id"]?>.jpg" alt="<?=$templateParams["giochi-in-offerta"][2]["Name"]?>" onerror="this.onerror=null; this.src='../media/noimage.jpg';"/>
             </div>
           </header>
           <footer>
@@ -97,7 +97,7 @@
         <?php foreach($templateParams["giochi-acquistati"] as $mostsoldgames): ?>
         <li>
           <a href = "game.php?id=<?= $mostsoldgames["Id"]?>">
-            <img src="<?= "../media/covers/".$mostsoldgames["Id"].".jpg" ?>" alt="<?= $mostsoldgames["Name"]; ?>" />
+            <img src="<?= "../media/covers/".$mostsoldgames["Id"].".jpg" ?>" alt="<?= $mostsoldgames["Name"]; ?>" onerror="this.onerror=null; this.src='../media/noimage.jpg';"/>
             <section>
               <header><h3><?=$mostsoldgames["Name"];?></h3></header>
               <footer>
@@ -122,7 +122,7 @@
         <?php foreach($templateParams["giochi-amati"] as $mostratedgame): ?>
         <li>
           <a href = "game.php?id=<?= $mostratedgame["Id"]?>">
-            <img src="<?= "../media/covers/".$mostratedgame["Id"].".jpg" ?>" alt="<?= $mostratedgame["Name"]; ?>" />
+            <img src="<?= "../media/covers/".$mostratedgame["Id"].".jpg" ?>" alt="<?= $mostratedgame["Name"]; ?>" onerror="this.onerror=null; this.src='../media/noimage.jpg';"/>
             <section>
               <header><h3><?=$mostratedgame["Name"];?></h3></header>
               <footer>

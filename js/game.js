@@ -114,7 +114,7 @@ function createPopUpWindow(game, platforms, option) {
     <section>
         <h2>Conferma</h2>
         <figure>
-            <img src="../media/covers/${game.Id}.jpg" alt="Game">
+            <img src="../media/covers/${game.Id}.jpg" alt="Game" onerror="this.onerror=null; this.src='../media/noimage.jpg';"/>
             <p>${priceDetails}</p>
             <figcaption>${game.Name}</figcaption>
         </figure>

@@ -5,7 +5,7 @@
         <li>
             <div>
                 <a href="game.php?id=<?= $gioco["Id"] ?>">
-                    <img src="../media/covers/<?= $gioco["Id"] ?>.jpg" alt="<?= $gioco["Name"] ?>">
+                    <img src="../media/covers/<?= $gioco["Id"] ?>.jpg" alt="<?= $gioco["Name"] ?>" onerror="this.onerror=null; this.src='../media/noimage.jpg';" />
                 </a>
 
                 <section>
