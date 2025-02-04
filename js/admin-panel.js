@@ -1117,6 +1117,8 @@ async function checkGameNameUnique(gameName) {
 
 
 
+
+
 document.addEventListener("click", function (event) {
     if (event.target.classList.contains("modify-images")) {
         event.preventDefault();
@@ -1233,6 +1235,8 @@ document.addEventListener("click", function (event) {
                                 const newImg = document.createElement("img");
                                 newImg.src = croppedDataUrl;
                                 newImg.alt = "New uploaded image";
+                                newImg.classList.add("modified");
+
 
                                 // Create a new wrapper, append the new image and reattach the same change button
                                 const newWrapper = document.createElement("div");
@@ -1252,5 +1256,112 @@ document.addEventListener("click", function (event) {
 
             });
         });
+        // Add a click listener to the Save button that calls the async function
+        button.addEventListener("click", async function (e) {
+            e.preventDefault();
+            const gameId = button.closest(".game").id;
+
+            // Check if there is any modified image in the form
+            const modifiedImages = form.querySelectorAll("img.modified");
+            if (modifiedImages.length === 0) {
+                //restore the previous content
+                form.remove(); // Remove the form
+                section.insertBefore(containerDiv, section.firstChild); // Restore the original content
+
+                console.log("No images were modified. Skipping API call.");
+                return;
+            }
+
+            try {
+                
+                const result = await sendModifiedImages(gameId);
+                if(result){
+                    location.reload();
+                }
+        
+                console.log("Upload success:", result);
+            } catch (error) {
+                console.error("Error uploading images:", error);
+            }
+        });
     }
 });
+
+
+
+
+
+function dataURLToBlob(dataURL) {
+    const [header, data] = dataURL.split(',');
+    const mimeMatch = header.match(/:(.*?);/);
+    if (!mimeMatch) {
+        throw new Error("Invalid data URL");
+    }
+    const mime = mimeMatch[1];
+    const binary = atob(data);
+    const array = [];
+    for (let i = 0; i < binary.length; i++) {
+        array.push(binary.charCodeAt(i));
+    }
+    return new Blob([new Uint8Array(array)], { type: mime });
+}
+
+
+async function sendModifiedImages(gameId) {
+    const formData = new FormData();
+
+    formData.append("GameId", gameId);
+
+    // Process Cover Image
+    const coverImg = document.querySelector("form > .image-wrapper > img");
+    if (coverImg && coverImg.classList.contains("modified")) {
+        const coverBlob = dataURLToBlob(coverImg.src);
+        formData.append("cover", coverBlob, "cover.jpg");
+    }
+
+    // Process Screenshots
+    const screenshots = document.querySelectorAll(".screenshots > .image-wrapper > img");
+    const modifiedScreenshots = [];
+    
+    screenshots.forEach((img, index) => {
+        if (img.classList.contains("modified")) {
+            const blob = dataURLToBlob(img.src);
+            const screenshotNumber = index + 1;
+            formData.append(`screenshot_${screenshotNumber}`, blob, `screenshot_${screenshotNumber}.jpg`);
+            modifiedScreenshots.push({ imgElement: img, number: screenshotNumber });
+            console.log(`Added screenshot ${screenshotNumber}`);
+        }
+    });
+
+    try {
+        // Send the FormData to the server
+        const response = await fetch("api/modify-images-api.php", {
+            method: "POST",
+            body: formData,
+        });
+
+        if (!response.ok) {
+            throw new Error(`Server error: ${response.status}`);
+        }
+
+        const result = await response.json();
+        console.log("Upload success:", result);
+
+        // If the update succeeds, update the images in containerDiv
+        if (coverImg && coverImg.classList.contains("modified")) {
+            coverImg.src = `${coverImg.src}?t=${new Date().getTime()}`;
+            coverImg.classList.remove("modified");
+        }
+
+        modifiedScreenshots.forEach(({ imgElement, number }) => {
+            imgElement.src = `${imgElement.src}?t=${new Date().getTime()}`;
+            imgElement.classList.remove("modified");
+        });
+
+        return result;
+    } catch (error) {
+        console.error("Error uploading images:", error);
+        throw error;
+    }
+}
+
