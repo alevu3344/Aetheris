@@ -3541,6 +3541,8 @@ input[type=number] {
   display: flex;
   flex-direction: column;
   row-gap: 20px;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .admin-content>main>ul>li>section>.images>img {
@@ -3553,6 +3555,50 @@ input[type=number] {
   box-sizing: border-box;
 }
 
+.admin-content>main>ul>li>section>.images > .image-wrapper {
+  width: 100%;
+  aspect-ratio: 16/9;
+  position: relative;
+}
+
+.change-image {
+  position: absolute;
+  top: 5px; /* Adjust distance from the top */
+  right: 5px; /* Adjust distance from the right */
+  z-index: 10; /* Ensure it's on top of the image */
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background */
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.change-image img {
+  width: 20px; /* Adjust icon size */
+  height: 20px;
+  filter: invert(1); /* Make it white if the icon is dark */
+}
+
+
+.admin-content>main>ul>li>section>.images > .image-wrapper > img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+
+  border-radius: 10px;
+  border: white 1px solid;
+  box-sizing: border-box;
+}
+
+.admin-content>main>ul>li>section>.images > input {
+  width: 22%;
+  border-radius: 10px;
+  border: white 1px solid;
+  box-sizing: border-box;
+  background-color: white;
+  color: #000;
+}
+
 .admin-content>main>ul>li>section>.images>.screenshots {
   display: flex;
   flex-direction: row;
@@ -3561,6 +3607,22 @@ input[type=number] {
   column-gap: 4%;
 }
 
+.admin-content>main>ul>li>section>.images>.screenshots > .image-wrapper{
+  width: 22%;
+  aspect-ratio: 16/9;
+  position: relative;
+}
+
+.admin-content>main>ul>li>section>.images>.screenshots > .image-wrapper > img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  border: white 1px solid;
+  box-sizing: border-box;
+}
+
+
 .admin-content>main>ul>li>section>.images>.screenshots>img {
   width: 22%;
   height: auto;
@@ -3568,6 +3630,15 @@ input[type=number] {
   border-radius: 10px;
   border: white 1px solid;
   box-sizing: border-box;
+}
+
+.admin-content>main>ul>li>section>.images>.screenshots> input {
+  width: 22%;
+  border-radius: 10px;
+  border: white 1px solid;
+  box-sizing: border-box;
+  background-color: white;
+  color: #000;
 }
 
 
@@ -3608,7 +3679,7 @@ input[type=number] {
   font-size: 16px;
 }
 
-.admin-content .remove-discount {
+.admin-content .remove-discount, .admin-content .cancel {
   padding: 5px;
   box-sizing: border-box;
   border: 1px solid white;
@@ -3625,6 +3696,23 @@ input[type=number] {
   color: white;
   font-size: 16px;
 }
+
+.admin-content>main>ul>li>section > .images > .modify-images {
+  background-color: #0056b3;
+}
+
+
+.admin-content>main>ul>li>section > .images > .save-images {
+  background-color: #00b33c;
+  padding: 5px;
+  box-sizing: border-box;
+  border: 1px solid white;
+  color: white;
+  font-size: 16px;
+}
+
+
+
 
 .admin-content>main>ul>li>section>div>p {
   color: white;

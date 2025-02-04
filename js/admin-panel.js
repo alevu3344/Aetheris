@@ -1114,3 +1114,143 @@ async function checkGameNameUnique(gameName) {
     const data = await response.json();
     return data.isUnique;
 }
+
+
+
+document.addEventListener("click", function (event) {
+    if (event.target.classList.contains("modify-images")) {
+        event.preventDefault();
+        let button = event.target;
+        console.log(button.innerText);
+
+        // Save the initial content for restoring when clicking Cancel
+        const containerDiv = button.closest(".images");
+        let divInner = containerDiv.innerHTML;
+
+        const form = document.createElement("form");
+        form.classList.add("images");
+        form.innerHTML = divInner;
+
+        const section = button.closest("section");
+        // Remove the containerDiv and add the form
+        containerDiv.remove();
+        // Insert the form as the first child of section
+        section.insertBefore(form, section.firstChild);
+
+        // Create a Cancel button and put it before the button
+        const cancelButton = document.createElement("button");
+        cancelButton.innerText = "Cancel";
+        cancelButton.classList.add("cancel");
+        // Put the cancel button as the first child of form
+        form.insertBefore(cancelButton, form.firstChild);
+        cancelButton.addEventListener("click", function (e) {
+            e.preventDefault();
+            // Restore the previous content
+            form.remove(); // Remove the form
+            containerDiv.innerHTML = divInner;
+            section.insertBefore(containerDiv, section.firstChild); // Restore the original content
+        });
+
+        // Change the modify-images button into a Save button
+        button = form.querySelector(".modify-images");
+        button.innerText = "Save";
+        button.classList.remove("modify-images");
+        button.classList.add("save-images");
+        button.type = "submit";
+
+        // Add the "exchange" button in the top-right corner of each image
+        form.querySelectorAll("img").forEach(img => {
+            // Create a wrapper div for the image
+            const wrapper = document.createElement("div");
+            wrapper.classList.add("image-wrapper");
+            img.parentNode.replaceChild(wrapper, img);
+            wrapper.appendChild(img);
+
+            // Create the change (exchange) button
+            const changeButton = document.createElement("button");
+            changeButton.classList.add("change-image");
+            changeButton.innerHTML = `<img src="upload/icons/change.png" alt="Change image">`;
+            wrapper.appendChild(changeButton);
+
+            // Event listener for changing the image
+            changeButton.addEventListener("click", function (e) {
+                e.preventDefault();
+
+                // Create a file input
+                const fileInput = document.createElement("input");
+                fileInput.type = "file";
+                fileInput.accept = "image/*";
+                fileInput.classList.add("image-input");
+
+                // Replace the current wrapper (using the current parent of the button) with the file input
+                this.parentNode.replaceWith(fileInput);
+
+                // Auto-click the file input to prompt selection
+                fileInput.click();
+
+                // When a file is selected, update the image
+                fileInput.addEventListener("change", function () {
+                    if (fileInput.files.length > 0) {
+                        const reader = new FileReader();
+                        reader.onload = (e) => {
+                            // Create an image object from the uploaded file
+                            const imgObj = new Image();
+                            imgObj.onload = function () {
+                                // Determine original dimensions and desired aspect ratio
+                                const origWidth = imgObj.width;
+                                const origHeight = imgObj.height;
+                                const desiredAspect = 16 / 9;
+                                const currentAspect = origWidth / origHeight;
+
+                                let cropWidth, cropHeight, offsetX, offsetY;
+                                if (currentAspect > desiredAspect) {
+                                    // Image is too wide: crop the sides
+                                    cropHeight = origHeight;
+                                    cropWidth = cropHeight * desiredAspect;
+                                    offsetX = (origWidth - cropWidth) / 2;
+                                    offsetY = 0;
+                                } else {
+                                    // Image is too tall: crop the top and bottom
+                                    cropWidth = origWidth;
+                                    cropHeight = cropWidth / desiredAspect;
+                                    offsetX = 0;
+                                    offsetY = (origHeight - cropHeight) / 2;
+                                }
+
+                                // Create a canvas to perform the cropping
+                                const canvas = document.createElement("canvas");
+                                canvas.width = cropWidth;
+                                canvas.height = cropHeight;
+                                const ctx = canvas.getContext("2d");
+
+                                // Draw the cropped area onto the canvas
+                                ctx.drawImage(imgObj, offsetX, offsetY, cropWidth, cropHeight, 0, 0, cropWidth, cropHeight);
+
+                                // Get the data URL for the cropped image
+                                const croppedDataUrl = canvas.toDataURL("image/jpeg");
+
+                                // Create a new image element for the cropped image
+                                const newImg = document.createElement("img");
+                                newImg.src = croppedDataUrl;
+                                newImg.alt = "New uploaded image";
+
+                                // Create a new wrapper, append the new image and reattach the same change button
+                                const newWrapper = document.createElement("div");
+                                newWrapper.classList.add("image-wrapper");
+                                newWrapper.appendChild(newImg);
+                                newWrapper.appendChild(changeButton); // reattach the existing button
+
+                                // Replace the file input with the new wrapper
+                                fileInput.replaceWith(newWrapper);
+                            };
+                            // Set the source of the image object to trigger onload
+                            imgObj.src = e.target.result;
+                        };
+                        reader.readAsDataURL(fileInput.files[0]);
+                    }
+                });
+
+            });
+        });
+    }
+});

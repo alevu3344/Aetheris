@@ -3,6 +3,7 @@
         <li class="game" id="<?= $gioco["Id"] ?>">
             <section>
                 <div class="images">
+                    <button class="modify-images">Modifica Immagini</button>
                     <img id="cover" src="../media/covers/<?= $gioco["Id"] ?>.jpg" onerror="this.onerror=null; this.src='../media/noimage.jpg';" />
                     <div class="screenshots">
                         <img src="../media/screenshots/<?= $gioco["Id"] ?>_frame_1.jpg"
