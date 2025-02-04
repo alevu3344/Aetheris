@@ -2,7 +2,26 @@
     <?php foreach ($templateParams["giochi"] as $gioco): ?>
         <li class="game" id="<?= $gioco["Id"] ?>">
             <section>
-                <img src="../media/covers/<?= $gioco["Id"] ?>.jpg" onerror="this.onerror=null; this.src='../media/noimage.jpg';"/>
+                <div class="images">
+                    <img id="cover" src="../media/covers/<?= $gioco["Id"] ?>.jpg" onerror="this.onerror=null; this.src='../media/noimage.jpg';" />
+                    <div class="screenshots">
+                        <img src="../media/screenshots/<?= $gioco["Id"] ?>_frame_1.jpg"
+                            alt="game"
+                            onerror="this.onerror=null; this.src='../media/noimage.jpg';" />
+
+                        <img src="../media/screenshots/<?= $gioco["Id"] ?>_frame_2.jpg"
+                            alt="game"
+                            onerror="this.onerror=null; this.src='../media/noimage.jpg';" />
+
+                        <img src="../media/screenshots/<?= $gioco["Id"] ?>_frame_3.jpg"
+                            alt="game"
+                            onerror="this.onerror=null; this.src='../media/noimage.jpg';" />
+
+                        <img src="../media/screenshots/<?= $gioco["Id"] ?>_frame_4.jpg"
+                            alt="game"
+                            onerror="this.onerror=null; this.src='../media/noimage.jpg';" />
+                    </div>
+                </div>
                 <div>
                     <dl>
                         <div class="possible-form">
@@ -165,7 +184,7 @@
                     <?php endif; ?>
                 </div>
                 <div class="actions">
-      
+
                     <button class="delete" data-id="<?= $gioco["Id"] ?>">Elimina</button>
 
                 </div>
