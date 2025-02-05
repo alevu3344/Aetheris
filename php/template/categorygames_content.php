@@ -13,6 +13,3 @@
     <button>Carica più giochi</button>
     <img src="upload/icons/double-arrow.png" alt="arrow"/>
 </div>
-
-<script src="../js/categorygames.js?category=<?= $templateParams["category"] ?>&action=<?= $templateParams["action"] ?>"></script>
-

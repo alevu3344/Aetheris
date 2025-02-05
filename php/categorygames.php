@@ -32,6 +32,8 @@ $templateParams["titolo"] = "Aetheris - ".$category;
 
 $templateParams["nome"] = "categorygames_content.php";
 
+$templateParams["scripts"] = ["../js/categorygames.js?category=" . $templateParams["category"] . "&action=" . $templateParams["action"]];
+
 
 
 

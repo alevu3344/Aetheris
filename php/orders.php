@@ -5,6 +5,8 @@ $templateParams["titolo"] = "Aetheris - Orders";
 
 $templateParams["nome"] = "order_page.php";
 
+$templateParams["scripts"] = ["../js/orders.js"];
+
 if (!empty($_SESSION["Username"])) {
 
     if ($_SESSION["isAdmin"]) {

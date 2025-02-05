@@ -123,8 +123,15 @@
     </footer>
 </body>
 
+<script src="../js/utils.js"></script>
 <script src="../js/login.js"></script>
 <script src="../js/base.js?admin=<?= isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] ? 'true' : 'false' ?>"></script>
 <script src="../js/search-bar.js?admin=<?= isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] ? 'true' : 'false' ?>"></script>
+
+<?php if (isset($templateParams["scripts"])): ?>
+    <?php foreach ($templateParams["scripts"] as $script): ?>
+        <script src="<?= $script ?>"></script>
+    <?php endforeach; ?>
+<?php endif; ?>
 
 </html>

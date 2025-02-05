@@ -75,5 +75,3 @@ foreach ($templateParams["elementi-carrello"] as $gioco) {
 <?php if(!empty($templateParams["elementi-carrello"])): ?>
 <button id="checkout">Checkout</button>
 <?php endif; ?>
-
-<script src="../js/cart.js"></script>

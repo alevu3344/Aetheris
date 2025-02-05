@@ -24,6 +24,21 @@ if(isset($_GET["game_id"])) {
 
 $templateParams["nome"] = "admin-content.php";
 
+$publisherList = $templateParams["publishers"];
+$publisherJson = json_encode($publisherList);
+
+// Make sure to encode the JSON string for use in the URL
+$publisherJsonEscaped = urlencode($publisherJson);
+
+$categorieList = $templateParams["categorie"];
+$categorieJson = json_encode($categorieList);
+
+// Make sure to encode the JSON string for use in the URL
+$categorieJsonEscaped = urlencode($categorieJson);
+
+
+$templateParams["scripts"]= ["../js/admin-panel.js?publishers=" . $publisherJsonEscaped . "&categories=" . $categorieJsonEscaped ];
+
 if(!empty($_SESSION["Username"]) && $_SESSION["isAdmin"]) {
     require("template/base.php");
 }

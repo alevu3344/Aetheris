@@ -177,11 +177,3 @@
     <img src="upload/icons/double-arrow.png" alt="arrow"/>
 </div>
 
-
-<script src="../js/game.js?gameData=<?= urlencode(json_encode([
-                                        "game" => $templateParams["gioco"],
-                                        "platforms" => $templateParams["platforms"]
-                                    ])) ?>"></script>
-
-
-<script src="../js/similar-games.js?id=<?= $templateParams["gioco"]["Id"] ?>"></script>

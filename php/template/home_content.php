@@ -157,8 +157,3 @@
     <img src="upload/icons/left_arrow.svg" alt="Right arrow"/>
   </div>
 </section>
-
-
-<script src="../js/front-page-game.js"></script> 
-<script src="../js/most-sold-loved-games.js" ></script> 
-<script src="../js/launch-offers.js"></script> 

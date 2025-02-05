@@ -114,5 +114,3 @@
         </fieldset>
     </form>
 </section>
-
-<script src="../js/newgame.js"></script>

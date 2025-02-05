@@ -54,5 +54,3 @@
         </li>
     <?php endforeach; ?>
 </ul>
-
-<script src="../js/orders.js"></script>
