@@ -1,4 +1,13 @@
+<?php if (empty($templateParams["orders"])): ?>
+    <div id="empty-cart">
+        <div>
+            <img src="upload/icons/empty.png" alt="No orders"/><p>No orders yet!</p>
+        </div>
+    </div>
+<?php endif; ?>
+
 <ul>
+
     <?php foreach ($templateParams["orders"] as $order): ?>
         <li>
             <article>
@@ -6,15 +15,15 @@
                     <h2 id="<?= $order["OrderId"] ?>">Order #<?= $order["OrderId"] ?></h2>
                     <p><?= $order["OrderDate"] ?></p>
                     <p class="status" id="<?= $order["Status"] ?>"><?= $order["Status"] ?></p>
-                    <?php if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]) : ?>
-                    <div class="dropdown">
-                        <button class="dropbtn">Change status</button>
-                        <div id="myDropdown" class="dropdown-content">
-                            <?php foreach ($order["availableStatuses"] as $status): ?>
-                                <button id="<?= $status ?>"><?= $status ?></button>
-                            <?php endforeach; ?>
+                    <?php if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]) : ?>
+                        <div class="dropdown">
+                            <button class="dropbtn">Change status</button>
+                            <div id="myDropdown" class="dropdown-content">
+                                <?php foreach ($order["availableStatuses"] as $status): ?>
+                                    <button id="<?= $status ?>"><?= $status ?></button>
+                                <?php endforeach; ?>
+                            </div>
                         </div>
-                    </div>
                     <?php endif; ?>
                 </header>
                 <section>
@@ -23,7 +32,7 @@
                         <?php foreach ($order["OrderItems"] as $item): ?>
                             <li>
                                 <a href="game.php?id=<?= $item["GameId"] ?>">
-                                    <img src="../media/covers/<?= $item["GameId"] ?>.jpg" alt="game" onerror="this.onerror=null; this.src='../media/noimage.jpg';"/>
+                                    <img src="../media/covers/<?= $item["GameId"] ?>.jpg" alt="game" onerror="this.onerror=null; this.src='../media/noimage.jpg';" />
                                     <div>
                                         <div>
                                             <h4><?= $item["Name"] ?></h4>

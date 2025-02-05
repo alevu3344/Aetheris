@@ -53,6 +53,20 @@
         </li>
     <?php endforeach; ?>
 </ul>
+<?php 
+
+$totalCartPrice = 0;
+foreach ($templateParams["elementi-carrello"] as $gioco) {
+    $itemPrice = $gioco["Price"] * $gioco["Quantity"];
+    if (!empty($gioco["Discount"])) {
+        $itemPrice *= 1 - $gioco["Discount"] / 100;
+    }
+    $totalCartPrice += $itemPrice;
+}
+
+?>
+
+<p id="total-price">Total: <?= number_format($totalCartPrice, 2) ?>€</p>
 <?php endif; ?>
 
 <?php if(!empty($templateParams["elementi-carrello"])): ?>
