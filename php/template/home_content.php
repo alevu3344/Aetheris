@@ -2,13 +2,13 @@
   <h2>GIOCHI DEL MOMENTO</h2>
   <div>
     <button>
-      <img src="upload/icons/left_arrow.svg" alt="Left arrow">
+      <img src="upload/icons/left_arrow.svg" alt="Left arrow"/>
     </button>
 
     <div></div>
 
     <button>
-      <img src="upload/icons/right_arrow.svg" alt="Right arrow">
+      <img src="upload/icons/right_arrow.svg" alt="Right arrow"/>
     </button>
   </div>
 </section>
@@ -150,11 +150,11 @@
     <p>FESTEGGIA IL LANCIO DI AETHERIS CON OFFERTE IMPERDIBILI</p>
   </header>
   <div>
-    <img src="upload/icons/left_arrow.svg" alt="Left arrow">
+    <img src="upload/icons/left_arrow.svg" alt="Left arrow"/>
     <nav>
       <ul></ul>
     </nav>
-    <img src="upload/icons/left_arrow.svg" alt="Right arrow">
+    <img src="upload/icons/left_arrow.svg" alt="Right arrow"/>
   </div>
 </section>
 

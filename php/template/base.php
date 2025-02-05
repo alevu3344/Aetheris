@@ -34,7 +34,7 @@
                 <?php endif; ?>
                 <?php if (isset($_SESSION["Username"])): ?>
                     <figure>
-                        <img src="../media/avatars/<?= $AVATAR ?>" alt="Avatar">
+                        <img src="../media/avatars/<?= $AVATAR ?>" alt="Avatar"/>
                         <figcaption><?= $_SESSION["Username"] ?></figcaption>
                     </figure>
                     <button id="logout">

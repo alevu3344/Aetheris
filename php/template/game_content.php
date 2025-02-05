@@ -60,7 +60,7 @@
             <dt>Piattaforma</dt>
             <dd>
                 <?php foreach ($templateParams["platforms"] as $platform): ?>
-                    <img src="upload/icons/<?= $platform["Platform"] ?>.svg" alt="game">
+                    <img src="upload/icons/<?= $platform["Platform"] ?>.svg" alt="game"/>
                 <?php endforeach; ?>
             </dd>
         </div>
@@ -73,7 +73,7 @@
                     <?php foreach ($templateParams["platforms"] as $platform): ?>
                         <div>
                             <dt>
-                                <img src="upload/icons/<?= $platform["Platform"] ?>.svg" alt="game">
+                                <img src="upload/icons/<?= $platform["Platform"] ?>.svg" alt="game"/>
                             </dt>
                             <dd class=<?= $platform["Stock"] > 0 ? "available" : "expired" ?>><?= $platform["Stock"] ?></dd>
                         </div>
@@ -155,11 +155,11 @@
 <h2>Giochi simili</h2>
 <div>
 
-    <img src="upload/icons/left_arrow.svg" alt="Left arrow">
+    <img src="upload/icons/left_arrow.svg" alt="Left arrow"/>
     <div>
         <ul></ul>
     </div>
-    <img src="upload/icons/left_arrow.svg" alt="Left arrow">
+    <img src="upload/icons/left_arrow.svg" alt="Left arrow"/>
 </div>
 
 <h2>Recensioni</h2>
@@ -174,7 +174,7 @@
 
 <div>
     <button>Carica più recensioni</button>
-    <img src="upload/icons/double-arrow.png" alt="arrow">
+    <img src="upload/icons/double-arrow.png" alt="arrow"/>
 </div>
 
 

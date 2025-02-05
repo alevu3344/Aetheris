@@ -1,7 +1,7 @@
 <section>
     <div>
         <a href="index.php">
-            <img src="upload/icons/cross.png" alt="Logo">
+            <img src="upload/icons/cross.png" alt="Logo"/>
         </a>
     </div>
 
@@ -46,7 +46,7 @@
                     <?php foreach ($templateParams["Avatars"] as $avatar): ?>
                         <label class="avatar-option" for="avatar-<?= $avatar["Id"] ?>">
                             <input type="radio" name="avatar" value="<?= $avatar["Id"] ?>" required />
-                            <img src="../media/avatars/<?= $avatar["Avatar"] ?>" alt="<?= $avatar["Avatar"] ?>">
+                            <img src="../media/avatars/<?= $avatar["Avatar"] ?>" alt="<?= $avatar["Avatar"] ?>"/>
                         </label>
                     <?php endforeach; ?>
                 </div>

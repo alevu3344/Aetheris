@@ -14,14 +14,14 @@
         <li>
             <div>
                 <a href="game.php?id=<?= $gioco["Id"] ?>">
-                    <img src="../media/covers/<?= $gioco["Id"] ?>.jpg" alt="<?= $gioco["Name"] ?>" onerror="this.onerror=null; this.src='../media/noimage.jpg';" />
+                    <img src="../media/covers/<?= $gioco["Id"] ?>.jpg" alt="<?= $gioco["Name"] ?>" onerror="this.onerror=null; this.src='../media/noimage.jpg';"/>
                 </a>
 
                 <section>
                     <header>
                         <h2><?= $gioco["Name"] ?></h2>
                         <button>
-                            <img src="../media/icons/trash-bin.png" alt="Remove">
+                            <img src="../media/icons/trash-bin.png" alt="Remove"/>
                         </button>
                     </header>
                     <p>
@@ -33,11 +33,11 @@
                     <footer>
                         <div>
                             <button>
-                                <img src="upload/icons/left_arrow.svg" alt="Increase">
+                                <img src="upload/icons/left_arrow.svg" alt="Increase"/>
                             </button>
                             <span class="quantity"><?= $gioco["Quantity"] ?></span>
                             <button>
-                                <img src="upload/icons/left_arrow.svg" alt="Increase">
+                                <img src="upload/icons/left_arrow.svg" alt="Increase"/>
                             </button>
                         </div>
                         <p>

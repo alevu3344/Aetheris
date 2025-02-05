@@ -1171,7 +1171,7 @@ document.addEventListener("click", function (event) {
             // Create the change (exchange) button
             const changeButton = document.createElement("button");
             changeButton.classList.add("change-image");
-            changeButton.innerHTML = `<img src="upload/icons/change.png" alt="Change image">`;
+            changeButton.innerHTML = `<img src="upload/icons/change.png" alt="Change image"/>`;
             wrapper.appendChild(changeButton);
 
             // Event listener for changing the image

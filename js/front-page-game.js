@@ -298,11 +298,11 @@ function createPopUpWindow(game, platforms, option) {
               <label for="quantity">Choose a quantity</label>
               <div>
                   <button type="button" aria-label="Decrease quantity">
-                      <img src="upload/icons/minus.png" alt="">
+                      <img src="upload/icons/minus.png" alt=""/>
                   </button>
                   <input type="number" id="quantity" name="quantity" min="1" max="999" value="1" required>
                   <button type="button" aria-label="Increase quantity">
-                      <img src="upload/icons/plus.png" alt="">
+                      <img src="upload/icons/plus.png" alt=""/>
                   </button>
               </div>
           </fieldset>
