@@ -13,6 +13,19 @@ class DatabaseHelper
         }
     }
 
+    public function notifyAdmin($type, $message)
+    {
+        $query = "SELECT UserID FROM USERS WHERE Role = 'Admin'";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $rows = $result->fetch_all(MYSQLI_ASSOC);
+
+        foreach ($rows as $row) {
+            $this->notifyUser($type, $message, $row["UserID"]);
+        }
+    }
+
     //this is used when:
     //(1) GAME is deleted, 
     //(2) Game stock for platform is changed to exceed the quantity in the shopping cart
@@ -100,13 +113,14 @@ class DatabaseHelper
         $rows = $result->fetch_all(MYSQLI_ASSOC);
 
         foreach ($rows as $row) {
-            if(!$this->isAdmin($row["UserID"])){
+            if (!$this->isAdmin($row["UserID"])) {
                 $this->notifyUser($type, $message, $row["UserID"]);
             }
         }
     }
 
-    public function isAdmin($userID){
+    public function isAdmin($userID)
+    {
         $query = "SELECT * FROM USERS WHERE UserID = ? AND Role = 'Admin'";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $userID);
@@ -477,7 +491,7 @@ class DatabaseHelper
             DISCOUNTED_GAMES DG ON G.Id = DG.GameId
     ";
 
-        
+
         // Modify the join condition based on $admin
         if ($admin) {
             $query .= " AND DG.StartDate >= CURRENT_DATE";
@@ -672,6 +686,13 @@ class DatabaseHelper
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("iis", $quantity, $gameId, $platform);
         $stmt->execute();
+
+
+        //notify admin if the stock for the platform is now 0
+        $stock = $this->getPlatformQuantity($gameId, $platform);
+        if ($stock == 0) {
+            $this->notifyAdmin("out_of_stock", "The game " . $this->getGameById($gameId)[0]["Name"] . " is now out of stock for the platform " . $platform);
+        }
     }
 
 
@@ -787,25 +808,22 @@ class DatabaseHelper
 
     public function checkout($userId)
     {
-
         // Check for stock availability for every (game, platform) in the cart
-
-        //TODO:NOTIFICATION
         $query = "
             SELECT 
-            SC.GameId, 
-            SC.Quantity, 
-            SC.Platform, 
-            SP.Stock,
-            G.Name
+                SC.GameId, 
+                SC.Quantity, 
+                SC.Platform, 
+                SP.Stock,
+                G.Name
             FROM 
-            SHOPPING_CARTS SC
+                SHOPPING_CARTS SC
             JOIN 
-            SUPPORTED_PLATFORMS SP ON SC.GameId = SP.GameId AND SC.Platform = SP.Platform
+                SUPPORTED_PLATFORMS SP ON SC.GameId = SP.GameId AND SC.Platform = SP.Platform
             JOIN 
-            GAMES G ON SC.GameId = G.Id
+                GAMES G ON SC.GameId = G.Id
             WHERE 
-            SC.UserId = ?    
+                SC.UserId = ?    
         ";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $userId);
@@ -827,22 +845,22 @@ class DatabaseHelper
 
         // Step 1: Calculate the total cost of the shopping cart, applying discounts if applicable
         $query = "
-        SELECT 
-            SUM(
-                (CASE 
-                    WHEN DG.Percentage IS NOT NULL AND CURRENT_DATE BETWEEN DG.StartDate AND DG.EndDate 
-                    THEN G.Price * (1 - DG.Percentage / 100) 
-                    ELSE G.Price 
-                END) * SC.Quantity
-            ) AS Total
-        FROM 
-            SHOPPING_CARTS SC
-        JOIN 
-            GAMES G ON SC.GameId = G.Id
-        LEFT JOIN 
-            DISCOUNTED_GAMES DG ON SC.GameId = DG.GameId
-        WHERE 
-            SC.UserId = ?";
+            SELECT 
+                SUM(
+                    (CASE 
+                        WHEN DG.Percentage IS NOT NULL AND CURRENT_DATE BETWEEN DG.StartDate AND DG.EndDate 
+                        THEN G.Price * (1 - DG.Percentage / 100) 
+                        ELSE G.Price 
+                    END) * SC.Quantity
+                ) AS Total
+            FROM 
+                SHOPPING_CARTS SC
+            JOIN 
+                GAMES G ON SC.GameId = G.Id
+            LEFT JOIN 
+                DISCOUNTED_GAMES DG ON SC.GameId = DG.GameId
+            WHERE 
+                SC.UserId = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $userId);
         $stmt->execute();
@@ -853,7 +871,7 @@ class DatabaseHelper
             throw new Exception("Cart is empty or an error occurred.");
         }
 
-        //check is the user has enough balance
+        // Check if the user has enough balance
         $query = "SELECT Balance FROM USERS WHERE UserID = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $userId);
@@ -862,19 +880,17 @@ class DatabaseHelper
         $balance = $result->fetch_assoc()["Balance"];
 
         if ($balance < $total) {
-            $json = [
+            return [
                 'success' => false,
                 'message' => 'no_funds'
             ];
-            return $json;
         }
 
-        //update user balance
+        // Update user balance
         $query = "UPDATE USERS SET Balance = Balance - ? WHERE UserID = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("di", $total, $userId);
         $stmt->execute();
-
 
         // Step 2: Create a new row in the ORDERS table
         $query = "INSERT INTO ORDERS (UserId, OrderDate, TotalCost, Status) 
@@ -886,49 +902,68 @@ class DatabaseHelper
 
         // Step 3: Retrieve items from the shopping cart and insert into ORDER_ITEMS, applying discounts
         $query = "
-        SELECT 
-            SC.GameId,
-            SC.Quantity,
-            G.Price,
-            SC.Platform,
-            (CASE 
-                WHEN DG.Percentage IS NOT NULL AND CURRENT_DATE BETWEEN DG.StartDate AND DG.EndDate 
-                THEN G.Price * (1 - DG.Percentage / 100) 
-                ELSE G.Price 
-            END) AS FinalPrice
-        FROM 
-            SHOPPING_CARTS SC
-        JOIN 
-            GAMES G ON SC.GameId = G.Id
-        LEFT JOIN 
-            DISCOUNTED_GAMES DG ON SC.GameId = DG.GameId
-        WHERE 
-            SC.UserId = ?";
+            SELECT 
+                SC.GameId,
+                SC.Quantity,
+                G.Price,
+                SC.Platform,
+                (CASE 
+                    WHEN DG.Percentage IS NOT NULL AND CURRENT_DATE BETWEEN DG.StartDate AND DG.EndDate 
+                    THEN G.Price * (1 - DG.Percentage / 100) 
+                    ELSE G.Price 
+                END) AS FinalPrice
+            FROM 
+                SHOPPING_CARTS SC
+            JOIN 
+                GAMES G ON SC.GameId = G.Id
+            LEFT JOIN 
+                DISCOUNTED_GAMES DG ON SC.GameId = DG.GameId
+            WHERE 
+                SC.UserId = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $userId);
         $stmt->execute();
-        $result = $stmt->get_result();
+        $orderItemsResult = $stmt->get_result(); // Renamed variable to avoid conflict
 
-        //if the cart is empty, return an error
-        if ($result->num_rows == 0) {
-            $json = [
+        // If the cart is empty, return an error
+        if ($orderItemsResult->num_rows == 0) {
+            return [
                 'success' => false,
                 'message' => 'empty_cart'
             ];
-            return $json;
         }
 
-        while ($row = $result->fetch_assoc()) {
+        while ($row = $orderItemsResult->fetch_assoc()) {
             $gameId = $row["GameId"];
             $quantity = $row["Quantity"];
             $price = $row["FinalPrice"];
             $platform = $row["Platform"];
 
+            // Insert into ORDER_ITEMS
             $query = "INSERT INTO ORDER_ITEMS (OrderId, GameId, Platform, Quantity, FinalPrice) 
                       VALUES (?, ?, ?, ?, ?)";
             $stmt = $this->db->prepare($query);
             $stmt->bind_param("iisdi", $orderId, $gameId, $platform, $quantity, $price);
             $stmt->execute();
+
+            // Update stock in SUPPORTED_PLATFORMS
+            $query = "UPDATE SUPPORTED_PLATFORMS SET Stock = Stock - ? WHERE GameId = ? AND Platform = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("iis", $quantity, $gameId, $platform);
+            $stmt->execute();
+
+            // Check if stock reached zero without overriding the outer loop result
+            $query = "SELECT Stock FROM SUPPORTED_PLATFORMS WHERE GameId = ? AND Platform = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("is", $gameId, $platform);
+            $stmt->execute();
+            $stockResult = $stmt->get_result(); // Use a different variable here
+            $stockRow = $stockResult->fetch_assoc();
+
+            if ($stockRow["Stock"] == 0) {
+                $gameName = $this->getGameById($gameId)[0]["Name"];
+                $this->notifyAdmin("out_of_stock", "The game " . $gameName . " is now out of stock for the platform " . $platform);
+            }
         }
 
         // Step 4: Clear the shopping cart
@@ -937,12 +972,10 @@ class DatabaseHelper
         $stmt->bind_param("i", $userId);
         $stmt->execute();
 
-        $json = [
+        return [
             'success' => true,
             'message' => 'checkout_success'
         ];
-
-        return $json;
     }
 
 
