@@ -1,70 +1,61 @@
+const trashButtons = document.querySelectorAll('ul > li > div > section > header button');
 
-    const trashButtons = document.querySelectorAll('ul > li > div > section > header button');
+// Add event listener to each button
+trashButtons.forEach((trashButton, index) => {
+    const closestLi = trashButton.closest('li');
+    const gameId = closestLi.querySelector('a').href.split('id=')[1];
+    const platform = closestLi.querySelector("div > section > p > img").getAttribute("alt");
 
-
-    // Add event listener to each button
-    trashButtons.forEach((trashButton, index) => {
-
-        const closestLi = trashButton.closest('li');
-        const gameId = closestLi.querySelector('a').href.split('id=')[1];
-        const platform = closestLi.querySelector("div > section > p > img").getAttribute("alt");
-
-        trashButton.addEventListener("click", (event) => {
-            event.preventDefault();
-            console.log(`Game with ID ${gameId} and platform ${platform} has been removed.`);
-            removeFromCart(gameId, platform, -1);
-            closestLi.remove();
-        });
-
-        //decrease button
-        closestLi.querySelector("div > section > footer > div > button:nth-child(1)").addEventListener("click", (event) => {
-            event.preventDefault();
-
-            console.log(`Game with ID ${gameId} and platform ${platform} decreased.`);
-            removeFromCart(gameId, platform, 1);
-            //update the span text
-            let quantityText = closestLi.querySelector("div > section > footer > div > span");
-            let quantity = parseInt(quantityText.innerText);
-            quantity--;
-            if (quantity <= 0) {
-                closestLi.remove();
-            } else {
-                quantityText.innerText = quantity;
-            }
-
-        });
-
-        //increase button
-        closestLi.querySelector("div > section > footer > div > button:nth-child(3)").addEventListener("click", (event) => {
-            event.preventDefault();
-
-
-            addToCart(gameId, platform, 1);
-            //update the span text
-            let quantityText = closestLi.querySelector("div > section > footer > div > span");
-            let quantity = parseInt(quantityText.innerText);
-            quantity++;
-            quantityText.innerText = quantity;
-
-
-        });
+    // Trash button: remove entire item from cart
+    trashButton.addEventListener("click", async (event) => {
+        event.preventDefault();
+        console.log(`Game with ID ${gameId} and platform ${platform} has been removed.`);
+        await removeFromCart(gameId, platform, -1);
+        closestLi.remove();
     });
 
+    // Decrease button: decrease quantity
+    closestLi.querySelector("div > section > footer > div > button:nth-child(1)").addEventListener("click", async (event) => {
+        event.preventDefault();
+        console.log(`Game with ID ${gameId} and platform ${platform} decreased.`);
+        await removeFromCart(gameId, platform, 1);
+        
+        // Update the quantity in the DOM only after the async call returns
+        let quantityText = closestLi.querySelector("div > section > footer > div > span");
+        let quantity = parseInt(quantityText.innerText);
+        quantity--;
+        if (quantity <= 0) {
+            closestLi.remove();
+        } else {
+            quantityText.innerText = quantity;
+        }
+    });
 
-
+    // Increase button: increase quantity
+    closestLi.querySelector("div > section > footer > div > button:nth-child(3)").addEventListener("click", async (event) => {
+        event.preventDefault();
+        await addToCart(gameId, platform, 1);
+        
+        // Update the quantity in the DOM only after the async call returns
+        let quantityText = closestLi.querySelector("div > section > footer > div > span");
+        let quantity = parseInt(quantityText.innerText);
+        quantity++;
+        quantityText.innerText = quantity;
+    });
+});
 
 
 const checkoutButton = document.querySelector("main > #checkout");
 checkoutButton.addEventListener("click", async (event) => {
     event.preventDefault();
-    
+
     // If no items in the cart, show error style
     if (document.querySelectorAll("main > ul > li").length == 0) {
         checkoutButton.style.backgroundColor = "red";
         checkoutButton.innerText = "Carrello vuoto";
         return;
     }
-    
+
     // Show the custom confirmation popup
     const confirmed = await showConfirmationPopup();
     if (confirmed) {
@@ -166,10 +157,7 @@ async function addToCart(gameId, platform, quantity) {
 
     let data = await response.json();
 
-    if (data["success"]) {
-
-        createNotificaton("Success", "Game added to cart", "positive");
-    } else {
+    if (!data["success"]) {
         switch (data["message"]) {
             case "not_logged":
                 createNotificaton("Error", "Log in to add games to your cart", "negative");
@@ -282,20 +270,7 @@ async function removeFromCart(gameId, platform, quantity) {
 
     let data = await response.json();
 
-    if (data["success"]) {
-        switch (data["message"]) {
-            case "game_removed":
-                createNotificaton("Success", "Game removed from cart", "positive");
-                break;
-            case "quantity_decreased":
-                createNotificaton("Success", "Quantity of game decreased", "positive");
-                break;
-            default:
-                createNotificaton("Success", "Unknown Action", "negative");
-                break;
-        }
-
-    } else {
+    if (!data.success) {
         console.error("HTTP-Error: " + response.status);
         createNotificaton("Error", data.message, "negative");
     }
