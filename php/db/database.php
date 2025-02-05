@@ -728,7 +728,6 @@ class DatabaseHelper
 
         //TODO:NOTIFICATION
 
-
         if ($action === "add") {
             $query = "INSERT INTO SUPPORTED_PLATFORMS (GameId, Platform, Stock) VALUES (?, ?, 0)";
             $stmt = $this->db->prepare($query);
@@ -740,7 +739,7 @@ class DatabaseHelper
         }
 
         if ($stmt->execute()) {
-            //if the platform is PC, delete the game requirements
+            // If the platform is PC, modify the PC_GAME_REQUIREMENTS accordingly
             if ($platform === "PC") {
                 if ($action === "remove") {
                     $query = "DELETE FROM PC_GAME_REQUIREMENTS WHERE GameId = ?";
@@ -754,11 +753,47 @@ class DatabaseHelper
                     $stmt->execute();
                 }
             }
-            return ['success' => true, 'message' => 'platform_modified', "gameName" => $this->getGameById($gameId)[0]["Name"], "platform" => $platform];
+
+            // When removing a platform, also remove any matching entries from shopping carts
+            // and notify the corresponding users.
+            if ($action === "remove") {
+                // Retrieve affected users before deletion.
+                $query = "SELECT UserId FROM SHOPPING_CARTS WHERE GameId = ? AND Platform = ?";
+                $stmt = $this->db->prepare($query);
+                $stmt->bind_param("is", $gameId, $platform);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $gameName = $this->getGameById($gameId)[0]["Name"];
+
+                while ($row = $result->fetch_assoc()) {
+                    $userId = $row["UserId"];
+                    $message = "The game '{$gameName}' is no longer available on {$platform} and has been removed from your shopping cart.";
+                    $this->notifyUsersWithGameInCart("platform_removed", $message, $gameId, $platform);
+                }
+
+                // Remove the (gameId, platform) from all shopping carts.
+                $query = "DELETE FROM SHOPPING_CARTS WHERE GameId = ? AND Platform = ?";
+                $stmt = $this->db->prepare($query);
+                $stmt->bind_param("is", $gameId, $platform);
+                $stmt->execute();
+            }
+
+            return [
+                'success' => true,
+                'message' => 'platform_modified',
+                "gameName" => $this->getGameById($gameId)[0]["Name"],
+                "platform" => $platform
+            ];
         } else {
-            return ['success' => false, 'message' => 'platform_not_modified', "gameName" => $this->getGameById($gameId)[0]["Name"], "platform" => $platform];
+            return [
+                'success' => false,
+                'message' => 'platform_not_modified',
+                "gameName" => $this->getGameById($gameId)[0]["Name"],
+                "platform" => $platform
+            ];
         }
     }
+
 
     public function addToCart($gameId, $userId, $quantity, $platform)
     {
