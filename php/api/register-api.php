@@ -48,6 +48,7 @@ else {
         $result["UserID"] = $_SESSION["UserID"];
         $result["isAdmin"] = $_SESSION["isAdmin"];
         $result["Avatar"] = $dbh->getUser($_SESSION["UserID"])["Avatar"];
+        $result["Balance"] = $dbh->getUser($_SESSION["UserID"])["Balance"];
     }
 }
 

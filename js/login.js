@@ -1,7 +1,18 @@
 
 
 
-function putAvatar(avatar, username) {
+function putAvatar(avatar, username, balance, isAdmin) {
+
+    let header_right_div = document.querySelector("body > header > div > div:nth-of-type(2)");
+
+    if (!isAdmin) {
+        let balanceSpan = document.createElement("span");
+        balanceSpan.id = "balance";
+        balanceSpan.style.color = "white";
+        balanceSpan.textContent = "Saldo: " + balance + "€";
+
+        header_right_div.appendChild(balanceSpan);
+    }
 
     let header_accedi = document.querySelector("body > header > div > div:nth-of-type(2) > a");
     let figure = `
@@ -10,13 +21,18 @@ function putAvatar(avatar, username) {
     `;
     let newFigure = document.createElement("figure");
     newFigure.innerHTML = figure;
+
     header_accedi.replaceWith(newFigure);
 
     let logoutButton = document.createElement("a"); // Renamed variable
     logoutButton.innerHTML = `
         <img src="upload/icons/logout.png" alt="Logout"/>
     `;
+    logoutButton.id = "logout";
     logoutButton.style.cursor = "pointer"; // Add pointer cursor to indicate interactivity
+
+
+
 
     // Add event listener to logout element
     logoutButton.addEventListener("click", function () {
@@ -25,7 +41,7 @@ function putAvatar(avatar, username) {
         logout(); // Call the actual logout function
     });
 
-    let header_right_div = document.querySelector("body > header > div > div:nth-of-type(2)");
+
     header_right_div.appendChild(logoutButton);
 }
 
@@ -153,7 +169,7 @@ async function register(name, surname, birthday, city, address, phonenumber, ema
 
         if (json["Success"]) {
             document.querySelector(".registration-form > main > section > p").innerText = "Registration successful";
-            putAvatar(json["Avatar"], json["Username"]);
+            putAvatar(json["Avatar"], json["Username"], json["Balance"], json["isAdmin"]);
             //modify the register button in order for it to become green to display Back to page
             let button = document.querySelector(".registration-form > main > section > form > fieldset > button");
             let newButton = document.createElement("a");
@@ -210,7 +226,7 @@ async function login(formData) {
 
 
         if (json["LoggedIn"]) {
-            putAvatar(json["Avatar"], json["Username"]);
+            putAvatar(json["Avatar"], json["Username"], json["Balance"], json["isAdmin"]);
             if (document.body.classList.contains("login-form") || document.body.classList.contains("registration-form")) {
 
                 if (json["isAdmin"]) {
