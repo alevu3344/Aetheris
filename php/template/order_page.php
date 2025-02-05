@@ -15,16 +15,6 @@
                     <h2 id="<?= $order["OrderId"] ?>">Order #<?= $order["OrderId"] ?></h2>
                     <p><?= $order["OrderDate"] ?></p>
                     <p class="status" id="<?= $order["Status"] ?>"><?= $order["Status"] ?></p>
-                    <?php if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]) : ?>
-                        <div class="dropdown">
-                            <button class="dropbtn">Change status</button>
-                            <div id="myDropdown" class="dropdown-content">
-                                <?php foreach ($order["availableStatuses"] as $status): ?>
-                                    <button id="<?= $status ?>"><?= $status ?></button>
-                                <?php endforeach; ?>
-                            </div>
-                        </div>
-                    <?php endif; ?>
                 </header>
                 <section>
                     <h3>Games</h3>
@@ -62,5 +52,3 @@
     <?php endforeach; ?>
 </ul>
 
-
-<script src="../js/orders.js?"></script>
