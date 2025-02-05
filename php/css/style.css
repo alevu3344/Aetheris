@@ -1917,6 +1917,44 @@ body>footer>nav>ul>li>a {
 /* ------------------------ BEGIN SHOPPING CART--------------------------- */
 /* General styles for the shopping cart */
 
+#empty-cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  height: 60vh;
+  width: 90%;
+  /*bordo a trattini*/
+  border: 3px dashed white;
+  box-sizing: border-box;
+
+}
+#empty-cart > div {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: fit-content;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+#empty-cart > div > img {
+  width: 100px;
+  height: 100px;
+  filter: invert(1);
+}
+
+#empty-cart > div > p {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  font-family: "Roboto";
+}
+
+
+
+
 .shoppingcart_items main>ul {
   list-style-type: none;
   padding: 0;
@@ -4756,6 +4794,8 @@ body>#notification>button {
 #cancel-discount:hover {
   background-color: #c82333 !important;
 }
+
+
 
 
 

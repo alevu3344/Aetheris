@@ -1,6 +1,15 @@
 <a href="orders.php">Controlla ordini</a>
 
+<?php if (empty($templateParams["elementi-carrello"])): ?>
+    <div id="empty-cart">
+        <div>
+            <img src="upload/icons/empty.png" alt="Empty shopping cart"/><p>Wow, such empty</p>
+        </div>
+    </div>
+<?php endif; ?>
+
 <ul>
+
     <?php foreach ($templateParams["elementi-carrello"] as $gioco): ?>
         <li>
             <div>
@@ -50,4 +59,4 @@
 
 <button id="checkout">Checkout</button>
 
-<script src="../js/cart.js" defer="true"></script> 
+<script src="../js/cart.js" defer="true"></script>
