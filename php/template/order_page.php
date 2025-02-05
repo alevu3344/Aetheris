@@ -1,7 +1,8 @@
 <?php if (empty($templateParams["orders"])): ?>
     <div id="empty-cart">
         <div>
-            <img src="upload/icons/empty.png" alt="No orders"/><p>No orders yet!</p>
+            <img src="upload/icons/empty.png" alt="No orders" />
+            <p>No orders yet!</p>
         </div>
     </div>
 <?php endif; ?>
@@ -13,7 +14,9 @@
             <article>
                 <header>
                     <h2 id="<?= $order["OrderId"] ?>">Order #<?= $order["OrderId"] ?></h2>
-                    <p><?= $order["OrderDate"] ?></p>
+                    <p>
+                        <?= (new DateTime($order["OrderDate"]))->format('j/n/y H:i'); ?>
+                    </p>
                     <p class="status" id="<?= $order["Status"] ?>"><?= $order["Status"] ?></p>
                 </header>
                 <section>
@@ -51,4 +54,3 @@
         </li>
     <?php endforeach; ?>
 </ul>
-
