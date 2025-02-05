@@ -6,7 +6,7 @@
             <img src="upload/icons/empty.png" alt="Empty shopping cart"/><p>Wow, such empty</p>
         </div>
     </div>
-<?php endif; ?>
+<?php else: ?>
 
 <ul>
 
@@ -53,10 +53,10 @@
         </li>
     <?php endforeach; ?>
 </ul>
+<?php endif; ?>
 
-
-
-
+<?php if(!empty($templateParams["elementi-carrello"])): ?>
 <button id="checkout">Checkout</button>
+<?php endif; ?>
 
-<script src="../js/cart.js" defer="true"></script>
+<script src="../js/cart.js"></script>

@@ -485,10 +485,17 @@ body>header>div>div:nth-of-type(2)> #logout {
   margin: 0;
   padding: 0;
   text-decoration: none;
+  background: none;
+  border: none;
+  /*align items on top*/
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
 
 }
 
-body>header>div>div:nth-of-type(2)>a>img {
+body>header>div>div:nth-of-type(2)>#logout>img {
   height: 80%;
   width: auto;
 }
@@ -1927,6 +1934,7 @@ body>footer>nav>ul>li>a {
   /*bordo a trattini*/
   border: 3px dashed white;
   box-sizing: border-box;
+  margin-bottom: 20px;
 
 }
 #empty-cart > div {

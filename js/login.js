@@ -1,98 +1,57 @@
 
 
+if (document.body.classList.contains("registration-form")) {
+    // add a listener to the submit button in the registration form
+    document.querySelector(".registration-form > main > section > form").addEventListener("submit", function (event) {
+        event.preventDefault();
 
-function putAvatar(avatar, username, balance, isAdmin) {
-
-    let header_right_div = document.querySelector("body > header > div > div:nth-of-type(2)");
-
-    if (!isAdmin) {
-        let balanceSpan = document.createElement("span");
-        balanceSpan.id = "balance";
-        balanceSpan.style.color = "white";
-        balanceSpan.textContent = "Saldo: " + balance + "€";
-
-        header_right_div.appendChild(balanceSpan);
-    }
-
-    let header_accedi = document.querySelector("body > header > div > div:nth-of-type(2) > a");
-    let figure = `
-        <img src="../media/avatars/${avatar}" alt="Avatar">
-        <figcaption>${username}</figcaption>
-    `;
-    let newFigure = document.createElement("figure");
-    newFigure.innerHTML = figure;
-
-    header_accedi.replaceWith(newFigure);
-
-    let logoutButton = document.createElement("a"); // Renamed variable
-    logoutButton.innerHTML = `
-        <img src="upload/icons/logout.png" alt="Logout"/>
-    `;
-    logoutButton.id = "logout";
-    logoutButton.style.cursor = "pointer"; // Add pointer cursor to indicate interactivity
+        const name = document.querySelector("#name").value;
+        const surname = document.querySelector("#surname").value;
+        const birthday = document.querySelector("#birthday").value;
+        const city = document.querySelector("#city").value;
+        const address = document.querySelector("#address").value;
+        const phonenumber = document.querySelector("#phonenumber").value;
+        const email = document.querySelector("#email").value;
+        const username = document.querySelector("#username").value;
+        const password = document.querySelector("#password").value;
+        const repeatPassword = document.querySelector("#repeat-password").value;
+        const selectedAvatar = document.querySelector('input[name="avatar"]:checked');
+        const avatarId = selectedAvatar.value;
+        console.log("avatarId: " + avatarId);
 
 
 
-
-    // Add event listener to logout element
-    logoutButton.addEventListener("click", function () {
-        console.log("logout pressed");
-        logoutButton.remove(); // Remove the logout element
-        logout(); // Call the actual logout function
+        if (password != repeatPassword) {
+            document.querySelector(".login-form > main > section > p").innerText = "Passwords don't match";
+        }
+        else {
+            register(name, surname, birthday, city, address, phonenumber, email, username, password, avatarId);
+        }
     });
-
-
-    header_right_div.appendChild(logoutButton);
 }
 
 
-document.addEventListener("DOMContentLoaded", function () {
-    if (document.body.classList.contains("registration-form")) {
-        // add a listener to the submit button in the registration form
-        document.querySelector(".registration-form > main > section > form").addEventListener("submit", function (event) {
-            event.preventDefault();
-
-            const name = document.querySelector("#name").value;
-            const surname = document.querySelector("#surname").value;
-            const birthday = document.querySelector("#birthday").value;
-            const city = document.querySelector("#city").value;
-            const address = document.querySelector("#address").value;
-            const phonenumber = document.querySelector("#phonenumber").value;
-            const email = document.querySelector("#email").value;
-            const username = document.querySelector("#username").value;
-            const password = document.querySelector("#password").value;
-            const repeatPassword = document.querySelector("#repeat-password").value;
-            const selectedAvatar = document.querySelector('input[name="avatar"]:checked');
-            const avatarId = selectedAvatar.value;
-            console.log("avatarId: " + avatarId);
-
-
-
-            if (password != repeatPassword) {
-                document.querySelector(".login-form > main > section > p").innerText = "Passwords don't match";
-            }
-            else {
-                register(name, surname, birthday, city, address, phonenumber, email, username, password, avatarId);
-            }
-        });
+document.addEventListener("click", function (event) {
+    if (event.target.closest("#logout")) {
+        logout();
     }
 });
-document.addEventListener("DOMContentLoaded", function () {
-    if (document.body.classList.contains("login-form")) {
-        // Gestisco tentativo di login
-        document.querySelector(".login-form > main > section > form").addEventListener("submit", function (event) {
-            event.preventDefault();
-            console.log(document.body.classList.contains("login-form"));
-            const username = document.querySelector("#username").value;
-            const password = document.querySelector("#password").value;
-            console.log("submit pressed")
-            const formData = new FormData();
-            formData.append('Username', username);
-            formData.append('Password', password);
-            login(formData);
-        });
-    }
-});
+
+
+if (document.body.classList.contains("login-form")) {
+    // Gestisco tentativo di login
+    document.querySelector(".login-form > main > section > form").addEventListener("submit", function (event) {
+        event.preventDefault();
+        console.log(document.body.classList.contains("login-form"));
+        const username = document.querySelector("#username").value;
+        const password = document.querySelector("#password").value;
+        console.log("submit pressed")
+        const formData = new FormData();
+        formData.append('Username', username);
+        formData.append('Password', password);
+        login(formData);
+    });
+}
 
 
 async function logout() {
@@ -110,16 +69,8 @@ async function logout() {
 
         if (json["Success"]) {
             console.log("Logged out successfully");
-            let header = document.querySelector("body > header > div > div:nth-of-type(2) > figure");
-            let newA = document.createElement("a");
-            newA.href = "login.php";
-            newA.innerText = "Accedi";
-            header.replaceWith(newA);
-            //redirects to index
+
             window.location.href = "index.php";
-
-
-
         }
         else {
             console.log("Error logging out");
@@ -168,12 +119,6 @@ async function register(name, surname, birthday, city, address, phonenumber, ema
 
 
         if (json["Success"]) {
-            document.querySelector(".registration-form > main > section > p").innerText = "Registration successful";
-            putAvatar(json["Avatar"], json["Username"], json["Balance"], json["isAdmin"]);
-            //modify the register button in order for it to become green to display Back to page
-            let button = document.querySelector(".registration-form > main > section > form > fieldset > button");
-            let newButton = document.createElement("a");
-
 
             if (json["isAdmin"]) {
                 window.location.href = "admin-panel.php";
@@ -187,12 +132,6 @@ async function register(name, surname, birthday, city, address, phonenumber, ema
                     window.location.href = document.referrer;
                 }
             }
-
-
-        }
-        else {
-            document.querySelector(".registration-form > main > section > p").innerText = json["Errore"];
-
         }
 
 
@@ -201,13 +140,6 @@ async function register(name, surname, birthday, city, address, phonenumber, ema
     }
 }
 
-
-//when the dom is loaded, check if the user is logged in, and if so call putAvatar
-document.addEventListener("DOMContentLoaded", function () {
-    //call login function with no parameters to check if the user is logged in
-    login(new FormData());
-    console.log("dom loaded and called login again");
-});
 
 
 async function login(formData) {
@@ -226,7 +158,6 @@ async function login(formData) {
 
 
         if (json["LoggedIn"]) {
-            putAvatar(json["Avatar"], json["Username"], json["Balance"], json["isAdmin"]);
             if (document.body.classList.contains("login-form") || document.body.classList.contains("registration-form")) {
 
                 if (json["isAdmin"]) {

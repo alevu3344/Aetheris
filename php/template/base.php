@@ -2,7 +2,7 @@
 <html lang="it">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8" />
     <title><?= $templateParams["titolo"]; ?></title>
     <link rel="icon" type="image/ico" href="/e-shop/php/upload/icons/aetheris_logo.ico">
 
@@ -21,7 +21,7 @@
     <header>
         <div>
             <div>
-            <a href=<?= (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]) ? "admin-panel.php" : "index.php" ?>>
+                <a href=<?= (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]) ? "admin-panel.php" : "index.php" ?>>
 
                     <img src="upload/icons/aetheris_logo.png" alt="Logo" />
                 </a>
@@ -29,13 +29,27 @@
             </div>
 
             <div>
-                
-                <a id="signin" href="login.php">Accedi</a>
+                <?php if (isset($_SESSION["Username"]) && !$_SESSION["isAdmin"]): ?>
+                    <span><?= $BALANCE ?>€</span>
+                <?php endif; ?>
+                <?php if (isset($_SESSION["Username"])): ?>
+                    <figure>
+                        <img src="../media/avatars/<?= $AVATAR ?>" alt="Avatar">
+                        <figcaption><?= $_SESSION["Username"] ?></figcaption>
+                    </figure>
+                    <button id="logout">
+                        <img src="upload/icons/logout.png" alt="Logout" />
+                    </button>
+                <?php else: ?>
+
+                    <a id="signin" href="login.php">Accedi</a>
+                <?php endif; ?>
+
             </div>
         </div>
-        <?php if(isset($templateParams["categorie"])): ?>
+        <?php if (isset($templateParams["categorie"])): ?>
             <nav>
-        <!-- SEARCH BAR -->
+                <!-- SEARCH BAR -->
                 <div>
                     <div>
                         <div></div> <!-- GLOW -->
@@ -44,38 +58,38 @@
 
                         <div> <!-- INPUT CONTAINER -->
                             <label for="search-bar">Search:</label>
-                            <input id="search-bar" placeholder="Cerca gioco..." type="text" name="text"/> <!-- INPUT -->
+                            <input id="search-bar" placeholder="Cerca gioco..." type="text" name="text" /> <!-- INPUT -->
                         </div>
                         <ul></ul>
                     </div>
-                    <?php if(isset($_SESSION["Username"])): ?>
-                        <?php if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]): ?>
+                    <?php if (isset($_SESSION["Username"])): ?>
+                        <?php if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]): ?>
                             <a href="orders.php">
-                                <img src="upload/icons/orders.png" alt="Pending Orders"/>
+                                <img src="upload/icons/orders.png" alt="Pending Orders" />
                             </a>
                             <a href="new-game.php">
-                                <img src="upload/icons/add-to-cart.svg" alt="Add a new game"/>
+                                <img src="upload/icons/add-to-cart.svg" alt="Add a new game" />
                             </a>
                         <?php else: ?>
-                        <a href="cart.php">
-                            <img src="upload/icons/shopping-cart.svg" alt="Shopping Cart"/>
-                        </a>
-                        
+                            <a href="cart.php">
+                                <img src="upload/icons/shopping-cart.svg" alt="Shopping Cart" />
+                            </a>
+
                         <?php endif; ?>
                         <a href="notifications.php">
-                            <img src="upload/icons/notification_icon.svg" alt="Notifications"/>
+                            <img src="upload/icons/notification_icon.svg" alt="Notifications" />
                         </a>
                     <?php endif; ?>
                 </div>
-        <!-- SEARCH BAR -->
+                <!-- SEARCH BAR -->
                 <div>
                     <button id="categories-toggle">Categories</button>
                     <ul id="categories-list">
                         <?php foreach ($templateParams["categorie"] as $categoria): ?>
-                            <?php if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]): ?>
+                            <?php if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]): ?>
                                 <li><a href="admin-panel.php?category=<?= $categoria["CategoryName"] ?>"><?= $categoria["CategoryName"] ?></a></li>
                             <?php else: ?>
-                            <li><a href="categorygames.php?category=<?= $categoria["CategoryName"] ?>"><?= $categoria["CategoryName"] ?></a></li>
+                                <li><a href="categorygames.php?category=<?= $categoria["CategoryName"] ?>"><?= $categoria["CategoryName"] ?></a></li>
                             <?php endif; ?>
                         <?php endforeach; ?>
                     </ul>
@@ -99,13 +113,18 @@
 
 
         <nav>
-            <ul><li><img src="upload/icons/instagram.png" alt="Instagram" /><a href="#">Instagram</a></li><li><img src="upload/icons/pinterest.png" alt="Pinterest" /><a href="#">Pinterest</a></li><li><img src="upload/icons/youtube.png" alt="Youtube" /><a href="#">Youtube</a></li><li><img src="upload/icons/twitter.png" alt="Twitter" /><a href="#">Twitter</a></li></ul>
+            <ul>
+                <li><img src="upload/icons/instagram.png" alt="Instagram" /><a href="#">Instagram</a></li>
+                <li><img src="upload/icons/pinterest.png" alt="Pinterest" /><a href="#">Pinterest</a></li>
+                <li><img src="upload/icons/youtube.png" alt="Youtube" /><a href="#">Youtube</a></li>
+                <li><img src="upload/icons/twitter.png" alt="Twitter" /><a href="#">Twitter</a></li>
+            </ul>
         </nav>
     </footer>
 </body>
 
-<script src="../js/login.js" defer="true"></script>
-<script src="../js/base.js?admin=<?= isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] ? 'true' : 'false' ?>" defer="true"></script>
-<script src="../js/search-bar.js?admin=<?= isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] ? 'true' : 'false' ?>" defer></script>
+<script src="../js/login.js"></script>
+<script src="../js/base.js?admin=<?= isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] ? 'true' : 'false' ?>"></script>
+<script src="../js/search-bar.js?admin=<?= isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] ? 'true' : 'false' ?>"></script>
 
 </html>

@@ -14,7 +14,7 @@
 <?php else: ?>
     <div id="empty-cart">
         <div>
-            <img src="upload/icons/empty.png" alt="Empty shopping cart"/><p>Wow, such empty</p>
+            <img src="upload/icons/empty.png" alt="Empty notification list"/><p>Wow, such empty</p>
         </div>
     </div>
 <?php endif; ?>
