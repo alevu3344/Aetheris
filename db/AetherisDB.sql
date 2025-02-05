@@ -1421,16 +1421,9 @@ CREATE TABLE ORDERS (
   UserId int(11) NOT NULL,
   OrderDate datetime NOT NULL DEFAULT current_timestamp(),
   TotalCost decimal(10,2) NOT NULL,
-  Status enum("Pending","Completed","Shipped","Canceled") NOT NULL DEFAULT "Pending"
+  Status enum("Pending","Prepared","Shipped","Delivered") NOT NULL DEFAULT "Pending"
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table ORDERS
---
-
-INSERT INTO ORDERS (Id, UserId, OrderDate, TotalCost, Status) VALUES
-(1, 1, "2025-01-28 15:17:44", 23.69, "Pending"),
-(2, 1, "2025-01-28 15:19:11", 117.58, "Canceled");
 
 -- --------------------------------------------------------
 
@@ -1446,15 +1439,7 @@ CREATE TABLE ORDER_ITEMS (
   Platform enum("PC","PlayStation","Xbox","Nintendo_Switch") NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table ORDER_ITEMS
---
 
-INSERT INTO ORDER_ITEMS (OrderId, GameId, Quantity, FinalPrice, Platform) VALUES
-(1, 141, 1, 23.69, "PC"),
-(2, 218, 2, 58.00, "PC");
-
--- --------------------------------------------------------
 
 --
 -- Table structure for table PC_GAME_REQUIREMENTS

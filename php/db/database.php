@@ -668,6 +668,10 @@ class DatabaseHelper
         // Retrieve the generated OrderId
         $orderId = $stmt->insert_id;
 
+        // Trigger the background script to update order statuses
+        // Adjust the path to update_order_status.php as needed.
+        exec("php ../process-order.php " . escapeshellarg($orderId) . " > /dev/null 2>&1 &");
+
         // Insert into ORDER_ITEMS table
         $query = "INSERT INTO ORDER_ITEMS (GameId, Quantity, FinalPrice, OrderId, Platform) VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
