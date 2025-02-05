@@ -25,7 +25,10 @@
                         </button>
                     </header>
                     <p>
-                        <img src="upload/icons/<?= $gioco["Platform"] ?>.svg" alt="<?= $gioco["Platform"] ?>">
+                        <?php
+                        $platforms = array_column($gioco["Platforms"], null, "Platform");
+                        ?>
+                        <img src="upload/icons/<?= $gioco["Platform"] ?>.svg" alt="<?= $gioco["Platform"] ?>"/><span>Stock: <?= $platforms[$gioco["Platform"]]["Stock"]?></span>
                     </p>
                     <footer>
                         <div>
