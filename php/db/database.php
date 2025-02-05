@@ -75,6 +75,8 @@ class DatabaseHelper
         }
     }
 
+
+
     public function addDiscountToGame($gameId, $discount, $startDate, $endDate)
     {
 
@@ -279,6 +281,15 @@ class DatabaseHelper
         }
     }
 
+    public function getOrderById($id){
+        $query = "SELECT * FROM ORDERS WHERE Id = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc();
+    }
+
 
     public function getOrdersForUser($UserID)
     {
@@ -410,7 +421,10 @@ class DatabaseHelper
         $query = "UPDATE ORDERS SET Status = ? WHERE Id = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("si", $Status, $OrderId);
-        return $stmt->execute();
+        $stmt->execute();
+
+        $this->notifyUser("order_status_changed", "The status of your order #" . $OrderId . " has been changed to " . $Status, $this->getOrderById($OrderId)["UserId"]);
+
     }
 
     public function getPlatformQuantity($gameId, $platform)
@@ -1010,6 +1024,8 @@ class DatabaseHelper
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $userId);
         $stmt->execute();
+
+        exec("php ../process-order.php " . escapeshellarg($orderId) . " > /dev/null 2>&1 &");
 
         return [
             'success' => true,

@@ -4145,7 +4145,7 @@ body>#notification>button {
   box-sizing: border-box;
 }
 
-.order_page>main>ul>li>article>header>#Completed {
+.order_page>main>ul>li>article>header>#Delivered {
   background-color: #007bff;
 }
 
@@ -4153,9 +4153,11 @@ body>#notification>button {
   background-color: #ffcc00;
 }
 
-.order_page>main>ul>li>article>header>#Canceled {
-  background-color: #d50000;
+.order_page>main>ul>li>article>header>#Prepared {
+  background-color: #ff9900;
 }
+
+
 
 .order_page>main>ul>li>article>header>#Shipped {
   background-color: #00c83f;

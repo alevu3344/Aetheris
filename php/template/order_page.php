@@ -17,7 +17,7 @@
                     <p>
                         <?= (new DateTime($order["OrderDate"]))->format('j/n/y H:i'); ?>
                     </p>
-                    <p class="status" id="<?= $order["Status"] ?>"><?= $order["Status"] ?></p>
+                    <p class="status" data-order-id= "<?= $order["OrderId"]?>"id="<?= $order["Status"] ?>"><?= $order["Status"] ?></p>
                 </header>
                 <section>
                     <h3>Games</h3>
@@ -54,3 +54,5 @@
         </li>
     <?php endforeach; ?>
 </ul>
+
+<script src="../js/orders.js"></script>
