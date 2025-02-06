@@ -440,7 +440,7 @@ class DatabaseHelper
         JOIN 
             USERS U ON O.UserId = U.UserID
         WHERE 
-            O.Status != 'Canceled'
+            O.Status != 'Delivered'
         ORDER BY 
             O.OrderDate DESC, O.Id
         ";
@@ -747,8 +747,6 @@ class DatabaseHelper
         // Retrieve the generated OrderId
         $orderId = $stmt->insert_id;
 
-        exec("php ../process-order.php " . escapeshellarg($orderId) . " > /dev/null 2>&1 &");
-
         // Insert into ORDER_ITEMS table
         $query = "INSERT INTO ORDER_ITEMS (GameId, Quantity, FinalPrice, OrderId, Platform) VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
@@ -767,6 +765,9 @@ class DatabaseHelper
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("iis", $quantity, $gameId, $platform);
         $stmt->execute();
+
+        //notify the admin of the new order
+        $this->notifyAdmin("new_order", "A new order has been placed by " . $this->getUser($userId)["Username"]);
 
 
         //notify admin if the stock for the platform is now 0
@@ -1076,6 +1077,10 @@ class DatabaseHelper
             $stockResult = $stmt->get_result(); // Use a different variable here
             $stockRow = $stockResult->fetch_assoc();
 
+
+            //notify the admin of the new order
+            $this->notifyAdmin("new_order", "A new order has been placed by " . $this->getUser($userId)["Username"]);
+
             if ($stockRow["Stock"] == 0) {
                 $gameName = $this->getGameById($gameId)[0]["Name"];
                 $this->notifyAdmin("out_of_stock", "The game " . $gameName . " is now out of stock for the platform " . $platform);
@@ -1088,7 +1093,7 @@ class DatabaseHelper
         $stmt->bind_param("i", $userId);
         $stmt->execute();
 
-        exec("php ../process-order.php " . escapeshellarg($orderId) . " > /dev/null 2>&1 &");
+
 
 
         return [
