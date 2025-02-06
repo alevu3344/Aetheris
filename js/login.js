@@ -170,8 +170,12 @@ async function login(formData) {
         }
         else if (json["ErroreLogin"]) {
 
-            document.querySelector(".login-form > main > section > p").innerText = json["ErroreLogin"];
+            const errorSpan = document.createElement("span");
+            errorSpan.innerText = json["ErroreLogin"];
+            errorSpan.style.color = "red";
 
+            //append after h2
+            document.querySelector(".login-form > main > section > h2").after(errorSpan);
         }
 
 
