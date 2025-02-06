@@ -1406,7 +1406,7 @@ CREATE TABLE NOTIFICATIONS (
   UserID int(11) NOT NULL,
   Type  varchar(255) NOT NULL,
   Message varchar(255) NOT NULL,
-  SentAt timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  SentAt timestamp NOT NULL DEFAULT current_timestamp(),
   Status enum("Read","Unread") DEFAULT "Unread"
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
