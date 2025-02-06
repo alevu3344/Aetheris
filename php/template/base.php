@@ -29,14 +29,17 @@
             </div>
 
             <div>
-                <?php if (isset($_SESSION["Username"]) && !$_SESSION["isAdmin"]): ?>
-                    <span><?= $BALANCE ?>€</span>
-                <?php endif; ?>
+
                 <?php if (isset($_SESSION["Username"])): ?>
-                    <figure>
-                        <img src="../media/avatars/<?= $AVATAR ?>" alt="Avatar"/>
-                        <figcaption><?= $_SESSION["Username"] ?></figcaption>
-                    </figure>
+                    <div>
+                        <figure>
+                            <img src="../media/avatars/<?= $AVATAR ?>" alt="Avatar" />
+                            <figcaption><?= $_SESSION["Username"] ?></figcaption>
+                        </figure>
+                        <?php if (isset($_SESSION["Username"]) && !$_SESSION["isAdmin"]): ?>
+                            <span><?= $BALANCE ?>€</span>
+                        <?php endif; ?>
+                    </div>
                     <button id="logout">
                         <img src="upload/icons/logout.png" alt="Logout" />
                     </button>
