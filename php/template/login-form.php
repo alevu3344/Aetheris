@@ -13,10 +13,6 @@
             <label for="password">Password</label>
             <input type="password" name="password" id="password" placeholder="" required>
 
-            <p>
-                <a rel="noopener noreferrer" href="#">Forgot Password?</a>
-            </p>
-
             <?php if(isset($_SESSION["Username"])): ?>
                     <a href="index.php">Back to page</a>
                 <?php else :?>

@@ -46,14 +46,27 @@ document.querySelector("#buy").addEventListener("click", async (event) => {
     //listener per il bottone acquista
     popup.querySelector("button[type='submit']").addEventListener("click", async (event) => {
         event.preventDefault();
-        let form = popup.querySelector("#purchaseForm");
-        let formData = new FormData(form);
-        let platform = formData.get("platform");
-        let quantity = formData.get("quantity");
-        // Show the custom confirmation popup
-        const confirmed = await showConfirmationPopup("Sei sicuro di voler acquistare questo gioco?");
-        if (confirmed) {
-            buyGame(game.Id, platform, quantity);
+        let input = popup.querySelector("#quantity");
+
+        // Check input validity before saving
+        if (input.checkValidity()) {
+            let form = popup.querySelector("#purchaseForm");
+            let formData = new FormData(form);
+            let platform = formData.get("platform");
+            let quantity = formData.get("quantity");
+            // Show the custom confirmation popup
+            const confirmed = await showConfirmationPopup("Are you sure you want to buy this game?");
+            if (confirmed) {
+                buyGame(game.Id, platform, quantity);
+            }
+
+        } else {
+            // If the input is not valid, show feedback
+            input.setCustomValidity("Quantity must be greater than 0");
+            input.reportValidity();
+            //reset the input validity
+            input.setCustomValidity("");
+            return;
         }
     });
     //metti l'elemento in testa al body
@@ -68,13 +81,30 @@ document.querySelector("#cart").addEventListener("click", function (event) {
     let popup = createPopUpWindow(game, platforms, option = "cart");
 
     //listener per il bottone acquista
-    popup.querySelector("button[type='submit']").addEventListener("click", function (event) {
+    popup.querySelector("button[type='submit']").addEventListener("click", async (event) => {
         event.preventDefault();
-        let form = popup.querySelector("#purchaseForm");
-        let formData = new FormData(form);
-        let platform = formData.get("platform");
-        let quantity = formData.get("quantity");
-        addToCart(game.Id, platform, quantity);
+        let input = popup.querySelector("#quantity");
+
+            // Check input validity before saving
+            if (input.checkValidity()) {
+                let form = popup.querySelector("#purchaseForm");
+                let formData = new FormData(form);
+                let platform = formData.get("platform");
+                let quantity = formData.get("quantity");
+                // Show the custom confirmation popup
+                const confirmed = await showConfirmationPopup("Are you sure you want to add this game to your cart?");
+                if (confirmed) {
+                    addToCart(game.Id, platform, quantity);
+                }
+
+            } else {
+                // If the input is not valid, show feedback
+                input.setCustomValidity("Quantity must be greater than 0");
+                input.reportValidity();
+                //reset the input validity
+                input.setCustomValidity("");
+                return;
+            }
     });
     //metti l'elemento in testa al body
     document.body.insertBefore(popup, document.body.firstChild);
