@@ -8,7 +8,6 @@
 <?php endif; ?>
 
 <ul>
-
     <?php foreach ($templateParams["orders"] as $order): ?>
         <li>
             <article>

@@ -461,20 +461,37 @@ body>header>div>div:nth-of-type(2)>a:only-child {
   padding: 0;
 }
 
-body>header>div>div:nth-of-type(2)>figure {
-  height: 90%;
+body>header>div>div:nth-of-type(2)>div {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  height: 90%;
+
+}
+
+body>header>div>div:nth-of-type(2)>div > span {
+  height: 20%;
+  font-size: 100%;
+  color: white;
+}
+
+body>header>div>div:nth-of-type(2)>div> figure {
+  height: 80%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 0;
 }
 
-body>header>div>div:nth-of-type(2)>figure>img {
-  height: 80%;
-  width: auto;
+body>header>div>div:nth-of-type(2)>div>figure>img {
+  height: 40px;
+  width: 40px;
 }
 
-body>header>div>div:nth-of-type(2)>figure>figcaption {
+body>header>div>div:nth-of-type(2)>div>figure>figcaption {
   font-size: 10px;
   margin: 0;
   height: 20%;
