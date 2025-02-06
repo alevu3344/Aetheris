@@ -89,6 +89,7 @@ async function createRelevantGame(game) {
 
         //listener per il bottone aggiungi al carrello
         popup.querySelector("button[type='submit']").addEventListener("click", async (event) => {
+            event.preventDefault();
             let input = popup.querySelector("#quantity");
 
             // Check input validity before saving

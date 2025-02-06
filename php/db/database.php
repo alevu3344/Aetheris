@@ -747,18 +747,7 @@ class DatabaseHelper
         // Retrieve the generated OrderId
         $orderId = $stmt->insert_id;
 
-        $phpPath = PHP_OS_FAMILY === "Windows" ? "C:\\xampp\\php\\php.exe" : "php";
-        $backgroundOperator = PHP_OS_FAMILY === "Windows" ? "start /B " : "> /dev/null 2>&1 &";
-
-        $cmd = PHP_OS_FAMILY === "Windows"
-            ? "start /B $phpPath " . escapeshellarg(__DIR__ . "/../process-order.php") . " " . escapeshellarg($orderId)
-            : "$phpPath " . escapeshellarg(__DIR__ . "/../process-order.php") . " " . escapeshellarg($orderId) . " $backgroundOperator";
-
-        exec($cmd);
-
-
-
-
+        exec("php ../process-order.php " . escapeshellarg($orderId) . " > /dev/null 2>&1 &");
 
         // Insert into ORDER_ITEMS table
         $query = "INSERT INTO ORDER_ITEMS (GameId, Quantity, FinalPrice, OrderId, Platform) VALUES (?, ?, ?, ?, ?)";
@@ -1099,16 +1088,7 @@ class DatabaseHelper
         $stmt->bind_param("i", $userId);
         $stmt->execute();
 
-        $phpPath = PHP_OS_FAMILY === "Windows" ? "C:\\xampp\\php\\php.exe" : "php";
-        $backgroundOperator = PHP_OS_FAMILY === "Windows" ? "start /B " : "> /dev/null 2>&1 &";
-
-        $cmd = PHP_OS_FAMILY === "Windows"
-            ? "start /B $phpPath " . escapeshellarg(__DIR__ . "/../process-order.php") . " " . escapeshellarg($orderId)
-            : "$phpPath " . escapeshellarg(__DIR__ . "/../process-order.php") . " " . escapeshellarg($orderId) . " $backgroundOperator";
-
-        exec($cmd);
-
-
+        exec("php ../process-order.php " . escapeshellarg($orderId) . " > /dev/null 2>&1 &");
 
 
         return [
