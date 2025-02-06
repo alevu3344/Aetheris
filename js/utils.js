@@ -1,4 +1,4 @@
-function showConfirmationPopup() {
+function showConfirmationPopup(messageText) {
     return new Promise((resolve) => {
         // Create overlay for the popup
         const overlay = document.createElement('div');
@@ -24,7 +24,7 @@ function showConfirmationPopup() {
 
         // Create message element
         const message = document.createElement('p');
-        message.innerText = "Sei sicuro di voler procedere al checkout?";
+        message.innerText = messageText;
         popup.appendChild(message);
 
         // Create buttons container

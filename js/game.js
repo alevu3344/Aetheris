@@ -53,7 +53,7 @@ document.querySelector("#buy").addEventListener("click", async (event) => {
         let quantity = formData.get("quantity");
         console.log(game.Id, platform, quantity);
         // Show the custom confirmation popup
-        const confirmed = await showConfirmationPopup();
+        const confirmed = await showConfirmationPopup("Sei sicuro di voler acquistare questo gioco?");
         if (confirmed) {
             buyGame(game.Id, platform, quantity);
         }
@@ -250,79 +250,3 @@ function showAddReviewForm() {
     document.body.insertBefore(div, document.body.firstChild);
 }
 
-/*
-
-function showConfirmationPopup() {
-    return new Promise((resolve) => {
-        // Create overlay for the popup
-        const overlay = document.createElement('div');
-        overlay.style.position = 'fixed';
-        overlay.style.top = 0;
-        overlay.style.left = 0;
-        overlay.style.width = '100%';
-        overlay.style.height = '100%';
-        overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-        overlay.style.display = 'flex';
-        overlay.style.alignItems = 'center';
-        overlay.style.justifyContent = 'center';
-        overlay.style.zIndex = 1000;
-
-        // Create popup container
-        const popup = document.createElement('div');
-        popup.style.backgroundColor = '#fff';
-        popup.style.padding = '20px';
-        popup.style.borderRadius = '5px';
-        popup.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
-        popup.style.minWidth = '300px';
-        popup.style.textAlign = 'center';
-
-        // Create message element
-        const message = document.createElement('p');
-        message.innerText = "Sei sicuro di voler procedere al checkout?";
-        popup.appendChild(message);
-
-        // Create buttons container
-        const buttonsContainer = document.createElement('div');
-        buttonsContainer.style.marginTop = '20px';
-        buttonsContainer.style.display = 'flex';
-        buttonsContainer.style.justifyContent = 'space-around';
-
-        // Create Confirm button
-        const confirmButton = document.createElement('button');
-        confirmButton.innerText = "Conferma";
-        confirmButton.style.padding = '10px 20px';
-        confirmButton.style.backgroundColor = '#4CAF50';
-        confirmButton.style.color = '#fff';
-        confirmButton.style.border = 'none';
-        confirmButton.style.borderRadius = '3px';
-        confirmButton.style.cursor = 'pointer';
-        confirmButton.addEventListener('click', () => {
-            document.body.removeChild(overlay);
-            resolve(true);
-        });
-
-        // Create Cancel button
-        const cancelButton = document.createElement('button');
-        cancelButton.innerText = "Annulla";
-        cancelButton.style.padding = '10px 20px';
-        cancelButton.style.backgroundColor = '#f44336';
-        cancelButton.style.color = '#fff';
-        cancelButton.style.border = 'none';
-        cancelButton.style.borderRadius = '3px';
-        cancelButton.style.cursor = 'pointer';
-        cancelButton.addEventListener('click', () => {
-            document.body.removeChild(overlay);
-            resolve(false);
-        });
-
-        // Append buttons to container and container to popup
-        buttonsContainer.appendChild(confirmButton);
-        buttonsContainer.appendChild(cancelButton);
-        popup.appendChild(buttonsContainer);
-
-        // Append popup to overlay and overlay to the body
-        overlay.appendChild(popup);
-        document.body.appendChild(overlay);
-    });
-}
-*/

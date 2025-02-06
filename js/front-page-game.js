@@ -61,7 +61,7 @@ async function createRelevantGame(game) {
             let quantity = formData.get("quantity");
             console.log(game.Id, platform, quantity);
             // Show the custom confirmation popup
-            const confirmed = await showConfirmationPopup();
+            const confirmed = await showConfirmationPopup("Sei sicuro di voler acquistare questo gioco?");
             if (confirmed) {
                 buyGame(game.Id, platform, quantity);
             }

@@ -57,7 +57,7 @@ checkoutButton.addEventListener("click", async (event) => {
     }
 
     // Show the custom confirmation popup
-    const confirmed = await showConfirmationPopup();
+    const confirmed = await showConfirmationPopup("Sei sicuro di voler procedere con il checkout?");
     if (confirmed) {
         checkout();
     }

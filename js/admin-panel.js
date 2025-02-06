@@ -11,8 +11,9 @@ try {
 
 
 document.querySelectorAll(".game").forEach((game) => {
-    game.querySelector(".actions > .delete").addEventListener("click", () => {
-        if (confirm("Are you sure you want to delete this game?")) {
+    game.querySelector(".actions > .delete").addEventListener("click", async () => {
+        const confirmed = await showConfirmationPopup("Sei sicuro di voler eliminare questo gioco?");
+        if (confirmed) {
             deleteGame(game);
         }
     });
@@ -221,8 +222,9 @@ document.addEventListener("click", function (event) {
                         newSpan.insertAdjacentElement("beforebegin", deleteButton);
 
                         // Listener per il delete button del nuovo span
-                        deleteButton.addEventListener("click", (e) => {
-                            if (confirm(`Are you sure you want to delete the ${selectedCategory} category?`)) {
+                        deleteButton.addEventListener("click", async (e) => {
+                            const confirmed = await showConfirmationPopup("Sei sicuro di voler eliminare questa categoria?");
+                            if (confirmed) {
                                 removeCategory(selectedCategory, gameId)
                                     .then(() => {
                                         newSpan.remove();
@@ -327,8 +329,9 @@ document.addEventListener("click", function (event) {
 
                 let categoryName = span.textContent;
 
-                deleteButton.addEventListener("click", (e) => {
-                    if (confirm(`Are you sure you want to delete the ${categoryName} category?`)) {
+                deleteButton.addEventListener("click", async (e) => {
+                    const confirmed = await showConfirmationPopup("Sei sicuro di voler eliminare questa categoria?");
+                    if (confirmed) {
                         removeCategory(categoryName, gameId)
                             .then(() => {
                                 span.remove();
@@ -454,8 +457,9 @@ document.addEventListener("click", function (event) {
                         deleteButton.appendChild(deleteIcon);
                         newIcon.insertAdjacentElement("beforebegin", deleteButton);
 
-                        deleteButton.addEventListener("click", (e) => {
-                            if (confirm(`Are you sure you want to delete the ${selectedPlatform} platform?`)) {
+                        deleteButton.addEventListener("click", async (e) => {
+                            const confirmed = await showConfirmationPopup("Sei sicuro di voler eliminare questa piattaforma?");
+                            if (confirmed) {
                                 removePlatform(selectedPlatform, gameId)
                                     .then(() => {
                                         newIcon.remove();
@@ -548,8 +552,9 @@ document.addEventListener("click", function (event) {
 
                 let platformName = icon.src.split("/").pop().split(".")[0];
 
-                deleteButton.addEventListener("click", (e) => {
-                    if (confirm(`Are you sure you want to delete the ${platformName} platform?`)) {
+                deleteButton.addEventListener("click", async (e) => {
+                    const confirmed = await showConfirmationPopup("Sei sicuro di voler eliminare questa piattaforma?");
+                    if (confirmed) {
                         removePlatform(platformName, gameId)
                             .then(() => {
                                 icon.remove();
@@ -881,11 +886,12 @@ async function modifyField(gameId, fieldName, newValue) {
 }
 
 
-document.addEventListener("click", function (event) {
+document.addEventListener("click", async function (event) {
     if (event.target.classList.contains("remove-discount")) {
         let button = event.target;
         const gameId = button.closest(".game").id;
-        if (confirm("Are you sure you want to remove the discount?")) {
+        const confirmed = await showConfirmationPopup("Sei sicuro di voler eliminare questo sconto?");
+        if (confirmed) {
             removeDiscount(gameId).then(
                 () => {
                     location.reload();
