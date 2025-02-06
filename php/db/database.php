@@ -288,7 +288,8 @@ class DatabaseHelper
         }
     }
 
-    public function getOrderById($id){
+    public function getOrderById($id)
+    {
         $query = "SELECT * FROM ORDERS WHERE Id = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $id);
@@ -431,7 +432,6 @@ class DatabaseHelper
         $stmt->execute();
 
         $this->notifyUser("order_status_changed", "The status of your order #" . $OrderId . " has been changed to " . $Status, $this->getOrderById($OrderId)["UserId"]);
-
     }
 
     public function getPlatformQuantity($gameId, $platform)
@@ -689,9 +689,18 @@ class DatabaseHelper
         // Retrieve the generated OrderId
         $orderId = $stmt->insert_id;
 
-        // Trigger the background script to update order statuses
-        // Adjust the path to update_order_status.php as needed.
-        exec("php ../process-order.php " . escapeshellarg($orderId) . " > /dev/null 2>&1 &");
+        $phpPath = PHP_OS_FAMILY === "Windows" ? "C:\\xampp\\php\\php.exe" : "php";
+        $backgroundOperator = PHP_OS_FAMILY === "Windows" ? "start /B " : "> /dev/null 2>&1 &";
+
+        $cmd = PHP_OS_FAMILY === "Windows"
+            ? "start /B $phpPath " . escapeshellarg(__DIR__ . "/../process-order.php") . " " . escapeshellarg($orderId)
+            : "$phpPath " . escapeshellarg(__DIR__ . "/../process-order.php") . " " . escapeshellarg($orderId) . " $backgroundOperator";
+
+        exec($cmd);
+
+
+
+
 
         // Insert into ORDER_ITEMS table
         $query = "INSERT INTO ORDER_ITEMS (GameId, Quantity, FinalPrice, OrderId, Platform) VALUES (?, ?, ?, ?, ?)";
@@ -1032,7 +1041,17 @@ class DatabaseHelper
         $stmt->bind_param("i", $userId);
         $stmt->execute();
 
-        exec("php ../process-order.php " . escapeshellarg($orderId) . " > /dev/null 2>&1 &");
+        $phpPath = PHP_OS_FAMILY === "Windows" ? "C:\\xampp\\php\\php.exe" : "php";
+        $backgroundOperator = PHP_OS_FAMILY === "Windows" ? "start /B " : "> /dev/null 2>&1 &";
+
+        $cmd = PHP_OS_FAMILY === "Windows"
+            ? "start /B $phpPath " . escapeshellarg(__DIR__ . "/../process-order.php") . " " . escapeshellarg($orderId)
+            : "$phpPath " . escapeshellarg(__DIR__ . "/../process-order.php") . " " . escapeshellarg($orderId) . " $backgroundOperator";
+
+        exec($cmd);
+
+
+
 
         return [
             'success' => true,
