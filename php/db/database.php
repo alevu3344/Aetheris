@@ -201,6 +201,13 @@ class DatabaseHelper
             return false;
         }
 
+        $query = "DELETE FROM ORDER_ITEMS WHERE GameId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $gameId);
+        if (!$stmt->execute()) {
+            return false;
+        }
+
         $query = "DELETE FROM GAMES WHERE Id = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $gameId);
