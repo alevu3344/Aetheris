@@ -3388,7 +3388,7 @@ hr {
 }
 
 
-#popup>section>form>#acquista {
+#popup>section>form>#buy {
 
   background-color: #35c335;
   padding: 10px 10px;
@@ -3403,7 +3403,7 @@ hr {
   box-sizing: border-box;
 }
 
-#popup>section>form>#carrello {
+#popup>section>form>#cart {
 
   background-color: #007bff;
   padding: 10px 10px;
