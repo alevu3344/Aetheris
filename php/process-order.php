@@ -9,7 +9,7 @@ $orderId = $argv[1];
 
 // Define the delivery statuses and time intervals (in seconds)
 $statuses = ["Pending", "Prepared", "Shipped", "Delivered"];
-$interval = 10; // seconds between each update
+$interval = 3; // seconds between each update
 
 foreach ($statuses as $status) {
     // Update the order status in the database.
