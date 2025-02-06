@@ -26,15 +26,15 @@ while (true) {
     // Prepare the response JSON
     $statusData = [
         "orderId" => $orderId,
-        "status" => $order["Status"],
-        "updatedAt" => date("j/n/Y H:i:s", strtotime($order["OrderDate"])) // Format date
+        "status" => $order[0]["Status"],
+        "updatedAt" => date("j/n/Y H:i:s", strtotime($order[0]["OrderDate"])) // Format date
     ];
 
     echo "data: " . json_encode($statusData) . "\n\n";
     flush();
 
     // Stop updating if order is "Delivered"
-    if ($order["Status"] === "Delivered") {
+    if ($order[0]["Status"] === "Delivered") {
         break;
     }
 
