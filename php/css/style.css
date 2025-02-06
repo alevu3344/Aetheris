@@ -3835,6 +3835,8 @@ input[type=number] {
   word-wrap: break-word; /* Ensures long words break and wrap */
   overflow-wrap: break-word; /* Alternative for modern browsers */
   white-space: normal; /* Ensures wrapping happens */
+  text-align: left;
+
 }
 
 .admin-content>main>ul>li>section>div>dl div>form {
@@ -5298,5 +5300,10 @@ body>#notification>button {
 
   #empty-cart {
     max-width: 1000px;
+  }
+
+  .admin-content>main>ul>li>section>div>dl > div > #Trailer {
+    text-align: right;
+  
   }
 }
