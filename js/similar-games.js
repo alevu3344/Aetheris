@@ -6,10 +6,6 @@ function generateSimilarGames(games){
     games.forEach(game => {
         const discountText = game['Discount']>0 ? `<span>-${game["Discount"]}%</span>` : "";
         const discountedPrice = game['Discount']>0 ? `<span>${(game['Price'] * (1 - game["Discount"] / 100)).toFixed(2)}€</span>` : "";
-        console.log("Sconto: ",game['Discount']);
-        console.log("Percentuale: ",discountText);
-        console.log("Prezzo scontato:",discountedPrice);
-
         let placeholder = `
         <li>
             <a href = "game.php?id=${game["Id"]}">

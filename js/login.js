@@ -17,7 +17,6 @@ if (document.body.classList.contains("registration-form")) {
         const repeatPassword = document.querySelector("#repeat-password").value;
         const selectedAvatar = document.querySelector('input[name="avatar"]:checked');
         const avatarId = selectedAvatar.value;
-        console.log("avatarId: " + avatarId);
 
 
 
@@ -42,10 +41,8 @@ if (document.body.classList.contains("login-form")) {
     // Gestisco tentativo di login
     document.querySelector(".login-form > main > section > form").addEventListener("submit", function (event) {
         event.preventDefault();
-        console.log(document.body.classList.contains("login-form"));
         const username = document.querySelector("#username").value;
         const password = document.querySelector("#password").value;
-        console.log("submit pressed")
         const formData = new FormData();
         formData.append('Username', username);
         formData.append('Password', password);
@@ -68,7 +65,6 @@ async function logout() {
         const json = await response.json();
 
         if (json["Success"]) {
-            console.log("Logged out successfully");
 
             window.location.href = "index.php";
         }
@@ -100,11 +96,6 @@ async function register(name, surname, birthday, city, address, phonenumber, ema
     formData.append('Address', address);
     formData.append('PhoneNumber', phonenumber);
     formData.append('AvatarId', avatarId);
-
-    console.log("registering");
-
-
-
     try {
 
         const response = await fetch(url, {

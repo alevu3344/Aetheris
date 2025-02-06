@@ -46,12 +46,10 @@ document.querySelector("#buy").addEventListener("click", async (event) => {
     //listener per il bottone acquista
     popup.querySelector("button[type='submit']").addEventListener("click", async (event) => {
         event.preventDefault();
-        console.log("Acquista");
         let form = popup.querySelector("#purchaseForm");
         let formData = new FormData(form);
         let platform = formData.get("platform");
         let quantity = formData.get("quantity");
-        console.log(game.Id, platform, quantity);
         // Show the custom confirmation popup
         const confirmed = await showConfirmationPopup("Sei sicuro di voler acquistare questo gioco?");
         if (confirmed) {
@@ -72,7 +70,6 @@ document.querySelector("#cart").addEventListener("click", function (event) {
     //listener per il bottone acquista
     popup.querySelector("button[type='submit']").addEventListener("click", function (event) {
         event.preventDefault();
-        console.log("Aggiungi al carrello");
         let form = popup.querySelector("#purchaseForm");
         let formData = new FormData(form);
         let platform = formData.get("platform");
@@ -96,7 +93,6 @@ async function getMoreReviews(start, end) {
 
 
         const reviews = await response.json();
-        console.log(reviews);
         appendNewReviews(reviews);
 
         currentStart = end + 1;

@@ -22,8 +22,6 @@ if(document.getElementById("search-bar")!=null){
 function generateSearchedGames(games){
     let result = "";
     games.forEach(game => {
-        console.log("Game:", game["Name"]);
-        console.log("Discount:", game["Discount"]);
         const discountedPrice = game['Discount'] ? `<span>${(game['Price'] * (1 - game["Discount"] / 100)).toFixed(2)}€</span>` : `<span>${game['Price']}€</span>`;
         let placeholder = `
             <li>

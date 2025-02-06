@@ -64,7 +64,6 @@ document.getElementById("add-game-form").addEventListener("submit", function (ev
 
             if (isValid) {
                 var formData = new FormData(event.target);
-                console.log(formData);
                 addGame(formData); 
             }
         }).catch(err => {
@@ -81,14 +80,11 @@ document.getElementById("gameName").addEventListener("input", function () {
 
 
 document.querySelector("#checkbox-PC").addEventListener("change", function () {
-    console.log("checkbox-PC changed");
 
     if (this.checked) {
-        console.log("checked");
         addGameRequirements();
         
     } else {
-        console.log("unchecked");
         let pcRequirements = document.querySelector("#pc-requirements");
         document.querySelector("#pc-requirements").remove();
 

@@ -579,7 +579,6 @@ document.addEventListener("click", function (event) {
     if (event.target.classList.contains("edit")) {
         event.preventDefault();
         let button = event.target;
-        console.log(button.innerText);
 
         const dtContainer = button.parentElement;
         let dd = dtContainer.parentElement.querySelector("dd");
@@ -591,7 +590,6 @@ document.addEventListener("click", function (event) {
         if (!dd) return;
 
         if (button.innerText === "Save") {
-            console.log("Save");
             const input = dd.querySelector("input, select");
             const newValue = input.value.trim();
             const gameId = button.closest(".game").id;
@@ -602,7 +600,6 @@ document.addEventListener("click", function (event) {
                 // Special validation for StartDate and EndDate
                 if ((input.id === "StartDate" && new Date(input.value) > new Date(convertDateFormat(document.querySelector("#EndDate").textContent.trim()))) ||
                     (input.id === "EndDate" && new Date(input.value) < new Date(convertDateFormat(document.querySelector("#StartDate").textContent.trim())))) {
-                    console.log("End date must be later than start date.");
                     input.setCustomValidity("End date must be later than start date.");
                     input.reportValidity();
                     input.setCustomValidity(""); // Reset custom validity after reporting
@@ -613,7 +610,6 @@ document.addEventListener("click", function (event) {
                     // Check if game name is unique using fetch and then
                     checkGameNameUnique(input.value).then(isUnique => {
                         if (!isUnique) {
-                            console.log("Game name must be unique.");
                             input.setCustomValidity("Game name must be unique.");
                             input.reportValidity();
                             input.setCustomValidity(""); // Reset custom validity after reporting
@@ -691,7 +687,6 @@ document.addEventListener("click", function (event) {
 
             //ALTRO
             else {
-                console.log("Edit");
                 const form = document.createElement("form");
                 form.innerHTML = divInner;
 
@@ -1088,7 +1083,6 @@ document.addEventListener("click", function (event) {
     if (event.target.classList.contains("modify-images")) {
         event.preventDefault();
         let button = event.target;
-        console.log(button.innerText);
 
         // Save the initial content for restoring when clicking Cancel
         const containerDiv = button.closest(".images");
@@ -1232,8 +1226,6 @@ document.addEventListener("click", function (event) {
                 //restore the previous content
                 form.remove(); // Remove the form
                 section.insertBefore(containerDiv, section.firstChild); // Restore the original content
-
-                console.log("No images were modified. Skipping API call.");
                 return;
             }
 
@@ -1243,8 +1235,6 @@ document.addEventListener("click", function (event) {
                 if(result){
                     location.reload();
                 }
-        
-                console.log("Upload success:", result);
             } catch (error) {
                 console.error("Error uploading images:", error);
             }
@@ -1294,7 +1284,6 @@ async function sendModifiedImages(gameId) {
             const screenshotNumber = index + 1;
             formData.append(`screenshot_${screenshotNumber}`, blob, `screenshot_${screenshotNumber}.jpg`);
             modifiedScreenshots.push({ imgElement: img, number: screenshotNumber });
-            console.log(`Added screenshot ${screenshotNumber}`);
         }
     });
 
@@ -1310,7 +1299,6 @@ async function sendModifiedImages(gameId) {
         }
 
         const result = await response.json();
-        console.log("Upload success:", result);
 
         // If the update succeeds, update the images in containerDiv
         if (coverImg && coverImg.classList.contains("modified")) {

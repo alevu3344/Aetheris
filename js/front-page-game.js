@@ -54,12 +54,10 @@ async function createRelevantGame(game) {
         //listener per il bottone acquista
         popup.querySelector("button[type='submit']").addEventListener("click", async (event) => {
             event.preventDefault();
-            console.log("Buy now");
             let form = popup.querySelector("#purchaseForm");
             let formData = new FormData(form);
             let platform = formData.get("platform");
             let quantity = formData.get("quantity");
-            console.log(game.Id, platform, quantity);
             // Show the custom confirmation popup
             const confirmed = await showConfirmationPopup("Are you sure you want to buy this game?");
             if (confirmed) {
@@ -77,7 +75,6 @@ async function createRelevantGame(game) {
         //listener per il bottone acquista
         popup.querySelector("button[type='submit']").addEventListener("click", function (event) {
             event.preventDefault();
-            console.log("Aggiungi al carrello");
             let form = popup.querySelector("#purchaseForm");
             let formData = new FormData(form);
             let platform = formData.get("platform");
