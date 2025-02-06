@@ -4126,7 +4126,7 @@ body>#notification>button {
   padding: 0;
 }
 
-.order_page>main>ul {
+.order_page > main > ul {
   display: flex;
   flex-direction: column;
   list-style: none;
@@ -4140,14 +4140,14 @@ body>#notification>button {
 
 
 
-.order_page>main>ul>li {
+.order_page > main > ul > li {
   width: 100%;
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
 }
 
-.order_page>main>ul>li>article {
+.order_page > main > ul > li > article {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -4158,14 +4158,14 @@ body>#notification>button {
   box-sizing: border-box;
 }
 
-.order_page>main>ul>li>article>header {
+.order_page > main > ul > li > article > header {
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content:space-between;
   align-items: center;
 }
 
-.order_page>main>ul>li>article>header>.status {
+.order_page > main > ul > li > article > header > .status{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -4177,27 +4177,25 @@ body>#notification>button {
   box-sizing: border-box;
 }
 
-.order_page>main>ul>li>article>header>#Delivered {
-  background-color: #007bff;
+.order_page > main > ul > li > article > header > #Delivered {
+  background-color:#007bff;
 }
 
-.order_page>main>ul>li>article>header>#Pending {
+.order_page > main > ul > li > article > header > #Pending {
   background-color: #ffcc00;
 }
 
-.order_page>main>ul>li>article>header>#Prepared {
+.order_page > main > ul > li > article > header > #Prepared {
   background-color: #ff9900;
 }
 
-
-
-.order_page>main>ul>li>article>header>#Shipped {
+.order_page > main > ul > li > article > header > #Shipped {
   background-color: #00c83f;
 }
 
 
 
-.order_page>main>ul>li>article>section {
+.order_page > main > ul > li > article > section {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -4208,7 +4206,7 @@ body>#notification>button {
   box-sizing: border-box;
 }
 
-.order_page>main>ul>li>article>section>ul {
+.order_page > main > ul > li > article > section > ul {
   display: flex;
   flex-direction: column;
   list-style: none;
@@ -4217,7 +4215,7 @@ body>#notification>button {
   width: 100%;
 }
 
-.order_page>main>ul>li>article>section>ul>li {
+.order_page > main > ul > li > article > section > ul > li {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -4229,25 +4227,25 @@ body>#notification>button {
   margin-bottom: 10px;
 }
 
-.order_page>main>ul>li>article>section>ul>li>a {
+.order_page > main > ul > li > article > section > ul > li >a {
   width: 100%;
   display: flex
 }
 
-.order_page>main>ul>li>article>section>ul>li>a>img {
+.order_page > main > ul > li > article > section > ul > li >a > img {
   width: 50%;
   height: auto;
   border-radius: 10px;
 }
 
-.order_page>main>ul>li>article>section>ul>li>a>div {
+.order_page > main > ul > li > article > section > ul > li >a > div {
   width: 50%;
   justify-content: space-between;
   display: flex;
   flex-direction: column;
 }
 
-.order_page>main>ul>li>article>section>ul>li>a>div>div {
+.order_page > main > ul > li > article > section > ul > li >a > div > div {
   display: flex;
   flex-direction: column;
   justify-content: left;
@@ -4257,14 +4255,14 @@ body>#notification>button {
   box-sizing: border-box;
 }
 
-.order_page>main>ul>li>article>section>ul>li>a>div>div>img {
+.order_page > main > ul > li > article > section > ul > li >a > div > div > img {
   width: 20px;
   height: 20px;
   filter: invert(1);
 }
 
 
-.order_page>main>ul>li>article>section>ul>li>a>div>p {
+.order_page > main > ul > li > article > section > ul > li >a > div > p {
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -4272,7 +4270,7 @@ body>#notification>button {
   column-gap: 5px;
 }
 
-.order_page>main>ul>li>article>section>ul>li>a>div>p>span:nth-child(1) {
+.order_page > main > ul > li > article > section > ul > li >a > div > p > span:nth-child(1) {
   margin: 0;
   padding: 0;
   font-size: 12px;
@@ -4283,7 +4281,7 @@ body>#notification>button {
   border-radius: 5px;
 }
 
-.order_page>main>ul>li>article>section>ul>li>a>div>p>span:nth-child(2) {
+.order_page > main > ul > li > article > section > ul > li >a > div > p > span:nth-child(2) {
   margin: 0;
   padding: 0;
   font-size: 12px;
@@ -4296,7 +4294,18 @@ body>#notification>button {
   border-radius: 5px;
 }
 
-.order_page>main>ul>li>article>section>ul>li>a>div>p>span:nth-child(3) {
+.order_page > main > ul > li > article > section > ul > li >a > div > p > span:nth-child(3) {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  padding: 3px;
+  box-sizing: border-box;
+  background-color:#007bff;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+.order_page > main > ul > li > article > section > ul > li >a > div > p > span:only-child {
   margin: 0;
   padding: 0;
   font-size: 12px;
@@ -4307,95 +4316,17 @@ body>#notification>button {
   border-radius: 5px;
 }
 
-.order_page>main>ul>li>article>section>ul>li>a>div>p>span:only-child {
-  margin: 0;
-  padding: 0;
-  font-size: 12px;
-  padding: 3px;
-  box-sizing: border-box;
+.order_page > main > ul > li > article > header > button {
   background-color: #007bff;
-  border: 1px solid white;
-  border-radius: 5px;
-}
-
-
-/* Dropdown Button */
-.dropbtn {
-  background-color: #007bff;
+  padding: 10px 10px;
+  text-align: center;
   color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: 1px solid white;
-  cursor: pointer;
+  border: none;
   border-radius: 10px;
-}
-
-/* Dropdown button on hover & focus */
-.dropbtn:hover,
-.dropbtn:focus {
-  background-color: #2dceff;
-}
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #000000;
-  width: 100%;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-/* Links inside the dropdown */
-.dropdown-content button {
-  color: white;
-  background-color: #000000;
-  padding: 12px 16px;
-  box-sizing: border-box;
-  border: 1px solid white;
+  font-weight: 600;
   display: block;
-  width: 100%;
+  box-sizing: border-box;
 }
-
-.dropdown-content>#Pending {
-  background-color: #ffcc00;
-}
-
-.dropdown-content>#Pending:hover {
-  background-color: #ffb300;
-}
-
-.dropdown-content>#Shipped {
-  background-color: #00c83f;
-}
-
-.dropdown-content>#Shipped:hover {
-  background-color: #00b33c;
-}
-
-.dropdown-content>#Completed {
-  background-color: #007bff;
-}
-
-.dropdown-content>#Completed:hover {
-  background-color: #0056b3;
-}
-
-
-.dropdown-content>#Canceled {
-  background-color: #d50000;
-}
-
-.dropdown-content>#Canceled:hover {
-  background-color: #ff0000;
-}
-
 
 /* Change color of dropdown links on hover */
 .dropdown-content button:hover {

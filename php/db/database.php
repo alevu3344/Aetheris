@@ -304,6 +304,7 @@ class DatabaseHelper
             O.OrderDate,
             O.TotalCost,
             O.Status,
+            O.UserId,
             OI.GameId,
             G.Name AS GameName,
             G.Price,
@@ -336,6 +337,7 @@ class DatabaseHelper
                     'OrderDate' => $row['OrderDate'],
                     'TotalCost' => $row['TotalCost'],
                     'Status' => $row['Status'],
+                    'UserId' => $row['UserId'],
                     'OrderItems' => []
                 ];
             }
@@ -481,6 +483,18 @@ class DatabaseHelper
         return array_values($orders); // Convert associative array to indexed array
     }
 
+    public function advanceOrder($orderId)
+    {
+
+        $statusProgression = ["Pending", "Prepared", "Shipped", "Delivered"];
+        $order = $this->getOrderById($orderId)[0];
+        $status = $order["Status"];
+        $nextStatus = $statusProgression[array_search($status, $statusProgression) + 1];
+        $this->modifyOrderStatus($orderId, $nextStatus);
+        return $nextStatus;
+    }
+
+
     public function modifyOrderStatus($OrderId, $Status)
     {
         //TODO:NOTIFICATION
@@ -489,7 +503,7 @@ class DatabaseHelper
         $stmt->bind_param("si", $Status, $OrderId);
         $stmt->execute();
 
-        $this->notifyUser("order_status_changed", "The status of your order #" . $OrderId . " has been changed to " . $Status, $this->getOrderById($OrderId)["UserId"]);
+        $this->notifyUser("order_status_changed", "The status of your order #" . $OrderId . " has been changed to " . $Status, $this->getOrderById($OrderId)[0]["UserId"]);
     }
 
     public function getPlatformQuantity($gameId, $platform)

@@ -9,6 +9,8 @@ $templateParams["scripts"] = ["../js/orders.js"];
 
 $orderId = $_GET["orderId"] ?? null;
 
+$templateParams["scripts"] = ["../js/orders.js"];
+
 if (isset($orderId)) {
     $templateParams["orders"] = $dbh->getOrderById($orderId);
     require("template/base.php");

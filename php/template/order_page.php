@@ -1,38 +1,26 @@
-<?php if (empty($templateParams["orders"])): ?>
-    <div id="empty-cart">
-        <div>
-            <img src="upload/icons/empty.png" alt="No orders" />
-            <p>No orders yet!</p>
-        </div>
-    </div>
-<?php endif; ?>
-
 <ul>
     <?php foreach ($templateParams["orders"] as $order): ?>
-        <li>
+        <li id="<?= "li".$order["OrderId"] ?>">
             <article>
                 <header>
                     <h2 id="<?= $order["OrderId"] ?>">Order #<?= $order["OrderId"] ?></h2>
-                    <p>
-                        <?= (new DateTime($order["OrderDate"]))->format('j/n/y H:i'); ?>
-                    </p>
-                    <p class="status" data-order-id= "<?= $order["OrderId"]?>"id="<?= $order["Status"] ?>"><?= $order["Status"] ?></p>
+                    <p><?= $order["OrderDate"] ?></p>
+                    <p class="status" id="<?= $order["Status"] ?>"><?= $order["Status"] ?></p>
+                    <?php if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]) : ?>
+                    <button id="advance">Advance order</button>
+                    <?php endif; ?>
                 </header>
                 <section>
                     <h3>Games</h3>
                     <ul>
                         <?php foreach ($order["OrderItems"] as $item): ?>
                             <li>
-                                <?php if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]): ?>
-                                    <a href="admin-panel.php?game_id=<?= $item["GameId"]?>">
-                                <?php else: ?>
                                 <a href="game.php?id=<?= $item["GameId"] ?>">
-                                <?php endif; ?>
-                                    <img src="../media/covers/<?= $item["GameId"] ?>.jpg" alt="game" onerror="this.onerror=null; this.src='../media/noimage.jpg';" />
+                                    <img src="../media/covers/<?= $item["GameId"] ?>.jpg" alt="game">
                                     <div>
                                         <div>
                                             <h4><?= $item["Name"] ?></h4>
-                                            <img src="upload/icons/<?= $item["Platform"] ?>.svg" alt="<?= $item["Platform"] ?>"/>
+                                            <img src="upload/icons/<?= $item["Platform"] ?>.svg" alt="<?= $item["Platform"] ?>">
                                             <span>Quantity: <?= $item["Quantity"] ?>x</span>
                                         </div>
                                         <p>
@@ -57,3 +45,6 @@
         </li>
     <?php endforeach; ?>
 </ul>
+
+
+
