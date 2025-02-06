@@ -142,6 +142,7 @@ body>header>nav>div:first-child>a {
   text-decoration: none;
   height: 90%;
   display: flex;
+  margin-right: 10px;
 }
 
 body>header>nav>div:first-child>a>img {
@@ -4683,18 +4684,39 @@ body>#notification>button {
 .user-notifications>main>ul>li {
   margin: 0px;
   list-style: none;
-  padding: 0px;
+  padding: 5px;
   margin-bottom: 5px;
   height: fit-content;
   width: 100%;
+  box-sizing: border-box;
+  border: 2px solid white;
+  background-color: #007bff;
+  
 }
+
+
+
+.user-notifications>main>ul>.new_game {
+  background-color: #00c83f;
+}
+
+
+.user-notifications>main>ul>.game_deleted {
+  background-color: darkred;
+}
+
+
+.user-notifications>main>ul>.discount_added {
+  background-color: gray;
+}
+
 
 .user-notifications>main>ul>li>div {
   height: fit-content;
   width: 100%;
-  border: 2px solid white;
+ 
   box-sizing: border-box;
-  background-color: #007bff;
+  
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -4711,12 +4733,87 @@ body>#notification>button {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+
+.user-notifications>main>ul>li>div>.order_status_changed {
+  justify-content: left;
+
 }
 
 .user-notifications>main>ul>li>div>div>p {
   margin: 0px;
   color: white;
+  align-items: center;
+  text-align: center;
+  display: flex;
 }
+
+.user-notifications>main>ul>li>div>div>div > a {
+  text-decoration: none;
+  color: white;
+  margin: 0;
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid white;
+  background-color: rgb(12, 68, 253);
+  font-size: 16px;
+}
+
+.user-notifications>main>ul>li>div>div>div {
+  display: flex;
+  column-gap: 10px;
+}
+
+.user-notifications>main>ul>li>div>div>div > button {
+  background-color: #dc3545;
+  color: white;
+  padding: 5px;
+  border: 1px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.user-notifications>main>ul>li>div > .order_status_changed > span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 1px solid white;
+  font-family: "Roboto";
+  font-weight: bold;
+  padding: 2px 3px 2px 3px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  margin-left: 4px;
+}
+
+.user-notifications>main>ul> #Read {
+  background-color: black;
+}
+
+
+
+.user-notifications>main>ul>li>div > .order_status_changed > #Delivered {
+  background-color: #007bff;
+} 
+
+.user-notifications>main>ul>li>div > .order_status_changed > #Pending {
+  background-color: #ffcc00;
+} 
+
+.user-notifications>main>ul>li>div > .order_status_changed > #Prepared {
+  background-color: #ff9900;
+} 
+
+.user-notifications>main>ul>li>div > .order_status_changed > #Shipped {
+  background-color: #00c83f;
+} 
 
 
 /****************************** DISCOUNT POPUP***************************/

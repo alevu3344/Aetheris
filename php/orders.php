@@ -7,17 +7,25 @@ $templateParams["nome"] = "order_page.php";
 
 $templateParams["scripts"] = ["../js/orders.js"];
 
-if (!empty($_SESSION["Username"])) {
+$orderId = $_GET["orderId"] ?? null;
 
-    if ($_SESSION["isAdmin"]) {
-        // Define available statuses
-
-        $templateParams["orders"] = $dbh->getAvailableOrders();
-    } else {
-        $templateParams["orders"] = $dbh->getOrdersForUser($_SESSION["UserID"]);
-    }
+if (isset($orderId)) {
+    $templateParams["orders"] = $dbh->getOrderById($orderId);
     require("template/base.php");
 } else {
-    header("Location: login.php");
-    exit;
+
+    if (!empty($_SESSION["Username"])) {
+
+        if ($_SESSION["isAdmin"]) {
+            // Define available statuses
+
+            $templateParams["orders"] = $dbh->getAvailableOrders();
+        } else {
+            $templateParams["orders"] = $dbh->getOrdersForUser($_SESSION["UserID"]);
+        }
+        require("template/base.php");
+    } else {
+        header("Location: login.php");
+        exit;
+    }
 }

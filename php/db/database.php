@@ -91,7 +91,7 @@ class DatabaseHelper
         $stmt->bind_param("iiss", $gameId, $discount, $startDate, $endDate);
         $stmt->execute();
 
-        $this->notifyAllUsers("discount_added", "A new discount has been added to" . $this->getGameById($gameId)[0]["Name"] . ". Check it out!");
+        $this->notifyAllUsers("discount_added", "A new discount has been added to " . $this->getGameById($gameId)[0]["Name"] . ". Check it out!");
     }
 
     public function removeDiscountFromGame($gameId)
@@ -136,6 +136,14 @@ class DatabaseHelper
         $query = "INSERT INTO NOTIFICATIONS (Type, Message, UserId) VALUES (?, ?, ?)";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("ssi", $type, $message, $userId);
+        $stmt->execute();
+    }
+
+    public function markNotificationAsRead($notificationId)
+    {
+        $query = "UPDATE NOTIFICATIONS SET Status = 'Read' WHERE Id = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $notificationId);
         $stmt->execute();
     }
 
@@ -192,7 +200,7 @@ class DatabaseHelper
         }
 
         //delete the game from all shopping carts, and notify the users that had it in the shopping cart
-        $message = "The game " . $game["Name"] . " has been deleted";
+        $message = "The game " . $game["Name"] . " has been deleted, we have removed it from your shopping cart";
         $this->notifyUsersWithGameInCart("game_deleted", $message, $gameId, null, null);
         $query = "DELETE FROM SHOPPING_CARTS WHERE GameId = ?";
         $stmt = $this->db->prepare($query);
@@ -290,12 +298,62 @@ class DatabaseHelper
 
     public function getOrderById($id)
     {
-        $query = "SELECT * FROM ORDERS WHERE Id = ?";
+        $query = "
+        SELECT 
+            O.Id AS OrderId,
+            O.OrderDate,
+            O.TotalCost,
+            O.Status,
+            OI.GameId,
+            G.Name AS GameName,
+            G.Price,
+            OI.Quantity,
+            OI.FinalPrice,
+            OI.Platform
+        FROM 
+            ORDERS O
+        JOIN 
+            ORDER_ITEMS OI ON O.Id = OI.OrderId
+        JOIN 
+            GAMES G ON OI.GameId = G.Id
+        WHERE 
+            O.Id = ?
+        ";
+
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $id);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $result->fetch_assoc();
+        $rows = $result->fetch_all(MYSQLI_ASSOC);
+
+        $orders = [];
+
+        foreach ($rows as $row) {
+            $orderId = $row['OrderId'];
+            if (!isset($orders[$orderId])) {
+                $orders[$orderId] = [
+                    'OrderId' => $orderId,
+                    'OrderDate' => $row['OrderDate'],
+                    'TotalCost' => $row['TotalCost'],
+                    'Status' => $row['Status'],
+                    'OrderItems' => []
+                ];
+            }
+
+            $orders[$orderId]['OrderItems'][] = [
+                'GameId' => $row['GameId'],
+                'Name' => $row['GameName'], // Add GameName here
+                'Quantity' => $row['Quantity'],
+                'FinalPrice' => $row['FinalPrice'],
+                'InitialPrice' => $row['Price'],
+                'Platform' => $row['Platform'],
+                'Discount' => [
+                    'Percentage' => ($row["Price"] - $row["FinalPrice"]) / $row["Price"] * 100,
+                ]
+            ];
+        }
+
+        return array_values($orders); // Convert associative array to indexed array
     }
 
 
