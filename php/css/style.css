@@ -4610,10 +4610,13 @@ body>#notification>button {
 }
 
 /*the red cancel button*/
-.game_form>main>section>form>fieldset>button {
+.game_form>main>section>form>fieldset>a {
   background-color: #d50000;
+  margin:0;
+  padding: 0;
   color: white;
   padding: 10px 20px;
+  text-decoration: none;
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -4625,6 +4628,8 @@ body>#notification>button {
 
 .game_form>main>section>form>fieldset>button[type="submit"] {
   background-color: #007bff;
+  margin:0;
+  padding: 0;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -4632,6 +4637,8 @@ body>#notification>button {
   cursor: pointer;
   transition: background-color 0.3s;
   margin-top: 1rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .game_form>main>section>form>fieldset>img {
