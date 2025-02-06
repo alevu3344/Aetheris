@@ -32,6 +32,8 @@
                             </div>
                             <dd id="Name"><?= $gioco["Name"] ?></dd>
                         </div>
+                        <hr>
+                        </hr>
                         <div class="possible-form" id="categories">
                             <div>
                                 <button class="edit-categories">Edit</button>
@@ -44,6 +46,8 @@
 
                             </dd>
                         </div>
+                        <hr>
+                        </hr>
                         <div class="possible-form" id="platforms">
                             <div>
                                 <button class="edit-platforms">Edit</button>
@@ -55,7 +59,8 @@
                                 <?php endforeach; ?>
                             </dd>
                         </div>
-
+                        <hr>
+                        </hr>
                         <?php foreach ($gioco["Platforms"] as $platform): ?>
                             <div class="possible-form" id="<?= $platform ?>">
                                 <div>
@@ -65,6 +70,8 @@
                                 <dd id="<?= $platform["Platform"] ?>" class=<?= $platform["Stock"] > 0 ? "available" : "expired" ?>><?= $platform["Stock"] ?></dd>
                             </div>
                         <?php endforeach; ?>
+                        <hr>
+                        </hr>
                         <div class="possible-form">
                             <div>
                                 <button class="edit">Edit</button>
@@ -72,7 +79,8 @@
                             </div>
                             <dd id="Publisher"><?= $gioco["Publisher"] ?></dd>
                         </div>
-
+                        <hr>
+                        </hr>
                         <div class="possible-form">
                             <div>
                                 <button class="edit">Edit</button>
@@ -80,7 +88,8 @@
                             </div>
                             <dd id="Trailer"><?= $gioco["Trailer"] ?></dd>
                         </div>
-
+                        <hr>
+                        </hr>
                         <div class="possible-form">
                             <div>
                                 <button class="edit">Edit</button>
@@ -93,6 +102,8 @@
                         </div>
 
                         <?php if (!empty($gioco["Discount"])): ?>
+                            <hr>
+                            </hr>
                             <button class="remove-discount">Rimuovi sconto</button>
 
                             <div class="possible-form">
@@ -106,6 +117,8 @@
                                     <span>%</span>
                                 </div>
                             </div>
+                            <hr>
+                            </hr>
                             <div class="possible-form">
                                 <div>
                                     <button class="edit">Edit</button>
@@ -113,6 +126,8 @@
                                 </div>
                                 <dd id="StartDate"><?= date("j/n/y", strtotime($gioco["StartDate"])) ?></dd>
                             </div>
+                            <hr>
+                            </hr>
                             <div class="possible-form">
                                 <div>
                                     <button class="edit">Edit</button>
@@ -121,6 +136,8 @@
                                 <dd id="EndDate"><?= date("j/n/y", strtotime($gioco["EndDate"])) ?></dd>
                             </div>
                         <?php else: ?>
+                            <hr>
+                            </hr>
 
                             <button class="add">Add a discount</button>
 
@@ -140,6 +157,8 @@
 
                         <p>Minimum requirements</p>
                         <dl>
+                            <hr>
+                            </hr>
                             <div class="possible-form">
                                 <div>
                                     <button class="edit">Edit</button>
@@ -147,6 +166,8 @@
                                 </div>
                                 <dd id="OS"><?= $gioco["Requirements"]["OS"] ?></dd>
                             </div>
+                            <hr>
+                            </hr>
                             <div class="possible-form">
                                 <div>
                                     <button class="edit">Edit</button>
@@ -157,6 +178,8 @@
                                     <span>GB</span>
                                 </div>
                             </div>
+                            <hr>
+                            </hr>
                             <div class="possible-form">
                                 <div>
                                     <button class="edit">Edit</button>
@@ -164,6 +187,8 @@
                                 </div>
                                 <dd id="GPU"><?= $gioco["Requirements"]["GPU"] ?></dd>
                             </div>
+                            <hr>
+                            </hr>
                             <div class="possible-form">
                                 <div>
                                     <button class="edit">Edit</button>
@@ -171,6 +196,8 @@
                                 </div>
                                 <dd id="CPU"><?= $gioco["Requirements"]["CPU"] ?></dd>
                             </div>
+                            <hr>
+                            </hr>
                             <div class="possible-form">
                                 <div>
                                     <button class="edit">Edit</button>

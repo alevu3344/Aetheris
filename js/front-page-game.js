@@ -16,7 +16,7 @@ function generateRelevantGame(game) {
         <footer>
           <div>
             <p>${realPrice}€</p>
-            <p>Buy now</p>
+            <p>Buy</p>
           </div>
           <div>
             <img src="upload/icons/add-to-cart.svg" alt="Add to cart icon"/>

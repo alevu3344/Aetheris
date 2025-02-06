@@ -9,7 +9,6 @@ trashButtons.forEach((trashButton) => {
     // Trash button: remove entire item from cart
     trashButton.addEventListener("click", async (event) => {
         event.preventDefault();
-        console.log(`Game with ID ${gameId} and platform ${platform} has been removed.`);
         await removeFromCart(gameId, platform, -1);
         closestLi.remove();
     });
@@ -17,7 +16,7 @@ trashButtons.forEach((trashButton) => {
     // Decrease button: decrease quantity
     closestLi.querySelector("div > section > footer > div > button:nth-child(1)").addEventListener("click", async (event) => {
         event.preventDefault();
-        console.log(`Game with ID ${gameId} and platform ${platform} decreased.`);
+   
         await removeFromCart(gameId, platform, 1);
         
         // Update the quantity in the DOM only after the async call returns

@@ -656,7 +656,7 @@ document.addEventListener("click", function (event) {
             const currentValue = dd.textContent.trim();
 
             //SVILUPPATORE
-            if (dt && dt.innerText.trim() === "Sviluppatore:") {
+            if (dt && dt.innerText.trim() === "Publisher:") {
                 const select = document.createElement("select");
                 select.classList.add("edit-select");
 
