@@ -28,7 +28,7 @@
                     <?php endif; ?>
 
                     <div>
-                        <p><time><?= (new DateTime($notification["SentAt"]))->format('j/n/y H:i'); ?></time></p><?php if ($notification["Type"] == "order_status_changed"): ?><div><a href="orders.php?orderId=<?=$orderId ?>">View Order</a><?php endif; ?><?php if ($notification["Status"] != "Read"): ?><button id="<?= $notification["Id"] ?>">Mark as read</button><?php endif; ?></div>
+                        <p><time><?= (new DateTime($notification["SentAt"]))->format('j/n/y H:i'); ?></time></p><div><?php if ($notification["Type"] == "order_status_changed"): ?><a href="orders.php?orderId=<?=$orderId ?>">View Order</a><?php endif; ?><?php if ($notification["Status"] != "Read"): ?><button id="<?= $notification["Id"] ?>">Mark as read</button><?php endif; ?></div>
                     </div>
                 </div>
             </li>
