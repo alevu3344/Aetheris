@@ -19,6 +19,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
+            console.log(`Order ${orderId}: ${data.status}`);
+
             const statusElement = document.querySelector(`p.status[data-order-id="${orderId}"]`);
 
             
