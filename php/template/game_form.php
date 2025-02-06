@@ -110,7 +110,7 @@
 
             <!-- Submit Button -->
             <button id="submit" type="submit">Add Game</button>
-            <button type="button">Cancel</button>
+            <a href="admin-panel.php">Cancel</a>
         </fieldset>
     </form>
 </section>
