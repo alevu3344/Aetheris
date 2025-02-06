@@ -977,6 +977,13 @@ function createDiscountPopup(gameId, gameName) {
         let discount = bigDiv.querySelector("#discount").value;
         let startDate = bigDiv.querySelector("#start-date").value;
         let endDate = bigDiv.querySelector("#end-date").value;
+        const input = document.querySelector("#discount-form #discount");
+        if (!input.checkValidity()) {
+            input.setCustomValidity("The discount must be a number between 1 and 100.");
+            input.reportValidity();
+            input.setCustomValidity("");
+            return;
+        }
 
         addDiscount(gameId, discount, startDate, endDate)
             .then(() => {
@@ -1230,9 +1237,9 @@ document.addEventListener("click", function (event) {
             }
 
             try {
-                
+
                 const result = await sendModifiedImages(gameId);
-                if(result){
+                if (result) {
                     location.reload();
                 }
             } catch (error) {
@@ -1277,7 +1284,7 @@ async function sendModifiedImages(gameId) {
     // Process Screenshots
     const screenshots = document.querySelectorAll(".screenshots > .image-wrapper > img");
     const modifiedScreenshots = [];
-    
+
     screenshots.forEach((img, index) => {
         if (img.classList.contains("modified")) {
             const blob = dataURLToBlob(img.src);
