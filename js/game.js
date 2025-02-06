@@ -41,7 +41,7 @@ function addRatingToGame() {
 /*Listener per acquista ora*/
 document.querySelector("#buy").addEventListener("click", async (event) => {
     event.preventDefault();
-    let popup = createPopUpWindow(game, platforms, option = "acquista");
+    let popup = createPopUpWindow(game, platforms, option = "buy");
 
     //listener per il bottone acquista
     popup.querySelector("button[type='submit']").addEventListener("click", async (event) => {
@@ -65,7 +65,7 @@ document.querySelector("#buy").addEventListener("click", async (event) => {
 /*Listener per aggiungi al carrello*/
 document.querySelector("#cart").addEventListener("click", function (event) {
     event.preventDefault();
-    let popup = createPopUpWindow(game, platforms, option = "carrello");
+    let popup = createPopUpWindow(game, platforms, option = "cart");
 
     //listener per il bottone acquista
     popup.querySelector("button[type='submit']").addEventListener("click", function (event) {

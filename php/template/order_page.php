@@ -24,7 +24,11 @@
                     <ul>
                         <?php foreach ($order["OrderItems"] as $item): ?>
                             <li>
+                                <?php if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]): ?>
+                                    <a href="admin-panel.php?game_id=<?= $item["GameId"]?>">
+                                <?php else: ?>
                                 <a href="game.php?id=<?= $item["GameId"] ?>">
+                                <?php endif; ?>
                                     <img src="../media/covers/<?= $item["GameId"] ?>.jpg" alt="game" onerror="this.onerror=null; this.src='../media/noimage.jpg';" />
                                     <div>
                                         <div>
