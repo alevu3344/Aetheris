@@ -25,8 +25,8 @@ document.querySelector("main > div:last-of-type button").addEventListener("click
 
 function addRatingToGame() {
     //ratring is in the span under the .stars
-    const rating = document.querySelector("div:nth-of-type(1) > span").innerText;
-    const stars = document.querySelectorAll("div:nth-of-type(1) > .stars .star");
+    const rating = document.querySelector("main > div:nth-of-type(1) > span").innerText;
+    const stars = document.querySelectorAll("main > div:nth-of-type(1) > .stars .star");
 
     stars.forEach((star, index) => {
         // Calculate how much of the star should be filled
