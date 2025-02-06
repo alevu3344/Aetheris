@@ -3,7 +3,7 @@
         <li class="game" id="<?= $gioco["Id"] ?>">
             <section>
                 <div class="images">
-                    <button class="modify-images">Modifica Immagini</button>
+                    <button class="modify-images">Modify images</button>
                     <img id="cover" src="../media/covers/<?= $gioco["Id"] ?>.jpg" onerror="this.onerror=null; this.src='../media/noimage.jpg';" />
                     <div class="screenshots">
                         <img src="../media/screenshots/<?= $gioco["Id"] ?>_frame_1.jpg"
@@ -28,14 +28,14 @@
                         <div class="possible-form">
                             <div>
                                 <button class="edit">Edit</button>
-                                <dt>Titolo: </dt>
+                                <dt>Title: </dt>
                             </div>
                             <dd id="Name"><?= $gioco["Name"] ?></dd>
                         </div>
                         <div class="possible-form" id="categories">
                             <div>
                                 <button class="edit-categories">Edit</button>
-                                <dt>Generi: </dt>
+                                <dt>Genres: </dt>
                             </div>
                             <dd>
                                 <?php foreach ($gioco["Categories"] as $categoria): ?>
@@ -47,7 +47,7 @@
                         <div class="possible-form" id="platforms">
                             <div>
                                 <button class="edit-platforms">Edit</button>
-                                <dt>Piattaforme: </dt>
+                                <dt>Platforms: </dt>
                             </div>
                             <dd>
                                 <?php foreach ($gioco["Platforms"] as $platform): ?>
@@ -68,7 +68,7 @@
                         <div class="possible-form">
                             <div>
                                 <button class="edit">Edit</button>
-                                <dt>Sviluppatore: </dt>
+                                <dt>Publisher: </dt>
                             </div>
                             <dd id="Publisher"><?= $gioco["Publisher"] ?></dd>
                         </div>
@@ -84,7 +84,7 @@
                         <div class="possible-form">
                             <div>
                                 <button class="edit">Edit</button>
-                                <dt>Prezzo: </dt>
+                                <dt>Price: </dt>
                             </div>
                             <div>
                                 <dd id="Price"><?= $gioco["Price"] ?></dd>
@@ -98,7 +98,7 @@
                             <div class="possible-form">
                                 <div>
                                     <button class="edit">Edit</button>
-                                    <dt>Sconto: </dt>
+                                    <dt>Discount: </dt>
                                 </div>
                                 <div>
                                     <span>-</span>
@@ -109,20 +109,20 @@
                             <div class="possible-form">
                                 <div>
                                     <button class="edit">Edit</button>
-                                    <dt>Inizio: </dt>
+                                    <dt>Start: </dt>
                                 </div>
                                 <dd id="StartDate"><?= date("j/n/y", strtotime($gioco["StartDate"])) ?></dd>
                             </div>
                             <div class="possible-form">
                                 <div>
                                     <button class="edit">Edit</button>
-                                    <dt>Fine: </dt>
+                                    <dt>End: </dt>
                                 </div>
                                 <dd id="EndDate"><?= date("j/n/y", strtotime($gioco["EndDate"])) ?></dd>
                             </div>
                         <?php else: ?>
 
-                            <button class="add">Aggiungi sconto</button>
+                            <button class="add">Add a discount</button>
 
                         <?php endif; ?>
                     </dl>
@@ -138,7 +138,7 @@
                     ?>
                     <?php if ($hasPCPlatform): ?>
 
-                        <p>Requisiti minimi</p>
+                        <p>Minimum requirements</p>
                         <dl>
                             <div class="possible-form">
                                 <div>
@@ -186,7 +186,7 @@
                 </div>
                 <div class="actions">
 
-                    <button class="delete" data-id="<?= $gioco["Id"] ?>">Elimina</button>
+                    <button class="delete" data-id="<?= $gioco["Id"] ?>">Delete</button>
 
                 </div>
             </section>

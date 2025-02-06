@@ -16,11 +16,11 @@ function generateRelevantGame(game) {
         <footer>
           <div>
             <p>${realPrice}€</p>
-            <p>Acquista</p>
+            <p>Buy now</p>
           </div>
           <div>
             <img src="upload/icons/add-to-cart.svg" alt="Add to cart icon"/>
-            <p>Aggiungi al carrello</p>
+            <p>Add to cart</p>
           </div>
         </footer>
       </article>
@@ -49,19 +49,19 @@ async function createRelevantGame(game) {
     gameToShow.innerHTML = relevantGame;
     gameToShow.querySelector("a > article > footer > div:first-child > p:nth-child(2)").addEventListener("click", function (e) {
         e.preventDefault();
-        let popup = createPopUpWindow(game, game.Platforms, option = "acquista");
+        let popup = createPopUpWindow(game, game.Platforms, option = "buy");
 
         //listener per il bottone acquista
         popup.querySelector("button[type='submit']").addEventListener("click", async (event) => {
             event.preventDefault();
-            console.log("Acquista");
+            console.log("Buy now");
             let form = popup.querySelector("#purchaseForm");
             let formData = new FormData(form);
             let platform = formData.get("platform");
             let quantity = formData.get("quantity");
             console.log(game.Id, platform, quantity);
             // Show the custom confirmation popup
-            const confirmed = await showConfirmationPopup("Sei sicuro di voler acquistare questo gioco?");
+            const confirmed = await showConfirmationPopup("Are you sure you want to buy this game?");
             if (confirmed) {
                 buyGame(game.Id, platform, quantity);
             }
@@ -72,7 +72,7 @@ async function createRelevantGame(game) {
 
     gameToShow.querySelector("a > article > footer > div:nth-child(2)").addEventListener("click", function (e) {
         e.preventDefault();
-        let popup = createPopUpWindow(game, game.Platforms, option = "carrello");
+        let popup = createPopUpWindow(game, game.Platforms, option = "cart");
 
         //listener per il bottone acquista
         popup.querySelector("button[type='submit']").addEventListener("click", function (event) {

@@ -1,4 +1,4 @@
-<h2>Le tue notifiche</h2>
+<h2>Your notifications</h2>
 
 <?php if (!empty($templateParams["notifications"])): ?>
     <ul>
@@ -6,7 +6,7 @@
             <li>
                 <div>
                     <p><?= $notification["Message"] ?></p>
-                    <div><p><time><?= $notification["SentAt"] ?></time></p><p>Stato: <?= $notification["Status"] ?></p></div>      
+                    <div><p><time><?= $notification["SentAt"] ?></time></p><p>Status: <?= $notification["Status"] ?></p></div>      
                 </div>
             </li>
         <?php endforeach; ?>

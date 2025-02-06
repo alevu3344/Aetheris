@@ -1,5 +1,5 @@
 <section>
-  <h2>GIOCHI DEL MOMENTO</h2>
+  <h2>HOT RIGHT NOW</h2>
   <div>
     <button>
       <img src="upload/icons/left_arrow.svg" alt="Left arrow"/>
@@ -14,7 +14,7 @@
 </section>
 
 <section>
-  <h2>GIOCHI IN OFFERTA</h2>
+  <h2>ON SALE</h2>
   <div>
     <a href = "game.php?id=<?= $templateParams["giochi-in-offerta"][0]["Id"]?>">
       <article> <!-- Gioco grande (sinistra)-->
@@ -25,8 +25,8 @@
           </div>
         </header>
         <section>
-          <p>OFFERTA A TEMPO LIMITATO</p>
-          <p>Fino al <?= date("d/m", strtotime($templateParams["giochi-in-offerta"][0]["EndDate"])) ?>!</p>
+          <p>LIMITED TIME OFFER</p>
+          <p>Till <?= date("d/m", strtotime($templateParams["giochi-in-offerta"][0]["EndDate"])) ?>!</p>
         </section>
         <footer>
           <!-- Use 'discount', 'price', and 'discounted_price' keys dynamically -->
@@ -87,7 +87,7 @@
 <section>
   <nav>
       <ul>
-          <li><h2>PIÙ ACQUISTATI</h2></li><li><h2>PIÙ AMATI</h2></li>
+          <li><h2>MOST PURCHASED</h2></li><li><h2>MOST LOVED</h2></li>
       </ul>
   </nav>
 
@@ -146,8 +146,8 @@
 
 <section id = "home-offers">
   <header>
-    <h2>OFFERTE DI LANCIO</h2>
-    <p>FESTEGGIA IL LANCIO DI AETHERIS CON OFFERTE IMPERDIBILI</p>
+    <h2>LAUNCH OFFERS</h2>
+    <p>CELEBRATE THE LAUNCH OF AETHERIS WITH INCREDIBLE SALES!</p>
   </header>
   <div>
     <img src="upload/icons/left_arrow.svg" alt="Left arrow"/>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8" />
@@ -42,7 +42,7 @@
                     </button>
                 <?php else: ?>
 
-                    <a id="signin" href="login.php">Accedi</a>
+                    <a id="signin" href="login.php">Log In</a>
                 <?php endif; ?>
 
             </div>

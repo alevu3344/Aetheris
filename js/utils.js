@@ -98,12 +98,12 @@ function createPopUpWindow(game, platforms, option) {
           <span>${(game.Price * (1 - game.Discount / 100)).toFixed(2)}€</span>
         `
         : `<span>${game.Price}€</span>`;
-    let buttonText = option === "acquista" ? "Acquista" : "Aggiungi al carrello";
+    let buttonText = option === "buy" ? "Buy now" : "Add to cart";
 
     // Complete popup HTML
     let popupHtml = `
   <section>
-      <h2>Conferma</h2>
+      <h2>Confirm</h2>
       <figure>
           <img src="../media/covers/${game.Id}.jpg" alt="Game" onerror="this.onerror=null; this.src='../media/noimage.jpg';"/>
           <p>${priceDetails}</p>
@@ -128,7 +128,7 @@ function createPopUpWindow(game, platforms, option) {
               </div>
           </fieldset>
           <button type="submit" id="${option}">${buttonText}</button>
-          <button id="annulla"> Annulla</button>
+          <button id="cancel">Cancel</button>
       </form>
   </section>
   `;
@@ -154,9 +154,9 @@ function createPopUpWindow(game, platforms, option) {
         }
     });
 
-    //listener per il bottone annulla
+    //listener per il bottone cancel
 
-    popup.querySelector("#annulla").addEventListener("click", function (event) {
+    popup.querySelector("#cancel").addEventListener("click", function (event) {
         event.preventDefault();
         popup.remove();
     });

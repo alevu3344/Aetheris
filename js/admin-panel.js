@@ -12,7 +12,7 @@ try {
 
 document.querySelectorAll(".game").forEach((game) => {
     game.querySelector(".actions > .delete").addEventListener("click", async () => {
-        const confirmed = await showConfirmationPopup("Sei sicuro di voler eliminare questo gioco?");
+        const confirmed = await showConfirmationPopup("Are you sure you want to delete this game?");
         if (confirmed) {
             deleteGame(game);
         }
@@ -223,7 +223,7 @@ document.addEventListener("click", function (event) {
 
                         // Listener per il delete button del nuovo span
                         deleteButton.addEventListener("click", async (e) => {
-                            const confirmed = await showConfirmationPopup("Sei sicuro di voler eliminare questa categoria?");
+                            const confirmed = await showConfirmationPopup("Are you sure you want to delete this category?");
                             if (confirmed) {
                                 removeCategory(selectedCategory, gameId)
                                     .then(() => {
@@ -330,7 +330,7 @@ document.addEventListener("click", function (event) {
                 let categoryName = span.textContent;
 
                 deleteButton.addEventListener("click", async (e) => {
-                    const confirmed = await showConfirmationPopup("Sei sicuro di voler eliminare questa categoria?");
+                    const confirmed = await showConfirmationPopup("Are you sure you want to delete this category?");
                     if (confirmed) {
                         removeCategory(categoryName, gameId)
                             .then(() => {
@@ -458,7 +458,7 @@ document.addEventListener("click", function (event) {
                         newIcon.insertAdjacentElement("beforebegin", deleteButton);
 
                         deleteButton.addEventListener("click", async (e) => {
-                            const confirmed = await showConfirmationPopup("Sei sicuro di voler eliminare questa piattaforma?");
+                            const confirmed = await showConfirmationPopup("Are you sure you want to delete this platform?");
                             if (confirmed) {
                                 removePlatform(selectedPlatform, gameId)
                                     .then(() => {
@@ -553,7 +553,7 @@ document.addEventListener("click", function (event) {
                 let platformName = icon.src.split("/").pop().split(".")[0];
 
                 deleteButton.addEventListener("click", async (e) => {
-                    const confirmed = await showConfirmationPopup("Sei sicuro di voler eliminare questa piattaforma?");
+                    const confirmed = await showConfirmationPopup("Are you sure you want to delete this platform?");
                     if (confirmed) {
                         removePlatform(platformName, gameId)
                             .then(() => {
@@ -890,7 +890,7 @@ document.addEventListener("click", async function (event) {
     if (event.target.classList.contains("remove-discount")) {
         let button = event.target;
         const gameId = button.closest(".game").id;
-        const confirmed = await showConfirmationPopup("Sei sicuro di voler eliminare questo sconto?");
+        const confirmed = await showConfirmationPopup("Are you sure you want to remove this discount?");
         if (confirmed) {
             removeDiscount(gameId).then(
                 () => {
@@ -917,24 +917,24 @@ function createDiscountPopup(gameId, gameName) {
 
     let html = `
     <div class="popup-content">
-        <h2>Aggiungi sconto</h2>
+        <h2>Add a discount</h2>
         <h3>${gameName}</h3>
         <form id="discount-form">
             <div>
-                <label for="discount">Sconto (-%):</label>
+                <label for="discount">Discount (-%):</label>
                 <input type="number" id="discount" name="discount" min="1" max="100" required>
             </div>
             <div>
-                <label for="start-date">Inizio:</label>
+                <label for="start-date">Start:</label>
                 <input type="date" id="start-date" name="start-date" required>
             </div>
             <div>
-                <label for="end-date">Fine:</label>
+                <label for="end-date">End:</label>
                 <input type="date" id="end-date" name="end-date" required>
             </div>
         </form>
-        <button id="add-discount" disabled>Aggiungi</button>
-        <button id="cancel-discount">Annulla</button>
+        <button id="add-discount" disabled>Add</button>
+        <button id="cancel-discount">Cancel</button>
     </div>
     `;
 

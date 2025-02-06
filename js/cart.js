@@ -1,7 +1,7 @@
 const trashButtons = document.querySelectorAll('ul > li > div > section > header button');
 
 // Add event listener to each button
-trashButtons.forEach((trashButton, index) => {
+trashButtons.forEach((trashButton) => {
     const closestLi = trashButton.closest('li');
     const gameId = closestLi.querySelector('a').href.split('id=')[1];
     const platform = closestLi.querySelector("div > section > p > img").getAttribute("alt");
@@ -65,7 +65,7 @@ checkoutButton.addEventListener("click", async (event) => {
 
 
 
-//use the GET method, the server already has everything, its simpy a message to checkout
+//use the GET method, the server already has everything, its simply a message to checkout
 async function checkout() {
     const url = "api/cart-api.php?action=checkout";
     let response = await fetch(url, {

@@ -36,8 +36,8 @@
 </section>
 
 <div id="<?= $templateParams["gioco"]["Id"] ?>">
-    <button id="buy">Acquista ora</button>
-    <button id="cart">Aggiungi al carrello</button>
+    <button id="buy">Buy now</button>
+    <button id="cart">Add to cart</button>
 </div>
 
 
@@ -45,19 +45,19 @@
 <section>
     <dl>
         <div>
-            <dt>Sviluppatore</dt>
+            <dt>Publisher</dt>
             <dd><?= $templateParams["gioco"]["Publisher"] ?></dd>
         </div>
         <hr>
         </hr>
         <div>
-            <dt>Data di uscita</dt>
+            <dt>Release date</dt>
             <dd><?= date("j/n/y", strtotime($templateParams["gioco"]["ReleaseDate"])) ?></dd>
         </div>
         <hr>
         </hr>
         <div>
-            <dt>Piattaforma</dt>
+            <dt>Platforms</dt>
             <dd>
                 <?php foreach ($templateParams["platforms"] as $platform): ?>
                     <img src="upload/icons/<?= $platform["Platform"] ?>.svg" alt="game"/>
@@ -67,7 +67,7 @@
         <hr>
         </hr>
         <div class="platform-quantity">
-            <dt>Quantità per piattaforma</dt>
+            <dt>Stock per platform</dt>
             <dd>
                 <dl>
                     <?php foreach ($templateParams["platforms"] as $platform): ?>
@@ -84,7 +84,7 @@
         <hr>
         </hr>
         <div class="generi">
-            <dt>Generi</dt>
+            <dt>Genres</dt>
             <dd>
                 <?php foreach ($templateParams["game-categories"] as $category): ?>
                     <span><?= $category["CategoryName"] ?></span>
@@ -99,15 +99,15 @@
 
 <article>
     <section>
-        <h2>Descrizione</h2>
+        <h2>Description</h2>
         <p><?= $templateParams["gioco"]["Description"] ?></p>
     </section>
     <?php if (!empty($templateParams["requirements"])): ?>
         <section>
-            <h2>Requisiti minimi</h2>
+            <h2>Minimum requirements</h2>
             <dl>
                 <div>
-                    <dt>Sistema operativo: </dt>
+                    <dt>OS: </dt>
                     <dd><?= $templateParams["requirements"]["OS"] ?></dd>
                 </div>
                 <div>
@@ -115,7 +115,7 @@
                     <dd><?= $templateParams["requirements"]["CPU"] ?></dd>
                 </div>
                 <div>
-                    <dt>Memoria: </dt>
+                    <dt>Storage: </dt>
                     <dd><?= $templateParams["requirements"]["SSD"] ?> GB</dd>
                 </div>
                 <div>
@@ -132,7 +132,7 @@
 </article>
 
 <div>
-    <h2>Immagini</h2>
+    <h2>Images</h2>
     <div>
         <img src="../media/screenshots/<?= $templateParams["gioco"]["Id"] ?>_frame_1.jpg"
             alt="game"
@@ -152,7 +152,7 @@
     </div>
 </div>
 
-<h2>Giochi simili</h2>
+<h2>SIMILAR GAMES</h2>
 <div>
 
     <img src="upload/icons/left_arrow.svg" alt="Left arrow"/>
@@ -162,10 +162,10 @@
     <img src="upload/icons/left_arrow.svg" alt="Left arrow"/>
 </div>
 
-<h2>Recensioni</h2>
+<h2>REVIEWS</h2>
 
 <? if (isset($_SESSION["Username"])): ?>
-    <button id="addReview">Scrivi una recensione</button>
+    <button id="addReview">Add a review</button>
 <? endif; ?>
 
 <ul id="reviewsList">
@@ -173,7 +173,7 @@
 </ul>
 
 <div>
-    <button>Carica più recensioni</button>
+    <button>Load more reviews</button>
     <img src="upload/icons/double-arrow.png" alt="arrow"/>
 </div>
 
